@@ -40,65 +40,55 @@ Detailed 15 learning projects, from simple to complex, which guide you to build 
 
 ## 1.4 Product List
 
-| Electronic Parts |                                                 |      |                                          |
-| ---------------- | ----------------------------------------------- | ---- | ---------------------------------------- |
-| No.              | Name                                            | QTY  | Picture                                  |
-| 1                | KEYESTUDIO V4.0 Development Board               | 1    | ![](./media/image-20250902114545507.png) |
-| 2                | L298P Shield                                    | 1    | ![](./media/image-20250902114605545.png) |
-| 3                | V5 Sensor Shield                                | 1    | ![](./media/image-20250902114627135.png) |
-| 4                | HC-SR04 Ultrasonic Sensor                       | 1    | ![](./media/image-20250902114647732.png) |
-| 5                | HM-10 Bluetooth-4.0 Module                      | 1    | ![](./media/image-20250902114745509.png) |
-| 6                | Remote Control                                  | 1    | ![](./media/image-20250902114807807.png) |
-| 7                | 8X16 LED Panel                                  | 1    | ![](./media/image-20250902114911507.png) |
-| 8                | HX-2.54 4P Female Dupont Line                   | 1    | ![](./media/image-20250902114936428.png) |
-| 9                | 9G Servo Motor                                  | 1    | ![](./media/image-20250902114954626.png) |
-| 10               | IR Receiver Module                              | 1    | ![](./media/image-20250902115026022.png) |
-| 11               | Photocell Sensor                                | 2    | ![](./media/image-20250902115052441.png) |
-| 12               | Red LED                                         | 1    | ![](./media/image-20250902115114316.png) |
-| Components       |                                                 |      |                                          |
-| 1                | Acrylic Board                                   | 1    | ![](./media/image-20250902115203066.png) |
-| 2                | Tank Robot Acrylic Board                        | 1    | ![](./media/image-20250902115401857.png) |
-| 3                | Metal Holder                                    | 4    | ![](./media/image-20250902115422836.png) |
-| 4                | L-type Bracket                                  | 1    | ![](./media/image-20250902115437110.png) |
-| 5                | Tank Driver Wheel                               | 2    | ![](./media/image-20250902115500815.png) |
-| 6                | Tank Load-bearing Wheel                         | 2    | ![](./media/image-20250902115522316.png) |
-| 7                | Caterpillar Band                                | 2    | ![](./media/image-20250902115554766.png) |
-| 8                | Metal Motor                                     | 2    | ![](./media/image-20250902115616334.png) |
-| 9                | Plastic Platform (PC)                           | 1    | ![](./media/image-20250902115639399.png) |
-| 10               | USB Cable (1m)                                  | 1    | ![](./media/image-20250902115758892.png) |
-| 11               | 2.54 3pin F-F Dupont Wire 20cm                  | 5    | ![](./media/image-20250902115826495.png) |
-| 12               | F-F Dupont Wire (15CM)                          | 10   | ![](./media/image-20250902115845319.png) |
-| 13               | Supportive Parts (27\*27\*16MM, Blue)           | 2    | ![](./media/image-20250902115907121.png) |
-| 14               | 18650 2-Slot Battery Holder                     | 1    | ![](./media/image-20250902115937736.png) |
-| 15               | （**Not included**）18650 Battery               | 2    | ![](./media/image-20250902120831907.png) |
-| Nuts/Screws      |                                                 |      |                                          |
-| 1                | Copper Bush                                     | 2    | ![](./media/image-20250902120924077.png) |
-| 2                | Flange Bearing                                  | 4    | ![](./media/image-20250902120941312.png) |
-| 3                | Hexagon Copper Bush(M3\*10MM)                   | 10   | ![](./media/image-20250902121006278.png) |
-| 4                | Hexagon Copper Bush (M3\*45MM)                  | 4    | ![](./media/image-20250902121024042.png) |
-| 5                | Copper Coupler                                  | 2    | ![](./media/image-20250902121045183.png) |
-| 6                | M3\*10MM Flat Head Screws                       | 3    | ![](./media/image-20250902121104592.png) |
-| 7                | Inner Hexagon Screws (M3\*6MM)                  | 20   | ![](./media/image-20250902121130069.png) |
-| 8                | Inner Hexagon Screws (M3\*8MM)                  | 10   | ![](./media/image-20250902121247393.png) |
-| 9                | Inner Hexagon Screws (M3\*25MM)                 | 4    | ![](./media/image-20250902121309149.png) |
-| 10               | Inner Hexagon Screws (M4\*12MM)                 | 4    | ![](./media/image-20250902121410862.png) |
-| 11               | Inner Hexagon Screws (M4\*40MM)                 | 4    | ![](./media/image-20250902121854862.png) |
-| 12               | Inner Hexagon Screws (M4\*50MM)                 | 2    | ![](./media/image-20250902121923194.png) |
-| 13               | M3 Nuts                                         | 14   | ![](./media/image-20250902122039635.png) |
-| 14               | M4 Self-locking Nuts                            | 2    | ![](./media/image-20250902122105326.png) |
-| 15               | M2 Nuts                                         | 8    | ![](./media/image-20250902122132326.png) |
-| 16               | M4 Nuts                                         | 10   | ![](./media/image-20250902122153371.png) |
-| 17               | M2\*10MM Round Head Screws                      | 6    | ![](./media/image-20250902122216182.png) |
-| 18               | M3\*12MM Round Head Screws                      | 8    | ![](./media/image-20250902122334753.png) |
-| Tools            |                                                 |      |                                          |
-| 1                | 2.0\*40MM Blue and Black Slotted Screwdriver    | 1    | ![](./media/image-20250902122413262.png) |
-| 2                | 2.0\*40MM Purple and Black Phillips Screwdriver | 1    | ![](./media/image-20250902122431752.png) |
-| 3                | M1.5 Hex Key Nickel Plated Allen Wrench         | 1    | ![](./media/image-20250902122451434.png) |
-| 4                | M2.5 Hex Key Nickel Plated Allen Wrench         | 1    | ![](./media/image-20250902122509530.png) |
-| 5                | M3 Hex Key Nickel Plated Allen Wrench           | 1    | ![](./media/image-20250902122705223.png) |
-| 6                | Nylon Cable Ties                                | 6    | ![](./media/image-20250902122729758.png) |
-| 7                | 8MM Winding Pipe                                | 12CM | ![](./media/image-20250902122929874.png) |
-| 8                | Decorative Cardboard                            | 1    | ![](./media/image-20250902122957019.png) |
+|              Name               | QTY  |                           Picture                            |
+| :-----------------------------: | :--: | :----------------------------------------------------------: |
+|        Development Board        |  1   | ![image-20260424114744301](assets/image-20260424114744301.png) |
+|            V5 Shield            |  1   | ![image-20260424114806021](assets/image-20260424114806021.png) |
+|            BT module            |  1   | ![image-20260424114823332](assets/image-20260424114823332.png) |
+|           Servo motor           |  1   | ![image-20260424114835628](assets/image-20260424114835628.png) |
+|        Photocell sensor         |  2   | ![image-20260424114848289](assets/image-20260424114848289.png) |
+|             RGB LED             |  1   | ![image-20260424114857727](assets/image-20260424114857727.png) |
+|           Metal motor           |  1   | ![image-20260424114906569](assets/image-20260424114906569.png) |
+|        Tank drive wheel         |  2   | ![image-20260424114915600](assets/image-20260424114915600.png) |
+|          L298P shield           |  1   | ![image-20260424114928411](assets/image-20260424114928411.png) |
+|        Ultrasonic module        |  1   | ![image-20260424114936945](assets/image-20260424114936945.png) |
+|     8X16 LED panel + wires      |  1   | ![image-20260424114951961](assets/image-20260424114951961.png) |
+|           IR receiver           |  1   | ![image-20260424115002601](assets/image-20260424115002601.png) |
+|         Remote control          |      | ![image-20260424115010231](assets/image-20260424115010231.png) |
+|        Caterpillar band         |  1   | ![image-20260424115018466](assets/image-20260424115018466.png) |
+|         Battery holder          |  1   | ![image-20260424115042841](assets/image-20260424115042841.png) |
+|     Tank load-bearing wheel     |  2   | ![image-20260424115054017](assets/image-20260424115054017.png) |
+|         L-type Bracket          |  1   | ![image-20260424115106686](assets/image-20260424115106686.png) |
+| Supportive parts (random color) |  2   | ![image-20260424115122810](assets/image-20260424115122810.png) |
+|          Metal holder           |  4   | ![image-20260424115139256](assets/image-20260424115139256.png) |
+|          Winding pipe           |  1   | ![image-20260424115154850](assets/image-20260424115154850.png) |
+|      Plastic Platform (PC)      |  1   | ![image-20260424115245568](assets/image-20260424115245568.png) |
+|        Aluminum coulper         |  2   | ![image-20260424115257516](assets/image-20260424115257516.png) |
+|          Aluminum bush          |  2   | ![image-20260424115311644](assets/image-20260424115311644.png) |
+|       M4 self-locking nut       |  2   | ![image-20260424115321342](assets/image-20260424115321342.png) |
+|             M3 nut              |  14  | ![image-20260424115330779](assets/image-20260424115330779.png) |
+|          Acrylic board          |  2   | ![image-20260424115348411](assets/image-20260424115348411.png) |
+|    M2*10mm round head screw     |  6   | ![image-20260424115357883](assets/image-20260424115357883.png) |
+|           Screwdriver           |  2   | ![image-20260424115431293](assets/image-20260424115431293.png) |
+|           Nylon cable           |  6   | ![image-20260424115446140](assets/image-20260424115446140.png) |
+|        M1.5/2.5/3 wrench        |  3   | ![image-20260424115458269](assets/image-20260424115458269.png) |
+|      150mm F-F DuPont wire      |  10  | ![image-20260424115511197](assets/image-20260424115511197.png) |
+|            USB cable            |  1   | ![image-20260424115524400](assets/image-20260424115524400.png) |
+|      200mm F-F DuPont wire      |  5   | ![image-20260424115535336](assets/image-20260424115535336.png) |
+|         Flange bearing          |  4   | ![image-20260424115600730](assets/image-20260424115600730.png) |
+|             M2 nut              |  8   | ![image-20260424115618761](assets/image-20260424115618761.png) |
+|             M4 nut              |  10  | ![image-20260424115628936](assets/image-20260424115628936.png) |
+|      M3*10mm copper pillar      |  10  | ![image-20260424115639400](assets/image-20260424115639400.png) |
+|      M3*45mm copper pillar      |  4   | ![image-20260424115651555](assets/image-20260424115651555.png) |
+|    M3\*10mm flat head screw     |  3   | ![image-20260424115703860](assets/image-20260424115703860.png) |
+|          M3*6mm screw           |  20  | ![image-20260424115715005](assets/image-20260424115715005.png) |
+|          M4*50mm screw          |  2   | ![image-20260424115723402](assets/image-20260424115723402.png) |
+|          M4*40mm screw          |  4   | ![image-20260424115749041](assets/image-20260424115749041.png) |
+|          M3*8mm screw           |  14  | ![image-20260424115827213](assets/image-20260424115827213.png) |
+|    M3*12mm round head screw     |  8   | ![image-20260424115854821](assets/image-20260424115854821.png) |
+|         M4\*112mm Screw         |  4   | ![image-20260424115920087](assets/image-20260424115920087.png) |
+|         M3\*25mm Screw          |  4   | ![image-20260424115955301](assets/image-20260424115955301.png) |
+|      Decorative cardboard       |  1   | ![image-20260424120010842](assets/image-20260424120010842.png) |
 
 ## 1.5 Keyestudio V4.0 Development Board
 
