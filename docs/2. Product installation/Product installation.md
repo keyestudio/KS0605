@@ -41,7 +41,7 @@ Prepare the parts as follows:
 - Caterpillar Band \*2
 - M4 Self-locking Nut \* 2
 - M3 Hex Key Nickel Plated Allen Wrench \*1
-- M4 Hex Key Nickel Plated Allen Wrench \*1
+- M2.5 Hex Key Nickel Plated Allen Wrench \*1
 
 ![TK_04](media/TK_04.png)
 
@@ -61,7 +61,7 @@ Prepare the parts as follows:
 - M4 Nut \*8
 - M3\*10MM Flat Head Screw \* 2
 - M4\*40MM Inner Hex Screw \*4
-- M4 Hex Key Nickel Plated Allen Wrench\*1
+- M2.5 Hex Key Nickel Plated Allen Wrench\*1
 - M3 Hex Key Nickel Plated Allen Wrench \*1
 - M3\*25MM Inner Hex Screw \*4
 - M3*45MM Hex Copper Pillar *4
@@ -92,7 +92,7 @@ Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex scr
 - M3 Nut \*10
 - M3\*6MM Inner Hex Screw \* 8
 - M3\*8MM Inner Hex Screw \* 8
-- M3 Hex Key Allen Wrench \*1
+- M2.5 Hex Key Allen Wrench \*1
 - M3\*12MM Round Head Screw \*6
 - M3\*10MM Hexagon Copper Bush \*8
 - M2\*10MM Round Head Screw \* 4
@@ -184,7 +184,7 @@ Prepare the parts as follows:
 - V5 Sensor Shield \*1
 - Screwdriver \*1
 - Bluetooth Module \*1
-- M3 Hex Key Nickel Plated Allen Wrench \*1
+- M2.5 Hex Key Nickel Plated Allen Wrench \*1
 
 ![TK_27](media/TK_27.png)
 
