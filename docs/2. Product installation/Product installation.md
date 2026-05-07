@@ -15,7 +15,7 @@ Prepare the parts as follows:
 - M4 Nut \* 2
 - Metal Motor \*2
 - Metal Holder \*2
-- Copper Coupler \*2
+- Coupler \*2
 - Blue Supportive Parts \*2
 - M4\*12MM Inner Hex Screw \* 2
 - M1.5 Hex Key Nickel Plated Allen Wrench \*1
@@ -33,14 +33,15 @@ Prepare the parts as follows:
 
 Prepare the parts as follows:
 
-- M4\*12MM Inner Hex Screw \* 2
+- M3*8MM Inner Hex Screw \* 2
 - M4\*50MM Inner Hex Screw \* 2
 - Tank Load-bearing Wheel \* 2
 - Flange Bearing \* 4
-- Copper Bush \*2
+- Gasket\*2
 - Caterpillar Band \*2
 - M4 Self-locking Nut \* 2
 - M3 Hex Key Nickel Plated Allen Wrench \*1
+- M4 Hex Key Nickel Plated Allen Wrench \*1
 
 ![TK_04](media/TK_04.png)
 
@@ -60,9 +61,11 @@ Prepare the parts as follows:
 - M4 Nut \*8
 - M3\*10MM Flat Head Screw \* 2
 - M4\*40MM Inner Hex Screw \*4
-- M2.5 Hex Key Nickel Plated Allen Wrench\*1
+- M4 Hex Key Nickel Plated Allen Wrench\*1
 - M3 Hex Key Nickel Plated Allen Wrench \*1
 - M3\*25MM Inner Hex Screw \*4
+- M3*45MM Hex Copper Pillar *4
+- Screwdriver
 
 ![TK_08](media/TK_08.png)
 
@@ -88,10 +91,12 @@ Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex scr
 - M2 Nut \*4
 - M3 Nut \*10
 - M3\*6MM Inner Hex Screw \* 8
-- M2.5 Hex Key Allen Wrench \*1
-- M3\*12MM Round Head Screw \*7
+- M3\*8MM Inner Hex Screw \* 8
+- M3 Hex Key Allen Wrench \*1
+- M3\*12MM Round Head Screw \*6
 - M3\*10MM Hexagon Copper Bush \*8
 - M2\*10MM Round Head Screw \* 4
+- Screwdriver
 
 ![TK_14](media/TK_14.png)
 
@@ -124,6 +129,7 @@ Prepare the parts as follows:
 -   Ultrasonic Sensor \*1
 -   M2\*4 Screw \*1
 -   M1.2\*5 Screw \*4
+-   Screwdriver
 
 <span style="color: rgb(255, 76, 65);">Note: </span>for convenient debugging, keep the ultrasonic module straight ahead and the angle of servo motor at 90°. Therefore, we need to set the servo to 90° before installing the servo platform.
 
@@ -178,6 +184,7 @@ Prepare the parts as follows:
 - V5 Sensor Shield \*1
 - Screwdriver \*1
 - Bluetooth Module \*1
+- M3 Hex Key Nickel Plated Allen Wrench \*1
 
 ![TK_27](media/TK_27.png)
 
