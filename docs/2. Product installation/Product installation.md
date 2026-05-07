@@ -93,9 +93,25 @@ Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex scr
 - M3\*10MM Hexagon Copper Bush \*8
 - M2\*10MM Round Head Screw \* 4
 
-![](media/image-20250902142645393.png)
+![TK_14](media/TK_14.png)
 
-![](media/image-20250902142656507.png)
+![TK_15](media/TK_15.png)
+
+![TK_16](media/TK_16.png)
+
+![TK_17](media/TK_17.png)
+
+![TK_18](media/TK_18.png)
+
+![TK_19](media/TK_19.png)
+
+![TK_20](media/TK_20.png)
+
+![TK_21](media/TK_21.png)
+
+![TK_22](media/TK_22.png)
+
+![TK_23](media/TK_23.png)
 
 ### Step 5: Install the Servo Platform
 
@@ -142,13 +158,15 @@ void procedure(int myangle)
 }
 ```
 
-![](media/image-20250902144132371.png)
+![TK_24](media/TK_24.png)
 
 ![](media/image-20250902144145590.png)
 
 <span style="color: rgb(255, 76, 65);">Note: </span>You can find M1.2\*5 Screws inside the bag of Plastic Platform.
 
-![](media/image-20250902144253220.png)
+![TK_25](media/TK_25.png)
+
+![TK_26](media/TK_26.png)
 
 ### Step 6: Install Sensors and Boards
 
@@ -161,15 +179,23 @@ Prepare the parts as follows:
 - Screwdriver \*1
 - Bluetooth Module \*1
 
-![](media/image-20250902144437089.png)
+![TK_27](media/TK_27.png)
 
-![](media/image-20250902144447362.png)
+![TK_28](media/TK_28.png)
 
-![](media/image-20250902144458658.png)
+![TK_29](media/TK_29.png)
 
-![](media/image-20250902144507781.png)
+![TK_30](media/TK_30.png)
 
-![2026V00_01](media/2026V00_01.png)
+![TK_31](media/TK_31.png)
+
+![TK_32](media/TK_32.png)
+
+![TK_33](media/TK_33.png)
+
+![TK_34](media/TK_34.png)
+
+
 
 ### Step 7: Hook-up Guide
 
