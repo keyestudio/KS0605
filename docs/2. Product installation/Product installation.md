@@ -23,9 +23,9 @@ Prepare the parts as follows:
 - M2.5 Hex Key Nickel Plated Allen Wrench \*1
 - M3\*8MM Inner Hex Screw \* 4
 
-![2026V00_02](media/2026V00_02.png)
+![TK_02](media/TK_02.png)
 
-![2026V00_03](media/2026V00_03.png)
+![TK_03](media/TK_03.png)
 
 ==Prompt: assemble another side motor in the same way.==
 
@@ -42,13 +42,13 @@ Prepare the parts as follows:
 - M4 Self-locking Nut \* 2
 - M3 Hex Key Nickel Plated Allen Wrench \*1
 
-![2026V00_04](media/2026V00_04.png)
+![TK_04](media/TK_04.png)
 
-![2026V00_05](media/2026V00_05.png)
+![TK_05](media/TK_05.png)
 
-![2026V00_06](media/2026V00_06.png)
+![TK_06](media/TK_06.png)
 
-![2026V00_07](media/2026V00_07.png)
+![TK_07](media/TK_07.png)
 
 ### Step 3: Install the Battery Holder
 
@@ -64,19 +64,19 @@ Prepare the parts as follows:
 - M3 Hex Key Nickel Plated Allen Wrench \*1
 - M3\*25MM Inner Hex Screw \*4
 
-![2026V00_08](media/2026V00_08.png)
+![TK_08](media/TK_08.png)
 
-![2026V00_09](media/2026V00_09.png)
+![TK_09](media/TK_09.png)
 
 Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex screws and four M4 nuts when the mounting process is completed.
 
-![2026V00_10](media/2026V00_10.png)
+![TK_10](media/TK_10.png)
 
-![2026V00_11](media/2026V00_11.png)
+![TK_11](media/TK_11.png)
 
-![2026V00_12](media/2026V00_12.png)
+![TK_12](media/TK_12.png)
 
-![2026V00_13](media/2026V00_13.png)
+![TK_13](media/TK_13.png)
 
 ###  Step 4: Mount Acrylic Board and Sensors
 
