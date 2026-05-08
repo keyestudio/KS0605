@@ -4,7 +4,8 @@ After checking all the parts in this kit, we need to mount the tank robot. Letâ€
 
 ### Assembly Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ES0wFdEsX4M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="box-sizing: border-box; color: rgb(64, 64, 64); font-family: Lato, proxima-nova, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(252, 252, 252); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"></iframe>
+<video src="video/KS0605.mp4"></video>
+
 
 **Note: Peel the plastic film off the board first when installing smart car.**
 
