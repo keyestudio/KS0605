@@ -4,8 +4,9 @@ After checking all the parts in this kit, we need to mount the tank robot. Letâ€
 
 ### Assembly Video
 
-<video src="video/KS0605.mp4"></video>
+[Download video](video.7z).
 
+<video src="video/KS0605.mp4"></video>
 
 **Note: Peel the plastic film off the board first when installing smart car.**
 
