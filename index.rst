@@ -1,7 +1,7 @@
 
 .. toctree::
    :maxdepth: 3
-   :caption: KS0428 Mini Tank Robot V2 Arduino tutorial
+   :caption: KS0605 Mini Tank Robot V2 Arduino tutorial
 
 
    docs/1. Product introduction/Product introduction.md
