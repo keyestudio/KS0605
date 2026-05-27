@@ -56,7 +56,7 @@ Detailed 15 learning projects, from simple to complex, which guide you to build 
 |           IR receiver           |  1   | ![image-20260424115002601](assets/image-20260424115002601.png) |
 |         Remote control          |      | ![image-20260424115010231](assets/image-20260424115010231.png) |
 |        Caterpillar band         |  1   | ![image-20260424115018466](assets/image-20260424115018466.png) |
-|         Battery holder          |  1   | ![image-20260424115042841](assets/image-20260424115042841.png) |
+|  Battery holder(18650 battery)  |  1   | ![image-20260424115042841](assets/image-20260424115042841.png) |
 |     Tank load-bearing wheel     |  2   | ![image-20260424115054017](assets/image-20260424115054017.png) |
 |         L-type Bracket          |  1   | ![image-20260424115106686](assets/image-20260424115106686.png) |
 | Supportive parts (random color) |  2   | ![image-20260424115122810](assets/image-20260424115122810.png) |
