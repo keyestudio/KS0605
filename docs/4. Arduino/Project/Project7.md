@@ -1,4 +1,4 @@
-### Project 7 Bluetooth Remote Control
+# Project 7 Bluetooth Remote Control
 
 **Description**
 
@@ -50,9 +50,9 @@ Here we are going to learn about HM-10 BLE 4.0 with Arduino Board. The HM-10 is 
 
 **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 7.1
  bluetooth 
 http://www.keyestudio.com
@@ -162,9 +162,9 @@ D10 is connected to a LED, as shown below:
 
 ![](media/image-20250908162720671.png)
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 7.2
  Bluetooth 
  http://www.keyestudio.com

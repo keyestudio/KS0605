@@ -1,4 +1,4 @@
-### Project 12 Ultrasonic Following Tank
+# Project 12 Ultrasonic Following Tank
 
 ![](media/image-20250908172315808.png)
 
@@ -39,9 +39,9 @@ Wire-up note:
 
 **Test Code**
 
-```
+```c
  /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 12
  ultrasonic follow tank
  http://www.keyestudio.com

@@ -1,4 +1,4 @@
-### Project 13 IR Remote Robot Tank
+# Project 13 IR Remote Robot Tank
 
 ![](media/image-20250908172649810.png)
 
@@ -39,9 +39,9 @@ Attentionï¼šGND,VCC, SDA, SCL of 8x16 LED panel are respectively linked with\-ï¼
 
 **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 13
  IR remote tank
  http://www.keyestudio.com

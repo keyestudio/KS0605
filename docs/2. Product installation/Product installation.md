@@ -1,16 +1,16 @@
-## 2. Product installation
+# 2. Product installation
 
 After checking all the parts in this kit, we need to mount the tank robot. Let’s install the smart car in compliance with the following instructions.
 
-### Assembly Video
+## Assembly Video
 
 [Download video](video.7z).
 
-<video src="video/KS0605.mp4"></video>
+> **Note:** The assembly video is provided in the `video.7z` file included in this package. Please extract it to view `video/KS0605.mp4`.
 
 **Note: Peel the plastic film off the board first when installing smart car.**
 
-### Step 1: Install Bottom Motor
+## Step 1: Install Bottom Motor
 
 Prepare the parts as follows:
 
@@ -29,9 +29,9 @@ Prepare the parts as follows:
 
 ![TK_03](media/TK_03.png)
 
-==Prompt: assemble another side motor in the same way.==
+**Prompt: assemble another side motor in the same way.**
 
-### Step 2: Install Driver Wheel
+## Step 2: Install Driver Wheel
 
 Prepare the parts as follows:
 
@@ -53,7 +53,7 @@ Prepare the parts as follows:
 
 ![TK_07](media/TK_07.png)
 
-### Step 3: Install the Battery Holder
+## Step 3: Install the Battery Holder
 
 Prepare the parts as follows:
 
@@ -83,7 +83,7 @@ Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex scr
 
 ![TK_13](media/TK_13.png)
 
-###  Step 4: Mount Acrylic Board and Sensors
+##  Step 4: Mount Acrylic Board and Sensors
 
 - Acrylic Board \* 2
 - L- type Black Bracket \*1
@@ -120,7 +120,7 @@ Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex scr
 
 ![TK_23](media/TK_23.png)
 
-### Step 5: Install the Servo Platform
+## Step 5: Install the Servo Platform
 
 Prepare the parts as follows:
 
@@ -133,11 +133,11 @@ Prepare the parts as follows:
 -   M1.2\*5 Screw \*4
 -   Screwdriver
 
-<span style="color: rgb(255, 76, 65);">Note: </span>for convenient debugging, keep the ultrasonic module straight ahead and the angle of servo motor at 90°. Therefore, we need to set the servo to 90° before installing the servo platform.
+**Note: **for convenient debugging, keep the ultrasonic module straight ahead and the angle of servo motor at 90°. Therefore, we need to set the servo to 90° before installing the servo platform.
 
 Set the 90-degree code,Copy the code and upload it to the development board. The steering gear connected to port D9 will rotate to 90 °.
 
-<font color= #8B0000>To upload code, you will need the Arduino IDE. Please first install the Arduino IDE by following sections 4.2–4.4. (Software Download, Set Up Arduino IDE, and Add Library)</font>
+> To upload code, you will need the Arduino IDE. Please first install the Arduino IDE by following sections 4.2–4.4. (Software Download, Set Up Arduino IDE, and Add Library)
 
 ```c
 #define servoPin 9 //servo Pin
@@ -170,13 +170,13 @@ void procedure(int myangle)
 
 ![](media/image-20250902144145590.png)
 
-<span style="color: rgb(255, 76, 65);">Note: </span>You can find M1.2\*5 Screws inside the bag of Plastic Platform.
+**Note: **You can find M1.2\*5 Screws inside the bag of Plastic Platform.
 
 ![TK_25](media/TK_25.png)
 
 ![TK_26](media/TK_26.png)
 
-### Step 6: Install Sensors and Boards
+## Step 6: Install Sensors and Boards
 
 Prepare the parts as follows:
 
@@ -206,7 +206,7 @@ Prepare the parts as follows:
 
 
 
-### Step 7: Hook-up Guide
+## Step 7: Hook-up Guide
 
 ![](media/image-20250902144534790.png)
 
@@ -218,7 +218,7 @@ Prepare the parts as follows:
 
 ![](media/image-20250902144902221.png)
 
-###  Step 8: Wire Up LED Panel
+##  Step 8: Wire Up LED Panel
 
 ![](media/image-20250902145026905.png)
 
@@ -234,7 +234,7 @@ Prepare the parts as follows:
 | SCL                                    | SCL                                    |
 | ![](media/image-20250902145404151.png) | ![](media/image-20250902145414755.png) |
 
-### Step 9: Install all parts of Acrylic plate
+## Step 9: Install all parts of Acrylic plate
 
 ![](media/image-20250902145506652.png)
 
@@ -262,9 +262,9 @@ Prepare the parts as follows:
 
 ![](media/image-20250902150711706.png)
 
-###  Step 10: Tank Robot
+##  Step 10: Tank Robot
 
-<span style="color: rgb(255, 76, 65);">Note:</span> Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code.
+**Note:** Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code.
 
 ![](media/image-20250902151034545.png)
 
@@ -284,7 +284,7 @@ Here is a simple flow chart of multi-purpose robot car for your reference.
 
 ![](media/image-20250902151230702.png)
 
-<span style="color: rgb(255, 76, 65);">Attention：</span>Confirm that every component is connected.
+**Attention：**Confirm that every component is connected.
 
 Wire-up Guide:
 

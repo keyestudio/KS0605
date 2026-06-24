@@ -1,6 +1,6 @@
 # 3. Driver installation
 
-<font color= #8B0000>For driver installation, you can skip this step initially, as drivers typically install automatically when the development board is connected to your computer. If the board fails to be recognized after connection, refer to this section to install the drivers.</font>
+> For driver installation, you can skip this step initially, as drivers typically install automatically when the development board is connected to your computer. If the board fails to be recognized after connection, refer to this section to install the drivers.
 
 ## 3.1 Windows System
 
@@ -18,7 +18,7 @@
 
 1. Driver download
 
-- Windowns System:[Windowns System driver](./Windows.7z)
+- Windows System:[Windows System driver](./Windows.7z)
 
 2. Connect the motherboard to the computer, open the device manager, if there is a yellow exclamation mark in front of the driver in the picture, it proves that the driver is not installed, please download the driver and install it manually.
 

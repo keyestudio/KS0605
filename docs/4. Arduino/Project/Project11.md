@@ -1,4 +1,4 @@
-### Project 11 Ultrasonic Avoiding Tank
+# Project 11 Ultrasonic Avoiding Tank
 
 ![](media/image-20250908171729897.png)
 
@@ -22,9 +22,9 @@ Note: “-”、“+” and “S” pins of servo are respectively attached to G
 
 **Test Code:**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 11
  ultrasonic_avoid_tank
  http://www.keyestudio.com

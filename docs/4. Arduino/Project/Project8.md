@@ -1,4 +1,4 @@
-### Project 8 Motor Driving and Speed Control
+# Project 8 Motor Driving and Speed Control
 
 **Description**
 
@@ -52,9 +52,9 @@ PWM decides 2 motors to turn on so as to drive the robot car. The PWM value is i
 
 **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 8.1
  motor driver
  http://www.keyestudio.com
@@ -127,9 +127,9 @@ Adjust the speed that PWM controls the motor, and hook up in the same way.
 
 ![](media/d35ffe6c0c275548f40bcafb42a93da1-1757321401643-2.jpeg)
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 8.2
  motor driver pwm
  http://www.keyestudio.com

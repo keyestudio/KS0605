@@ -1,4 +1,4 @@
-### Project 14 Bluetooth Control Robot
+# Project 14 Bluetooth Control Robot
 
 ![](media/image-20250908173626827.png)
 
@@ -69,9 +69,9 @@ keyes BT car is an APP rolled out by keyestudio team. You could control the robo
 
 **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 14.1
  bluetooth test
  http://www.keyestudio.com
@@ -91,7 +91,7 @@ void loop()
 }//**************************************************************
 ```
 
-<span style="color: rgb(255, 76, 65);">Pull off the Bluetooth module, upload test code, reconnect Bluetooth module, open serial monitor and set baud rate to 9600. Point at Bluetooth module and press keys on APP, then the corresponding character is as shown below.</span>
+**Pull off the Bluetooth module, upload test code, reconnect Bluetooth module, open serial monitor and set baud rate to 9600. Point at Bluetooth module and press keys on APP, then the corresponding character is as shown below.**
 
 ![](media/image-20250908173736780.png)
 
@@ -117,9 +117,9 @@ The detected character and corresponding function:
 
  **Test Code**
 
-<span style="color: rgb(255, 76, 65);">Note:</span> Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code.
+**Note:** Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code.
 
-```
+```c
 /*
  keyestudio Robot Car v2.0
  lesson 14.2

@@ -1,4 +1,4 @@
-### Project 1 LED Blinks
+# Project 1 LED Blinks
 
 ![](media/image-20250908174750401.png)
 
@@ -37,9 +37,9 @@ Seen from the above diagram, LED is linked with D2.
 
  **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot V2
+ keyestudio Mini Tank Robot V2.1
  lesson 1.1
  Blink
  http://www.keyestudio.com
@@ -84,9 +84,9 @@ We’ve altered pins and connected LED to D10.
 
  **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot V2
+ keyestudio Mini Tank Robot V2.1
  lesson 1.2
  delay
  http://www.keyestudio.com

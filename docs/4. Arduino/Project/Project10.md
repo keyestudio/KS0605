@@ -1,4 +1,4 @@
-### Project 10 Light Following Robot
+# Project 10 Light Following Robot
 
 ![](media/image-20250908171131879.png)
 
@@ -22,7 +22,7 @@ We make a flow chart based on the above logic table, as shown below:
 
 ![](media/image-20250908171305946.png)
 
-<span style="color: rgb(255, 76, 65);">Attention:</span>
+**Attention:**
 
 The 4Pin terminal block is marked with silkscreen 1234. The red line of right rear motor is connected to terminal 1, black line is linked with end 2. The red line of left front motor is attached to terminal 3, black line is linked with port 4.
 
@@ -39,9 +39,9 @@ The 4Pin terminal block is marked with silkscreen 1234. The red line of right re
 
 **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 10
  Light-following tank
  http://www.keyestudio.com

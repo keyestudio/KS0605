@@ -1,4 +1,4 @@
-### Project 6 IR Reception
+# Project 6 IR Reception
 
 **Description**
 
@@ -45,9 +45,9 @@ Respectively link “-”、“+” and S of IR receiver module with G(GND）, V
 
 Firstly import library file of IR receiver module(refer to how to import Arduino library file) before designing code.
 
-```
+```c
 /*
-keyestudio Mini Tank Robot V2
+keyestudio Mini Tank Robot V2.1
 lesson 6
 IRremote
 http://www.keyestudio.com
@@ -93,8 +93,8 @@ We decoded the key value of IR remote control. How about controlling LED by the 
 
 ![](media/image-20250908160749345.png)
 
-```
-/* keyestudio Mini Tank Robot V2
+```c
+/* keyestudio Mini Tank Robot V2.1
 lesson 6.2
 IRremote
 http://www.keyestudio.com

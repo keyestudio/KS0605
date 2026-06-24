@@ -1,4 +1,4 @@
-### Project 2 Adjust LED Brightness
+# Project 2 Adjust LED Brightness
 
 **(1) Description**
 
@@ -31,9 +31,9 @@ If output five hundred 1, that is 5V; if all of which is 1, that is 0V. If outpu
 
  **(5) Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot V2
+ keyestudio Mini Tank Robot V2.1
  lesson 2.2
  pwm-slow
  http://www.keyestudio.com
@@ -103,7 +103,7 @@ There is a new function in the following ----- analogWrite()
 
 We know that digital port only has two state of 0 and 1. So how to send an analog value to a digital value? Here,this function is needed. Let’s observe the Arduino board and find 6 pins marked“\~”which can output PWM signals.
 
-<span style="color: rgb(255, 76, 65);">Function format as follows:</span>
+**Function format as follows:**
 
 **analogWrite(pin,value)**
 

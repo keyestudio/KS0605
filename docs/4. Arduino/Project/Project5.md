@@ -1,4 +1,4 @@
-### Project 5 Ultrasonic Sensor
+# Project 5 Ultrasonic Sensor
 
 **Description**
 
@@ -59,9 +59,9 @@ Wiring guide:
 
 **Test Code**
 
-```
+```c
 /*
-keyestudio Mini Tank Robot V2
+keyestudio Mini Tank Robot V2.1
 lesson 5
 Ultrasonic sensor
 http://www.keyestudio.com
@@ -131,9 +131,9 @@ We have measured the distance displayed by the ultrasonic. How about controlling
 
 ![](media/image-20250908154848028.png)
 
-```
+```c
 /*
- keyestudio Mini Tank Robot V2
+ keyestudio Mini Tank Robot V2.1
  lesson 5
  Ultrasonic LED
  http://www.keyestudio.com

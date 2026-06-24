@@ -1,4 +1,4 @@
-### Project 4 Servo Control
+# Project 4 Servo Control
 
 ![](media/image-20250908152354194.png)
 
@@ -43,9 +43,9 @@ The servo has to be connected to external power due to its high demand for drivi
 
 **Test Code 1**
 
-```
+```c
 /*
-keyestudio Mini Tank Robot V2
+keyestudio Mini Tank Robot V2.1
 lesson 4.1
 Servo
 http://www.keyestudio.com
@@ -87,9 +87,9 @@ void procedure(int myangle)
 
 Upload code successfully, servo swings back in the range of 0° to 180°.
 
-```
+```c
 /*
- keyestudio Mini Tank Robot V2
+ keyestudio Mini Tank Robot V2.1
  lesson 4.2
  servo
  http://www.keyestudio.com
@@ -134,4 +134,4 @@ The following are some common statements of the servo function:
 1. attach（interface）——Set servo interface, port 9 and 10 are available.
 2. write（angle）——The statement to set rotation angle of servo, the angle.
 3. read（）——The statement to read angle of servo, read the command value of“write()”.
-4. <span style="color: rgb(255, 76, 65);">Note:</span> The above written format is“servo variable name, specific statement（）”, for instance: myservo.attach(9).
+4. **Note:** The above written format is“servo variable name, specific statement（）”, for instance: myservo.attach(9).

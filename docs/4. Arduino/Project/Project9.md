@@ -1,4 +1,4 @@
-### Project 9 8*16 LED Board
+# Project 9 8*16 LED Board
 
 **Description**
 
@@ -67,7 +67,7 @@ In this example, we choose pulse width 4/16, and the hexadecimal corresponds to 
 
 The online version of dot matrix modulus tool:
 
-[http://dotmatrixtool.com/\#](http://dotmatrixtool.com/)
+[http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
 ①Open links to enter the following page.
 
@@ -93,9 +93,9 @@ Wiring note: The GND, VCC, SDA, and SCL of the 8x16 LED panel are respectively c
 
 The code that shows smile face.
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 9.1
  Matrix  face
  http://www.keyestudio.com
@@ -192,7 +192,7 @@ Wire according to connection diagram. The DIP switch is dialed to the right end 
 
 **Extension Practice**
 
-We use the modulo tool ([http://dotmatrixtool.com/\#](http://dotmatrixtool.com/))to make the dot matrix alternately display, go front and stop patterns then clear the patterns, and the time interval is 2000 milliseconds.
+We use the modulo tool ([http://dotmatrixtool.com/#](http://dotmatrixtool.com/#))to make the dot matrix alternately display, go front and stop patterns then clear the patterns, and the time interval is 2000 milliseconds.
 
 ![](media/image-20250908170445861.png)
 
@@ -218,8 +218,8 @@ Get the graphical code to be displayed via modulus tool.
 
 The code that the multiple patterns shift:
 
-```
-/* keyestudio Mini Tank Robot v2.0
+```c
+/* keyestudio Mini Tank Robot V2.1
  lesson 9.2
  Matrix loop
  http://www.keyestudio.com

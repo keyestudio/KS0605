@@ -1,4 +1,4 @@
-### Project 3 Photoresistor Sensor
+# Project 3 Photoresistor Sensor
 
 ![](./media/image-20250902173047302.png)
 
@@ -36,9 +36,9 @@ The two photoresistor sensors are linked with A1 and A2, then finish the experim
 
 **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot V2
+ keyestudio Mini Tank Robot V2.1
  lesson 3.1
  photocell
  http://www.keyestudio.com
@@ -82,8 +82,8 @@ We’ve known how to read the value of photoresistor. Let’s combine the photor
 
 PWM restrains the brightness, so LED is linked with PWM pins. Connect LED to pin 10, keep pin of photoresistor unchanged, then design the code:
 
-```
-/*keyestudio Mini Tank Robot V2
+```c
+/*keyestudio Mini Tank Robot V2.1
 lesson 3.2
 photocell-analog output
 http://www.keyestudio.com

@@ -1,10 +1,10 @@
-### Project 15  final fully functional project
+# Project 15: Final Fully Functional Project
 
 **Test Code**
 
-```
+```c
 /*
- keyestudio Mini Tank Robot v2.0
+ keyestudio Mini Tank Robot V2.1
  lesson 15
  bluetooth tank
  http://www.keyestudio.com
@@ -189,7 +189,7 @@ void Car_T_right()
 
 **Test Result**
 
-<span style="color: rgb(255, 76, 65);">Note: </span>Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code. Reconnect Bluetooth module after uploading test code
+**Note: **Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code. Reconnect Bluetooth module after uploading test code
 
 Upload test code successfully, insert Bluetooth module, power on, and connect to Bluetooth. The tank robot can show distinct function by App.
 
