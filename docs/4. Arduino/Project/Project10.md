@@ -1,57 +1,57 @@
-# Projet 10 Robot Suiveur de Lumière
+# Progetto 10 Robot Seguace della Luce
 
 ![](media/image-20250908171131879.png)
 
-**Description**
+**Descrizione**
 
-Nous avons présenté comment utiliser différents capteurs et modules.
+Abbiamo introdotto come utilizzare vari sensori e moduli.
 
-Dans cette leçon, nous combinons les connaissances matérielles -- module photorésistance, commande moteur, pour construire un robot suiveur de lumière !
+In questa lezione, combiniamo le conoscenze hardware -- modulo fotoresistenza, azionamento motore, per costruire un robot seguace della luce!
 
-Il suffit d'utiliser 2 modules photorésistance pour détecter l'intensité lumineuse des deux côtés du robot. Lire la valeur analogique pour faire tourner les 2 moteurs, et ainsi faire fonctionner le robot tank.
+Basta utilizzare 2 moduli fotoresistenza per rilevare l'intensità luminosa su entrambi i lati del robot. Leggere il valore analogico per ruotare i 2 motori, così da far muovere il robot carro armato.
 
-**La logique spécifique du robot suiveur de lumière est présentée dans le tableau ci-dessous :**
+**La logica specifica del robot seguace della luce è mostrata nella tabella sottostante:**
 
 ![](media/image-20250908171219561.png)
 
-Nous créons un organigramme basé sur le tableau logique ci-dessus, comme indiqué ci-dessous :
+Abbiamo creato un diagramma di flusso basato sulla tabella logica sopra, come mostrato di seguito:
 
 ![](media/image-20250908171232654.png)
 
-**Schéma de Connexion**
+**Diagramma di Collegamento**
 
 ![](media/image-20250908171305946.png)
 
-**Attention :**
+**Attenzione:**
 
-Le bloc terminal 4 broches est marqué avec la sérigraphie 1234. Le fil rouge du moteur arrière droit est connecté à la borne 1, le fil noir est relié à la borne 2. Le fil rouge du moteur avant gauche est attaché à la borne 3, le fil noir est relié au port 4.
+Il blocco terminale a 4 pin è contrassegnato con serigrafia 1234. Il filo rosso del motore posteriore destro è collegato al terminale 1, il filo nero è collegato all'estremità 2. Il filo rosso del motore anteriore sinistro è collegato al terminale 3, il filo nero è collegato alla porta 4.
 
-| Photorésistance gauche   |      | Capteur Shield    |
+| Fotoresistenza sinistra  |      | Sensor Shield     |
 | ------------------------ | ---- | ----------------- |
 | -                        | →    | G（GND）          |
 | +                        | →    | V（VCC）          |
 | S                        | →    | A1                |
 |                          |      |                   |
-| **Photorésistance droite** |      | **Capteur Shield** |
+| **Fotoresistenza destra** |      | **Sensor Shield** |
 | -                        | →    | G（GND）          |
 | +                        | →    | V（VCC）          |
 | S                        | →    | A2                |
 
-**Code de Test**
+**Codice di Test**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- leçon 10
- Tank suiveur de lumière
+ lezione 10
+ Carro armato seguace della luce
  http://www.keyestudio.com
 */ 
-#define light_L_Pin A1   //définir la broche du photorésistance gauche
-#define light_R_Pin A2   //définir la broche du photorésistance droit
-#define ML_Ctrl 13  //définir la broche de contrôle de direction du moteur gauche
-#define ML_PWM 11   //définir la broche de contrôle PWM du moteur gauche
-#define MR_Ctrl 12  //définir la broche de contrôle de direction du moteur droit
-#define MR_PWM 3   //définir la broche de contrôle PWM du moteur droit
+#define light_L_Pin A1   //definire il pin della fotoresistenza sinistra
+#define light_R_Pin A2   //definire il pin della fotoresistenza destra
+#define ML_Ctrl 13  //definire il pin di controllo della direzione del motore sinistro
+#define ML_PWM 11   //definire il pin di controllo PWM del motore sinistro
+#define MR_Ctrl 12  //definire il pin di controllo della direzione del motore destro
+#define MR_PWM 3   //definire il pin di controllo PWM del motore destro
 int left_light; 
 int right_light;
 void setup(){
@@ -70,19 +70,19 @@ void loop(){
   Serial.println(left_light);
   Serial.print("right_light_value = ");
   Serial.println(right_light);
-  if (left_light > 650 && right_light > 650) //la valeur détectée par le photorésistance, avancer
+  if (left_light > 650 && right_light > 650) //il valore rilevato dalla fotoresistenza, vai avanti
   {  
     Car_front();
   } 
-  else if (left_light > 650 && right_light <= 650)  //la valeur détectée par le photorésistance, tourner à gauche
+  else if (left_light > 650 && right_light <= 650)  //il valore rilevato dalla fotoresistenza, gira a sinistra
   {
     Car_left();
   } 
-  else if (left_light <= 650 && right_light > 650) //la valeur détectée par le photorésistance, tourner à droite
+  else if (left_light <= 650 && right_light > 650) //il valore rilevato dalla fotoresistenza, gira a destra
   {
     Car_right();
   } 
-  else  //autres situations, arrêter
+  else  //altre situazioni, ferma
   {
     Car_Stop();
   }
@@ -118,6 +118,6 @@ void Car_Stop()
 //****************************************************************
 ```
 
-**Résultat du Test**
+**Risultato del Test**
 
-Téléchargez le code sur la carte de développement keyestudio V4.0, le commutateur DIP est basculé à l'extrémité droite et l'alimentation est activée, le robot intelligent suit la lumière pour se déplacer.
+Caricare il codice sulla scheda di sviluppo keyestudio V4.0, l'interruttore DIP è posizionato all'estremità destra e accendere l'alimentazione, il robot intelligente segue la luce per muoversi.

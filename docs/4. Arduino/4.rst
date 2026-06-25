@@ -1,57 +1,57 @@
 4. Arduino
 ==========
 
-Voici la traduction en français du contenu, en conservant scrupuleusement les formats des images, des liens et des balises de téléchargement :
+Ecco la traduzione in italiano del contenuto, mantenendo inalterati i formati delle immagini, degli URL e dei tag di download:
 
-4.1 Téléchargement des données
-------------------------------
+4.1 Download dei dati
+---------------------
 
-Les informations Arduino contiennent des fichiers de bibliothèques et le code du projet. Veuillez cliquer pour télécharger afin de poursuivre votre apprentissage.
+Le informazioni su Arduino contengono i file delle librerie e il codice del progetto, clicca per scaricare i file per i successivi studi.
 
-Téléchargement des données : :download:`Arduino Data <./Arduino.7z>`
+Download dei dati: :download:`Arduino Data <./Arduino.7z>`
 
-Téléchargement de l'application :
+Download dell'APP:
 
-Téléchargement de Tank Car pour Android : `Tank
+Download di Tank Car per Android: `Tank
 Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
 
-Téléchargement de HC_BLE : :download:`APP <./APP.7z>`
+Download di HC_BLE: :download:`APP <./APP.7z>`
 
-4.2 Téléchargement du logiciel
-------------------------------
+4.2 Download del Software
+-------------------------
 
-Lorsque nous recevons la carte de contrôle, nous devons d'abord télécharger l'IDE Arduino et le pilote.
+Una volta ricevuta la scheda di controllo, è necessario scaricare innanzitutto l'IDE di Arduino e i driver.
 
-Vous pouvez télécharger l'IDE Arduino depuis le site officiel :
+Puoi scaricare l'IDE di Arduino dal sito ufficiale:
 https://www.arduino.cc/en/software.
 
-Il existe différentes versions pour Arduino, téléchargez simplement une version adaptée à votre système. Nous prendrons le système WINDOWS comme exemple pour vous montrer comment le télécharger et l'installer.
+Esistono varie versioni per Arduino, scarica semplicemente la versione adatta al tuo sistema; prenderemo il sistema WINDOWS come esempio per mostrarti come scaricare e installare il programma.
 
 |image1|
 
-Il vous suffit de cliquer sur JUSTDOWNLOAD, puis de cliquer sur le fichier téléchargé pour l'installer.
+Devi solo cliccare su JUSTDOWNLOAD, quindi fare clic sul file scaricato per installarlo.
 
-Et lorsque le fichier ZIP est téléchargé, vous pouvez le décompresser directement et le lancer.
+Inoltre, quando il file ZIP è stato scaricato, puoi decomprimerlo e avviarlo direttamente.
 
 |image2|
 
-4.3 Configurer l'IDE Arduino
-----------------------------
+4.3 Configurazione dell'IDE di Arduino
+--------------------------------------
 
-Connectez la carte à l'ordinateur.
+Collega la scheda al computer.
 
 |image3|
 
-4.4 Ajouter une bibliothèque
+4.4 Aggiunta di una Libreria
 ----------------------------
 
-Que sont les bibliothèques ?
+Cosa sono le Librerie?
 
-Les bibliothèques sont des ensembles de codes qui vous permettent de vous connecter facilement à un capteur, un écran, un module, etc.
+Le librerie sono raccolte di codice che ti permettono di collegarti facilmente a un sensore, display, modulo, ecc.
 
-Des centaines de bibliothèques supplémentaires sont disponibles sur Internet pour le téléchargement.
+Ci sono centinaia di librerie aggiuntive disponibili su Internet per il download.
 
-Nous allons vous présenter la méthode la plus simple pour ajouter des bibliothèques.
+Ti mostreremo il modo più semplice per aggiungere le librerie.
 
 |image4|
 
@@ -61,7 +61,7 @@ Nous allons vous présenter la méthode la plus simple pour ajouter des biblioth
 .. |image4| image:: ./media/20250910193751.gif
 
 
-4.5 Projets
+4.5 Progetti
 ---------------
 
 .. toctree::

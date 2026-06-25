@@ -1,51 +1,51 @@
-# Projet 3 Capteur Photorésistance
+# Progetto 3 Sensore Fotoresistenza
 
 ![](./media/image-20250902173047302.png)
 
- **Description**
+ **Descrizione**
 
-La photorésistance est une résistance spéciale fabriquée à partir de matériaux semi-conducteurs tels que le CdS ou le sélénium. La surface est également revêtue d'une résine imperméable, qui possède un effet photoconducteur. Elle est sensible à la lumière ambiante. Sa résistance varie en fonction de différentes intensités lumineuses.
+La fotoresistenza è una resistenza speciale realizzata con materiali semiconduttori come CdS o setto di Selenio. La superficie è inoltre rivestita con resina impermeabile, che ha un effetto fotoconducente. È sensibile alla luce ambientale. La sua resistenza varia in base alle diverse intensità luminose.
 
-Nous utilisons les caractéristiques de la photorésistance pour concevoir le circuit et générer le module de photorésistance.
+Utilizziamo le caratteristiche della fotoresistenza per progettare il circuito e generare il modulo fotoresistenza.
 
-En connectant la broche de signal du module photocellule au port analogique, vous constaterez que plus l'intensité lumineuse est forte, plus la tension du port analogique est élevée, et plus la valeur analogique est grande.
+Collegando il pin del segnale del modulo fotocellula alla porta Analogica, scoprirai che più forte è l'intensità luminosa, maggiore è la tensione della porta analogica e maggiore è il valore analogico.
 
-À l'inverse, plus l'intensité lumineuse est faible, plus la tension du port analogique est faible, et plus la valeur analogique est petite.
+Al contrario, più debole è l'intensità luminosa, minore è la tensione della porta analogica, minore è il valore analogico.
 
-Sur la base de cela, nous pouvons utiliser le module photocellule pour lire la valeur analogique et ainsi obtenir l'intensité de la lumière ambiante.
+In base a ciò, possiamo utilizzare il modulo fotocellula per leggere il valore analogico e ottenere così l'intensità della luce ambientale.
 
- **Spécifications**
+ **Specifiche**
 
 ![](./media/image-20250902173349950.png)
 
-- Résistance : 5K ohm - 0,5 Mohm
-- Type d'interface : analogique
-- Tension de fonctionnement : 3,3V - 5V
-- Installation facile : avec trous de fixation à vis
-- Espacement des broches : 2,54 mm
+- Resistenza: 5K ohm-0.5Mohm
+- Tipo di interfaccia: analogica
+- Tensione di lavoro: 3.3V-5V
+- Installazione facile: con fori di fissaggio a vite
+- Spaziatura dei pin: 2.54mm
 
- **Composants**
+ **Componenti**
 
 ![](./media/image-20250902173528860.png)
 
- **Schéma de connexion :**
+ **Diagramma di collegamento:**
 
 ![](./media/image-20250902173558747.png)
 
-Les deux capteurs photorésistance sont reliés aux ports A1 et A2. Nous terminerons l'expérience via la photorésistance connectée à A1. Lisons sa valeur analogique.
+I due sensori fotoresistenza sono collegati con A1 e A2, quindi completare l'esperimento tramite la fotoresistenza collegata ad A1. Leggiamo il suo valore analogico.
 
-**Code de test**
+**Codice di prova**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- leçon 3.1
- photocellule
+ lezione 3.1
+ fotocellula
  http://www.keyestudio.com
 */
 
-int sensorPin = A1;    // sélectionner la broche d'entrée pour la photocellule
-int sensorValue = 0;  // variable pour stocker la valeur provenant du capteur
+int sensorPin = A1;    // seleziona il pin di ingresso per la fotocellula
+int sensorValue = 0;  // variabile per memorizzare il valore proveniente dal sensore
 void setup() 
 {
 	Serial.begin(9600);
@@ -53,45 +53,45 @@ void setup()
 
 void loop() 
 {
-    sensorValue = analogRead(sensorPin);  // lire la valeur du capteur
-    Serial.println(sensorValue);  // le port série affiche la valeur de résistance
+    sensorValue = analogRead(sensorPin);  // leggi il valore dal sensore:
+    Serial.println(sensorValue);  // la porta seriale stampa il valore di resistenza
     delay(500);
 }
 //******************************************************
 ```
 
- **Résultat du test**
+ **Risultato della prova**
 
-Téléchargez le code sur la carte de développement, ouvrez le moniteur série et vérifiez si sa valeur diminue lorsque vous couvrez la photorésistance. Cependant, la valeur augmente lorsqu'elle est découverte.
+Carica il codice sulla scheda di sviluppo, apri il monitor seriale e verifica se il suo valore diminuisce quando copri la fotoresistenza. Tuttavia, il valore aumenta quando è scoperta.
 
 ![](./media/image-20250902174159923.png)
 
-**Explication du code**
+**Spiegazione del codice**
 
-**analogRead(sensorPin) :** lire la valeur analogique de la photorésistance via les ports analogiques.
+**analogRead(sensorPin):** leggi il valore analogico della fotoresistenza tramite le porte analogiche.
 
-**Serial.begin(9600) :** initialiser le port série, la vitesse de transmission en bauds de la communication série est 9600.
+**Serial.begin(9600):** Inizializza la porta seriale, la velocità di trasmissione della comunicazione seriale è 9600.
 
-**Serial.println :** le port série affiche et fait un retour à la ligne.
+**Serial.println:** La porta seriale stampa e va a capo.
 
-**Pratique d'extension**
+**Pratica di estensione**
 
-Nous avons appris à lire la valeur de la photorésistance. Combinons maintenant la photorésistance avec une LED et observons l'état de la LED.
+Abbiamo imparato come leggere il valore della fotoresistenza. Combiniamo la fotoresistenza con un LED e osserviamo lo stato del LED.
 
 ![](./media/image-20250902174256941.png)
 
-La PWM contrôle la luminosité, donc la LED est reliée aux broches PWM. Connectez la LED à la broche 10, gardez la broche de la photorésistance inchangée, puis concevez le code :
+PWM limita la luminosità, quindi il LED è collegato ai pin PWM. Collega il LED al pin 10, mantieni il pin della fotoresistenza invariato, quindi progetta il codice:
 
 ```c
 /*keyestudio Mini Tank Robot V2.1
-leçon 3.2
-photocellule - sortie analogique
+lezione 3.2
+fotocellula-uscita analogica
 http://www.keyestudio.com
 */
-int analogInPin = A1;  // broche d'entrée analogique à laquelle la photocellule est connectée
-int analogOutPin = 10; // broche de sortie analogique à laquelle la LED est connectée
-int sensorValue = 0;        // valeur lue du capteur
-int outputValue = 0;        // valeur envoyée à la PWM (sortie analogique)
+int analogInPin = A1;  // pin di ingresso analogico a cui è collegata la fotocellula
+int analogOutPin = 10; // pin di uscita analogica a cui è collegato il LED
+int sensorValue = 0;        // valore letto dal potenziometro
+int outputValue = 0;        // valore in uscita al PWM (uscita analogica)
 
 void setup() 
 {
@@ -99,18 +99,18 @@ void setup()
  }
 void loop() 
 {
-  // lire la valeur d'entrée analogique :
+  // leggi il valore di ingresso analogico:
   sensorValue = analogRead(analogInPin);
-  // la mapper à la plage de la sortie analogique :
+  // mappalo nell'intervallo dell'uscita analogica:
   outputValue = map(sensorValue, 0, 1023, 0, 255);
-  // modifier la valeur de sortie analogique :
+  // cambia il valore di uscita analogica:
   analogWrite(analogOutPin, outputValue);
-  // attendre 2 millisecondes avant la boucle suivante pour que le convertisseur
-  // analogique-numérique se stabilise après la dernière lecture :
- Serial.println(sensorValue);  // le port série affiche la valeur de la photorésistance
+  // attendi 2 millisecondi prima del prossimo ciclo affinché il convertitore
+  // analogico-digitale si stabilizzi dopo l'ultima lettura:
+ Serial.println(sensorValue);  // la porta seriale stampa il valore della fotoresistenza
  delay(2);
 }
 //***************************************************************
 ```
 
-Téléchargez le code et appuyez dessus avec votre main pour observer la luminosité de la LED.
+Carica il codice, premi con la mano per osservare la luminosità del LED.

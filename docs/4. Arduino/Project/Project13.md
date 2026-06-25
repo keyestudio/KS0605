@@ -1,58 +1,58 @@
-# Projet 13 Robot Tank Télécommandé IR
+# Progetto 13 Robot Carro Controllato da Telecomando IR
 
 ![](media/image-20250908172649810.png)
 
-**Description**
+**Descrizione**
 
-La télécommande infrarouge est l'un des systèmes de contrôle les plus omniprésents, utilisé dans les téléviseurs, les ventilateurs électriques et certains appareils électroménagers. Dans ce projet, nous allons créer une voiture intelligente télécommandée par infrarouge. Puisque nous connaissons chaque valeur de touche sur la télécommande IR, nous pouvons contrôler la voiture intelligente et afficher les motifs sur la matrice de points en fonction de la valeur de touche correspondante.
+Il controllo remoto a infrarossi è uno dei controlli più diffusi, applicato in televisori, ventilatori elettrici e alcuni elettrodomestici. In questo progetto, realizzeremo un'auto intelligente controllata da telecomando IR. Poiché conosciamo ogni valore di tasto sul telecomando IR, potremmo controllare l'auto intelligente e visualizzare i modelli sulla matrice di punti tramite il valore di tasto corrispondente.
 
-**La logique spécifique du robot télécommandé infrarouge est présentée ci-dessous :**
+**La logica specifica del robot controllato da telecomando a infrarossi è mostrata di seguito:**
 
-| Configuration initiale                 | Angle du servo 90°                      |                                     |
+| Configurazione iniziale                | Angolo servo 90°                        |                                     |
 | -------------------------------------- | --------------------------------------- | ----------------------------------- |
-|                                        | Le panneau matrice LED 8X16 affiche une icône "V" |                                     |
-| **Télécommande**                       | **Valeur de touche**                    | **État de la touche**               |
-| ![](media/image-20250908172904905.png) | FF629D                                  | Avancer（PWM réglé à 200）          |
-|                                        |                                         | Le panneau LED 8X16 affiche l'icône avant |
-| ![](media/image-20250908172927504.png) | FFA857                                  | Reculer（PWM réglé à 200）          |
-|                                        |                                         | Le panneau LED 8X16 affiche l'icône arrière |
-| ![](media/image-20250908172954542.png) | FF22DD                                  | Tourner à gauche                    |
-|                                        |                                         | Le panneau LED 8X16 affiche l'icône vers la gauche |
-| ![](media/image-20250908173027144.png) | FFC23D                                  | Tourner à droite                    |
-|                                        |                                         | Le panneau LED 8X16 affiche l'icône vers la droite |
-| ![](media/image-20250908173139888.png) | FF02FD                                  | Arrêter                             |
-|                                        |                                         | Le panneau LED 8X16 affiche "STOP" |
-| ![](media/image-20250908173312378.png) | FF30CF                                  | Rotation vers la gauche（PWM réglé à 200） |
-|                                        |                                         | Le panneau LED 8X16 affiche l'icône vers la gauche |
-| ![](media/image-20250908173336232.png) | FF7A85                                  | Rotation vers la droite（PWM réglé à 200） |
-|                                        |                                         | Le panneau LED 8X16 affiche l'icône vers la droite |
+|                                        | Pannello matrice LED 8X16 mostra l'icona "V" |                                     |
+| **Telecomando**                        | **Valore tasto**                        | **Stato tasto**                     |
+| ![](media/image-20250908172904905.png) | FF629D                                  | Vai avanti (PWM impostato a 200)     |
+|                                        |                                         | Pannello LED 8X16 mostra icona avanti |
+| ![](media/image-20250908172927504.png) | FFA857                                  | Vai indietro (PWM impostato a 200)   |
+|                                        |                                         | Pannello LED 8X16 mostra icona indietro |
+| ![](media/image-20250908172954542.png) | FF22DD                                  | Gira a sinistra                     |
+|                                        |                                         | Pannello LED 8X16 mostra icona sinistra |
+| ![](media/image-20250908173027144.png) | FFC23D                                  | Gira a destra                       |
+|                                        |                                         | Pannello LED 8X16 mostra icona destra |
+| ![](media/image-20250908173139888.png) | FF02FD                                  | Ferma                               |
+|                                        |                                         | Pannello LED 8X16 mostra "STOP"     |
+| ![](media/image-20250908173312378.png) | FF30CF                                  | Ruota a sinistra (PWM impostato a 200) |
+|                                        |                                         | Pannello LED 8X16 mostra icona sinistra |
+| ![](media/image-20250908173336232.png) | FF7A85                                  | Ruota a destra (PWM impostato a 200) |
+|                                        |                                         | Pannello LED 8X16 mostra icona destra |
 
- **Organigramme**
+**Diagramma di flusso**
 
 ![](media/image-20250908173443316.png)
 
-**Schéma de connexion**
+**Diagramma di collegamento**
 
 ![](media/image-20250908173458023.png)
 
-Attention : GND, VCC, SDA, SCL du panneau LED 8x16 sont respectivement connectés à -（GND), +（VCC), SDA, SCL. Et "-", "+" et S du module récepteur IR sont attachés à G（GND), V（VCC) et A0 sur le bouclier capteur. En cas de ports numériques insuffisants, les ports analogiques peuvent être traités comme des ports numériques. A0 équivaut à la broche numérique 14, A1 est comme la broche numérique 15.
+Attenzione: GND, VCC, SDA, SCL del pannello LED 8x16 sono rispettivamente collegati con - (GND), + (VCC), SDA, SCL. E "-", "+" e S del modulo ricevitore IR sono collegati a G (GND), V (VCC) e A0 sulla scheda sensore. Nel caso di porte digitali insufficienti, le porte analogiche possono essere utilizzate come porte digitali. A0 corrisponde al digitale 14, A1 corrisponde al digitale 15.
 
-**Code de test**
+**Codice di prova**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- leçon 13
- Robot tank télécommandé IR
+ lezione 13
+ Carro controllato da telecomando IR
  http://www.keyestudio.com
 */
 
 #include <IRremoteTank.h>
-IRrecv irrecv(A0);  // définir IRrecv irrecv à A0
+IRrecv irrecv(A0);  //imposta IRrecv irrecv su A0
 decode_results results;
-long ir_rec;  // sauvegarder la valeur IR reçue
+long ir_rec;  //salva il valore IR ricevuto
 
-// Tableau, utilisé pour stocker les données du motif, peut être calculé par vous-même ou obtenu à partir de l'outil de modulus
+//Array, utilizzato per memorizzare i dati del modello, può essere calcolato da te o ottenuto dallo strumento modulo
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -60,20 +60,20 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  // Définir la broche d'horloge à A5
-#define SDA_Pin  A4  // Définir la broche de données à A4
+#define SCL_Pin  A5  //Imposta il pin di clock su A5
+#define SDA_Pin  A4  //Imposta il pin dati su A4
 
-#define ML_Ctrl 13  // définir la broche de contrôle de direction du moteur gauche
-#define ML_PWM 11   // définir la broche de contrôle PWM du moteur gauche
-#define MR_Ctrl 12  // définir la broche de contrôle de direction du moteur droit
-#define MR_PWM 3    // définir la broche de contrôle PWM du moteur droit
+#define ML_Ctrl 13  //definisci il pin di controllo della direzione del motore sinistro
+#define ML_PWM 11   //definisci il pin di controllo PWM del motore sinistro
+#define MR_Ctrl 12  //definisci il pin di controllo della direzione del motore destro
+#define MR_PWM 3    //definisci il pin di controllo PWM del motore destro
 
-#define servoPin 9 // broche du servo
-int pulsewidth; // sauvegarder la valeur de largeur d'impulsion du servo
+#define servoPin 9 //pin del servo
+int pulsewidth; //salva il valore della larghezza dell'impulso del servo
 
 void setup(){
   Serial.begin(9600);
-  irrecv.enableIRIn();  // Initialiser la bibliothèque de réception IR
+  irrecv.enableIRIn();  //Inizializza la libreria di ricezione IR
   
   pinMode(ML_Ctrl, OUTPUT);
   pinMode(ML_PWM, OUTPUT);
@@ -82,15 +82,15 @@ void setup(){
   
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear); // Effacer l'écran
-  matrix_display(start01);  // afficher l'image de démarrage
+  matrix_display(clear); //Pulisci lo schermo
+  matrix_display(start01);  //mostra l'immagine di avvio
   
   pinMode(servoPin, OUTPUT);
-  procedure(90);  // Le servo tourne à 90°
+  procedure(90);  //Il servo ruota a 90°
 }
 
 void loop(){
-  if (irrecv.decode(&results)) // recevoir la valeur de la télécommande IR
+  if (irrecv.decode(&results)) //ricevi il valore del telecomando IR
   {
     ir_rec=results.value;
     String type="UNKNOWN";
@@ -103,43 +103,43 @@ void loop(){
     irrecv.resume();
   }
   
-  if (ir_rec == 0xFF629D) // Avancer
+  if (ir_rec == 0xFF629D) //Vai avanti
   {
     Car_front();
-    matrix_display(front);  // Afficher l'image avant
+    matrix_display(front);  //Visualizza immagine avanti
   }
-  if (ir_rec == 0xFFA857)  // La voiture robot recule
+  if (ir_rec == 0xFFA857)  //Il carro robot va indietro
   {
     Car_back();
-    matrix_display(front);  // Reculer
+    matrix_display(front);  //Vai indietro
   }
-  if (ir_rec == 0xFF22DD)   // La voiture robot tourne à gauche
+  if (ir_rec == 0xFF22DD)   //Il carro robot gira a sinistra
   {
     Car_T_left();
-    matrix_display(left);  // Afficher l'image de virage à gauche
+    matrix_display(left);  //Visualizza immagine di svolta a sinistra
   }
-  if (ir_rec == 0xFFC23D)   // La voiture robot tourne à droite
+  if (ir_rec == 0xFFC23D)   //Il carro robot gira a destra
   {
     Car_T_right();
-    matrix_display(right);  // Afficher l'image de virage à droite
+    matrix_display(right);  //Visualizza immagine di svolta a destra
   }
-  if (ir_rec == 0xFF02FD)   // La voiture robot s'arrête
+  if (ir_rec == 0xFF02FD)   //Il carro robot si ferma
   { 
     Car_Stop();
-    matrix_display(STOP01);  // afficher l'image d'arrêt
+    matrix_display(STOP01);  //mostra immagine di arresto
   }
-  if (ir_rec == 0xFF30CF)   // la voiture robot tourne dans le sens antihoraire
+  if (ir_rec == 0xFF30CF)   //il carro robot ruota in senso antiorario
   {
     Car_left();
-    matrix_display(left);  // afficher l'image de rotation dans le sens antihoraire
+    matrix_display(left);  //mostra immagine di rotazione antioraria
   }
-  if (ir_rec == 0xFF7A85)  // la voiture robot tourne dans le sens horaire
+  if (ir_rec == 0xFF7A85)  //il carro robot ruota in senso orario
   {
     Car_right();
-    matrix_display(right);  // afficher l'image de rotation dans le sens horaire
+    matrix_display(right);  //mostra immagine di rotazione oraria
  }
 }
-/******************Contrôle du servo*******************/
+/******************Controllo Servo*******************/
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -150,24 +150,24 @@ void procedure(int myangle) {
   }
 }
 
-/******************Matrice de points****************/
-// cette fonction est utilisée pour l'affichage de la matrice de points
+/******************Matrice di punti****************/
+// questa funzione è utilizzata per la visualizzazione della matrice di punti
 void matrix_display(unsigned char matrix_value[])
 {
   IIC_start();
-  IIC_send(0xc0);  // Choisir l'adresse
-   for(int i = 0;i < 16;i++) // L'image a 16 bits
+  IIC_send(0xc0);  //Scegli indirizzo
+   for(int i = 0;i < 16;i++) //L'immagine ha 16 bit
   {
-     IIC_send(matrix_value[i]); // données pour transmettre les motifs
+     IIC_send(matrix_value[i]); //dati per trasmettere modelli
   }
-  IIC_end();   // fin de la transmission du motif de données
+  IIC_end();   //termina la trasmissione del modello dati
   
   IIC_start();
-  IIC_send(0x8A);  // contrôle d'affichage, définir la largeur d'impulsion à 4/16
+  IIC_send(0x8A);  //controllo visualizzazione, imposta larghezza impulso a 4/16
   IIC_end();
 }
 
-// La condition pour commencer à transmettre les données
+//La condizione per iniziare la trasmissione dati
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -180,11 +180,11 @@ void IIC_start()
 
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  // Chaque octet a 8 bits, 8 bits pour chaque caractère
+  for(char i = 0;i < 8;i++)  //Ogni byte ha 8 bit, 8 bit per ogni carattere
   {
-      digitalWrite(SCL_Pin,LOW);  // abaisser la broche d'horloge SCL Pin pour changer les signaux de SDA      
+      digitalWrite(SCL_Pin,LOW);  //abbassa il pin di clock SCL per cambiare i segnali di SDA      
       delayMicroseconds(3);
-      if(send_data & 0x01)  // définir le niveau haut et bas de SDA_Pin selon 1 ou 0 de chaque bit
+      if(send_data & 0x01)  //imposta il livello alto e basso di SDA_Pin secondo 1 o 0 di ogni bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -193,12 +193,12 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); // relever la broche d'horloge SCL_Pin pour arrêter la transmission de données
+      digitalWrite(SCL_Pin,HIGH); //alza il pin di clock SCL_Pin per interrompere la trasmissione dati
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // détecter bit par bit, donc décaler les données vers la droite d'un
+      send_data = send_data >> 1;  //rileva bit per bit, quindi sposta i dati a destra di uno
   }
 }
-// Le signe que la transmission de données se termine
+//Il segno che la trasmissione dati è terminata
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -210,7 +210,7 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/***************la fonction pour faire fonctionner le moteur***************/
+/***************la funzione per eseguire il motore***************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -263,6 +263,6 @@ void Car_T_right()
  //****************************************************************
 ```
 
-**Résultat du test**
+**Risultato della prova**
 
-Après avoir téléchargé le code avec succès et mis sous tension, le robot intelligent peut être contrôlé par la télécommande IR. En même temps, le motif correspondant s'affiche sur le panneau LED 8X16.
+Carica il codice con successo e accendi il robot intelligente, che può essere controllato dal telecomando IR. Allo stesso tempo, il modello corrispondente viene visualizzato sul pannello LED 8X16.

@@ -1,44 +1,44 @@
-# 3. Installation des pilotes
+# 3. Installazione del driver
 
-> Pour l'installation des pilotes, vous pouvez ignorer cette étape initialement, car les pilotes s'installent généralement automatiquement lorsque la carte de développement est connectée à votre ordinateur. Si la carte n'est pas reconnue après la connexion, reportez-vous à cette section pour installer les pilotes.
+> Per l'installazione del driver, è possibile saltare questo passaggio inizialmente, poiché i driver in genere si installano automaticamente quando la scheda di sviluppo è collegata al computer. Se la scheda non viene riconosciuta dopo il collegamento, fare riferimento a questa sezione per installare i driver.
 
-## 3.1 Système Windows
+## 3.1 Sistema Windows
 
-**Vérification du pilote**
+**Verifica del driver**
 
-1. Connectez la carte mère à l'ordinateur.
+1. Collegare la scheda madre al computer.
 
 ![](./media/1.jpg)
 
-2. Ouvrez le Gestionnaire des périphériques. Si l'invite **"Silicon Labs CP210x USB to UART Bridge (COMx)"** apparaît, cela prouve que le pilote a été installé. Veuillez ignorer la partie **"Installation du pilote"**.
+2. Aprire Gestione dispositivi. Se viene visualizzato il messaggio **"Silicon Labs CP210x USB to UART Bridge (COMx)"**, ciò prova che il driver è stato installato; saltare la parte **"Installazione del driver"**.
 
 ![](./media/Animation.gif)
 
-**Installation manuelle du pilote**
+**Installazione manuale del driver**
 
-1. Téléchargement du pilote
+1. Download del driver
 
-- Système Windows : [Pilote du système Windows](./Windows.7z)
+- Sistema Windows: [Driver per sistema Windows](./Windows.7z)
 
-2. Connectez la carte mère à l'ordinateur, ouvrez le Gestionnaire des périphériques. S'il y a un point d'exclamation jaune devant le pilote dans l'image, cela prouve que le pilote n'est pas installé. Veuillez télécharger et installer le pilote manuellement.
+2. Collegare la scheda madre al computer e aprire Gestione dispositivi. Se è presente un punto esclamativo giallo davanti al driver nell'immagine, ciò prova che il driver non è installato; scaricare il driver e installarlo manualmente.
 
 ![](./media/Animation-1750921346712-3.gif)
 
-## 3.2 Système MAC
+## 3.2 Sistema MAC
 
-**1 Vérification du pilote**
+**1 Verifica del driver**
 
-Connectez la carte de développement à l'ordinateur, selon [Outils] ---> [Port] pour sélectionner le port de la carte de développement (Remarque : Si vous ne pouvez pas confirmer quel port est la carte de développement, veuillez connecter la carte mère et prendre des photos pour enregistrer tous les ports, puis débranchez la carte de développement et reprenez des photos pour enregistrer tous les ports, puis comparez pour trouver les ports disparus. Le port disparu est le port de la carte. Sélectionnez ensuite le port). Si vous ne pouvez pas reconnaître le port, veuillez remplacer le port USB de l'ordinateur ou essayer un autre câble pour reconnaître le port. Si cela ne fonctionne toujours pas, reportez-vous aux étapes suivantes pour installer le pilote.
+Collegare la scheda di sviluppo al computer e, secondo [Strumenti] ---> [Porta], selezionare la porta della scheda di sviluppo (Nota: Se non è possibile confermare quale porta è la scheda di sviluppo, collegare la scheda madre e scattare foto per registrare tutte le porte, quindi scollegare la scheda di sviluppo e scattare di nuovo foto per registrare tutte le porte, quindi confrontare per trovare le porte scomparse. La porta scomparsa è la porta della scheda; selezionare la porta di conseguenza). Se la porta non viene riconosciuta, provare a sostituire la porta USB del computer o il cavo intorno al telefono per riconoscere di nuovo la porta. Se ancora non funziona, fare riferimento ai seguenti passaggi per installare il driver.
 
 ![](./media/20250626154343.png)
 
-**2 Installation manuelle du pilote**
+**2 Installazione manuale del driver**
 
-1. Téléchargement du pilote
+1. Download del driver
 
-​       Système Mac : [Pilote du système Mac](./Mac.7z)
+​       Sistema Mac: [Driver per sistema Mac](./Mac.7z)
 
-2. Double-cliquez pour décompresser le package zip du pilote téléchargé
+2. Fare doppio clic per decomprimere il pacchetto zip del driver scaricato
 
 ![](./media/image-20250417083615847-1749262759458-8.png)
 
@@ -46,16 +46,16 @@ Connectez la carte de développement à l'ordinateur, selon [Outils] ---> [Port]
 
 ![](./media/image-20250417083918581-1749262759458-5.png)
 
-3. Après cela, continuez à cliquer sur **"Suivant"** jusqu'à ce que l'installation soit terminée
+3. Successivamente, continuare a fare clic su **"Avanti"** fino al completamento dell'installazione
 
 ![](./media/7cca827fe946096f228797dadce10661.png)
 
-À ce stade, le port peut être reconnu en branchant à nouveau la carte.
+A questo punto, la porta può essere riconosciuta collegando di nuovo la scheda.
 
-4. Ensuite, allez dans l'Arduino IDE, cliquez sur "Outils", sélectionnez la carte Arduino Uno et le port de la carte de développement reconnu.
+4. Quindi andare all'IDE Arduino, fare clic su "Strumenti", selezionare la scheda Arduino Uno e la porta della scheda di sviluppo riconosciuta.
 
 ![](./media/2.png)
 
-5. Cliquez sur ![image-20250417085312966](./media/image-20250417085312966-1749262759459-18.png) pour télécharger le code et afficher "Téléchargement terminé".
+5. Fare clic su ![image-20250417085312966](./media/image-20250417085312966-1749262759459-18.png) per caricare il codice e visualizzare "Caricamento completato".
 
 ![](./media/3.png)

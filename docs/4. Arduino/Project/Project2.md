@@ -1,89 +1,89 @@
-# Projet 2 Ajuster la luminosité de la LED
+# Progetto 2 Regolare la Luminosità del LED
 
-**(1) Description**
+**(1) Descrizione**
 
-Dans la leçon précédente, nous avons contrôlé l'allumage et l'extinction de la LED et l'avons fait clignoter.
+Nella lezione precedente, abbiamo controllato l'accensione e lo spegnimento del LED e lo abbiamo fatto lampeggiare.
 
-Dans ce projet, nous contrôlerons la luminosité de la LED via PWM pour simuler des effets de respiration. De même, vous pouvez modifier la longueur des étapes et le temps de délai dans le code pour démontrer différents effets de respiration.
+In questo progetto, controlleremo la luminosità del LED attraverso PWM per simulare effetti di respirazione. Allo stesso modo, puoi modificare la lunghezza del passo e il tempo di ritardo nel codice per dimostrare diversi effetti di respirazione.
 
-PWM est un moyen de contrôler la sortie analogique par des moyens numériques. Le contrôle numérique est utilisé pour générer des ondes carrées avec différents rapports cycliques (un signal qui bascule constamment entre les niveaux haut et bas) pour contrôler la sortie analogique. En général, les tensions d'entrée des ports sont 0V et 5V. Que se passe-t-il si 3V est requis ? Ou un commutateur entre 1V, 3V et 3,5V ? Nous ne pouvons pas changer constamment les résistances. Pour cette raison, nous recourons à PWM.
+PWM è un mezzo per controllare l'uscita analogica attraverso mezzi digitali. Il controllo digitale viene utilizzato per generare onde quadre con diversi cicli di lavoro (un segnale che commuta costantemente tra livelli alti e bassi) per controllare l'uscita analogica. In generale, le tensioni di ingresso delle porte sono 0V e 5V. Cosa succede se è richiesto 3V? O un passaggio tra 1V, 3V e 3,5V? Non possiamo cambiare costantemente i resistori. Per questo motivo, ricorriamo a PWM.
 
 ![](./media/bbcfcb9ae56abb7e80ee587246fc4be9.GIF)
 
-Pour la sortie de tension du port numérique Arduino, il n'y a que LOW et HIGH, qui correspondent aux sorties de tension de 0V et 5V. Vous pouvez définir LOW comme 0 et HIGH comme 1, et laisser Arduino générer cinq cents signaux 0 ou 1 en 1 seconde.
+Per l'uscita di tensione della porta digitale Arduino, ci sono solo LOW e HIGH, che corrispondono all'uscita di tensione di 0V e 5V. Puoi definire LOW come 0 e HIGH come 1, e far sì che Arduino emetta cinquecento segnali 0 o 1 entro 1 secondo.
 
-Si vous générez cinq cents 1, c'est 5V ; si tous sont 1, c'est 0V. Si vous générez 010101010101 de cette façon, le port de sortie est 2,5V, ce qui est comme regarder un film. Les films que nous regardons ne sont pas complètement continus. Il génère en fait 25 images par seconde. Dans ce cas, l'humain ne peut pas le remarquer, pas plus que PWM. Si vous voulez une tension différente, vous devez contrôler le rapport de 0 et 1. Plus vous générez de signaux 0 et 1 par unité de temps, plus vous contrôlez avec précision.
+Se emetti cinquecento 1, cioè 5V; se tutti sono 1, cioè 0V. Se emetti 010101010101 in questo modo, la porta di uscita è 2,5V, il che è come guardare un film. I film che guardiamo non sono completamente continui. In realtà emette 25 fotogrammi al secondo. In questo caso, l'uomo non può accorgersene, né PWM. Se vuoi una tensione diversa, devi controllare il rapporto tra 0 e 1. Più segnali 0 e 1 emetti per unità di tempo, più accuratamente puoi controllare.
 
-**(2) Spécifications**
+**(2) Specifiche**
 
-- Interface de contrôle : port numérique
-- Tension de fonctionnement : DC 3,3-5V
-- Espacement des broches : 2,54mm
-- Couleur d'affichage : rouge
+- Interfaccia di controllo: porta digitale
+- Tensione di lavoro: CC 3,3-5V
+- Spaziatura dei pin: 2,54 mm
+- Colore di visualizzazione: rosso
 
-**(3) Composants**
+**(3) Componenti**
 
 ![](./media/image-20250902170952089.png)
 
- **(4) Schéma de connexion**
+ **(4) Diagramma di Collegamento**
 
 ![](./media/image-20250902171013917.png)
 
- **(5) Code de test**
+ **(5) Codice di Test**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- leçon 2.2
+ lezione 2.2
  pwm-slow
  http://www.keyestudio.com
 */
-int ledPin = 10; // Définir la broche LED à D10
+int ledPin = 10; // Definire il pin del LED a D10
 int value;
 
 void setup () 
 {
-	pinMode (ledPin, OUTPUT); // initialiser ledpin comme sortie.
+	pinMode (ledPin, OUTPUT); // inizializzare ledpin come uscita.
 }
 
 void loop () 
 {
     for (value = 0; value <255; value = value + 1)
     {
-        analogWrite (ledPin, value); // La LED s'allume progressivement
-        delay (30); // délai 30MS
+        analogWrite (ledPin, value); // Il LED si illumina gradualmente
+        delay (30); // ritardo 30MS
     }
     for (value = 255; value> 0; value = value-1)
     {
-        analogWrite (ledPin, value); // La LED s'éteint progressivement
-        delay (30); // délai 30MS
+        analogWrite (ledPin, value); // Il LED si spegne gradualmente
+        delay (30); // ritardo 30MS
 	}
 }
 ```
 
-**Résultat du test**
+**Risultato del Test**
 
-Après avoir téléchargé le code de test avec succès, la LED change progressivement de lumineux à sombre, comme la respiration humaine, plutôt que de s'allumer et s'éteindre immédiatement.
+Dopo aver caricato il codice di test con successo, il LED cambia gradualmente da luminoso a scuro, come il respiro umano, piuttosto che accendersi e spegnersi immediatamente.
 
-**Explication du code**
+**Spiegazione del Codice**
 
-Lorsque nous devons répéter certaines instructions, nous pouvons utiliser l'instruction FOR.
+Quando abbiamo bisogno di ripetere alcune istruzioni, possiamo usare l'istruzione FOR.
 
-Le format de l'instruction FOR est montré ci-dessous :
+Il formato dell'istruzione FOR è mostrato di seguito:
 
 ![](./media/image-20250902171421873.png)
 
-OU séquence cyclique :
+O sequenza ciclica:
 
-Tour 1 : 1 → 2 → 3 → 4
+Giro 1：1 → 2 → 3 → 4
 
-Tour 2 : 2 → 3 → 4
+Giro 2：2 → 3 → 4
 
 …
 
-Jusqu'à ce que le numéro 2 ne soit pas établi, la boucle « for » est terminée,
+Fino a quando il numero 2 non è stabilito, il ciclo "for" è finito,
 
-Après avoir connu cet ordre, revenez au code :
+Dopo aver compreso questo ordine, torna al codice:
 
 **for (int value = 0; value < 255; value=value+1){**
 
@@ -97,28 +97,28 @@ Après avoir connu cet ordre, revenez au code :
 
 **}**
 
-Les deux instructions « for » font augmenter la valeur de 0 à 255, puis diminuer de 255 à 0, puis augmenter à 255, .... boucle infinie.
+Le due istruzioni "for" fanno aumentare il valore da 0 a 255, poi diminuire da 255 a 0, poi aumentare a 255, .... ciclo infinito.
 
-Il y a une nouvelle fonction dans ce qui suit ----- analogWrite()
+C'è una nuova funzione di seguito ----- analogWrite()
 
-Nous savons que le port numérique n'a que deux états : 0 et 1. Alors comment envoyer une valeur analogique à une valeur numérique ? Ici, cette fonction est nécessaire. Observons la carte Arduino et trouvons 6 broches marquées « \~ » qui peuvent générer des signaux PWM.
+Sappiamo che la porta digitale ha solo due stati: 0 e 1. Allora come inviare un valore analogico a un valore digitale? Qui, questa funzione è necessaria. Osserviamo la scheda Arduino e troviamo 6 pin contrassegnati con "\~" che possono emettere segnali PWM.
 
-**Le format de la fonction est le suivant :**
+**Il formato della funzione è il seguente:**
 
 **analogWrite(pin,value)**
 
-analogWrite() est utilisé pour écrire une valeur analogique de 0 à 255 pour le port PWM, donc la valeur est dans la plage de 0 à 255. Attention, vous ne devez écrire que les broches numériques avec la fonction PWM, telles que les broches 3, 5, 6, 9, 10, 11.
+analogWrite() viene utilizzato per scrivere un valore analogico da 0\~255 per la porta PWM, quindi il valore è nell'intervallo 0\~255. Presta attenzione a scrivere solo i pin digitali con funzione PWM, come i pin 3, 5, 6, 9, 10, 11.
 
-PWM est une technologie pour obtenir une quantité analogique par une méthode numérique. Le contrôle numérique forme une onde carrée, et le signal d'onde carrée n'a que deux états : l'activation et la désactivation (c'est-à-dire les niveaux haut ou bas). En contrôlant le rapport de la durée d'activation et de désactivation, une tension variant de 0 à 5V peut être simulée. Le temps d'activation (académiquement appelé niveau haut) s'appelle largeur d'impulsion, donc PWM s'appelle aussi modulation de largeur d'impulsion.
+PWM è una tecnologia per ottenere una quantità analogica attraverso un metodo digitale. Il controllo digitale forma un'onda quadra, e il segnale dell'onda quadra ha solo due stati di accensione e spegnimento (cioè, livelli alti o bassi). Controllando il rapporto tra la durata dell'accensione e dello spegnimento, è possibile simulare una tensione che varia da 0 a 5V. Il tempo di accensione (accademicamente denominato livello alto) è chiamato larghezza di impulso, quindi PWM è anche chiamato modulazione della larghezza di impulso.
 
-À travers les cinq ondes carrées suivantes, apprenons-en plus sur PWM.
+Attraverso le seguenti cinque onde quadre, comprendiamo meglio PWM.
 
 ![](./media/image-20250902172304373.png)
 
-Dans la figure ci-dessus, la ligne verte représente une période, et la valeur de analogWrite() correspond à un pourcentage appelé Duty Cycle (rapport cyclique).
+Nella figura precedente, la linea verde rappresenta un periodo, e il valore di analogWrite() corrisponde a una percentuale che è anche chiamata Duty Cycle.
 
-Le rapport cyclique implique que la durée du niveau haut est divisée par la durée du niveau bas dans un cycle. De haut en bas, le rapport cyclique de la première onde carrée est 0% et sa valeur correspondante est 0. La luminosité de la LED est la plus faible, c'est-à-dire l'extinction. Plus le niveau haut dure longtemps, plus la LED est brillante. Par conséquent, le dernier rapport cyclique est 100%, ce qui correspond à 255, la LED est la plus brillante. 25% signifie plus sombre.
+Il ciclo di lavoro implica che la durata del livello alto è divisa per la durata del livello basso in un ciclo. Da cima a fondo, il ciclo di lavoro della prima onda quadra è 0% e il suo valore corrispondente è 0. La luminosità del LED è più bassa, cioè spento. Più a lungo dura il livello alto, più luminoso è il LED. Pertanto, l'ultimo ciclo di lavoro è 100%, che corrisponde a 255, il LED è più luminoso. 25% significa più scuro.
 
-PWM est principalement utilisé pour ajuster la luminosité de la LED ou la vitesse de rotation du moteur.
+PWM è principalmente utilizzato per regolare la luminosità del LED o la velocità di rotazione del motore.
 
-Il joue un rôle vital dans le contrôle de la voiture robot intelligente. Je crois que vous avez hâte d'entrer dans le prochain projet.
+Svolge un ruolo vitale nel controllo dell'auto robot intelligente. Credo che non vedi l'ora di entrare nel prossimo progetto.

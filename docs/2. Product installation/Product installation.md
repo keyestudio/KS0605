@@ -1,49 +1,49 @@
-# 2. Installation du produit
+# 2. Installazione del prodotto
 
-Après avoir vérifié toutes les pièces de ce kit, nous devons assembler le robot tank. Installons la voiture intelligente en conformité avec les instructions suivantes.
+Dopo aver verificato tutti i componenti in questo kit, è necessario montare il robot carro armato. Installiamo l'auto intelligente seguendo le seguenti istruzioni.
 
-## Vidéo d'assemblage
+## Video di assemblaggio
 
-[Télécharger la vidéo](video.7z).
+[Scarica video](video.7z).
 
-> **Remarque :** La vidéo d'assemblage est fournie dans le fichier `video.7z` inclus dans ce package. Veuillez l'extraire pour visualiser `video/KS0605.mp4`.
+> **Nota:** Il video di assemblaggio è fornito nel file `video.7z` incluso in questo pacchetto. Estrarlo per visualizzare `video/KS0605.mp4`.
 
-**Remarque : Retirez le film plastique de la carte en premier lors de l'installation de la voiture intelligente.**
+**Nota: Rimuovere la pellicola di plastica dalla scheda prima di installare l'auto intelligente.**
 
-## Étape 1 : Installer le moteur inférieur
+## Passaggio 1: Installare il motore inferiore
 
-Préparez les pièces comme suit :
+Preparare i seguenti componenti:
 
-- Écrou M4 \* 2
-- Moteur métallique \*2
-- Support métallique \*2
-- Coupleur \*2
-- Pièces de support bleu \*2
-- Vis à six pans creux M4\*12MM \* 2
-- Clé Allen nickelée M1.5 \*1
-- Clé Allen nickelée M3 \*1
-- Clé Allen nickelée M2.5 \*1
-- Vis à six pans creux M3\*8MM \* 4
+- Dado M4 \* 2
+- Motore in metallo \*2
+- Supporto in metallo \*2
+- Accoppiatore \*2
+- Parti di supporto blu \*2
+- Vite a brugola interna M4\*12MM \* 2
+- Chiave esagonale M1.5 nichelata \*1
+- Chiave esagonale M3 nichelata \*1
+- Chiave esagonale M2.5 nichelata \*1
+- Vite a brugola interna M3\*8MM \* 4
 
 ![TK_02](media/TK_02.png)
 
 ![TK_03](media/TK_03.png)
 
-**Conseil : assemblez le moteur de l'autre côté de la même manière.**
+**Suggerimento: assemblare il motore dell'altro lato allo stesso modo.**
 
-## Étape 2 : Installer la roue motrice
+## Passaggio 2: Installare la ruota motrice
 
-Préparez les pièces comme suit :
+Preparare i seguenti componenti:
 
-- Vis à six pans creux M3*8MM \* 2
-- Vis à six pans creux M4\*50MM \* 2
-- Roue de support du tank \* 2
-- Roulement à bride \* 4
-- Rondelle\*2
-- Bande de chenille \*2
-- Écrou autobloquant M4 \* 2
-- Clé Allen nickelée M3 \*1
-- Clé Allen nickelée M2.5 \*1
+- Vite a brugola interna M3*8MM \* 2
+- Vite a brugola interna M4\*50MM \* 2
+- Ruota di supporto del carro armato \* 2
+- Cuscinetto a flangia \* 4
+- Rondella\*2
+- Banda cingolata \*2
+- Dado autobloccante M4 \* 2
+- Chiave esagonale M3 nichelata \*1
+- Chiave esagonale M2.5 nichelata \*1
 
 ![TK_04](media/TK_04.png)
 
@@ -53,27 +53,27 @@ Préparez les pièces comme suit :
 
 ![TK_07](media/TK_07.png)
 
-## Étape 3 : Installer le support de batterie
+## Passaggio 3: Installare il supporto della batteria
 
-Préparez les pièces comme suit :
+Preparare i seguenti componenti:
 
-- Support de batterie \*1
-- Écrou M3 \* 2
-- Support métallique bleu \*2
-- Écrou M4 \*8
-- Vis à tête plate M3\*10MM \* 2
-- Vis à six pans creux M4\*40MM \*4
-- Clé Allen nickelée M2.5 \*1
-- Clé Allen nickelée M3 \*1
-- Vis à six pans creux M3\*25MM \*4
-- Entretoise hexagonale en cuivre M3*45MM *4
-- Tournevis
+- Supporto batteria \*1
+- Dado M3 \* 2
+- Supporto in metallo blu \*2
+- Dado M4 \*8
+- Vite a testa piatta M3\*10MM \* 2
+- Vite a brugola interna M4\*40MM \*4
+- Chiave esagonale M2.5 nichelata\*1
+- Chiave esagonale M3 nichelata \*1
+- Vite a brugola interna M3\*25MM \*4
+- Pilastro in rame esagonale M3*45MM *4
+- Cacciavite
 
 ![TK_08](media/TK_08.png)
 
 ![TK_09](media/TK_09.png)
 
-Déplacez-vous pour fixer le support métallique sur la roue motrice avec quatre vis à six pans creux M4\*40MM et quatre écrous M4 une fois le processus de montage terminé.
+Procedere a fissare il supporto in metallo sulla ruota motrice con quattro viti a brugola interna M4\*40MM e quattro dadi M4 al termine del processo di montaggio.
 
 ![TK_10](media/TK_10.png)
 
@@ -83,22 +83,22 @@ Déplacez-vous pour fixer le support métallique sur la roue motrice avec quatre
 
 ![TK_13](media/TK_13.png)
 
-##  Étape 4 : Monter la carte acrylique et les capteurs
+##  Passaggio 4: Montare la scheda acrilica e i sensori
 
-- Carte acrylique \* 2
-- Support en L noir \*1
-- Capteur photocellule \*2
-- Module récepteur IR \*1
-- Panneau LED 8X16 \*1
-- Écrou M2 \*4
-- Écrou M3 \*10
-- Vis à six pans creux M3\*6MM \* 8
-- Vis à six pans creux M3\*8MM \* 8
-- Clé Allen M2.5 \*1
-- Vis à tête ronde M3\*12MM \*6
-- Entretoise hexagonale en cuivre M3\*10MM \*8
-- Vis à tête ronde M2\*10MM \* 4
-- Tournevis
+- Scheda acrilica \* 2
+- Staffa a forma di L nera \*1
+- Sensore fotocellula \*2
+- Modulo ricevitore IR \*1
+- Pannello LED 8X16 \*1
+- Dado M2 \*4
+- Dado M3 \*10
+- Vite a brugola interna M3\*6MM \* 8
+- Vite a brugola interna M3\*8MM \* 8
+- Chiave esagonale M2.5 \*1
+- Vite a testa rotonda M3\*12MM \*6
+- Boccola in rame esagonale M3\*10MM \*8
+- Vite a testa rotonda M2\*10MM \* 4
+- Cacciavite
 
 ![TK_14](media/TK_14.png)
 
@@ -120,49 +120,49 @@ Déplacez-vous pour fixer le support métallique sur la roue motrice avec quatre
 
 ![TK_23](media/TK_23.png)
 
-## Étape 5 : Installer la plateforme servo
+## Passaggio 5: Installare la piattaforma del servo
 
-Préparez les pièces comme suit :
+Preparare i seguenti componenti:
 
 -   Servo \*1
--   Cardan noir \*1
--   Serre-câble \*2
--   Vis de tôlerie à tête ronde M2x8 \*2
--   Capteur ultrasonique \*1
--   Vis M2\*4 \*1
--   Vis M1.2\*5 \*4
--   Tournevis
+-   Gimbal nero \*1
+-   Fascetta di cablaggio \*2
+-   Vite di battuta a croce con testa rotonda M2x8 \*2
+-   Sensore ultrasonico \*1
+-   Vite M2\*4 \*1
+-   Vite M1.2\*5 \*4
+-   Cacciavite
 
-**Remarque : **pour un débogage pratique, gardez le module ultrasonique droit devant et l'angle du moteur servo à 90°. Par conséquent, nous devons régler le servo à 90° avant d'installer la plateforme servo.
+**Nota: **per un debug conveniente, mantenere il modulo ultrasonico rivolto in avanti e l'angolo del motore servo a 90°. Pertanto, è necessario impostare il servo a 90° prima di installare la piattaforma del servo.
 
-Définissez le code à 90 degrés, copiez le code et téléchargez-le sur la carte de développement. Le servo connecté au port D9 tournera à 90°.
+Impostare il codice a 90 gradi, copiare il codice e caricarlo sulla scheda di sviluppo. L'ingranaggio di sterzo collegato alla porta D9 ruoterà a 90°.
 
-> Pour télécharger le code, vous aurez besoin de l'Arduino IDE. Veuillez d'abord installer l'Arduino IDE en suivant les sections 4.2–4.4. (Téléchargement du logiciel, Configuration d'Arduino IDE et Ajout de bibliothèque)
+> Per caricare il codice, avrai bisogno dell'Arduino IDE. Installa prima l'Arduino IDE seguendo le sezioni 4.2–4.4. (Download del software, Configurazione di Arduino IDE e Aggiunta della libreria)
 
 ```c
-#define servoPin 9 //broche servo
-int pos; //variable d'angle du servo
-int pulsewidth; // variable de largeur d'impulsion du servo
+#define servoPin 9 //pin servo
+int pos; //variabile dell'angolo del servo
+int pulsewidth; // variabile della larghezza dell'impulso del servo
 
 void setup() 
 {
-    pinMode(servoPin, OUTPUT); //définir la broche servo en OUTPUT
-    procedure(0); //définir l'angle du servo à 0°
+    pinMode(servoPin, OUTPUT); //imposta il pin del servo su OUTPUT
+    procedure(0); //imposta l'angolo del servo a 0°
 }
 
 void loop() 
 {
-	procedure(90); // dire au servo d'aller à la position 90°
+	procedure(90); // ordina al servo di andare alla posizione nella variabile 90°
 }
 
-// fonction pour contrôler le servo
+// funzione per controllare il servo
 void procedure(int myangle) 
 {
-    pulsewidth = myangle * 11 + 500; //calculer la valeur de la largeur d'impulsion
+    pulsewidth = myangle * 11 + 500; //calcola il valore della larghezza dell'impulso
     digitalWrite(servoPin,HIGH);
-    delayMicroseconds(pulsewidth); //La durée du niveau haut est la largeur d'impulsion
+    delayMicroseconds(pulsewidth); //La durata del livello alto è la larghezza dell'impulso
     digitalWrite(servoPin,LOW);
-    delay((20 - pulsewidth / 1000)); // le cycle est 20ms, le niveau bas dure le reste du temps
+    delay((20 - pulsewidth / 1000)); // il ciclo è 20ms, il livello basso dura il resto del tempo
 }
 ```
 
@@ -170,23 +170,23 @@ void procedure(int myangle)
 
 ![](media/image-20250902144145590.png)
 
-**Remarque : **Vous pouvez trouver les vis M1.2\*5 à l'intérieur du sac de la plateforme en plastique.
+**Nota: **Puoi trovare le viti M1.2\*5 all'interno della borsa della piattaforma in plastica.
 
 ![TK_25](media/TK_25.png)
 
 ![TK_26](media/TK_26.png)
 
-## Étape 6 : Installer les capteurs et les cartes
+## Passaggio 6: Installare i sensori e le schede
 
-Préparez les pièces comme suit :
+Preparare i seguenti componenti:
 
-- Vis à tête ronde M3\*6MM \*12
-- Bouclier L298P \*1
-- Carte V4.0 \*1
-- Bouclier capteur V5 \*1
-- Tournevis \*1
-- Module Bluetooth \*1
-- Clé Allen nickelée M2.5 \*1
+- Vite a testa rotonda M3\*6MM \*12
+- Scheda L298P \*1
+- Scheda V4.0 \*1
+- Scheda sensore V5 \*1
+- Cacciavite \*1
+- Modulo Bluetooth \*1
+- Chiave esagonale M2.5 nichelata \*1
 
 ![TK_27](media/TK_27.png)
 
@@ -206,7 +206,7 @@ Préparez les pièces comme suit :
 
 
 
-## Étape 7 : Guide de connexion
+## Passaggio 7: Guida ai collegamenti
 
 ![](media/image-20250902144534790.png)
 
@@ -218,7 +218,7 @@ Préparez les pièces comme suit :
 
 ![](media/image-20250902144902221.png)
 
-##  Étape 8 : Câbler le panneau LED
+##  Passaggio 8: Collegare il pannello LED
 
 ![](media/image-20250902145026905.png)
 
@@ -226,7 +226,7 @@ Préparez les pièces comme suit :
 
 ![](media/image-20250902145129382.png)
 
-| Panneau LED                            | Bouclier capteur V5                    |
+| Pannello LED                           | Scheda sensore V5                      |
 | -------------------------------------- | -------------------------------------- |
 | GND                                    | -(GND)                                 |
 | VCC                                    | +(VCC)                                 |
@@ -234,7 +234,7 @@ Préparez les pièces comme suit :
 | SCL                                    | SCL                                    |
 | ![](media/image-20250902145404151.png) | ![](media/image-20250902145414755.png) |
 
-## Étape 9 : Installer toutes les pièces de la plaque acrylique
+## Passaggio 9: Installare tutti i componenti della piastra acrilica
 
 ![](media/image-20250902145506652.png)
 
@@ -262,33 +262,33 @@ Préparez les pièces comme suit :
 
 ![](media/image-20250902150711706.png)
 
-##  Étape 10 : Robot Tank
+##  Passaggio 10: Robot carro armato
 
-**Remarque :** Retirez le module Bluetooth avant de télécharger le code de test. Sinon, vous échouerez à télécharger le code de test.
+**Nota:** Rimuovere il modulo Bluetooth prima di caricare il codice di test. Altrimenti, non riuscirai a caricare il codice di test.
 
 ![](media/image-20250902151034545.png)
 
-**Voiture robot polyvalente**
+**Auto robot multifunzione**
 
 ![](media/image-20250902151133169.png)
 
-  **Description**
+  **Descrizione**
 
-Dans les projets précédents, la voiture tank n'effectue qu'une seule fonction. Cependant, dans cette leçon, nous intégrons toutes ses fonctions pour contrôler la voiture intelligente via le contrôle Bluetooth.
+Nei progetti precedenti, l'auto carro armato esegue una sola funzione. Tuttavia, in questa lezione, integriamo tutte le sue funzioni per controllare l'auto intelligente tramite il controllo Bluetooth.
 
-Voici un simple organigramme de la voiture robot polyvalente pour votre référence.
+Ecco un semplice diagramma di flusso dell'auto robot multifunzione per il vostro riferimento.
 
 ![](media/image-20250902151215210.png)
 
-  **Schéma de connexion**
+  **Diagramma di collegamento**
 
 ![](media/image-20250902151230702.png)
 
-**Attention ：**Confirmez que chaque composant est connecté.
+**Attenzione：**Confermare che ogni componente sia collegato.
 
-Guide de câblage :
+Guida ai collegamenti:
 
-| Panneau LED 8x16 | | Carte d'extension |
+| Pannello LED 8x16 | | Scheda di espansione |
 | -------------- | ---- | --------------- |
 | GND            | →    | -（GND）        |
 | VCC            | →    | +（VCC）        |
@@ -297,7 +297,7 @@ Guide de câblage :
 
 ![](media/image-20250902152539713.png)
 
-| Module ultrasonique |      |        |
+| Modulo ultrasonico |      |        |
 | ----------------- | ---- | ------ |
 | VCC               | →    | 5v(V)  |
 | Trig              | →    | 5(S)   |
@@ -308,29 +308,29 @@ Guide de câblage :
 
 ![](media/image-20250902152906103.png)
 
-| Moteur servo |      |        |
+| Motore servo |      |        |
 | ----------- | ---- | ------ |
-| Moteur servo | →    | Gnd(G) |
-| Fil rouge    | →    | 5v(V)  |
-| Fil orange   | →    | 9      |
+| Motore servo | →    | Gnd(G) |
+| Filo rosso    | →    | 5v(V)  |
+| Filo arancione | →    | 9      |
 
 ![](media/image-20250902154418006.png)
 
 ![](media/image-20250902154820948.png)
 
-| Module Bluetooth                        |      |          |
+| Modulo Bluetooth                        |      |          |
 | --------------------------------------- | ---- | -------- |
 | RXD                                     | →    | TX       |
 | TXD                                     | →    | RX       |
 | GND                                     | →    | -（GND） |
 | VCC                                     |      | +（VCC） |
-| Pas besoin de connecter les broches STATE et BRK |      |          |
+| Non è necessario collegare i pin STATE e BRK |      |          |
 
 ![](media/image-20250902155229663.png)
 
 ![](media/image-20250902155236836.png)
 
-| Module récepteur IR |      | Bouclier capteur |
+| Modulo ricevitore IR |      | Scheda sensore |
 | ------------------ | ---- | ------------- |
 | －                 | →    | G（GND）      |
 | +                  | →    | V（VCC）      |
@@ -340,13 +340,13 @@ Guide de câblage :
 
 ![](media/image-20250902155452133.png)
 
-| Photorésistance gauche  |      | Bouclier capteur |
+| Fotoresistenza sinistra  |      | Scheda sensore |
 | -------------------- | ---- | ------------- |
 | －                   | →    | G（GND）      |
 | ＋                   | →    | V（VCC）      |
 | S                    | →    | A1            |
 |                      |      |               |
-| Photorésistance droite |      | Bouclier capteur |
+| Fotoresistenza destra |      | Scheda sensore |
 | －                   | →    | G（GND）      |
 | ＋                   | →    | V（VCC）      |
 | S                    | →    | A2            |
@@ -355,4 +355,4 @@ Guide de câblage :
 
 ![](media/image-20250902155946213.png)
 
- Installation terminée.
+ Installazione completata.

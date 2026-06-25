@@ -1,97 +1,97 @@
-# Projet 5 Capteur Ultrasonique
+# Progetto 5 Sensore Ultrasonico
 
-**Description**
+**Descrizione**
 
 ![](media/image-20250908154003868.png)
 
-Le capteur ultrasonique HC-SR04 utilise le sonar pour déterminer la distance d'un objet, à la manière des chauves-souris. Il offre une excellente détection de distance sans contact, avec une haute précision et des lectures stables, dans un boîtier facile à utiliser. Il est livré complet avec des modules émetteur et récepteur ultrasoniques.
+Il sensore ultrasonico HC-SR04 utilizza il sonar per determinare la distanza da un oggetto, come fanno i pipistrelli. Offre un eccellente rilevamento della distanza senza contatto con alta precisione e letture stabili in un pacchetto facile da usare. È completo di moduli trasmettitore e ricevitore ultrasonico.
 
-Le HC-SR04 ou capteur ultrasonique est utilisé dans une large gamme de projets électroniques pour créer des applications de détection d'obstacles et de mesure de distance, ainsi que diverses autres applications. Nous présentons ici une méthode simple pour mesurer la distance avec Arduino et un capteur ultrasonique, ainsi que la façon d'utiliser le capteur ultrasonique avec Arduino.
+L'HC-SR04 o il sensore ultrasonico viene utilizzato in un'ampia gamma di progetti elettronici per creare applicazioni di rilevamento degli ostacoli e misurazione della distanza, nonché varie altre applicazioni. Qui abbiamo portato il metodo semplice per misurare la distanza con Arduino e il sensore ultrasonico e come utilizzare il sensore ultrasonico con Arduino.
 
-**Spécifications**
+**Specifiche**
 
 ![](media/image-20250908154036832.png)
 
-- Alimentation : +5V DC
-- Courant de repos : \<2mA
-- Courant de fonctionnement : 15mA
-- Angle effectif : \<15°
-- Distance de mesure : 2cm – 400 cm
-- Résolution : 0.3 cm
-- Angle de mesure : 30 degrés
-- Largeur d'impulsion d'entrée du déclencheur : 10uS
+- Alimentazione: +5V DC
+- Corrente di riposo: <2mA
+- Corrente di lavoro: 15mA
+- Angolo effettivo: <15°
+- Distanza di rilevamento: 2cm – 400 cm
+- Risoluzione: 0,3 cm
+- Angolo di misurazione: 30 gradi
+- Larghezza dell'impulso di ingresso del trigger: 10uS
 
-**Composants**
+**Componenti**
 
 ![](media/image-20250908154147825.png)
 
-**Principe du capteur ultrasonique**
+**Il principio del sensore ultrasonico**
 
-Comme le montre l'image ci-dessus, il ressemble à deux yeux. L'un est l'extrémité émettrice, l'autre est l'extrémité réceptrice.
+Come mostrato nell'immagine sopra, è come due occhi. Uno è l'estremità trasmittente, l'altro è l'estremità ricevente.
 
-Le module ultrasonique émet des ondes ultrasoniques après le déclenchement d'un signal. Lorsque les ondes ultrasoniques rencontrent un objet et sont réfléchies, le module génère un signal d'écho, ce qui lui permet de déterminer la distance de l'objet à partir de la différence de temps entre le signal de déclenchement et le signal d'écho.
+Il modulo ultrasonico emetterà onde ultrasoniche dopo aver ricevuto un segnale di trigger. Quando le onde ultrasoniche incontrano l'oggetto e vengono riflesse, il modulo emette un segnale di eco, quindi può determinare la distanza dell'oggetto dalla differenza di tempo tra il segnale di trigger e il segnale di eco.
 
-Le temps t est le temps que met le signal émis pour rencontrer l'obstacle et revenir. La vitesse de propagation du son dans l'air est d'environ 343m/s, et distance = vitesse \* temps. Cependant, l'onde ultrasonique est émise puis revient, ce qui représente 2 fois la distance. Il faut donc diviser par 2 : la distance mesurée par l'onde ultrasonique = (vitesse \* temps)/2.
+La t è il tempo in cui il segnale emesso incontra l'ostacolo e ritorna. La velocità di propagazione del suono nell'aria è di circa 343m/s, e distanza = velocità * tempo. Tuttavia, l'onda ultrasonica viene emessa e ritorna, il che è 2 volte la distanza. Pertanto, deve essere diviso per 2, la distanza misurata dall'onda ultrasonica = (velocità * tempo)/2.
 
-1. Méthode d'utilisation et chronogramme du module ultrasonique :
+1. Metodo di utilizzo e diagramma temporale del modulo ultrasonico:
 
-2. Régler le délai de la broche Trig du SR04 à au moins 10μs, ce qui permet de déclencher la détection de distance.
-3. Après le déclenchement, le module envoie automatiquement huit impulsions ultrasoniques à 40KHz et détecte si un signal revient. Cette étape est effectuée automatiquement par le module.
-4. Si le signal revient, la broche Echo génère un niveau haut, et la durée de ce niveau haut correspond au temps écoulé entre la transmission de l'onde ultrasonique et son retour.
+2. Impostare il tempo di ritardo del pin Trig dell'SR04 a 10μs almeno, che può attivarlo per rilevare la distanza.
+3. Dopo l'attivazione, il modulo invierà automaticamente otto impulsi ultrasonici a 40KHz e rileverà se c'è un segnale di ritorno. Questo passaggio verrà completato automaticamente dal modulo.
+4. Se il segnale ritorna, il pin Echo emetterà un livello alto, e la durata del livello alto è il tempo dall'emissione dell'onda ultrasonica al ritorno.
 
 ![](media/image-20250908154407063.png)
 
-Schéma du circuit du capteur ultrasonique :
+Diagramma del circuito del sensore ultrasonico:
 
 ![](media/image-20250908154422828.png)
 
-**Schéma de connexion**
+**Diagramma di Collegamento**
 
 ![](media/image-20250908154455132.png)
 
-Guide de câblage :
+Guida al cablaggio:
 
-- Capteur ultrasonique → Bouclier de capteur keyestudio V5
+- Sensore ultrasonico keyestudio V5 shield sensore
 - VCC → 5v(V)
 - Trig → 5(S)
 - Echo → 4(S)
 - Gnd → Gnd(G)
 
-**Code de test**
+**Codice di Test**
 
 ```c
 /*
 keyestudio Mini Tank Robot V2.1
-leçon 5
-Capteur ultrasonique
+lezione 5
+Sensore ultrasonico
 http://www.keyestudio.com
 */
-int trigPin = 5; // Déclencheur
-int echoPin = 4; // Écho
+int trigPin = 5; // Trigger
+int echoPin = 4; // Echo
 long duration, cm, inches;
 
 void setup() 
 {
-    // Initialisation du port série
+    // Inizio porta seriale
     Serial.begin (9600);
-    // Définition des entrées et sorties
+    // Definisci ingressi e uscite
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);
 }
 void loop() 
 {
-    // Le capteur est déclenché par une impulsion HIGH de 10 microsecondes ou plus.
-    // Envoyer une courte impulsion LOW au préalable pour garantir une impulsion HIGH propre :
+    // Il sensore viene attivato da un impulso HIGH di 10 o più microsecondi.
+    // Fornisci un breve impulso LOW in anticipo per garantire un impulso HIGH pulito:
     digitalWrite(trigPin, LOW);
     delayMicroseconds(2);
     digitalWrite(trigPin, HIGH);
     delayMicroseconds(10);
     digitalWrite(trigPin, LOW);
-    // Lire le signal du capteur : une impulsion HIGH dont la durée est le temps (en microsecondes) entre l'envoi du ping et la réception de son écho sur un objet.
+    // Leggi il segnale dal sensore: un impulso HIGH la cui durata è il tempo (in microsecondi) dall'invio del ping alla ricezione del suo eco da un oggetto.
     duration = pulseIn(echoPin, HIGH);
-    // Convertir le temps en distance
-    cm = (duration/2) / 29.1; // Diviser par 29.1 ou multiplier par 0.0343
-    inches = (duration/2) / 74; // Diviser par 74 ou multiplier par 0.0135
+    // Converti il tempo in una distanza
+    cm = (duration/2) / 29.1; // Dividi per 29.1 o moltiplica per 0.0343
+    inches = (duration/2) / 74; // Dividi per 74 o moltiplica per 0.0135
     Serial.print(inches);
     Serial.print("in, ");
     Serial.print(cm);
@@ -101,70 +101,70 @@ void loop()
 }
 ```
 
-**Résultat du test**
+**Risultato del Test**
 
-Téléversez le code de test sur la carte de développement, ouvrez le moniteur série et réglez le débit en bauds sur 9600. La distance détectée s'affiche en cm et en pouces. En plaçant la main devant le capteur ultrasonique, la valeur de distance affichée diminue.
+Carica il codice di test sulla scheda di sviluppo, apri il monitor seriale e imposta la velocità in baud a 9600. La distanza rilevata verrà visualizzata, e l'unità è cm e pollici. Ostacola il sensore ultrasonico con la mano, il valore della distanza visualizzato diventa più piccolo.
 
 ![](media/image-20250908154718663.png)
 
-**Explication du code**
+**Spiegazione del Codice**
 
-**int trigPin = 5 ;** cette broche est définie pour émettre des ondes ultrasoniques, généralement en sortie.
+**int trigPin = 5;** questo pin è definito per trasmettere onde ultrasoniche, generalmente un'uscita.
 
-**int echoPin = 4 ;** cette broche est définie pour la réception, généralement en entrée.
+**int echoPin = 4;** questo è definito come il pin di ricezione, generalmente un ingresso.
 
-**cm = (duration/2) / 29.1 ; inches = (duration/2) / 74 ; par 0.0135**
+**cm = (duration/2) / 29.1; inches = (duration/2) / 74; per 0.0135**
 
-Nous pouvons calculer la distance à l'aide de la formule suivante :
+Possiamo calcolare la distanza utilizzando la seguente formula:
 
-distance = (temps de trajet/2) x vitesse du son
+distanza = (tempo di viaggio/2) x velocità del suono
 
-La vitesse du son est : 343m/s = 0.0343 cm/uS = 1/29.1 cm/uS
+La velocità del suono è: 343m/s = 0.0343 cm/uS = 1/29.1 cm/uS
 
-Ou en pouces : 13503.9in/s = 0.0135in/uS = 1/74in/uS
+O in pollici: 13503.9in/s = 0.0135in/uS = 1/74in/uS
 
-Nous devons diviser le temps de trajet par 2 car il faut tenir compte du fait que l'onde a été envoyée, a frappé l'objet, puis est revenue vers le capteur.
+Dobbiamo dividere il tempo di viaggio per 2 perché dobbiamo tenere conto del fatto che l'onda è stata inviata, ha colpito l'oggetto e poi è ritornata al sensore.
 
-**Pratique avancée :**
+**Pratica di Estensione:**
 
-Nous avons mesuré la distance affichée par l'ultrason. Que diriez-vous de contrôler une LED avec la distance mesurée ? Essayons et connectons un module LED à la broche D10.
+Abbiamo misurato la distanza visualizzata dall'ultrasonico. Che ne dici di controllare il LED con la distanza misurata? Proviamo e colleghiamo un modulo luce LED al pin D10.
 
 ![](media/image-20250908154848028.png)
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- leçon 5
- LED ultrasonique
+ lezione 5
+ Ultrasonico LED
  http://www.keyestudio.com
 */ 
-int trigPin = 5;    // Déclencheur
-int echoPin = 4;    // Écho
+int trigPin = 5;    // Trigger
+int echoPin = 4;    // Echo
 long duration, cm, inches;
 
 void setup() 
 {
-  // Initialisation du port série
+  // Inizio porta seriale
   Serial.begin (9600);
-  // Définition des entrées et sorties
+  // Definisci ingressi e uscite
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 }
 
 void loop() 
 {
-  // Le capteur est déclenché par une impulsion HIGH de 10 microsecondes ou plus.
-  // Envoyer une courte impulsion LOW au préalable pour garantir une impulsion HIGH propre :
+  // Il sensore viene attivato da un impulso HIGH di 10 o più microsecondi.
+  // Fornisci un breve impulso LOW in anticipo per garantire un impulso HIGH pulito:
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  // Lire le signal du capteur : une impulsion HIGH dont la durée est le temps (en microsecondes) entre l'envoi du ping et la réception de son écho sur un objet.
+  // Leggi il segnale dal sensore: un impulso HIGH la cui durata è il tempo (in microsecondi) dall'invio del ping alla ricezione del suo eco da un oggetto.
   duration = pulseIn(echoPin, HIGH);
-  // Convertir le temps en distance
-  cm = (duration/2) / 29.1;     // Diviser par 29.1 ou multiplier par 0.0343
-  inches = (duration/2) / 74;   // Diviser par 74 ou multiplier par 0.0135
+  // Converti il tempo in una distanza
+  cm = (duration/2) / 29.1;     // Dividi per 29.1 o moltiplica per 0.0343
+  inches = (duration/2) / 74;   // Dividi per 74 o moltiplica per 0.0135
   Serial.print(inches);
   Serial.print("in, ");
   Serial.print(cm);
@@ -179,4 +179,4 @@ void loop()
 }
 ```
 
-Téléversez le code de test sur la carte de développement et placez la main devant le capteur ultrasonique, puis vérifiez si la LED s'allume.
+Carica il codice di test sulla scheda di sviluppo e blocca il sensore ultrasonico con la mano, quindi verifica se il LED è acceso.

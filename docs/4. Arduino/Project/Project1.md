@@ -1,109 +1,109 @@
-# Projet 1 LED Clignote
+# Progetto 1 LED Lampeggia
 
 ![](media/image-20250908174750401.png)
 
-**Description**
+**Descrizione**
 
-Pour les débutants et les passionnés, le clignotement LED est un programme fondamental. LED, l'abréviation de diodes électroluminescentes, est composée de composés chimiques Ga, As, P, N, etc. La LED peut clignoter dans diverses couleurs en modifiant le temps de délai dans le code de test. Lors de la commande, en mettant sous tension GND et VCC, la LED s'allume si la broche S est au niveau haut ; néanmoins, elle s'éteindra.
+Per i principianti e gli appassionati, il lampeggio LED è un programma fondamentale. LED, abbreviazione di diodi luminosi, è costituito da composti chimici come Ga, As, P, N e così via. Il LED può lampeggiare in diversi colori alterando il tempo di ritardo nel codice di prova. Quando controllato, alimentando GND e VCC, il LED si accenderà se l'estremità S è a livello alto; tuttavia, si spegnerà.
 
-**Spécification**
+**Specifiche**
 
 ![](./media/image-20250902164418568.png)
 
-- Interface de contrôle : port numérique
-- Tension de fonctionnement : DC 3.3-5V
-- Espacement des broches : 2.54mm
-- Couleur d'affichage LED : rouge
+- Interfaccia di controllo: porta digitale
+- Tensione di lavoro: CC 3,3-5V
+- Spaziatura dei pin: 2,54mm
+- Colore visualizzazione LED: rosso
 
-**Composants**
+**Componenti**
 
 ![](./media/image-20250902164804229.png)
 
-**Bouclier de capteur V5**
+**Scheda Sensori V5**
 
-Il serait fastidieux de combiner les cartes de développement Arduino avec de nombreux capteurs. Cependant, le bouclier de capteur V5, compatible avec la carte de développement Arduino, résout parfaitement ce problème. Il suffit de l'empiler dessus.
+Sarebbe complicato combinare schede di sviluppo Arduino con numerosi sensori. Tuttavia, la scheda sensori V5, compatibile con la scheda di sviluppo Arduino, risolve perfettamente questo problema. Basta impilare la scheda V5 su di essa.
 
-Ce bouclier de capteur peut être inséré dans des modules de capteur 3 broches et expose certaines broches de communication, comme la communication série, IIC et SPI.
+Questa scheda sensori può essere inserita in moduli sensori a 3 pin e mette a disposizione alcuni pin di comunicazione, come comunicazione seriale, IIC e SPI.
 
-**Description des broches**
+**Descrizione dei Pin**
 
 ![](./media/image-20250902165027854.png)
 
-**Schéma de connexion**
+**Diagramma di Collegamento**
 
 ![](./media/image-20250902165110913.png)
 
-Selon le schéma ci-dessus, la LED est connectée à D2.
+Come si vede dal diagramma sopra, il LED è collegato con D2.
 
-**Code de test**
+**Codice di Prova**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- leçon 1.1
- Clignotement
+ lezione 1.1
+ Blink
  http://www.keyestudio.com
 */
 void setup()
 { 
-    pinMode(2, OUTPUT);// initialiser la broche numérique 2 comme sortie.
+    pinMode(2, OUTPUT);// inizializza il pin digitale 2 come output.
 }
 
-void loop() // la fonction loop s'exécute indéfiniment
+void loop() // la funzione loop si esegue ripetutamente all'infinito
 {
-   digitalWrite(2, HIGH); // allumer la LED (HIGH est le niveau de tension)
-   delay(1000); // attendre une seconde
-   digitalWrite(2, LOW); // éteindre la LED en mettant la tension à LOW
-   delay(1000); // attendre une seconde
+   digitalWrite(2, HIGH); // accendi il LED (HIGH è il livello di tensione)
+   delay(1000); // attendi un secondo
+   digitalWrite(2, LOW); // spegni il LED impostando la tensione a LOW
+   delay(1000); // attendi un secondo
 }
 ```
 
-**Résultat du test**
+**Risultato della Prova**
 
-(Il y aura une contradiction concernant la communication série entre le code et le Bluetooth lors du téléchargement du code. Par conséquent, ne connectez pas le module Bluetooth avant de télécharger le code.)
+(Ci sarà una contraddizione sulla comunicazione seriale tra il codice e il Bluetooth durante il caricamento del codice. Pertanto, non collegare il modulo Bluetooth prima di caricare il codice.)
 
-Téléchargez le programme sur la carte de développement, la LED clignote à l'intervalle de 1s.
+Carica il programma sulla scheda di sviluppo, il LED lampeggia a intervalli di 1s.
 
 ![](./media/image-20250902165335641.png)
 
-**Explication du code**
+**Spiegazione del Codice**
 
-**pinMode(2，OUTPUT) -** Définir la broche 2 en OUTPUT
+**pinMode(2，OUTPUT) -** Imposta il pin 2 come OUTPUT
 
-**digitalWrite(2，HIGH) -** Lorsque la broche 2 est définie à HIGH (sortie 5V) ou à LOW (sortie 0V)
+**digitalWrite(2，HIGH) -** Quando imposti il pin 2 a livello HIGH (output 5V) o a livello LOW (output 0V)
 
-**Pratique d'extension**
+**Pratica di Estensione**
 
-Nous avons réussi à faire clignoter la LED. Ensuite, observons comment la LED changera si nous modifions les broches et le temps de délai.
+Abbiamo avuto successo nel far lampeggiare il LED. Ora, osserviamo come cambierà il LED se modifichiamo i pin e il tempo di ritardo.
 
-**Schéma de connexion**
+**Diagramma di Collegamento**
 
 ![](./media/image-20250902165631206.png)
 
-Nous avons modifié les broches et connecté la LED à D10.
+Abbiamo modificato i pin e collegato il LED a D10.
 
-**Code de test**
+**Codice di Prova**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- leçon 1.2
- délai
+ lezione 1.2
+ delay
  http://www.keyestudio.com
 */
-void setup() // initialiser la broche numérique 10 comme sortie.
+void setup() // inizializza il pin digitale 10 come output.
 {  
    pinMode(10, OUTPUT);
 }
 
-// la fonction loop s'exécute indéfiniment
+// la funzione loop si esegue ripetutamente all'infinito
 void loop() 
 {
-   digitalWrite(10, HIGH); // allumer la LED (HIGH est le niveau de tension)
-   delay(100); // attendre 0.1 seconde
-   digitalWrite(10, LOW); // éteindre la LED en mettant la tension à LOW
-   delay(100); // attendre 0.1 seconde
+   digitalWrite(10, HIGH); // accendi il LED (HIGH è il livello di tensione)
+   delay(100); // attendi 0,1 secondi
+   digitalWrite(10, LOW); // spegni il LED impostando la tensione a LOW
+   delay(100); // attendi 0,1 secondi
 }
 ```
 
-Le résultat du test montre que la LED clignote plus rapidement. Par conséquent, nous pouvons conclure que les broches et le délai de temps affectent la fréquence de clignotement.
+Il risultato della prova mostra che il LED lampeggia più velocemente. Pertanto, possiamo trarre la conclusione che i pin e il tempo di ritardo influenzano la frequenza di lampeggio.
