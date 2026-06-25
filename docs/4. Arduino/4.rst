@@ -1,62 +1,56 @@
 4. Arduino
 ==========
 
-4.1 Data download
------------------
+4.1 Daten-Download
+------------------
 
-Arduino information contains library files and project code ,please
-click to download for follow-up study.
+Die Arduino-Unterlagen enthalten Bibliotheksdateien und Projektcode; bitte klicken Sie hier, um sie für das weitere Studium herunterzuladen.
 
-Data download: :download:`Arduino Data <./Arduino.7z>`
+Daten-Download: :download:`Arduino Data <./Arduino.7z>`
 
-APP download:
+Hier ist die übersetzte Version des Inhalts ins Deutsche:
 
-Tank Car Android download: `Tank
-Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
+APP-Download:
 
-HC_BLE download: :download:`APP <./APP.7z>`
+Tank Car Android-Download: `Tank Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
 
-4.2 Software Download
+HC_BLE-Download: :download:`APP <./APP.7z>`
+
+4.2 Software-Download
 ---------------------
 
-When we get control board, we need to download Arduino IDE and driver
-firstly.
+Wenn wir das Steuerungsboard erhalten, müssen wir zuerst die Arduino IDE und den Treiber herunterladen.
 
-You could download Arduino IDE from the official website:
+Sie können die Arduino IDE von der offiziellen Website herunterladen:
 https://www.arduino.cc/en/software.
 
-There are various versions for Arduino,just download a suitable version
-for your system,we will take WINDOWS system as an example to show you
-how to download and install.
+Es gibt verschiedene Versionen für Arduino. Laden Sie einfach eine für Ihr System geeignete Version herunter. Wir werden das WINDOWS-System als Beispiel nehmen, um Ihnen zu zeigen, wie man es herunterlädt und installiert.
 
 |image1|
 
-You just need to click JUSTDOWNLOAD,then click the downloaded file to
-install it.
+Sie müssen nur auf "JUST DOWNLOAD" klicken und dann auf die heruntergeladene Datei klicken, um sie zu installieren.
 
-And when the ZIP file is downloaded,you can directly unzip and start it.
+Und wenn die ZIP-Datei heruntergeladen ist, können Sie sie direkt entpacken und starten.
 
 |image2|
 
-4.3 Set Arduino IDE
--------------------
+4.3 Arduino IDE einrichten
+--------------------------
 
-Connecting the board to the computer.
+Verbinden Sie das Board mit dem Computer.
 
 |image3|
 
-4.4 Add Library
----------------
+4.4 Bibliothek hinzufügen
+-------------------------
 
-What are Libraries ?
+Was sind Bibliotheken?
 
-Libraries are a collection of code that makes it easy for you to connect
-to a sensor,display, module, etc.
+Bibliotheken sind eine Sammlung von Code, die es Ihnen leicht macht, sich mit einem Sensor, Display, Modul usw. zu verbinden.
 
-There are hundreds of additional libraries available on the Internet for
-download.
+Es gibt Hunderte von zusätzlichen Bibliotheken, die im Internet zum Download verfügbar sind.
 
-We will introduce the most simple way for you to add libraries .
+Wir werden Ihnen den einfachsten Weg vorstellen, Bibliotheken hinzuzufügen.
 
 |image4|
 
@@ -66,7 +60,7 @@ We will introduce the most simple way for you to add libraries .
 .. |image4| image:: ./media/20250910193751.gif
 
 
-4.5 Project
+4.5 Projekte
 ---------------
 
 .. toctree::

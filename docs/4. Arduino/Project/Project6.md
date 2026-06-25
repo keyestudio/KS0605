@@ -1,107 +1,107 @@
-# Project 6 IR Reception
+# Projekt 6 IR-Empfang
 
-**Description**
+**Beschreibung**
 
-There is no doubt that infrared remote control is ubiquitous in daily life. It is used to control various household appliances, such as TVs, stereos, video recorders and satellite signal receivers. Infrared remote control is composed of infrared transmitting and infrared receiving systems, that is, an infrared remote control and infrared receiving module and a single-chip microcomputer capable of decoding.
+Es ist unbestritten, dass die Infrarot-Fernbedienung im täglichen Leben allgegenwärtig ist. Sie wird zur Steuerung verschiedener Haushaltsgeräte wie Fernseher, Stereoanlagen, Videorecorder und Satellitenempfänger verwendet. Die Infrarot-Fernbedienung besteht aus Infrarot-Sender- und Infrarot-Empfängersystemen, d. h. einer Infrarot-Fernbedienung und einem Infrarot-Empfängermodul sowie einem Mikrocontroller, der zum Dekodieren fähig ist.
 
 ![](media/image-20250908155801467.png)
 
-The 38K infrared carrier signal emitted by remote controller is encoded by the encoding chip in the remote controller. It consists of a section of pilot code, user code, user inverse code, data code, and data inverse code. The time interval of the pulse is used to distinguish whether it is a 0 or 1 signal and the encoding is made up of these 0, 1 signals.
+Das 38-kHz-Infrarot-Trägersignal, das vom Fernbedienungssender ausgesendet wird, wird durch den Kodierungschip in der Fernbedienung kodiert. Es besteht aus einem Pilotcode, Benutzercode, Benutzer-Inversecode, Datencode und Daten-Inversecode. Das Zeitintervall des Impulses wird verwendet, um zu unterscheiden, ob es sich um ein 0- oder 1-Signal handelt, und die Kodierung besteht aus diesen 0- und 1-Signalen.
 
-The user code of the same remote control is unchanged while the data code can distinguish the key.
+Der Benutzercode derselben Fernbedienung bleibt unverändert, während der Datencode die Taste unterscheiden kann.
 
-When the remote control button is pressed, the remote control sends out an infrared carrier signal. When the IR receiver receives the signal, the program will decode the carrier signal and determines which key is pressed. The MCU decodes the received 01 signal, thereby judging what key is pressed by the remote control.
+Wenn die Fernbedienungstaste gedrückt wird, sendet die Fernbedienung ein Infrarot-Trägersignal aus. Wenn der IR-Empfänger das Signal empfängt, dekodiert das Programm das Trägersignal und bestimmt, welche Taste gedrückt wurde. Der MCU dekodiert das empfangene 01-Signal und bestimmt somit, welche Taste der Fernbedienung gedrückt wurde.
 
-Infrared receiver we use is an infrared receiver module. Mainly composed of an infrared receiver head, it is a device that integrates reception, amplification, and demodulation. Its internal IC has completed demodulation, and can achieve from infrared reception to output and be compatible with TTL signals.
+Der von uns verwendete Infrarot-Empfänger ist ein Infrarot-Empfängermodul. Es besteht hauptsächlich aus einem Infrarot-Empfängerkopf und ist ein Gerät, das Empfang, Verstärkung und Demodulation integriert. Der interne IC hat die Demodulation abgeschlossen und kann von der Infrarot-Empfängnis bis zur Ausgabe erfolgen und ist mit TTL-Signalen kompatibel.
 
-Additionally, it is suitable for infrared remote control and infrared data transmission. The infrared receiving module made by the receiver has only three pins, signal line, VCC and GND. It is very convenient to communicate with arduino and other microcontrollers.
+Darüber hinaus eignet es sich für Infrarot-Fernbedienung und Infrarot-Datenübertragung. Das vom Empfänger hergestellte Infrarot-Empfängermodul hat nur drei Anschlüsse: Signalleitung, VCC und GND. Die Kommunikation mit Arduino und anderen Mikrocontrollern ist sehr bequem.
 
-**Specification**
+**Spezifikation**
 
 ![](media/image-20250908160124669.png)
 
 ![](media/image-20250908160132699.png)
 
-- Operating Voltage: 3.3-5V（DC）
-- Interface: 3PIN
-- Output Signal: Digital signal
-- Receiving Angle: 90 degrees
-- Frequency: 38khz
-- Receiving Distance: 10m
+- Betriebsspannung: 3,3-5V（DC）
+- Schnittstelle: 3PIN
+- Ausgangssignal: Digitales Signal
+- Empfangswinkel: 90 Grad
+- Frequenz: 38kHz
+- Empfangsreichweite: 10m
 
-**Components**
+**Komponenten**
 
 ![](media/image-20250908160309873.png)
 
-**Connection Diagram**
+**Schaltplan**
 
 ![](media/image-20250908160331260.png)
 
-Respectively link “-”、“+” and S of IR receiver module with G(GND）, V（VCC)and A0 of keyestudio development board.
+Verbinden Sie "-", "+" und S des IR-Empfängermoduls jeweils mit G(GND), V(VCC) und A0 des keyestudio-Entwicklungsboards.
 
-**Attention:**  On the condition that digital ports are not available, analog ports can be regarded as digital ports. A0 equals to D14, A1 is equivalent to digital 15.
+**Hinweis:** Wenn digitale Anschlüsse nicht verfügbar sind, können analoge Anschlüsse als digitale Anschlüsse verwendet werden. A0 entspricht D14, A1 entspricht Digital 15.
 
-**Test Code**
+**Test-Code**
 
-Firstly import library file of IR receiver module(refer to how to import Arduino library file) before designing code.
+Importieren Sie zunächst die Bibliotheksdatei des IR-Empfängermoduls (siehe Anleitung zum Importieren der Arduino-Bibliotheksdatei), bevor Sie den Code entwerfen.
 
 ```c
 /*
 keyestudio Mini Tank Robot V2.1
-lesson 6
+Lektion 6
 IRremote
 http://www.keyestudio.com
 */ 
-#include <IRremoteTank.h>     // IRremote library statement
-int RECV_PIN = A0;        //define the pins of IR receiver as A0
+#include <IRremoteTank.h>     // IRremote-Bibliotheksdeklaration
+int RECV_PIN = A0;        // Definieren Sie die Anschlüsse des IR-Empfängers als A0
 IRrecv irrecv(RECV_PIN);   
-decode_results results;   // decode results exist in the“result”of “decode results”
+decode_results results;   // Dekodierungsergebnisse befinden sich in "result" von "decode results"
 void setup()  
   {
       Serial.begin(9600);  
-      irrecv.enableIRIn(); //Enable receiver
+      irrecv.enableIRIn(); // Empfänger aktivieren
   }  
  void loop() {  
-    if (irrecv.decode(&results))//decode successfully, receive a set of infrared signals
+    if (irrecv.decode(&results))// Erfolgreich dekodiert, empfangen Sie einen Satz von Infrarotsignalen
     {  
-      Serial.println(results.value, HEX);//Wrap word in 16 HEX to output and receive code 
-      irrecv.resume(); // Receive the next value
+      Serial.println(results.value, HEX);// Wort in 16 HEX umwandeln und empfangenen Code ausgeben
+      irrecv.resume(); // Nächsten Wert empfangen
     }  
     delay(100);  
   }
 ```
 
- **Test Result**
+ **Test-Ergebnis**
 
-Upload test code, open serial monitor and set baud rate to 9600, point remote control to IR receiver and the corresponding value will be shown, if pressing so long, the error codes will appear.
+Laden Sie den Test-Code hoch, öffnen Sie den seriellen Monitor und stellen Sie die Baudrate auf 9600 ein. Richten Sie die Fernbedienung auf den IR-Empfänger und der entsprechende Wert wird angezeigt. Wenn Sie lange drücken, erscheinen Fehlercodes.
 
 ![](media/image-20250908160550590.png)
 
-Below we have listed out each button value of keyestudio remote control. So you can keep it for reference.
+Unten haben wir die Werte jeder Taste der keyestudio-Fernbedienung aufgelistet. Sie können diese als Referenz behalten.
 
 ![](media/image-20250908160603853.png)
 
-**Code Explanation**
+**Code-Erklärung**
 
-**irrecv.enableIRIn():** after enabling IR decoding, the IR signals will be received, then function“decode()”will check continuously if decode successfully.
+**irrecv.enableIRIn():** Nach der Aktivierung der IR-Dekodierung werden die IR-Signale empfangen, dann prüft die Funktion "decode()" kontinuierlich, ob die Dekodierung erfolgreich ist.
 
-**irrecv.decode(&results):** after decoding successfully, this function will come back to “true”, and keep result in “results”. After decoding a IR signals, run the resume()function and receive the next signal.
+**irrecv.decode(&results):** Nach erfolgreicher Dekodierung gibt diese Funktion "true" zurück und speichert das Ergebnis in "results". Nach der Dekodierung eines IR-Signals führen Sie die Funktion resume() aus und empfangen das nächste Signal.
 
-**Extension Practice**
+**Erweiterungspraxis**
 
-We decoded the key value of IR remote control. How about controlling LED by the measured value? We could operate an experiment to affirm. Attach an LED to D10, then press the keys of remote control to make LED light on and off.
+Wir haben den Tastenwert der IR-Fernbedienung dekodiert. Wie wäre es mit der Steuerung einer LED durch den gemessenen Wert? Wir könnten ein Experiment durchführen, um dies zu bestätigen. Schließen Sie eine LED an D10 an und drücken Sie dann die Tasten der Fernbedienung, um die LED ein- und auszuschalten.
 
 ![](media/image-20250908160749345.png)
 
 ```c
 /* keyestudio Mini Tank Robot V2.1
-lesson 6.2
+Lektion 6.2
 IRremote
 http://www.keyestudio.com
 */ 
 #include <IRremoteTank.h>
-int RECV_PIN = A0;//define the pin of IR receiver as A0
-int LED_PIN=10;//define the pin of LED
+int RECV_PIN = A0;// Definieren Sie den Anschluss des IR-Empfängers als A0
+int LED_PIN=10;// Definieren Sie den Anschluss der LED
 int a=0;
 IRrecv irrecv(RECV_PIN);
 decode_results results;
@@ -109,28 +109,28 @@ decode_results results;
 void setup()
 {
   Serial.begin(9600);
-  irrecv.enableIRIn(); // Initialize the IR receiver 
-  pinMode(LED_PIN,OUTPUT);//set the pin of LED to 4
+  irrecv.enableIRIn(); // Initialisieren Sie den IR-Empfänger
+  pinMode(LED_PIN,OUTPUT);// Stellen Sie den Anschluss der LED auf 4
 }
 
 void loop() 
 {
   if (irrecv.decode(&results)) 
   {
-	Serial.println(results.value, HEX);//Wrap word in 16 HEX to output and receive code
-	if(results.value==0xFF02FD &a==0) // according to the above key value, press “OK” on remote control , LED will be controlled
+	Serial.println(results.value, HEX);// Wort in 16 HEX umwandeln und empfangenen Code ausgeben
+	if(results.value==0xFF02FD &a==0) // Gemäß dem obigen Tastenwert wird die LED gesteuert, wenn Sie "OK" auf der Fernbedienung drücken
 	{
-		digitalWrite(LED_PIN,HIGH);//LED will be on
+		digitalWrite(LED_PIN,HIGH);// LED wird eingeschaltet
 		a=1;
 	}
-	else if(results.value==0xFF02FD &a==1) //press again
+	else if(results.value==0xFF02FD &a==1) // Erneut drücken
 	{
-        digitalWrite(LED_PIN,LOW);//LED will go off
+        digitalWrite(LED_PIN,LOW);// LED wird ausgeschaltet
         a=0;	
 	}
-	irrecv.resume(); //receive the next value
+	irrecv.resume(); // Nächsten Wert empfangen
   }
 }
 ```
 
-Upload code to development board, press“OK”key on remote control to make LED on and off.
+Laden Sie den Code auf das Entwicklungsboard hoch und drücken Sie die Taste "OK" auf der Fernbedienung, um die LED ein- und auszuschalten.

@@ -1,109 +1,109 @@
-# Project 1 LED Blinks
+# Projekt 1 LED-Blinken
 
 ![](media/image-20250908174750401.png)
 
-**Description**
+**Beschreibung**
 
-For starters and enthusiasts, LED Blink is a fundamental program. LED, the abbreviation of light emitting diodes, consists of Ga, As, P, N chemical compounds and so on. The LED can flash in diverse color by altering the delay time in the test code. When in control, power on GND and VCC, the LED will be on if S end is in high level; nevertheless, it will go off.
+Das LED-Blinken ist ein grundlegendes Programm für Anfänger und Enthusiasten. LED ist die Abkürzung für Leuchtdioden und besteht aus chemischen Verbindungen wie Ga, As, P und N. Die LED kann in verschiedenen Farben blinken, indem man die Verzögerungszeit im Testcode ändert. Bei der Steuerung leuchtet die LED auf, wenn der S-Anschluss auf hohem Niveau liegt, wenn GND und VCC mit Strom versorgt werden; andernfalls schaltet sie sich aus.
 
-**Specification**
+**Spezifikation**
 
 ![](./media/image-20250902164418568.png)
 
-- Control interface: digital port
-- Working voltage: DC 3.3-5V
-- Pin spacing: 2.54mm
-- LED display color: red
+- Steuerungsschnittstelle: digitaler Anschluss
+- Betriebsspannung: DC 3,3-5V
+- Stiftabstand: 2,54mm
+- LED-Anzeigefarbe: rot
 
-**Components**
+**Komponenten**
 
 ![](./media/image-20250902164804229.png)
 
 **V5 Sensor Shield**
 
-It will be troublesome when we combine Arduino development boards with numerous sensors. However, the V5 sensor shield, compatible with Arduino development board, addresses this problem perfectly. Just stack V5 board on it.
+Es ist mühsam, Arduino-Entwicklungsboards mit zahlreichen Sensoren zu kombinieren. Das V5 Sensor Shield ist jedoch mit Arduino-Entwicklungsboards kompatibel und löst dieses Problem perfekt. Stapeln Sie einfach das V5-Board darauf.
 
-This sensor shield can be inserted into 3pin sensor modules and breaks out some communication pins, like serial, IIC, and SPI communication as well.
+Dieses Sensor Shield kann in 3-Pin-Sensormodule eingesteckt werden und bricht einige Kommunikationspins auf, wie serielle, IIC- und SPI-Kommunikation.
 
-**Pins Description**
+**Pins-Beschreibung**
 
 ![](./media/image-20250902165027854.png)
 
-**Connection Diagram**
+**Schaltschema**
 
 ![](./media/image-20250902165110913.png)
 
-Seen from the above diagram, LED is linked with D2.
+Wie aus dem obigen Diagramm ersichtlich ist, ist die LED mit D2 verbunden.
 
- **Test Code**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 1.1
+ Lektion 1.1
  Blink
  http://www.keyestudio.com
 */
 void setup()
 { 
-    pinMode(2, OUTPUT);// initialize digital pin 2 as an output.
+    pinMode(2, OUTPUT);// Initialisieren Sie digitalen Pin 2 als Ausgang.
 }
 
-void loop() // the loop function runs over and over again forever
+void loop() // Die Loop-Funktion läuft immer wieder endlos ab
 {
-   digitalWrite(2, HIGH); // turn the LED on (HIGH is the voltage level)
-   delay(1000); // wait for a second
-   digitalWrite(2, LOW); // turn the LED off by making the voltage LOW
-   delay(1000); // wait for a second
+   digitalWrite(2, HIGH); // LED einschalten (HIGH ist die Spannungsebene)
+   delay(1000); // eine Sekunde warten
+   digitalWrite(2, LOW); // LED ausschalten, indem die Spannung auf LOW gesetzt wird
+   delay(1000); // eine Sekunde warten
 }
 ```
 
- **Test Result**
+**Testergebnis**
 
-(There will be contradiction about serial communication between code and Bluetooth when uploading code. Therefore, don’t link with Bluetooth module before uploading code.)
+(Es gibt einen Widerspruch zwischen der seriellen Kommunikation im Code und dem Bluetooth beim Hochladen des Codes. Verbinden Sie daher das Bluetooth-Modul nicht vor dem Hochladen des Codes.)
 
-Upload the program on the development board, LED flickers at the interval of 1s.
+Laden Sie das Programm auf das Entwicklungsboard hoch. Die LED blinkt in einem Intervall von 1s.
 
 ![](./media/image-20250902165335641.png)
 
-**Code Explanation**
+**Code-Erklärung**
 
-**pinMode(2，OUTPUT) -** Set pin2 to OUTPUT
+**pinMode(2，OUTPUT) -** Setzt Pin 2 auf OUTPUT
 
-**digitalWrite(2，HIGH) -** When set pin2 to HIGH level(output 5V) or to LOW level(output 0V)
+**digitalWrite(2，HIGH) -** Wenn Pin 2 auf HIGH-Ebene (5V Ausgang) oder LOW-Ebene (0V Ausgang) gesetzt wird
 
-**Extension Practice**
+**Erweiterungspraxis**
 
-We succeed in blinking LED. Next, let’s observe what LED will change if we modify pins and delay time.
+Wir haben es geschafft, die LED zum Blinken zu bringen. Schauen wir uns nun an, wie sich die LED ändert, wenn wir die Pins und die Verzögerungszeit ändern.
 
-**Connection Diagram**
+**Schaltschema**
 
 ![](./media/image-20250902165631206.png)
 
-We’ve altered pins and connected LED to D10.
+Wir haben die Pins geändert und die LED mit D10 verbunden.
 
- **Test Code**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 1.2
- delay
+ Lektion 1.2
+ Verzögerung
  http://www.keyestudio.com
 */
-void setup() // initialize digital pin 10 as an output.
+void setup() // Initialisieren Sie digitalen Pin 10 als Ausgang.
 {  
    pinMode(10, OUTPUT);
 }
 
-// the loop function runs over and over again forever
+// Die Loop-Funktion läuft immer wieder endlos ab
 void loop() 
 {
-   digitalWrite(10, HIGH); // turn the LED on (HIGH is the voltage level)
-   delay(100); // wait for 0.1 second
-   digitalWrite(10, LOW); // turn the LED off by making the voltage LOW
-   delay(100); // wait for 0.1 second
+   digitalWrite(10, HIGH); // LED einschalten (HIGH ist die Spannungsebene)
+   delay(100); // 0,1 Sekunde warten
+   digitalWrite(10, LOW); // LED ausschalten, indem die Spannung auf LOW gesetzt wird
+   delay(100); // 0,1 Sekunde warten
 }
 ```
 
-The test result shows that the LED flashes faster. Therefore, we can draw a conclusion that pins and time delaying affect flash frequency.
+Das Testergebnis zeigt, dass die LED schneller blinkt. Daher können wir zu dem Ergebnis kommen, dass Pins und Verzögerungszeit die Blinkfrequenz beeinflussen.

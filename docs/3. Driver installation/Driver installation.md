@@ -1,44 +1,44 @@
-# 3. Driver installation
+# 3. Treiberinstallation
 
-> For driver installation, you can skip this step initially, as drivers typically install automatically when the development board is connected to your computer. If the board fails to be recognized after connection, refer to this section to install the drivers.
+> Bei der Treiberinstallation können Sie diesen Schritt zunächst überspringen, da Treiber normalerweise automatisch installiert werden, wenn das Entwicklungsboard mit Ihrem Computer verbunden wird. Falls das Board nach dem Anschließen nicht erkannt wird, lesen Sie diesen Abschnitt, um die Treiber zu installieren.
 
-## 3.1 Windows System
+## 3.1 Windows-System
 
-**Checking the driver**
+**Treiber überprüfen**
 
-1. Connect the motherboard to the computer.
+1. Verbinden Sie das Motherboard mit dem Computer.
 
 ![](./media/1.jpg)
 
-2. Open Device Manager，Open the device manager, if the prompt **"Silicon Labs CP210x USB to UART Bridge (COMx)"** appears to prove that the driver has been installed, please skip the **"Driver installation"** part.
+2. Öffnen Sie den Geräte-Manager. Wenn die Meldung **"Silicon Labs CP210x USB to UART Bridge (COMx)"** angezeigt wird, bedeutet dies, dass der Treiber bereits installiert ist. Überspringen Sie bitte den Abschnitt **"Treiberinstallation"**.
 
 ![](./media/Animation.gif)
 
-**Manual driver installation**
+**Manuelle Treiberinstallation**
 
-1. Driver download
+1. Treiberdownload
 
-- Windows System:[Windows System driver](./Windows.7z)
+- Windows-System: [Windows-System-Treiber](./Windows.7z)
 
-2. Connect the motherboard to the computer, open the device manager, if there is a yellow exclamation mark in front of the driver in the picture, it proves that the driver is not installed, please download the driver and install it manually.
+2. Verbinden Sie das Motherboard mit dem Computer und öffnen Sie den Geräte-Manager. Wenn vor dem Treiber in der Abbildung ein gelbes Ausrufezeichen angezeigt wird, bedeutet dies, dass der Treiber nicht installiert ist. Bitte laden Sie den Treiber herunter und installieren Sie ihn manuell.
 
 ![](./media/Animation-1750921346712-3.gif)
 
-## 3.2 MAC System
+## 3.2 MAC-System
 
-**1 Checking the driver**
+**1 Treiber überprüfen**
 
-Connect the development board to the computer, according to [Tools] ---> [Port] to select the development board port (Note: If you can not confirm which port is the development board, please connect the motherboard to take pictures to record all the ports, and then unplug the development board to re-take pictures to record all the ports, and then compare to find the disappeared ports, and then unplug the motherboard after the disappeared ports is the port of the board, and then select the port on the line)If you can not recognize the port, please replace the computer USB port or around the phone cable to re-recognize the port, if it still does not work refer to the following steps to install the driver.
+Verbinden Sie das Entwicklungsboard mit dem Computer. Gehen Sie zu [Tools] ---> [Port], um den Port des Entwicklungsboards auszuwählen (Hinweis: Falls Sie nicht sicher sind, welcher Port das Entwicklungsboard ist, verbinden Sie das Motherboard und machen Sie ein Foto aller Ports. Trennen Sie dann das Entwicklungsboard ab und machen Sie erneut ein Foto aller Ports. Vergleichen Sie die Fotos, um den fehlenden Port zu finden. Dieser Port ist der Port des Boards. Wählen Sie diesen Port aus). Falls der Port nicht erkannt wird, versuchen Sie, einen anderen USB-Port des Computers zu verwenden oder ersetzen Sie das Kabel. Falls dies nicht funktioniert, führen Sie die folgenden Schritte zur Treiberinstallation durch.
 
 ![](./media/20250626154343.png)
 
-**2 Manual driver installation**
+**2 Manuelle Treiberinstallation**
 
-1. Driver download
+1. Treiberdownload
 
-​       Mac System:[Mac System driver](./Mac.7z)
+​       Mac-System: [Mac-System-Treiber](./Mac.7z)
 
-2. double-click to decompress the downloaded driver zip package
+2. Doppelklicken Sie, um das heruntergeladene Treiber-ZIP-Paket zu entpacken
 
 ![](./media/image-20250417083615847-1749262759458-8.png)
 
@@ -46,16 +46,16 @@ Connect the development board to the computer, according to [Tools] ---> [Port] 
 
 ![](./media/image-20250417083918581-1749262759458-5.png)
 
-3. After that keep **"Next ”** installing until the installation is complete
+3. Klicken Sie anschließend wiederholt auf **"Weiter"**, bis die Installation abgeschlossen ist
 
 ![](./media/7cca827fe946096f228797dadce10661.png)
 
-At this point, the port can be recognized by plugging in the board again.
+An diesem Punkt kann der Port erkannt werden, indem das Board erneut angeschlossen wird.
 
-4. Then go to the Arduino IDE, click on “Tools”, select the board Arduino Uno and the recognized development board port。
+4. Gehen Sie dann zur Arduino IDE, klicken Sie auf "Tools", wählen Sie das Board Arduino Uno und den erkannten Port des Entwicklungsboards aus.
 
 ![](./media/2.png)
 
-5. Click![image-20250417085312966](./media/image-20250417085312966-1749262759459-18.png)to upload code and show “Done uploading”.
+5. Klicken Sie auf ![image-20250417085312966](./media/image-20250417085312966-1749262759459-18.png), um Code hochzuladen und "Done uploading" wird angezeigt.
 
 ![](./media/3.png)

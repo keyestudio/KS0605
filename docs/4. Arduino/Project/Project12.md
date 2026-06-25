@@ -1,52 +1,52 @@
-# Project 12 Ultrasonic Following Tank
+# Projekt 12 Ultraschall-Verfolgungspanzer
 
 ![](media/image-20250908172315808.png)
 
-**Description**
+**Beschreibung**
 
-In project 11, we made an obstacle avoidance car. In fact, we only need to alter a test code to transform an obstacle avoidance car into a following car. In this lesson, we will make an ultrasonic following robot. The ultrasonic sensor detects the distance between smart car and the obstacle to drive tank car to move.
+In Projekt 11 haben wir ein Hindernisvermeidungsauto gebaut. Tatsächlich müssen wir nur den Testcode ändern, um ein Hindernisvermeidungsauto in ein Verfolgungsauto umzuwandeln. In dieser Lektion werden wir einen Ultraschall-Verfolgungsroboter bauen. Der Ultraschallsensor erkennt den Abstand zwischen dem intelligenten Auto und dem Hindernis, um den Panzerwagen zu bewegen.
 
-**The specific logic of ultrasonic follow robot is as shown below:**
+**Die spezifische Logik des Ultraschall-Verfolgungsroboters ist wie folgt dargestellt:**
 
-| **Detection** | **Measured distance of front obstacles** | **Distance (unit: cm)** |
-| ------------- | ---------------------------------------- | ----------------------- |
-| Settings      | Servo angle 90°                          |                         |
-|               | 8X16 LED panel shows the icon “V”        |                         |
-| If            | 20≤ distance ≤60                         |                         |
-| Status        | Go front（set PWM to 200）               |                         |
-| If            | 10\<distance＜20                         |                         |
-|               | distance＞60                             |                         |
-| Status        | stop                                     |                         |
-| If            | distance ≤10                             |                         |
-| Status        | Stop（set PWM to 200）                   |                         |
+| **Erkennung** | **Gemessener Abstand zu vorderen Hindernissen** | **Abstand (Einheit: cm)** |
+| ------------- | ----------------------------------------------- | ------------------------- |
+| Einstellungen | Servo-Winkel 90°                                |                           |
+|               | 8X16 LED-Panel zeigt das Symbol "V"             |                           |
+| Wenn          | 20≤ Abstand ≤60                                 |                           |
+| Status        | Vorwärts fahren (PWM auf 200 setzen)            |                           |
+| Wenn          | 10\<Abstand＜20                                 |                           |
+|               | Abstand＞60                                     |                           |
+| Status        | Stopp                                           |                           |
+| Wenn          | Abstand ≤10                                     |                           |
+| Status        | Stopp (PWM auf 200 setzen)                      |                           |
 
-**Flow chart**
+**Ablaufdiagramm**
 
 ![](media/image-20250908172442991.png)
 
-**Connection Diagram**
+**Schaltplan**
 
 ![](media/image-20250908172457017.png)
 
-Wire-up note:
+Verkabelungshinweis:
 
-| 1.8x16 LED panel |      | V5 Sensor Shield |
+| 1.8x16 LED-Panel |      | V5 Sensor Shield |
 | ---------------- | ---- | ---------------- |
 | GND              | →    | -（GND）         |
 | VCC              | →    | +（VCC）         |
 | SDA              | →    | SDA              |
 | SCL              | →    | SCL              |
 
-**Test Code**
+**Testcode**
 
 ```c
  /*
  keyestudio Mini Tank Robot V2.1
- lesson 12
- ultrasonic follow tank
+ Lektion 12
+ Ultraschall-Verfolgungspanzer
  http://www.keyestudio.com
 */ 
-//Array, used to store the data of the pattern, can be calculated by yourself or obtained from the modulus tool
+// Array, wird verwendet, um die Daten des Musters zu speichern, kann selbst berechnet oder mit dem Modulus-Tool erhalten werden
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -54,26 +54,26 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  //Set clock pin to A5
-#define SDA_Pin  A4  //Set data pin to A4
+#define SCL_Pin  A5  // Taktsignal-Pin auf A5 setzen
+#define SDA_Pin  A4  // Daten-Pin auf A4 setzen
 
-#define ML_Ctrl 13  //define the direction control pin of left motor
-#define ML_PWM 11   //define PWM control pin of left motor
-#define MR_Ctrl 12  //define the direction control pin of right motor
-#define MR_PWM 3   //define PWM control pin of right motor
-#define Trig 5  //ultrasonic trig Pin
-#define Echo 4  //ultrasonic echo Pin
+#define ML_Ctrl 13  // Richtungssteuer-Pin des linken Motors definieren
+#define ML_PWM 11   // PWM-Steuer-Pin des linken Motors definieren
+#define MR_Ctrl 12  // Richtungssteuer-Pin des rechten Motors definieren
+#define MR_PWM 3   // PWM-Steuer-Pin des rechten Motors definieren
+#define Trig 5  // Ultraschall-Trig-Pin
+#define Echo 4  // Ultraschall-Echo-Pin
 int distance;
 int pulsewidth;
-#define servoPin 9  //servo Pin
+#define servoPin 9  // Servo-Pin
 void setup(){
   Serial.begin(9600);
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear); //Clear the display
-  matrix_display(start01);  //display start pattern
+  matrix_display(clear); // Display löschen
+  matrix_display(start01);  // Startmuster anzeigen
   pinMode(servoPin, OUTPUT);
-  procedure(90); //set servo to 90°
+  procedure(90); // Servo auf 90° setzen
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
   pinMode(ML_Ctrl, OUTPUT);
@@ -82,25 +82,25 @@ void setup(){
   pinMode(MR_PWM, OUTPUT);
 }
 void loop(){
-  distance = checkdistance();  //assign the distance detected by ultrasonic sensor to distance
-  if (distance >= 20 && distance <= 60) //range to go front
+  distance = checkdistance();  // Den vom Ultraschallsensor erkannten Abstand der Variablen distance zuweisen
+  if (distance >= 20 && distance <= 60) // Bereich zum Vorwärtsfahren
   {
     Car_front();
   }
-  else if (distance > 10 && distance < 20)  //range to stop
+  else if (distance > 10 && distance < 20)  // Bereich zum Stoppen
   {
     Car_Stop();
   }
-  else if (distance <= 10)  //range to go back
+  else if (distance <= 10)  // Bereich zum Rückwärtsfahren
   {
     Car_back();
   }
-  else  //other situations, stop
+  else  // Andere Situationen, stoppen
   {
     Car_Stop();
   }
 }
-/***********the function for motor running****************/
+/***********Funktion für Motorlauf****************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -137,26 +137,26 @@ void Car_Stop()
   analogWrite(ML_PWM,0);
 }
 
-/******************dot matrix********************/
-// the function for dot matrix display
+/******************Punktmatrix********************/
+// Funktion für Punktmatrix-Anzeige
 void matrix_display(unsigned char matrix_value[])
 {
-  IIC_start(); // call the function that data transmission start
-  IIC_send(0xc0);  //Choose address
+  IIC_start(); // Funktion aufrufen, die die Datenübertragung startet
+  IIC_send(0xc0);  // Adresse wählen
   
-  for(int i = 0;i < 16;i++) //pattern data has 16 bits
+  for(int i = 0;i < 16;i++) // Musterdaten haben 16 Bits
   {
-     IIC_send(matrix_value[i]); //data to convey patterns
+     IIC_send(matrix_value[i]); // Daten zur Übertragung von Mustern
   }
 
-  IIC_end();   //end to convey data pattern
+  IIC_end();   // Datenübertragung beenden
   
   IIC_start();
-  IIC_send(0x8A);  //select pulse width4/16, control display
+  IIC_send(0x8A);  // Pulsbreite 4/16 wählen, Anzeige steuern
   IIC_end();
 }
 
-//The condition starting to transmit data
+// Bedingung zum Starten der Datenübertragung
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -167,14 +167,14 @@ void IIC_start()
   delayMicroseconds(3);
 }
 
-// transmit data
+// Daten übertragen
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  //Each byte has 8 bits
+  for(char i = 0;i < 8;i++)  // Jedes Byte hat 8 Bits
   {
-      digitalWrite(SCL_Pin,LOW);  //pull down clock pin SCL Pin to change the signals of SDA      
+      digitalWrite(SCL_Pin,LOW);  // Taktsignal-Pin SCL herunterziehen, um die Signale von SDA zu ändern      
 delayMicroseconds(3);
-      if(send_data & 0x01)  //set high and low level of SDA_Pin according to 1 or 0 of every bit
+      if(send_data & 0x01)  // Hohe und niedrige Pegel von SDA_Pin gemäß 1 oder 0 jedes Bits setzen
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -183,12 +183,12 @@ delayMicroseconds(3);
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); //pull up clock pin SCL_Pin to stop transmitting data
+      digitalWrite(SCL_Pin,HIGH); // Taktsignal-Pin SCL hochziehen, um die Datenübertragung zu stoppen
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // detect bit by bit, so move the data right by one
+      send_data = send_data >> 1;  // Bit für Bit erkennen, daher die Daten um eins nach rechts verschieben
   }
 }
-//The sign that data transmission ends
+// Zeichen für das Ende der Datenübertragung
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -200,8 +200,8 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/***************end dot matrix display******************/
-//The function to control servo
+/***************Ende Punktmatrix-Anzeige******************/
+// Funktion zur Servo-Steuerung
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -210,20 +210,20 @@ void procedure(int myangle) {
     digitalWrite(servoPin,LOW);
     delay((20 - pulsewidth / 1000));
   }}
-//The function to control ultrasonic sensor function controlling ultrasonic
+// Funktion zur Steuerung der Ultraschallsensorfunktion, die das Ultraschallsignal steuert
 float checkdistance() {
   digitalWrite(Trig, LOW);
   delayMicroseconds(2);
   digitalWrite(Trig, HIGH);
   delayMicroseconds(10);
   digitalWrite(Trig, LOW);
-  float distance = pulseIn(Echo, HIGH) / 58.20;  //58.20, that is , 2*29.1=58.2
+  float distance = pulseIn(Echo, HIGH) / 58.20;  // 58.20, das heißt, 2*29.1=58.2
   delay(10);
   return distance;
 }
 //****************************************************************
 ```
 
- **Test Result**
+ **Testergebnis**
 
-Upload code successfully, DIP switch is dialed to the right end, the servo rotates to 90°, “V” is shown on 8X16 LED panel and smart car moves as the obstacle moves.
+Code erfolgreich hochgeladen, DIP-Schalter ist auf das rechte Ende gestellt, das Servo dreht sich auf 90°, "V" wird auf dem 8X16 LED-Panel angezeigt und das intelligente Auto bewegt sich mit dem Hindernis.

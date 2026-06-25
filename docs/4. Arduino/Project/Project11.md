@@ -1,31 +1,31 @@
-# Project 11 Ultrasonic Avoiding Tank
+# Projekt 11 Ultraschall-Ausweich-Panzer
 
 ![](media/image-20250908171729897.png)
 
-**Description**
+**Beschreibung**
 
-In this program, the ultrasonic sensor detects the distance of obstacle to send signals that control the robot car. Next, let’s show you how to make an obstacle avoidance car.
+In diesem Programm erkennt der Ultraschallsensor die Entfernung von Hindernissen und sendet Signale, die den Roboterwagen steuern. Im Folgenden zeigen wir dir, wie du ein Hindernisvermeidungsfahrzeug baust.
 
-**The specific logic of ultrasonic avoiding robot is as shown below:**
+**Die spezifische Logik des Ultraschall-Ausweichroboters ist wie folgt dargestellt:**
 
 ![](media/image-20250908171756879.png)
 
- **Flow chart**
+ **Ablaufdiagramm**
 
 ![](media/image-20250908171812532.png)
 
-**Connection Diagram：**
+**Verbindungsdiagramm:**
 
 ![](media/image-20250908171829321.png)
 
-Note: “-”、“+” and “S” pins of servo are respectively attached to G（GND）, V（VCC）and D9 of expansion board. The VCC, Trig, Echo and Gnd of ultrasonic sensor are linked with 5v(V), 5(S), Echo and Gnd(G) of expansion board.
+Hinweis: Die Stifte „-", „+" und „S" des Servos sind jeweils mit G (GND), V (VCC) und D9 der Erweiterungsplatine verbunden. VCC, Trig, Echo und Gnd des Ultraschallsensors sind mit 5V (V), 5 (S), Echo und Gnd (G) der Erweiterungsplatine verbunden.
 
-**Test Code:**
+**Testcode:**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 11
+ Lektion 11
  ultrasonic_avoid_tank
  http://www.keyestudio.com
 */
@@ -33,17 +33,17 @@ int random2;
 int a;
 int a1;
 int a2;
-#define ML_Ctrl 13  //define the direction control pin of left motor
-#define ML_PWM 11   //define PWM control pin of left motor
-#define MR_Ctrl 12  //define the direction control pin of right motor
-#define MR_PWM 3   //define PWM control pin of right motor
+#define ML_Ctrl 13  // Richtungssteuerpin des linken Motors definieren
+#define ML_PWM 11   // PWM-Steuerpin des linken Motors definieren
+#define MR_Ctrl 12  // Richtungssteuerpin des rechten Motors definieren
+#define MR_PWM 3   // PWM-Steuerpin des rechten Motors definieren
 
-#define Trig 5  //ultrasonic trig Pin
-#define Echo 4  //ultrasonic echo Pin
+#define Trig 5  // Ultraschall-Trig-Pin
+#define Echo 4  // Ultraschall-Echo-Pin
 int distance;
-#define servoPin 9  //servo Pin
+#define servoPin 9  // Servo-Pin
 int pulsewidth;
-/************the function to run motor**************/
+/************Funktion zum Betreiben des Motors**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -80,7 +80,7 @@ void Car_Stop()
   analogWrite(ML_PWM,0);
 }
 
-//The function to control servo
+// Funktion zur Steuerung des Servos
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -90,21 +90,21 @@ void procedure(int myangle) {
     delay((20 - pulsewidth / 1000));
   }
 }
-//The function to control ultrasonic sensor
+// Funktion zur Steuerung des Ultraschallsensors
 float checkdistance() {
   digitalWrite(Trig, LOW);
   delayMicroseconds(2);
   digitalWrite(Trig, HIGH);
   delayMicroseconds(10);
   digitalWrite(Trig, LOW);
-  float distance = pulseIn(Echo, HIGH) / 58.00;  //58.20, that is, 2*29.1=58.2
+  float distance = pulseIn(Echo, HIGH) / 58.00;  // 58.20, das heißt, 2*29.1=58.2
   delay(10);
   return distance;
 }
   //****************************************************************
 void setup(){
   pinMode(servoPin, OUTPUT);
-  procedure(90); //set servo to 90°
+  procedure(90); // Servo auf 90° einstellen
   
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
@@ -115,64 +115,64 @@ void setup(){
 }
 void loop(){
   random2 = random(1, 100);
-  a = checkdistance();  //assign the front distance detected by ultrasonic sensor to variable a
+  a = checkdistance();  // Die vom Ultraschallsensor erkannte Vorderentfernung der Variablen a zuweisen
   
-  if (a < 20) //when the front distance detected is less than 20 
+  if (a < 20) // Wenn die erkannte Vorderentfernung kleiner als 20 ist
   {
-      Car_Stop();  //robot stops
-      delay(500); //delay in 500ms
-      procedure(160);  //Ultrasonic platform turns left
-      for (int j = 1; j <= 10; j = j + (1)) { //for statement, the data will be more accurate if ultrasonic sensor detect a few times.
-        a1 = checkdistance();  //assign the left distance detected by ultrasonic sensor to variable a1
+      Car_Stop();  // Roboter stoppt
+      delay(500); // Verzögerung von 500 ms
+      procedure(160);  // Ultraschallplattform dreht nach links
+      for (int j = 1; j <= 10; j = j + (1)) { // for-Anweisung, die Daten sind genauer, wenn der Ultraschallsensor mehrmals erkennt.
+        a1 = checkdistance();  // Die vom Ultraschallsensor erkannte linke Entfernung der Variablen a1 zuweisen
       }
       delay(300);
-      procedure(20); //Ultrasonic platform turns right
+      procedure(20); // Ultraschallplattform dreht nach rechts
       for (int k = 1; k <= 10; k = k + (1)) {
-        a2 = checkdistance(); //assign the right distance detected by ultrasonic sensor to variable a2
+        a2 = checkdistance(); // Die vom Ultraschallsensor erkannte rechte Entfernung der Variablen a2 zuweisen
       }
       
-      if (a1 < 50 || a2 < 50)  //robot will turn to the longer distance side when left or right distance is less than 50cm. 
+      if (a1 < 50 || a2 < 50)  // Der Roboter dreht zur Seite mit der größeren Entfernung, wenn die linke oder rechte Entfernung kleiner als 50 cm ist.
       {
-        if (a1 > a2) //left distance is greater than right side      
+        if (a1 > a2) // Linke Entfernung ist größer als rechte Seite
         {
-          procedure(90);  //Ultrasonic platform turns back to right ahead         
-Car_left();  //robot turns left
-          delay(500);  //turn left for 500ms
-          Car_front(); //go front
+          procedure(90);  // Ultraschallplattform dreht zurück nach vorne rechts
+Car_left();  // Roboter dreht nach links
+          delay(500);  // 500 ms nach links drehen
+          Car_front(); // Nach vorne fahren
         } 
         else 
         {
           procedure(90);
-          Car_right(); //robot turns right
+          Car_right(); // Roboter dreht nach rechts
           delay(500);
-          Car_front();  //go front
+          Car_front();  // Nach vorne fahren
         }
       } 
-      else  //If both side is greater than or equal to 50cm, turn left or right randomly
+      else  // Wenn beide Seiten größer oder gleich 50 cm sind, zufällig nach links oder rechts drehen
       {
-        if ((long) (random2) % (long) (2) == 0)  //When the random number is even
+        if ((long) (random2) % (long) (2) == 0)  // Wenn die Zufallszahl gerade ist
         {
           procedure(90);
-          Car_left(); //tank robot turns left
+          Car_left(); // Panzeroboter dreht nach links
           delay(500);
-          Car_front(); //go front
+          Car_front(); // Nach vorne fahren
         } 
         else 
         {
           procedure(90);
-          Car_right(); //robot turns right
+          Car_right(); // Roboter dreht nach rechts
           delay(500);
-          Car_front(); //go front
+          Car_front(); // Nach vorne fahren
        }
      }
   } 
-  else  //If the front distance is greater than or equal to 20cm, robot car will go front
+  else  // Wenn die Vorderentfernung größer oder gleich 20 cm ist, fährt der Roboterwagen nach vorne
   {
-      Car_front(); //go front
+      Car_front(); // Nach vorne fahren
   }
 }
 ```
 
- **Test Result**
+ **Testergebnis**
 
-Upload code successfully, DIP switch is dialed to the right end and power on, tank robot goes forward and automatically avoids the obstacle.
+Code erfolgreich hochgeladen, DIP-Schalter auf das rechte Ende gestellt und Stromversorgung eingeschaltet. Der Panzeroboter fährt nach vorne und weicht Hindernissen automatisch aus.

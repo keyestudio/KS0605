@@ -1,16 +1,16 @@
-# Project 15: Final Fully Functional Project
+# Projekt 15: Vollständiges funktionsfähiges Projekt
 
-**Test Code**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 15
- bluetooth tank
+ Lektion 15
+ Bluetooth-Panzer
  http://www.keyestudio.com
 */
 
-//Array, used to store the data of pattern, can be calculated by yourself or obtained from the modulus tool
+//Array, wird verwendet, um die Daten des Musters zu speichern, kann selbst berechnet oder mit dem Modulus-Tool erhalten werden
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -18,15 +18,15 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  //Set clock pin to A5
-#define SDA_Pin  A4  //Set data pin to A4
+#define SCL_Pin  A5  //Taktsignal-Pin auf A5 setzen
+#define SDA_Pin  A4  //Daten-Pin auf A4 setzen
 
-#define ML_Ctrl 13  //define direction control pin of left motor
-#define ML_PWM 11   //define PWM control pin of left motor
-#define MR_Ctrl 12  //define direction control pin of right motor
-#define MR_PWM 3    //define PWM control pin of right motor
+#define ML_Ctrl 13  //Richtungssteuerungs-Pin des linken Motors definieren
+#define ML_PWM 11   //PWM-Steuerungs-Pin des linken Motors definieren
+#define MR_Ctrl 12  //Richtungssteuerungs-Pin des rechten Motors definieren
+#define MR_PWM 3    //PWM-Steuerungs-Pin des rechten Motors definieren
 
-char bluetooth_val; //save the value of Bluetooth reception
+char bluetooth_val; //Wert des Bluetooth-Empfangs speichern
 
 void setup()
 {
@@ -34,8 +34,8 @@ void setup()
   
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear);    //Clear the display
-  matrix_display(start01);  //display start pattern
+  matrix_display(clear);    //Display löschen
+  matrix_display(start01);  //Startmuster anzeigen
 
   pinMode(ML_Ctrl, OUTPUT);
   pinMode(ML_PWM, OUTPUT);
@@ -52,47 +52,47 @@ void loop()
   }
   switch (bluetooth_val) 
   {
-     case 'F':  //forward command
+     case 'F':  //Vorwärts-Befehl
         Car_front();
-        matrix_display(front);  // show forward design
+        matrix_display(front);  //Vorwärts-Design anzeigen
         break;
-     case 'B':  //Back command
+     case 'B':  //Rückwärts-Befehl
         Car_back();
-        matrix_display(back);  //show back pattern
+        matrix_display(back);  //Rückwärts-Muster anzeigen
         break;
-     case 'L':  // left-turning instruction
+     case 'L':  //Linksabbiege-Befehl
         Car_left();
-        matrix_display(left);  //show “left-turning” sign 
+        matrix_display(left);  //Zeichen „Linksabbiegen" anzeigen
         break;
-     case 'R':  //right-turning instruction
+     case 'R':  //Rechtsabbiege-Befehl
         Car_right();
-        matrix_display(right);  //display right-turning sign      
+        matrix_display(right);  //Zeichen „Rechtsabbiegen" anzeigen
         break;
-     case 'S':  //stop command
+     case 'S':  //Stopp-Befehl
         Car_Stop();
-        matrix_display(STOP01);  //show stop picture
+        matrix_display(STOP01);  //Stoppbild anzeigen
         break;
   }
 }
 
-/**************The function of dot matrix****************/
-//this function is used for dot matrix display
+/**************Die Funktion der Dot-Matrix****************/
+//Diese Funktion wird für die Dot-Matrix-Anzeige verwendet
 void matrix_display(unsigned char matrix_value[])
 {
   IIC_start();
-  IIC_send(0xc0);  //Choose address
+  IIC_send(0xc0);  //Adresse wählen
   
-  for(int i = 0;i < 16;i++) //pattern data has 16 bits
+  for(int i = 0;i < 16;i++) //Musterdaten haben 16 Bits
   {
-     IIC_send(matrix_value[i]); //data to convey patterns
+     IIC_send(matrix_value[i]); //Daten zur Übertragung von Mustern
   }
-  IIC_end();   //end to convey data pattern
+  IIC_end();   //Beendigung der Musterübertragung
   
   IIC_start();
-  IIC_send(0x8A);  //display control, set pulse width to 4/16
+  IIC_send(0x8A);  //Anzeigesteuerung, Impulsbreite auf 4/16 setzen
   IIC_end();
 }
-//The condition starting to transmit data
+//Die Bedingung zum Starten der Datenübertragung
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -102,14 +102,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-//transmit data
+//Daten übertragen
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  //Each byte has 8 bits
+  for(char i = 0;i < 8;i++)  //Jedes Byte hat 8 Bits
   {
-      digitalWrite(SCL_Pin,LOW);  //pull down clock pin SCL Pin to change the signals of SDA      
+      digitalWrite(SCL_Pin,LOW);  //Taktsignal-Pin SCL herunterziehen, um die Signale von SDA zu ändern
       delayMicroseconds(3);
-      if(send_data & 0x01)  //set high and low level of SDA_Pin according to 1 or 0 of every bit
+      if(send_data & 0x01)  //Hohe und niedrige Pegel von SDA_Pin gemäß 1 oder 0 jedes Bits setzen
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -118,12 +118,12 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); //pull up clock pin SCL_Pin to stop transmitting data
+      digitalWrite(SCL_Pin,HIGH); //Taktsignal-Pin SCL hochziehen, um die Datenübertragung zu stoppen
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // Detect bit by bit, so move the data right by one
+      send_data = send_data >> 1;  //Bit für Bit erkennen, daher die Daten um eins nach rechts verschieben
   }
 }
-//The sign that data transmission ends
+//Das Zeichen, dass die Datenübertragung endet
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -135,7 +135,7 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/*************the function to run motor**************/
+/*************Die Funktion zum Ausführen des Motors**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -187,10 +187,10 @@ void Car_T_right()
 }
 ```
 
-**Test Result**
+**Testergebnis**
 
-**Note: **Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code. Reconnect Bluetooth module after uploading test code
+**Hinweis:** Entfernen Sie das Bluetooth-Modul vor dem Hochladen des Testcodes. Andernfalls können Sie den Testcode nicht hochladen. Verbinden Sie das Bluetooth-Modul nach dem Hochladen des Testcodes wieder.
 
-Upload test code successfully, insert Bluetooth module, power on, and connect to Bluetooth. The tank robot can show distinct function by App.
+Laden Sie den Testcode erfolgreich hoch, setzen Sie das Bluetooth-Modul ein, schalten Sie die Stromversorgung ein und verbinden Sie sich mit Bluetooth. Der Panzerroboter kann mit der App unterschiedliche Funktionen anzeigen.
 
-Alright, the whole projects are finished. Please feel free to contact us if you confront some problems.
+Alles klar, alle Projekte sind abgeschlossen. Bitte kontaktieren Sie uns gerne, wenn Sie auf Probleme stoßen.

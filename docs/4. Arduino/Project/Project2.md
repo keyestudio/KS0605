@@ -1,89 +1,89 @@
-# Project 2 Adjust LED Brightness
+# Projekt 2 LED-Helligkeit anpassen
 
-**(1) Description**
+**(1) Beschreibung**
 
-In previous lesson, we control LED on and off and make it blink.
+In der vorherigen Lektion haben wir die LED ein- und ausgeschaltet und zum Blinken gebracht.
 
-In this project, we will control the brightness of LED through PWM to simulate breathing effects. Similarly, you can change the step length and delay time in the code so as to demonstrate different breathing effect.
+In diesem Projekt werden wir die Helligkeit der LED durch PWM steuern, um Atemeffekte zu simulieren. Auf ähnliche Weise können Sie die Schrittlänge und Verzögerungszeit im Code ändern, um verschiedene Atemeffekte zu demonstrieren.
 
-PWM is a means of controlling the analog output via digital means. Digital control is used to generate square waves with different duty cycles (a signal that constantly switches between high and low levels) to control the analog output. In general, the input voltages of ports are 0V and 5V. What if the 3V is required? Or a switch among 1V, 3V and 3.5V? We cannot change resistors constantly. For this reason, we resort to PWM.
+PWM ist eine Methode zur Steuerung der analogen Ausgabe durch digitale Mittel. Die digitale Steuerung wird verwendet, um Rechteckwellen mit unterschiedlichen Tastverhältnissen (ein Signal, das ständig zwischen hohen und niedrigen Pegeln wechselt) zu erzeugen, um die analoge Ausgabe zu steuern. Im Allgemeinen betragen die Eingangsspannungen der Anschlüsse 0V und 5V. Was ist, wenn 3V erforderlich sind? Oder ein Wechsel zwischen 1V, 3V und 3,5V? Wir können nicht ständig Widerstände ändern. Aus diesem Grund greifen wir auf PWM zurück.
 
 ![](./media/bbcfcb9ae56abb7e80ee587246fc4be9.GIF)
 
-For the Arduino digital port voltage output, there are only LOW and HIGH, which correspond to the voltage output of 0V and 5V. You can define LOW as 0 and HIGH as 1, and let the Arduino output five hundred 0 or 1 signals within 1 second.
+Bei der Arduino-Digitalanschlussausgabe gibt es nur LOW und HIGH, die den Spannungsausgaben von 0V und 5V entsprechen. Sie können LOW als 0 und HIGH als 1 definieren und das Arduino innerhalb von 1 Sekunde fünfhundert 0- oder 1-Signale ausgeben lassen.
 
-If output five hundred 1, that is 5V; if all of which is 1, that is 0V. If output 010101010101 in this way then the output port is 2.5V, which is like showing movie. The movie we watch are not completely continuous. It actually outputs 25 pictures per second. In this case, the human can’t tell it, neither does PWM. If want different voltage, need to control the ratio of 0 and 1. The more 0,1 signals output per unit time, the more accurately control.
+Wenn fünfhundert 1er ausgegeben werden, das heißt 5V; wenn alle davon 1 sind, das heißt 0V. Wenn auf diese Weise 010101010101 ausgegeben wird, beträgt die Ausgangsspannung des Anschlusses 2,5V, was wie das Zeigen eines Films ist. Die Filme, die wir sehen, sind nicht vollständig kontinuierlich. Es werden tatsächlich 25 Bilder pro Sekunde ausgegeben. In diesem Fall kann der Mensch es nicht erkennen, und PWM auch nicht. Wenn Sie eine andere Spannung wünschen, müssen Sie das Verhältnis von 0 und 1 steuern. Je mehr 0- und 1-Signale pro Zeiteinheit ausgegeben werden, desto genauer ist die Steuerung.
 
-**(2) Specification**
+**(2) Spezifikation**
 
-- Control interface: digital port
-- Working voltage: DC 3.3-5V
-- Pin spacing: 2.54mm
-- Display color: red
+- Steueroberfläche: Digitalanschluss
+- Betriebsspannung: DC 3,3-5V
+- Pin-Abstand: 2,54mm
+- Anzeigefarbe: rot
 
-**(3) Components**
+**(3) Komponenten**
 
 ![](./media/image-20250902170952089.png)
 
- **(4) Connection Diagram**
+ **(4) Schaltplan**
 
 ![](./media/image-20250902171013917.png)
 
- **(5) Test Code**
+ **(5) Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 2.2
- pwm-slow
+ Lektion 2.2
+ pwm-langsam
  http://www.keyestudio.com
 */
-int ledPin = 10; // Define the LED pin at D10
+int ledPin = 10; // Definieren Sie den LED-Pin an D10
 int value;
 
 void setup () 
 {
-	pinMode (ledPin, OUTPUT); // initialize ledpin as an output.
+	pinMode (ledPin, OUTPUT); // Initialisieren Sie ledpin als Ausgang.
 }
 
 void loop () 
 {
     for (value = 0; value <255; value = value + 1)
     {
-        analogWrite (ledPin, value); // LED lights gradually light up
-        delay (30); // delay 30MS
+        analogWrite (ledPin, value); // LED leuchtet allmählich auf
+        delay (30); // Verzögerung 30ms
     }
     for (value = 255; value> 0; value = value-1)
     {
-        analogWrite (ledPin, value); // LED gradually goes out
-        delay (30); // delay 30MS
+        analogWrite (ledPin, value); // LED erlischt allmählich
+        delay (30); // Verzögerung 30ms
 	}
 }
 ```
 
-**Test Result**
+**Testergebnis**
 
-Upload test code successfully, LED gradually changes from bright to dark, like human’s breath, rather than turning on and off immediately.
+Nach dem erfolgreichen Hochladen des Testcodes ändert sich die LED allmählich von hell zu dunkel, wie der Atem eines Menschen, anstatt sich sofort ein- oder auszuschalten.
 
-**Code Explanation**
+**Code-Erklärung**
 
-When we need to repeat some statements, we could use FOR statement.
+Wenn wir einige Anweisungen wiederholen müssen, können wir die FOR-Anweisung verwenden.
 
-FOR statement format is shown below:
+Das FOR-Anweisungsformat ist unten dargestellt:
 
 ![](./media/image-20250902171421873.png)
 
-OR cyclic sequence:
+ODER Schleifenfolge:
 
-Round 1：1 → 2 → 3 → 4
+Runde 1：1 → 2 → 3 → 4
 
-Round 2：2 → 3 → 4
+Runde 2：2 → 3 → 4
 
 …
 
-Until number 2 is not established, “for”loop is over,
+Bis Nummer 2 nicht erfüllt ist, endet die „for"-Schleife.
 
-After knowing this order, go back to code:
+Nach Kenntnis dieser Reihenfolge zurück zum Code:
 
 **for (int value = 0; value < 255; value=value+1){**
 
@@ -97,31 +97,28 @@ After knowing this order, go back to code:
 
 **}**
 
-The two“for”statements make value increase from 0 to 255, then reduce from 255 to 0, then increase to 255,....infinitely loop.
+Die beiden „for"-Anweisungen lassen den Wert von 0 auf 255 ansteigen, dann von 255 auf 0 sinken, dann wieder auf 255 ansteigen, .... endlose Schleife.
 
-There is a new function in the following ----- analogWrite()
+Es gibt eine neue Funktion im Folgenden ----- analogWrite()
 
-We know that digital port only has two state of 0 and 1. So how to send an analog value to a digital value? Here,this function is needed. Let’s observe the Arduino board and find 6 pins marked“\~”which can output PWM signals.
+Wir wissen, dass der Digitalanschluss nur zwei Zustände von 0 und 1 hat. Wie sendet man also einen analogen Wert an einen digitalen Wert? Hier wird diese Funktion benötigt. Schauen wir uns das Arduino-Board an und finden Sie 6 Pins mit der Markierung „\~", die PWM-Signale ausgeben können.
 
-**Function format as follows:**
+**Funktionsformat wie folgt:**
 
 **analogWrite(pin,value)**
 
-analogWrite() is used to write an analog value from 0\~255 for PWM port, so the value is in the range of 0\~255. Attention that you only write the digital pins with PWM function, such as pin 3, 5, 6, 9, 10, 11.
+analogWrite() wird verwendet, um einen analogen Wert von 0\~255 für den PWM-Anschluss zu schreiben, daher liegt der Wert im Bereich von 0\~255. Beachten Sie, dass Sie nur die Digitalstifte mit PWM-Funktion schreiben, wie z. B. Pin 3, 5, 6, 9, 10, 11.
 
-PWM is a technology to obtain analog quantity through digital method. Digital control forms a square wave, and the square wave signal only has two states of turning on and off (that is, high or low levels). By controlling the ratio of the duration of turning on and off, a voltage varying from 0 to 5V can be simulated. The time turning on(academically referred to as high level) is called pulse width, so PWM is also called pulse width modulation.
+PWM ist eine Technologie, um eine analoge Größe durch digitale Methoden zu erhalten. Die digitale Steuerung bildet eine Rechteckwelle, und das Rechteckwellensignal hat nur zwei Zustände des Ein- und Ausschaltens (d. h. hohe oder niedrige Pegel). Durch Steuerung des Verhältnisses der Dauer des Ein- und Ausschaltens kann eine Spannung von 0 bis 5V simuliert werden. Die Zeit des Einschaltens (akademisch als hoher Pegel bezeichnet) wird als Impulsbreite bezeichnet, daher wird PWM auch als Pulsweitenmodulation bezeichnet.
 
-Through the following five square waves, let’s acknowledge more about PWM.
+Durch die folgenden fünf Rechteckwellen können wir mehr über PWM erfahren.
 
 ![](./media/image-20250902172304373.png)
 
-In the above figure, the green line represents a period, and value of analogWrite() corresponds to a percentage which is called Duty Cycle as well.
+In der obigen Abbildung stellt die grüne Linie eine Periode dar, und der Wert von analogWrite() entspricht einem Prozentsatz, der auch als Tastverhältnis bezeichnet wird.
 
-Duty cycle implies that high-level duration is divided by low-level duration in a cycle. From top to bottom, the duty cycle of first square wave is 0% and its corresponding value is 0. The LED brightness is lowest, that is, turn off. The more time high level lasts, the brighter the LED. Therefore, the last duty cycle is 100%, which correspond to 255, LED is brightest. 25% means darker.
+Das Tastverhältnis bedeutet, dass die Hochpegelsdauer durch die Tiefpegelsdauer in einem Zyklus geteilt wird. Von oben nach unten beträgt das Tastverhältnis der ersten Rechteckwelle 0% und der entsprechende Wert ist 0. Die LED-Helligkeit ist am niedrigsten, das heißt, sie ist ausgeschaltet. Je länger der hohe Pegel anhält, desto heller leuchtet die LED. Daher beträgt das letzte Tastverhältnis 100%, was 255 entspricht, und die LED leuchtet am hellsten. 25% bedeutet dunkler.
 
-PWM mostly is used for adjusting the LED brightness or rotation speed of motor.
+PWM wird hauptsächlich zur Anpassung der LED-Helligkeit oder der Drehzahl eines Motors verwendet.
 
-It plays a vital role in controlling smart robot car. I believe that you can’t wait to enter the next project.
-
-
-
+Es spielt eine wichtige Rolle bei der Steuerung des intelligenten Roboter-Autos. Ich glaube, dass Sie es kaum erwarten können, zum nächsten Projekt zu gelangen.

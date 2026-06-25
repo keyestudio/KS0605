@@ -1,97 +1,97 @@
-# Project 9 8*16 LED Board
+# Projekt 9 8*16 LED-Platine
 
-**Description**
+**Beschreibung**
 
 ![](media/image-20250908165452592.png)
 
-If you add an 8\*16 LED board to the robot, it will be amazing. Keyestudio's 8\*16 dot matrix can meet this requirement. Fueled by it, you can create facial emoticons, patterns or other interesting displays all by yourself. This 8\*16 LED light board comes with 128 LEDs. The data of the microprocessor (arduino) communicates with the AiP1640 through the two-wire bus interface, so as to control the 128 LEDs on the module, which produce the patterns you need on dot matrix. To facilitate wiring, a HX-2.54 4Pin wiring is provided.
+Wenn Sie dem Roboter eine 8\*16 LED-Platine hinzufügen, wird es beeindruckend. Keystudios 8\*16 Dot-Matrix erfüllt diese Anforderung. Damit können Sie Gesichtsausdrücke, Muster oder andere interessante Anzeigen selbst erstellen. Diese 8\*16 LED-Leuchttafel verfügt über 128 LEDs. Der Mikrocontroller (Arduino) kommuniziert über die Zwei-Draht-Bus-Schnittstelle mit dem AiP1640, um die 128 LEDs auf dem Modul zu steuern und die gewünschten Muster auf der Dot-Matrix zu erzeugen. Zur Vereinfachung der Verkabelung wird eine HX-2.54 4-Pin-Verdrahtung bereitgestellt.
 
-**Specification**
+**Spezifikation**
 
-- Working voltage: DC 3.3-5V
-- Power loss: 400mW
-- Oscillation frequency: 450KHz
-- Drive current: 200mA
-- Working temperature: -40\~80℃
-- Communication method: two-wire bus
+- Betriebsspannung: DC 3,3-5V
+- Stromverbrauch: 400mW
+- Oszillationsfrequenz: 450KHz
+- Treiberstrom: 200mA
+- Betriebstemperatur: -40\~80℃
+- Kommunikationsmethode: Zwei-Draht-Bus
 
-**Components**
+**Komponenten**
 
 ![](media/image-20250908165719665.png)
 
-**8*16 Dot Matrix Display**
+**8*16 Dot-Matrix-Anzeige**
 
-Circuit Graph
+Schaltschema
 
 ![](media/image-20250908165746529.png)
 
-**The principle of 8\*16 dot matrix:**
+**Das Prinzip der 8\*16 Dot-Matrix:**
 
-How to control each LED light of 8\*16 dot matrix? We know that a byte has 8 bits, and each bit is 0 or 1. When a bit is 0, turn off LED and when a bit is 0, turn on LED. Thereby, one byte can control the LED in a row of dot matrix, so 16 bytes can control 16 columns of LED lights, that is, a 8\*16 dot matrix.
+Wie steuert man jede LED-Leuchte der 8\*16 Dot-Matrix? Wir wissen, dass ein Byte 8 Bits hat, und jedes Bit ist 0 oder 1. Wenn ein Bit 0 ist, wird die LED ausgeschaltet, und wenn ein Bit 1 ist, wird die LED eingeschaltet. Dadurch kann ein Byte die LED in einer Reihe der Dot-Matrix steuern, also können 16 Bytes 16 Spalten von LED-Leuchten steuern, das heißt eine 8\*16 Dot-Matrix.
 
-**Interface Description and Communication Protocol:**
+**Schnittstellenbeschreibung und Kommunikationsprotokoll:**
 
-The data of the microprocessor (arduino) communicates with the AiP1640 through the two-wire bus interface.
+Der Mikrocontroller (Arduino) kommuniziert über die Zwei-Draht-Bus-Schnittstelle mit dem AiP1640.
 
-The communication protocol diagram is shown below:
+Das Kommunikationsprotokolldiagramm ist unten dargestellt:
 
-(SCLK) is SCL, (DIN) is SDA:
+(SCLK) ist SCL, (DIN) ist SDA:
 
 ![](media/image-20250908165823763.png)
 
-①The starting condition for data input: SCL is high level and SDA changes from high to low.
+①Die Startbedingung für die Dateneingabe: SCL ist auf hohem Pegel und SDA wechselt von hoch zu niedrig.
 
-②For data command setting, there are methods as shown in the figure below:
+②Für die Datenbefehls-Einstellung gibt es Methoden wie in der folgenden Abbildung dargestellt:
 
-In our sample program, select the way to **add 1 to the address automatically**, the binary value is 0100 0000 and the corresponding hexadecimal value is 0x40.
+In unserem Beispielprogramm wählen wir die Methode **Adresse automatisch um 1 erhöhen**, der Binärwert ist 0100 0000 und der entsprechende Hexadezimalwert ist 0x40.
 
 ![](media/image-20250908165925549.png)
 
-③For address command setting, the address can be selected as shown below.
+③Für die Adressbefehls-Einstellung kann die Adresse wie folgt ausgewählt werden.
 
-The first 00H is selected in our sample program, and the binary number 1100 0000 corresponds to the hexadecimal 0xc0.
+In unserem Beispielprogramm wird die erste 00H ausgewählt, und die Binärzahl 1100 0000 entspricht dem Hexadezimal 0xc0.
 
 ![](media/image-20250908165938702.png)
 
-④The requirement for data input is that SCL is high level when inputting data, and the signal on SDA must remain unchanged. Only when the clock signal on SCL is low level, the signal on SDA can be altered. The data input is low-order first, high-order is behind.
+④Die Anforderung für die Dateneingabe ist, dass SCL auf hohem Pegel ist, wenn Daten eingegeben werden, und das Signal auf SDA muss unverändert bleiben. Nur wenn das Taktsignal auf SCL niedrig ist, kann das Signal auf SDA geändert werden. Die Dateneingabe erfolgt zuerst niedrig, dann hoch.
 
-⑤ The condition to end data transmission is that when SCL is low, SDA is low, and when SCL is high, the SDA level also becomes high.
+⑤ Die Bedingung zum Beenden der Datenübertragung ist, dass wenn SCL niedrig ist, SDA niedrig ist, und wenn SCL hoch ist, wird das SDA-Pegel auch hoch.
 
-⑥ Display control, set different pulse width, the pulse width can be selected as shown below.
+⑥ Anzeigesteuerung, setzen Sie verschiedene Pulsbreiten, die Pulsbreite kann wie folgt ausgewählt werden.
 
-In this example, we choose pulse width 4/16, and the hexadecimal corresponds to 1000 1010 is 0x8A.
+In diesem Beispiel wählen wir Pulsbreite 4/16, und das Hexadezimal entspricht 1000 1010 ist 0x8A.
 
 ![](media/image-20250908170005446.png)
 
-4\. Introduction for Modulus Tool
+4\. Einführung in das Modulus-Tool
 
-The online version of dot matrix modulus tool:
+Die Online-Version des Dot-Matrix-Modulus-Tools:
 
 [http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
-①Open links to enter the following page.
+①Öffnen Sie Links, um die folgende Seite zu öffnen.
 
 ![](media/image-20250908170027144.png)
 
-②The dot matrix is 8\*16 in this project, so set the height to 8, width to 16, as shown below.
+②Die Dot-Matrix ist in diesem Projekt 8\*16, also stellen Sie die Höhe auf 8 und die Breite auf 16 ein, wie unten dargestellt.
 
 ![](media/image-20250908170040925.png)
 
-③ Generate hexadecimal data from the pattern
+③ Hexadezimaldaten aus dem Muster generieren
 
-As shown below, press the left mouse button to select, the right button to cancel, draw the pattern you want, click **Generate**, and the hexadecimal data we need will be produced.
+Wie unten dargestellt, drücken Sie die linke Maustaste zum Auswählen, die rechte Taste zum Abbrechen, zeichnen Sie das gewünschte Muster, klicken Sie auf **Generate**, und die benötigten Hexadezimaldaten werden erzeugt.
 
 ![](media/image-20250908170144895.png)
 
-**Connection Diagram**
+**Verbindungsdiagramm**
 
 ![](media/image-20250908170158402.png)
 
-Wiring note: The GND, VCC, SDA, and SCL of the 8x16 LED panel are respectively connected to -(GND), + (VCC), A4 and A5 of the keyestudio sensor expansion board for two-wire serial communication. (Note: This pin is connected to arduino IIC, but this module is not IIC communication. It can be linked with any two pins.)
+Verkabelungshinweis: GND, VCC, SDA und SCL der 8x16 LED-Platine sind jeweils mit -(GND), + (VCC), A4 und A5 des Keystudio-Sensorerweiterungsboards für die Zwei-Draht-Serienverbindung verbunden. (Hinweis: Dieser Pin ist mit Arduino IIC verbunden, aber dieses Modul ist keine IIC-Kommunikation. Es kann mit zwei beliebigen Pins verbunden werden.)
 
-**Test Code**
+**Test-Code**
 
-The code that shows smile face.
+Der Code, der ein Lächeln zeigt.
 
 ```c
 /*
@@ -100,44 +100,44 @@ The code that shows smile face.
  Matrix  face
  http://www.keyestudio.com
 */ 
-//the data of smiley from modulus tool
+// Die Daten des Lächelns vom Modulus-Tool
 unsigned char smile[] = {0x00, 0x00, 0x1c, 0x02, 0x02, 0x02, 0x5c, 0x40, 0x40, 0x5c, 0x02, 0x02, 0x02, 0x1c, 0x00, 0x00};
 
-#define SCL_Pin  A5  //Set clock pin to A5
-#define SDA_Pin  A4  //Set data pin to A4
+#define SCL_Pin  A5  // Taktsignal-Pin auf A5 setzen
+#define SDA_Pin  A4  // Daten-Pin auf A4 setzen
 
 void setup()
 {
-  //Set pin to output
+  // Pin als Ausgang setzen
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  //clear the display
-  //matrix_display(clear);
+  // Anzeige löschen
+  // matrix_display(clear);
 }
 
 void loop()
 {
-  matrix_display(smile);  // display smile face
+  matrix_display(smile);  // Lächeln anzeigen
 }
-// the function for dot matrix display
+// Die Funktion für die Dot-Matrix-Anzeige
 
 void matrix_display(unsigned char matrix_value[])
 {
-  IIC_start();  // use the function of the data transmission start condition
-  IIC_send(0xc0);  //select address
+  IIC_start();  // Funktion der Startbedingung für die Datenübertragung verwenden
+  IIC_send(0xc0);  // Adresse auswählen
   
-  for(int i = 0;i < 16;i++) //pattern data has 16 bits
+  for(int i = 0;i < 16;i++) // Musterdaten haben 16 Bits
   {
-     IIC_send(matrix_value[i]); //convey the pattern data
+     IIC_send(matrix_value[i]); // Musterdaten übertragen
   }
 
-  IIC_end();   //end the transmission of pattern data  
+  IIC_end();   // Übertragung der Musterdaten beenden
   IIC_start();
-  IIC_send(0x8A);  //display control, set pulse width to 4/16 s
+  IIC_send(0x8A);  // Anzeigesteuerung, Pulsbreite auf 4/16 s setzen
   IIC_end();
 }
 
-//the condition to start conveying data
+// Die Bedingung zum Starten der Datenübertragung
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -147,14 +147,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-//Convey data
+// Daten übertragen
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  //Each byte has 8 bits 8bit for every character
+  for(char i = 0;i < 8;i++)  // Jedes Byte hat 8 Bits, 8 Bits für jedes Zeichen
   {
-      digitalWrite(SCL_Pin,LOW);  // pull down clock pin SCL_Pin to change the signal of SDA
+      digitalWrite(SCL_Pin,LOW);  // Taktsignal-Pin SCL_Pin herunterziehen, um das Signal von SDA zu ändern
       delayMicroseconds(3);
-      if(send_data & 0x01)  //set high and low level of SDA_Pin according to 1 or 0 of every bit
+      if(send_data & 0x01)  // Pegel von SDA_Pin nach 1 oder 0 jedes Bits setzen
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -163,13 +163,13 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); //pull up the clock pin SCL_Pin to stop transmission
+      digitalWrite(SCL_Pin,HIGH); // Taktsignal-Pin SCL_Pin hochziehen, um Übertragung zu stoppen
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // detect bit by bit, shift the data to the right by one
+      send_data = send_data >> 1;  // Bit für Bit erkennen, Daten um eins nach rechts verschieben
   }
 }
 
-//The sign of ending data transmission
+// Das Zeichen für das Ende der Datenübertragung
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -184,15 +184,15 @@ void IIC_end()
 //******************************************************
 ```
 
-**Test Result**
+**Test-Ergebnis**
 
-Wire according to connection diagram. The DIP switch is dialed to the right end and power on, the smile face appears on the dot matrix.
+Verdrahten Sie nach dem Verbindungsdiagramm. Der DIP-Schalter wird nach rechts gedreht und die Stromversorgung eingeschaltet, das Lächeln erscheint auf der Dot-Matrix.
 
 ![](media/image-20250908170421220.png)
 
-**Extension Practice**
+**Erweiterungspraxis**
 
-We use the modulo tool ([http://dotmatrixtool.com/#](http://dotmatrixtool.com/#))to make the dot matrix alternately display, go front and stop patterns then clear the patterns, and the time interval is 2000 milliseconds.
+Wir verwenden das Modulus-Tool ([http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)), um die Dot-Matrix abwechselnd mit Vorwärts-, Rückwärts- und Stoppmustern anzuzeigen, dann die Muster zu löschen, und das Zeitintervall beträgt 2000 Millisekunden.
 
 ![](media/image-20250908170445861.png)
 
@@ -200,23 +200,23 @@ We use the modulo tool ([http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
 ![](media/image-20250908170459213.png)
 
-Get the graphical code to be displayed via modulus tool.
+Rufen Sie den grafischen Code über das Modulus-Tool ab, der angezeigt werden soll.
 
-**Start：** 0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01
+**Start:** 0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01
 
-**Go front：** 0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00
+**Vorwärts:** 0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00
 
-**Go back：** 0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00
+**Rückwärts:** 0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00
 
-**Turn left：** 0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0x10,0x44,0x28,0x10,0x00
+**Nach links drehen:** 0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0x10,0x44,0x28,0x10,0x00
 
-**Turn right：** 0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00
+**Nach rechts drehen:** 0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00
 
-**Stop：** 0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00
+**Stopp:** 0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00
 
-**Clear the displayed code**：0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+**Code zum Löschen der Anzeige**: 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
 
-The code that the multiple patterns shift:
+Der Code für mehrere Muster-Verschiebungen:
 
 ```c
 /* keyestudio Mini Tank Robot V2.1
@@ -224,7 +224,7 @@ The code that the multiple patterns shift:
  Matrix loop
  http://www.keyestudio.com
 */ 
-//Array, used to store the data of the pattern, can be calculated by yourself or obtained from the modulus tool
+// Array, wird verwendet, um die Daten des Musters zu speichern, kann selbst berechnet oder vom Modulus-Tool erhalten werden
 unsigned char start01[] = 
 {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = 
@@ -239,41 +239,41 @@ unsigned char STOP01[] =
 {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = 
 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  //Set clock pin to A5
-#define SDA_Pin  A4  //Set data pin to A4
+#define SCL_Pin  A5  // Taktsignal-Pin auf A5 setzen
+#define SDA_Pin  A4  // Daten-Pin auf A4 setzen
 void setup(){
-  //Set pins to output
+  // Pins als Ausgang setzen
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  //Clear the display
+  // Anzeige löschen
   matrix_display(clear);
 }
 void loop(){
-  matrix_display(start01);  // Display start pattern
+  matrix_display(start01);  // Start-Muster anzeigen
   delay(2000);
-  matrix_display(front);    //Front pattern
+  matrix_display(front);    // Vorwärts-Muster
   delay(2000);
-  matrix_display(STOP01);   //Stop pattern
+  matrix_display(STOP01);   // Stopp-Muster
   delay(2000);
-  matrix_display(clear);    //Clear the display Clear the screen
+  matrix_display(clear);    // Anzeige löschen
   delay(2000);
 }
-// This function is used to display of dot matrix
+// Diese Funktion wird für die Anzeige der Dot-Matrix verwendet
 void matrix_display(unsigned char matrix_value[])
 {
-  IIC_start();  //call the function that data transmission start  
-  IIC_send(0xc0);  //Choose address
+  IIC_start();  // Funktion für die Startbedingung der Datenübertragung aufrufen
+  IIC_send(0xc0);  // Adresse auswählen
   
-  for(int i = 0;i < 16;i++) //pattern data has 16 bits
+  for(int i = 0;i < 16;i++) // Musterdaten haben 16 Bits
   {
-     IIC_send(matrix_value[i]); //data to convey patterns 
+     IIC_send(matrix_value[i]); // Daten zur Übertragung von Mustern
   }
-  IIC_end();   //end the transmission of pattern dataEnd
+  IIC_end();   // Übertragung der Musterdaten beenden
   IIC_start();
-  IIC_send(0x8A);  //display control, set pulse width to 4/16
+  IIC_send(0x8A);  // Anzeigesteuerung, Pulsbreite auf 4/16 setzen
   IIC_end();
 }
-//The condition starting to transmit data
+// Die Bedingung zum Starten der Datenübertragung
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -283,14 +283,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-//Convey data
+// Daten übertragen
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  //Each byte has 8 bits
+  for(char i = 0;i < 8;i++)  // Jedes Byte hat 8 Bits
   {
-      digitalWrite(SCL_Pin,LOW);  //pull down clock pin SCL Pin to change the signals of SDA      
-delayMicroseconds(3);
-      if(send_data & 0x01)  //set high and low level of SDA_Pin according to 1 or 0 of every bit
+      digitalWrite(SCL_Pin,LOW);  // Taktsignal-Pin SCL herunterziehen, um die Signale von SDA zu ändern
+      delayMicroseconds(3);
+      if(send_data & 0x01)  // Pegel von SDA_Pin nach 1 oder 0 jedes Bits setzen
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -299,11 +299,11 @@ delayMicroseconds(3);
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); //pull up clock pin SCL_Pin to stop transmitting data
+      digitalWrite(SCL_Pin,HIGH); // Taktsignal-Pin SCL hochziehen, um Datenübertragung zu stoppen
       delayMicroseconds(3);
-      send_data = send_data >> 1;  //detect bit by bit, so shift the data right by one
+      send_data = send_data >> 1;  // Bit für Bit erkennen, Daten um eins nach rechts verschieben
   }}
-//The sign that data transmission ends
+// Das Zeichen, dass die Datenübertragung endet
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -317,7 +317,7 @@ void IIC_end()
 //*****************************************************
 ```
 
-Upload code on development board, 8\*16 dot matrix displays front , back and stop patterns, alternately.
+Laden Sie den Code auf das Entwicklungsboard hoch. Die 8\*16 Dot-Matrix zeigt abwechselnd Vorwärts-, Rückwärts- und Stoppmuster an.
 
 ![](media/image-20250908170902116.png)
 

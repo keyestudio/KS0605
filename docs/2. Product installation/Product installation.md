@@ -1,49 +1,49 @@
-# 2. Product installation
+# 2. Produktmontage
 
-After checking all the parts in this kit, we need to mount the tank robot. Let’s install the smart car in compliance with the following instructions.
+Nachdem alle Teile dieses Bausatzes überprüft wurden, muss der Panzerroboter zusammengebaut werden. Bitte montieren Sie das Smart Car gemäß den folgenden Anweisungen.
 
-## Assembly Video
+## Montagevideo
 
-[Download video](video.7z).
+[Video herunterladen](video.7z).
 
-> **Note:** The assembly video is provided in the `video.7z` file included in this package. Please extract it to view `video/KS0605.mp4`.
+> **Hinweis:** Das Montagevideo befindet sich in der Datei `video.7z`, die diesem Paket beiliegt. Bitte entpacken Sie die Datei, um `video/KS0605.mp4` anzusehen.
 
-**Note: Peel the plastic film off the board first when installing smart car.**
+**Hinweis: Entfernen Sie zunächst die Schutzfolie von der Platine, bevor Sie das Smart Car montieren.**
 
-## Step 1: Install Bottom Motor
+## Schritt 1: Unterbodenmotor einbauen
 
-Prepare the parts as follows:
+Bereiten Sie folgende Teile vor:
 
-- M4 Nut \* 2
-- Metal Motor \*2
-- Metal Holder \*2
-- Coupler \*2
-- Blue Supportive Parts \*2
-- M4\*12MM Inner Hex Screw \* 2
-- M1.5 Hex Key Nickel Plated Allen Wrench \*1
-- M3 Hex Key Nickel Plated Allen Wrench \*1
-- M2.5 Hex Key Nickel Plated Allen Wrench \*1
-- M3\*8MM Inner Hex Screw \* 4
+- M4-Mutter \* 2
+- Metallmotor \*2
+- Metallhalterung \*2
+- Kupplung \*2
+- Blaue Stützteile \*2
+- M4\*12MM Innensechskantschraube \* 2
+- M1,5 Innensechskantschlüssel vernickelt \*1
+- M3 Innensechskantschlüssel vernickelt \*1
+- M2,5 Innensechskantschlüssel vernickelt \*1
+- M3\*8MM Innensechskantschraube \* 4
 
 ![TK_02](media/TK_02.png)
 
 ![TK_03](media/TK_03.png)
 
-**Prompt: assemble another side motor in the same way.**
+**Hinweis: Montieren Sie den Motor auf der anderen Seite auf dieselbe Weise.**
 
-## Step 2: Install Driver Wheel
+## Schritt 2: Antriebsrad einbauen
 
-Prepare the parts as follows:
+Bereiten Sie folgende Teile vor:
 
-- M3*8MM Inner Hex Screw \* 2
-- M4\*50MM Inner Hex Screw \* 2
-- Tank Load-bearing Wheel \* 2
-- Flange Bearing \* 4
-- Gasket\*2
-- Caterpillar Band \*2
-- M4 Self-locking Nut \* 2
-- M3 Hex Key Nickel Plated Allen Wrench \*1
-- M2.5 Hex Key Nickel Plated Allen Wrench \*1
+- M3*8MM Innensechskantschraube \* 2
+- M4\*50MM Innensechskantschraube \* 2
+- Tragrad für Panzer \* 2
+- Flanschlager \* 4
+- Unterlegscheibe \*2
+- Raupenkette \*2
+- M4 Sicherungsmutter \* 2
+- M3 Innensechskantschlüssel vernickelt \*1
+- M2,5 Innensechskantschlüssel vernickelt \*1
 
 ![TK_04](media/TK_04.png)
 
@@ -53,27 +53,27 @@ Prepare the parts as follows:
 
 ![TK_07](media/TK_07.png)
 
-## Step 3: Install the Battery Holder
+## Schritt 3: Batteriehalter einbauen
 
-Prepare the parts as follows:
+Bereiten Sie folgende Teile vor:
 
-- Battery Holder \*1
-- M3 Nut \* 2
-- Blue Metal holder \*2
-- M4 Nut \*8
-- M3\*10MM Flat Head Screw \* 2
-- M4\*40MM Inner Hex Screw \*4
-- M2.5 Hex Key Nickel Plated Allen Wrench\*1
-- M3 Hex Key Nickel Plated Allen Wrench \*1
-- M3\*25MM Inner Hex Screw \*4
-- M3*45MM Hex Copper Pillar *4
-- Screwdriver
+- Batteriehalter \*1
+- M3-Mutter \* 2
+- Blaue Metallhalterung \*2
+- M4-Mutter \*8
+- M3\*10MM Senkkopfschraube \* 2
+- M4\*40MM Innensechskantschraube \*4
+- M2,5 Innensechskantschlüssel vernickelt \*1
+- M3 Innensechskantschlüssel vernickelt \*1
+- M3\*25MM Innensechskantschraube \*4
+- M3*45MM Sechskant-Abstandsbolzen (Messing) *4
+- Schraubendreher
 
 ![TK_08](media/TK_08.png)
 
 ![TK_09](media/TK_09.png)
 
-Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex screws and four M4 nuts when the mounting process is completed.
+Befestigen Sie nach Abschluss des Montagevorgangs die Metallhalterung mit vier M4\*40MM-Innensechskantschrauben und vier M4-Muttern am Motorrad.
 
 ![TK_10](media/TK_10.png)
 
@@ -83,22 +83,22 @@ Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex scr
 
 ![TK_13](media/TK_13.png)
 
-##  Step 4: Mount Acrylic Board and Sensors
+## Schritt 4: Acrylplatte und Sensoren montieren
 
-- Acrylic Board \* 2
-- L- type Black Bracket \*1
-- Photocell Sensor \*2
-- IR Receiver Module \*1
-- 8X16 LED Panel \*1
-- M2 Nut \*4
-- M3 Nut \*10
-- M3\*6MM Inner Hex Screw \* 8
-- M3\*8MM Inner Hex Screw \* 8
-- M2.5 Hex Key Allen Wrench \*1
-- M3\*12MM Round Head Screw \*6
-- M3\*10MM Hexagon Copper Bush \*8
-- M2\*10MM Round Head Screw \* 4
-- Screwdriver
+- Acrylplatte \* 2
+- L-förmige schwarze Halterung \*1
+- Fotozellensenor \*2
+- IR-Empfängermodul \*1
+- 8X16 LED-Panel \*1
+- M2-Mutter \*4
+- M3-Mutter \*10
+- M3\*6MM Innensechskantschraube \* 8
+- M3\*8MM Innensechskantschraube \* 8
+- M2,5 Innensechskantschlüssel \*1
+- M3\*12MM Rundkopfschraube \*6
+- M3\*10MM Sechskant-Abstandsbolzen (Messing) \*8
+- M2\*10MM Rundkopfschraube \* 4
+- Schraubendreher
 
 ![TK_14](media/TK_14.png)
 
@@ -120,49 +120,49 @@ Move to fix the metal holder on the motor wheel with four M4\*40MM inner hex scr
 
 ![TK_23](media/TK_23.png)
 
-## Step 5: Install the Servo Platform
+## Schritt 5: Servo-Plattform einbauen
 
-Prepare the parts as follows:
+Bereiten Sie folgende Teile vor:
 
 -   Servo \*1
--   Black Gimbal \*1
--   Cable Tie \*2
--   M2x8 Round Head Cross Tapping Screw \*2
--   Ultrasonic Sensor \*1
--   M2\*4 Screw \*1
--   M1.2\*5 Screw \*4
--   Screwdriver
+-   Schwarzes Gimbal \*1
+-   Kabelbinder \*2
+-   M2x8 Rundkopf-Kreuzschlitz-Blechschraube \*2
+-   Ultraschallsensor \*1
+-   M2\*4-Schraube \*1
+-   M1,2\*5-Schraube \*4
+-   Schraubendreher
 
-**Note: **for convenient debugging, keep the ultrasonic module straight ahead and the angle of servo motor at 90°. Therefore, we need to set the servo to 90° before installing the servo platform.
+**Hinweis:** Für eine einfache Fehlersuche sollte das Ultraschallmodul geradeaus ausgerichtet und der Servowinkel auf 90° eingestellt sein. Daher muss der Servo vor der Montage der Servo-Plattform auf 90° eingestellt werden.
 
-Set the 90-degree code,Copy the code and upload it to the development board. The steering gear connected to port D9 will rotate to 90 °.
+Kopieren Sie den folgenden 90-Grad-Code und laden Sie ihn auf das Entwicklungsboard hoch. Das an Port D9 angeschlossene Lenkgetriebe dreht sich auf 90°.
 
-> To upload code, you will need the Arduino IDE. Please first install the Arduino IDE by following sections 4.2–4.4. (Software Download, Set Up Arduino IDE, and Add Library)
+> Zum Hochladen des Codes benötigen Sie die Arduino IDE. Bitte installieren Sie zunächst die Arduino IDE gemäß den Abschnitten 4.2–4.4. (Software-Download, Arduino IDE einrichten und Bibliothek hinzufügen)
 
 ```c
-#define servoPin 9 //servo Pin
-int pos; //the angle variable of servo
-int pulsewidth; // pulse width variable of servo
+#define servoPin 9 //Servo-Pin
+int pos; //Winkelvariable des Servos
+int pulsewidth; // Pulsbreitenvariable des Servos
 
 void setup() 
 {
-    pinMode(servoPin, OUTPUT); //set servo pin to OUTPUT
-    procedure(0); //set the angle of servo to 0°
+    pinMode(servoPin, OUTPUT); //Servo-Pin als Ausgang setzen
+    procedure(0); //Servowinkel auf 0° setzen
 }
 
 void loop() 
 {
-	procedure(90); // tell servo to go to position in variable 90°
+	procedure(90); // Servo auf Position 90° fahren
 }
 
-// function to control servo
+// Funktion zur Steuerung des Servos
 void procedure(int myangle) 
 {
-    pulsewidth = myangle * 11 + 500; //calculate the value of pulse width
+    pulsewidth = myangle * 11 + 500; //Pulsbreitenwert berechnen
     digitalWrite(servoPin,HIGH);
-    delayMicroseconds(pulsewidth); //The duration of high level is pulse width
+    delayMicroseconds(pulsewidth); //Die Dauer des High-Pegels entspricht der Pulsbreite
     digitalWrite(servoPin,LOW);
-    delay((20 - pulsewidth / 1000)); // the cycle is 20ms, the low level last for the rest of time
+    delay((20 - pulsewidth / 1000)); // Der Zyklus beträgt 20ms, der Low-Pegel hält die restliche Zeit an
 }
 ```
 
@@ -170,23 +170,23 @@ void procedure(int myangle)
 
 ![](media/image-20250902144145590.png)
 
-**Note: **You can find M1.2\*5 Screws inside the bag of Plastic Platform.
+**Hinweis:** Die M1,2\*5-Schrauben befinden sich im Beutel der Kunststoffplattform.
 
 ![TK_25](media/TK_25.png)
 
 ![TK_26](media/TK_26.png)
 
-## Step 6: Install Sensors and Boards
+## Schritt 6: Sensoren und Platinen einbauen
 
-Prepare the parts as follows:
+Bereiten Sie folgende Teile vor:
 
-- M3\*6MM Round Head Screw \*12
+- M3\*6MM Rundkopfschraube \*12
 - L298P Shield \*1
 - V4.0 Board \*1
 - V5 Sensor Shield \*1
-- Screwdriver \*1
-- Bluetooth Module \*1
-- M2.5 Hex Key Nickel Plated Allen Wrench \*1
+- Schraubendreher \*1
+- Bluetooth-Modul \*1
+- M2,5 Innensechskantschlüssel vernickelt \*1
 
 ![TK_27](media/TK_27.png)
 
@@ -206,7 +206,7 @@ Prepare the parts as follows:
 
 
 
-## Step 7: Hook-up Guide
+## Schritt 7: Verkabelungsanleitung
 
 ![](media/image-20250902144534790.png)
 
@@ -218,7 +218,7 @@ Prepare the parts as follows:
 
 ![](media/image-20250902144902221.png)
 
-##  Step 8: Wire Up LED Panel
+## Schritt 8: LED-Panel anschließen
 
 ![](media/image-20250902145026905.png)
 
@@ -226,7 +226,7 @@ Prepare the parts as follows:
 
 ![](media/image-20250902145129382.png)
 
-| LED Panel                              | V5 Sensor Shield                       |
+| LED-Panel                              | V5 Sensor Shield                       |
 | -------------------------------------- | -------------------------------------- |
 | GND                                    | -(GND)                                 |
 | VCC                                    | +(VCC)                                 |
@@ -234,7 +234,7 @@ Prepare the parts as follows:
 | SCL                                    | SCL                                    |
 | ![](media/image-20250902145404151.png) | ![](media/image-20250902145414755.png) |
 
-## Step 9: Install all parts of Acrylic plate
+## Schritt 9: Alle Teile der Acrylplatte einbauen
 
 ![](media/image-20250902145506652.png)
 
@@ -262,33 +262,33 @@ Prepare the parts as follows:
 
 ![](media/image-20250902150711706.png)
 
-##  Step 10: Tank Robot
+## Schritt 10: Panzerroboter
 
-**Note:** Remove the Bluetooth module before uploading test code. Otherwise, you will fail to upload test code.
+**Hinweis:** Entfernen Sie das Bluetooth-Modul, bevor Sie den Testcode hochladen. Andernfalls schlägt das Hochladen des Testcodes fehl.
 
 ![](media/image-20250902151034545.png)
 
-**Multi-purpose Robot Car**
+**Multifunktionaler Roboterwagen**
 
 ![](media/image-20250902151133169.png)
 
-  **Description**
+  **Beschreibung**
 
-In the previous projects, the tank car only performs a single function. However, in this lesson, we integrate all of its functions to control smart car via Bluetooth control.
+In den vorherigen Projekten hat der Panzerwagen jeweils nur eine einzelne Funktion ausgeführt. In dieser Lektion werden jedoch alle Funktionen integriert, um das Smart Car über Bluetooth zu steuern.
 
-Here is a simple flow chart of multi-purpose robot car for your reference.
+Nachfolgend finden Sie ein vereinfachtes Ablaufdiagramm des multifunktionalen Roboterwagens als Referenz.
 
 ![](media/image-20250902151215210.png)
 
-  **Connection Diagram**
+  **Schaltplan**
 
 ![](media/image-20250902151230702.png)
 
-**Attention：**Confirm that every component is connected.
+**Achtung:** Stellen Sie sicher, dass alle Komponenten angeschlossen sind.
 
-Wire-up Guide:
+Verkabelungsanleitung:
 
-| 8x16 LED panel |      | Expansion Board |
+| 8x16 LED-Panel | | Erweiterungsplatine |
 | -------------- | ---- | --------------- |
 | GND            | →    | -（GND）        |
 | VCC            | →    | +（VCC）        |
@@ -297,7 +297,7 @@ Wire-up Guide:
 
 ![](media/image-20250902152539713.png)
 
-| Ultrasonic Module |      |        |
+| Ultraschallmodul  |      |        |
 | ----------------- | ---- | ------ |
 | VCC               | →    | 5v(V)  |
 | Trig              | →    | 5(S)   |
@@ -308,29 +308,29 @@ Wire-up Guide:
 
 ![](media/image-20250902152906103.png)
 
-| Servo Motor |      |        |
-| ----------- | ---- | ------ |
-| Servo Motor | →    | Gnd(G) |
-| Red Wire    | →    | 5v(V)  |
-| Orange Wire | →    | 9      |
+| Servomotor      |      |        |
+| --------------- | ---- | ------ |
+| Servomotor      | →    | Gnd(G) |
+| Rotes Kabel     | →    | 5v(V)  |
+| Oranges Kabel   | →    | 9      |
 
 ![](media/image-20250902154418006.png)
 
 ![](media/image-20250902154820948.png)
 
-| Bluetooth Module                        |      |          |
-| --------------------------------------- | ---- | -------- |
-| RXD                                     | →    | TX       |
-| TXD                                     | →    | RX       |
-| GND                                     | →    | -（GND） |
-| VCC                                     |      | +（VCC） |
-| No need to attach to STATE and BRK pins |      |          |
+| Bluetooth-Modul                                    |      |          |
+| -------------------------------------------------- | ---- | -------- |
+| RXD                                                | →    | TX       |
+| TXD                                                | →    | RX       |
+| GND                                                | →    | -（GND） |
+| VCC                                                |      | +（VCC） |
+| STATE- und BRK-Pins müssen nicht angeschlossen werden |      |          |
 
 ![](media/image-20250902155229663.png)
 
 ![](media/image-20250902155236836.png)
 
-| IR Receiver Module |      | Sensor Shield |
+| IR-Empfängermodul  |      | Sensor Shield |
 | ------------------ | ---- | ------------- |
 | －                 | →    | G（GND）      |
 | +                  | →    | V（VCC）      |
@@ -340,20 +340,19 @@ Wire-up Guide:
 
 ![](media/image-20250902155452133.png)
 
-| Left photo resistor  |      | Sensor Shield |
-| -------------------- | ---- | ------------- |
-| －                   | →    | G（GND）      |
-| ＋                   | →    | V（VCC）      |
-| S                    | →    | A1            |
-|                      |      |               |
-| Right Photo resistor |      | Sensor Shield |
-| －                   | →    | G（GND）      |
-| ＋                   | →    | V（VCC）      |
-| S                    | →    | A2            |
+| Linker Fotowiderstand  |      | Sensor Shield |
+| ---------------------- | ---- | ------------- |
+| －                     | →    | G（GND）      |
+| ＋                     | →    | V（VCC）      |
+| S                      | →    | A1            |
+|                        |      |               |
+| Rechter Fotowiderstand |      | Sensor Shield |
+| －                     | →    | G（GND）      |
+| ＋                     | →    | V（VCC）      |
+| S                      | →    | A2            |
 
 ![](media/image-20250902155938106.png)
 
 ![](media/image-20250902155946213.png)
 
- Installation complete.
-
+ Montage abgeschlossen.
