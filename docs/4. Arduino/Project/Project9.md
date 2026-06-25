@@ -1,143 +1,143 @@
-# Proyecto 9 Tablero LED 8*16
+# Projet 9 Panneau LED 8*16
 
-**Descripción**
+**Description**
 
 ![](media/image-20250908165452592.png)
 
-Si añades un tablero LED 8\*16 al robot, será increíble. La matriz de puntos 8\*16 de Keyestudio puede cumplir este requisito. Con ella, puedes crear emoticones faciales, patrones u otras pantallas interesantes por ti mismo. Este tablero de luz LED 8\*16 viene con 128 LEDs. Los datos del microprocesador (Arduino) se comunican con el AiP1640 a través de la interfaz de bus de dos hilos, para controlar los 128 LEDs del módulo, que producen los patrones que necesitas en la matriz de puntos. Para facilitar el cableado, se proporciona un cableado HX-2.54 de 4 pines.
+Si vous ajoutez un panneau LED 8\*16 au robot, ce sera impressionnant. La matrice de points 8\*16 de Keyestudio peut répondre à cette exigence. Grâce à elle, vous pouvez créer des émoticônes faciales, des motifs ou d'autres affichages intéressants par vous-même. Ce panneau lumineux LED 8\*16 est équipé de 128 LED. Les données du microprocesseur (Arduino) communiquent avec l'AiP1640 via l'interface de bus à deux fils, afin de contrôler les 128 LED du module, qui produisent les motifs dont vous avez besoin sur la matrice de points. Pour faciliter le câblage, un câblage HX-2.54 4 broches est fourni.
 
-**Especificación**
+**Spécifications**
 
-- Voltaje de funcionamiento: CC 3.3-5V
-- Pérdida de potencia: 400mW
-- Frecuencia de oscilación: 450KHz
-- Corriente de conducción: 200mA
-- Temperatura de funcionamiento: -40\~80℃
-- Método de comunicación: bus de dos hilos
+- Tension de fonctionnement : CC 3,3-5V
+- Perte de puissance : 400mW
+- Fréquence d'oscillation : 450KHz
+- Courant de commande : 200mA
+- Température de fonctionnement : -40\~80℃
+- Méthode de communication : bus à deux fils
 
-**Componentes**
+**Composants**
 
 ![](media/image-20250908165719665.png)
 
-**Pantalla de Matriz de Puntos 8*16**
+**Affichage matriciel de points 8*16**
 
-Diagrama del Circuito
+Schéma de circuit
 
 ![](media/image-20250908165746529.png)
 
-**El principio de la matriz de puntos 8\*16:**
+**Le principe de la matrice de points 8\*16 :**
 
-¿Cómo controlar cada luz LED de la matriz de puntos 8\*16? Sabemos que un byte tiene 8 bits, y cada bit es 0 o 1. Cuando un bit es 0, se apaga el LED y cuando un bit es 1, se enciende el LED. De esta manera, un byte puede controlar el LED en una fila de la matriz de puntos, por lo que 16 bytes pueden controlar 16 columnas de luces LED, es decir, una matriz de puntos 8\*16.
+Comment contrôler chaque LED de la matrice de points 8\*16 ? Nous savons qu'un octet a 8 bits, et chaque bit est 0 ou 1. Quand un bit est 0, la LED s'éteint et quand un bit est 1, la LED s'allume. Ainsi, un octet peut contrôler les LED d'une ligne de la matrice de points, donc 16 octets peuvent contrôler 16 colonnes de LED, c'est-à-dire une matrice de points 8\*16.
 
-**Descripción de la Interfaz y Protocolo de Comunicación:**
+**Description de l'interface et protocole de communication :**
 
-Los datos del microprocesador (Arduino) se comunican con el AiP1640 a través de la interfaz de bus de dos hilos.
+Les données du microprocesseur (Arduino) communiquent avec l'AiP1640 via l'interface de bus à deux fils.
 
-El diagrama del protocolo de comunicación se muestra a continuación:
+Le diagramme du protocole de communication est présenté ci-dessous :
 
-(SCLK) es SCL, (DIN) es SDA:
+(SCLK) est SCL, (DIN) est SDA :
 
 ![](media/image-20250908165823763.png)
 
-①La condición de inicio para la entrada de datos: SCL está en nivel alto y SDA cambia de alto a bajo.
+①La condition de démarrage pour l'entrée de données : SCL est au niveau haut et SDA passe du niveau haut au niveau bas.
 
-②Para la configuración del comando de datos, hay métodos como se muestra en la figura a continuación:
+②Pour le paramétrage de la commande de données, il existe des méthodes comme indiqué dans la figure ci-dessous :
 
-En nuestro programa de ejemplo, selecciona la forma de **añadir 1 a la dirección automáticamente**, el valor binario es 0100 0000 y el valor hexadecimal correspondiente es 0x40.
+Dans notre programme exemple, sélectionnez la méthode **ajouter 1 à l'adresse automatiquement**, la valeur binaire est 0100 0000 et la valeur hexadécimale correspondante est 0x40.
 
 ![](media/image-20250908165925549.png)
 
-③Para la configuración del comando de dirección, la dirección se puede seleccionar como se muestra a continuación.
+③Pour le paramétrage de la commande d'adresse, l'adresse peut être sélectionnée comme indiqué ci-dessous.
 
-El primer 00H se selecciona en nuestro programa de ejemplo, y el número binario 1100 0000 corresponde al hexadecimal 0xc0.
+Le premier 00H est sélectionné dans notre programme exemple, et le nombre binaire 1100 0000 correspond à l'hexadécimal 0xc0.
 
 ![](media/image-20250908165938702.png)
 
-④El requisito para la entrada de datos es que SCL esté en nivel alto al introducir datos, y la señal en SDA debe permanecer sin cambios. Solo cuando la señal de reloj en SCL está en nivel bajo, la señal en SDA puede ser alterada. La entrada de datos es de orden bajo primero, orden alto después.
+④L'exigence pour l'entrée de données est que SCL soit au niveau haut lors de l'entrée de données, et le signal sur SDA doit rester inchangé. Ce n'est que lorsque le signal d'horloge sur SCL est au niveau bas que le signal sur SDA peut être modifié. L'entrée de données est d'abord le poids faible, puis le poids fort.
 
-⑤ La condición para terminar la transmisión de datos es que cuando SCL está bajo, SDA está bajo, y cuando SCL está alto, el nivel de SDA también se vuelve alto.
+⑤ La condition pour terminer la transmission de données est que lorsque SCL est bas, SDA est bas, et lorsque SCL est haut, le niveau SDA devient également haut.
 
-⑥ Control de pantalla, establece diferentes anchos de pulso, el ancho de pulso se puede seleccionar como se muestra a continuación.
+⑥ Contrôle d'affichage, définissez différentes largeurs d'impulsion, la largeur d'impulsion peut être sélectionnée comme indiqué ci-dessous.
 
-En este ejemplo, elegimos ancho de pulso 4/16, y el hexadecimal correspondiente a 1000 1010 es 0x8A.
+Dans cet exemple, nous choisissons une largeur d'impulsion de 4/16, et l'hexadécimal correspondant à 1000 1010 est 0x8A.
 
 ![](media/image-20250908170005446.png)
 
-4\. Introducción a la Herramienta de Módulo
+4\. Introduction de l'outil de modulation
 
-La versión en línea de la herramienta de módulo de matriz de puntos:
+La version en ligne de l'outil de modulation de matrice de points :
 
 [http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)
 
-①Abre el enlace para entrar en la siguiente página.
+①Ouvrez les liens pour accéder à la page suivante.
 
 ![](media/image-20250908170027144.png)
 
-②La matriz de puntos es 8\*16 en este proyecto, así que establece la altura a 8, ancho a 16, como se muestra a continuación.
+②La matrice de points est 8\*16 dans ce projet, donc définissez la hauteur à 8, la largeur à 16, comme indiqué ci-dessous.
 
 ![](media/image-20250908170040925.png)
 
-③ Genera datos hexadecimales a partir del patrón
+③ Générer des données hexadécimales à partir du motif
 
-Como se muestra a continuación, presiona el botón izquierdo del ratón para seleccionar, el botón derecho para cancelar, dibuja el patrón que deseas, haz clic en **Generate**, y se producirán los datos hexadecimales que necesitamos.
+Comme indiqué ci-dessous, appuyez sur le bouton gauche de la souris pour sélectionner, le bouton droit pour annuler, dessinez le motif que vous souhaitez, cliquez sur **Générer**, et les données hexadécimales dont nous avons besoin seront produites.
 
 ![](media/image-20250908170144895.png)
 
-**Diagrama de Conexión**
+**Schéma de connexion**
 
 ![](media/image-20250908170158402.png)
 
-Nota de cableado: El GND, VCC, SDA y SCL del panel LED 8x16 están conectados respectivamente a -(GND), + (VCC), A4 y A5 de la placa de expansión de sensores keyestudio para comunicación serial de dos hilos. (Nota: Este pin está conectado a Arduino IIC, pero este módulo no es comunicación IIC. Puede vincularse con cualquier dos pines.)
+Remarque sur le câblage : Les GND, VCC, SDA et SCL du panneau LED 8x16 sont respectivement connectés à -(GND), + (VCC), A4 et A5 de la carte d'extension de capteur keyestudio pour la communication série à deux fils. (Remarque : Cette broche est connectée à l'IIC Arduino, mais ce module n'est pas une communication IIC. Il peut être lié avec n'importe quelles deux broches.)
 
-**Código de Prueba**
+**Code de test**
 
-El código que muestra una cara sonriente.
+Le code qui affiche un visage souriant.
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lección 9.1
- Cara de matriz
+ leçon 9.1
+ Visage matriciel
  http://www.keyestudio.com
 */ 
-// Los datos de la cara sonriente de la herramienta de módulo
+// Les données du visage souriant proviennent de l'outil de modulation
 unsigned char smile[] = {0x00, 0x00, 0x1c, 0x02, 0x02, 0x02, 0x5c, 0x40, 0x40, 0x5c, 0x02, 0x02, 0x02, 0x1c, 0x00, 0x00};
 
-#define SCL_Pin  A5  // Establece el pin de reloj a A5
-#define SDA_Pin  A4  // Establece el pin de datos a A4
+#define SCL_Pin  A5  // Définir la broche d'horloge à A5
+#define SDA_Pin  A4  // Définir la broche de données à A4
 
 void setup()
 {
-  // Establece el pin como salida
+  // Définir la broche en sortie
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  // Limpia la pantalla
+  // Effacer l'affichage
   // matrix_display(clear);
 }
 
 void loop()
 {
-  matrix_display(smile);  // Muestra cara sonriente
+  matrix_display(smile);  // Afficher le visage souriant
 }
-// La función para la visualización de matriz de puntos
+// La fonction pour l'affichage de la matrice de points
 
 void matrix_display(unsigned char matrix_value[])
 {
-  IIC_start();  // Usa la función de la condición de inicio de transmisión de datos
-  IIC_send(0xc0);  // Selecciona dirección
+  IIC_start();  // Utiliser la fonction de la condition de démarrage de transmission de données
+  IIC_send(0xc0);  // Sélectionner l'adresse
   
-  for(int i = 0;i < 16;i++) // Los datos del patrón tienen 16 bits
+  for(int i = 0;i < 16;i++) // Les données de motif ont 16 bits
   {
-     IIC_send(matrix_value[i]); // Transmite los datos del patrón
+     IIC_send(matrix_value[i]); // Transmettre les données de motif
   }
 
-  IIC_end();   // Termina la transmisión de datos del patrón
+  IIC_end();   // Terminer la transmission des données de motif  
   IIC_start();
-  IIC_send(0x8A);  // Control de pantalla, establece ancho de pulso a 4/16 s
+  IIC_send(0x8A);  // Contrôle d'affichage, définir la largeur d'impulsion à 4/16 s
   IIC_end();
 }
 
-// La condición para comenzar a transmitir datos
+// La condition pour commencer à transmettre des données
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -147,14 +147,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-// Transmite datos
+// Transmettre des données
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  // Cada byte tiene 8 bits, 8 bits para cada carácter
+  for(char i = 0;i < 8;i++)  // Chaque octet a 8 bits
   {
-      digitalWrite(SCL_Pin,LOW);  // Baja el pin de reloj SCL_Pin para cambiar la señal de SDA
+      digitalWrite(SCL_Pin,LOW);  // Tirer vers le bas la broche d'horloge SCL_Pin pour modifier le signal de SDA
       delayMicroseconds(3);
-      if(send_data & 0x01)  // Establece el nivel alto y bajo de SDA_Pin según 1 o 0 de cada bit
+      if(send_data & 0x01)  // Définir le niveau haut et bas de SDA_Pin selon 1 ou 0 de chaque bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -163,13 +163,13 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); // Sube el pin de reloj SCL_Pin para detener la transmisión
+      digitalWrite(SCL_Pin,HIGH); // Tirer vers le haut la broche d'horloge SCL_Pin pour arrêter la transmission
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // Detecta bit a bit, desplaza los datos a la derecha por uno
+      send_data = send_data >> 1;  // Détecter bit par bit, décaler les données vers la droite d'un
   }
 }
 
-// El signo de terminar la transmisión de datos
+// Le signe de la fin de la transmission de données
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -184,15 +184,15 @@ void IIC_end()
 //******************************************************
 ```
 
-**Resultado de la Prueba**
+**Résultat du test**
 
-Cableado según el diagrama de conexión. El interruptor DIP se gira hacia el extremo derecho y se enciende, aparece una cara sonriente en la matriz de puntos.
+Câblez selon le schéma de connexion. Le commutateur DIP est basculé vers l'extrémité droite et l'alimentation est activée, le visage souriant apparaît sur la matrice de points.
 
 ![](media/image-20250908170421220.png)
 
-**Práctica de Extensión**
+**Pratique d'extension**
 
-Usamos la herramienta de módulo ([http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)) para hacer que la matriz de puntos muestre alternativamente patrones de avance, retroceso y parada, luego limpie los patrones, y el intervalo de tiempo es de 2000 milisegundos.
+Nous utilisons l'outil de modulation ([http://dotmatrixtool.com/#](http://dotmatrixtool.com/#)) pour faire afficher alternativement à la matrice de points les motifs d'avance, d'arrêt et d'effacement, et l'intervalle de temps est de 2000 millisecondes.
 
 ![](media/image-20250908170445861.png)
 
@@ -200,31 +200,31 @@ Usamos la herramienta de módulo ([http://dotmatrixtool.com/#](http://dotmatrixt
 
 ![](media/image-20250908170459213.png)
 
-Obtén el código gráfico a mostrar a través de la herramienta de módulo.
+Obtenez le code graphique à afficher via l'outil de modulation.
 
-**Inicio：** 0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01
+**Démarrage :** 0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01
 
-**Avanzar：** 0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00
+**Avancer :** 0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00
 
-**Retroceder：** 0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00
+**Reculer :** 0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00
 
-**Girar a la izquierda：** 0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0x10,0x44,0x28,0x10,0x00
+**Tourner à gauche :** 0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0x10,0x44,0x28,0x10,0x00
 
-**Girar a la derecha：** 0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00
+**Tourner à droite :** 0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00
 
-**Parar：** 0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00
+**Arrêt :** 0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00
 
-**Código para limpiar la pantalla**：0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+**Code pour effacer l'affichage** : 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
 
-El código para múltiples patrones en desplazamiento:
+Le code pour le décalage de plusieurs motifs :
 
 ```c
 /* keyestudio Mini Tank Robot V2.1
- lección 9.2
- Bucle de matriz
+ leçon 9.2
+ Boucle matricielle
  http://www.keyestudio.com
 */ 
-// Matriz, utilizada para almacenar los datos del patrón, puede ser calculada por ti mismo u obtenida de la herramienta de módulo
+// Tableau, utilisé pour stocker les données du motif, peut être calculé par vous-même ou obtenu à partir de l'outil de modulation
 unsigned char start01[] = 
 {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = 
@@ -239,41 +239,41 @@ unsigned char STOP01[] =
 {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = 
 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  // Establece el pin de reloj a A5
-#define SDA_Pin  A4  // Establece el pin de datos a A4
+#define SCL_Pin  A5  // Définir la broche d'horloge à A5
+#define SDA_Pin  A4  // Définir la broche de données à A4
 void setup(){
-  // Establece los pines como salida
+  // Définir les broches en sortie
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  // Limpia la pantalla
+  // Effacer l'affichage
   matrix_display(clear);
 }
 void loop(){
-  matrix_display(start01);  // Muestra patrón de inicio
+  matrix_display(start01);  // Afficher le motif de démarrage
   delay(2000);
-  matrix_display(front);    // Patrón de avance
+  matrix_display(front);    // Motif d'avance
   delay(2000);
-  matrix_display(STOP01);   // Patrón de parada
+  matrix_display(STOP01);   // Motif d'arrêt
   delay(2000);
-  matrix_display(clear);    // Limpia la pantalla
+  matrix_display(clear);    // Effacer l'affichage Effacer l'écran
   delay(2000);
 }
-// Esta función se utiliza para la visualización de matriz de puntos
+// Cette fonction est utilisée pour l'affichage de la matrice de points
 void matrix_display(unsigned char matrix_value[])
 {
-  IIC_start();  // Llama a la función de inicio de transmisión de datos
-  IIC_send(0xc0);  // Elige dirección
+  IIC_start();  // Appeler la fonction de démarrage de transmission de données  
+  IIC_send(0xc0);  // Choisir l'adresse
   
-  for(int i = 0;i < 16;i++) // Los datos del patrón tienen 16 bits
+  for(int i = 0;i < 16;i++) // Les données de motif ont 16 bits
   {
-     IIC_send(matrix_value[i]); // Datos para transmitir patrones
+     IIC_send(matrix_value[i]); // Données pour transmettre les motifs 
   }
-  IIC_end();   // Termina la transmisión de datos del patrón
+  IIC_end();   // Terminer la transmission des données de motif Fin
   IIC_start();
-  IIC_send(0x8A);  // Control de pantalla, establece ancho de pulso a 4/16
+  IIC_send(0x8A);  // Contrôle d'affichage, définir la largeur d'impulsion à 4/16
   IIC_end();
 }
-// La condición para comenzar a transmitir datos
+// La condition pour commencer à transmettre des données
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -283,14 +283,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-// Transmite datos
+// Transmettre des données
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  // Cada byte tiene 8 bits
+  for(char i = 0;i < 8;i++)  // Chaque octet a 8 bits
   {
-      digitalWrite(SCL_Pin,LOW);  // Baja el pin de reloj SCL para cambiar las señales de SDA
-      delayMicroseconds(3);
-      if(send_data & 0x01)  // Establece el nivel alto y bajo de SDA_Pin según 1 o 0 de cada bit
+      digitalWrite(SCL_Pin,LOW);  // Tirer vers le bas la broche d'horloge SCL Pin pour modifier les signaux de SDA      
+delayMicroseconds(3);
+      if(send_data & 0x01)  // Définir le niveau haut et bas de SDA_Pin selon 1 ou 0 de chaque bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -299,11 +299,11 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); // Sube el pin de reloj SCL para detener la transmisión de datos
+      digitalWrite(SCL_Pin,HIGH); // Tirer vers le haut la broche d'horloge SCL_Pin pour arrêter la transmission de données
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // Detecta bit a bit, desplaza los datos a la derecha por uno
+      send_data = send_data >> 1;  // Détecter bit par bit, donc décaler les données vers la droite d'un
   }}
-// El signo de que la transmisión de datos termina
+// Le signe que la transmission de données se termine
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -317,7 +317,7 @@ void IIC_end()
 //*****************************************************
 ```
 
-Carga el código en la placa de desarrollo, la matriz de puntos 8\*16 muestra patrones de avance, retroceso y parada, alternativamente.
+Téléchargez le code sur la carte de développement, la matrice de points 8\*16 affiche alternativement les motifs d'avance, de recul et d'arrêt.
 
 ![](media/image-20250908170902116.png)
 

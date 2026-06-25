@@ -1,16 +1,16 @@
-# Proyecto 15: Proyecto Final Completamente Funcional
+# Projet 15 : Projet Final Entièrement Fonctionnel
 
-**Código de Prueba**
+**Code de Test**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lección 15
- tanque bluetooth
+ leçon 15
+ réservoir bluetooth
  http://www.keyestudio.com
 */
 
-//Array, utilizado para almacenar los datos del patrón, puede ser calculado por usted mismo u obtenido de la herramienta de módulo
+//Tableau, utilisé pour stocker les données du motif, peut être calculé par vous-même ou obtenu à partir de l'outil de modulus
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -18,15 +18,15 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  //Establecer el pin de reloj a A5
-#define SDA_Pin  A4  //Establecer el pin de datos a A4
+#define SCL_Pin  A5  //Définir la broche d'horloge sur A5
+#define SDA_Pin  A4  //Définir la broche de données sur A4
 
-#define ML_Ctrl 13  //definir pin de control de dirección del motor izquierdo
-#define ML_PWM 11   //definir pin de control PWM del motor izquierdo
-#define MR_Ctrl 12  //definir pin de control de dirección del motor derecho
-#define MR_PWM 3    //definir pin de control PWM del motor derecho
+#define ML_Ctrl 13  //définir la broche de contrôle de direction du moteur gauche
+#define ML_PWM 11   //définir la broche de contrôle PWM du moteur gauche
+#define MR_Ctrl 12  //définir la broche de contrôle de direction du moteur droit
+#define MR_PWM 3    //définir la broche de contrôle PWM du moteur droit
 
-char bluetooth_val; //guardar el valor de la recepción Bluetooth
+char bluetooth_val; //sauvegarder la valeur de la réception Bluetooth
 
 void setup()
 {
@@ -34,8 +34,8 @@ void setup()
   
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear);    //Limpiar la pantalla
-  matrix_display(start01);  //mostrar patrón de inicio
+  matrix_display(clear);    //Effacer l'affichage
+  matrix_display(start01);  //afficher le motif de démarrage
 
   pinMode(ML_Ctrl, OUTPUT);
   pinMode(ML_PWM, OUTPUT);
@@ -52,47 +52,47 @@ void loop()
   }
   switch (bluetooth_val) 
   {
-     case 'F':  //comando de avance
+     case 'F':  //commande d'avance
         Car_front();
-        matrix_display(front);  // mostrar diseño de avance
+        matrix_display(front);  // afficher le motif d'avance
         break;
-     case 'B':  //comando de retroceso
+     case 'B':  //commande de recul
         Car_back();
-        matrix_display(back);  //mostrar patrón de retroceso
+        matrix_display(back);  //afficher le motif de recul
         break;
-     case 'L':  // instrucción de giro a la izquierda
+     case 'L':  // instruction de virage à gauche
         Car_left();
-        matrix_display(left);  //mostrar signo de "giro a la izquierda"
+        matrix_display(left);  //afficher le signe de virage à gauche
         break;
-     case 'R':  //instrucción de giro a la derecha
+     case 'R':  //instruction de virage à droite
         Car_right();
-        matrix_display(right);  //mostrar signo de giro a la derecha
+        matrix_display(right);  //afficher le signe de virage à droite
         break;
-     case 'S':  //comando de parada
+     case 'S':  //commande d'arrêt
         Car_Stop();
-        matrix_display(STOP01);  //mostrar imagen de parada
+        matrix_display(STOP01);  //afficher l'image d'arrêt
         break;
   }
 }
 
-/**************La función de la matriz de puntos****************/
-//esta función se utiliza para la visualización de la matriz de puntos
+/**************La fonction de la matrice de points****************/
+//cette fonction est utilisée pour l'affichage de la matrice de points
 void matrix_display(unsigned char matrix_value[])
 {
   IIC_start();
-  IIC_send(0xc0);  //Elegir dirección
+  IIC_send(0xc0);  //Choisir l'adresse
   
-  for(int i = 0;i < 16;i++) //los datos del patrón tienen 16 bits
+  for(int i = 0;i < 16;i++) //les données du motif ont 16 bits
   {
-     IIC_send(matrix_value[i]); //datos para transmitir patrones
+     IIC_send(matrix_value[i]); //données pour transmettre les motifs
   }
-  IIC_end();   //finalizar la transmisión de datos del patrón
+  IIC_end();   //terminer la transmission du motif de données
   
   IIC_start();
-  IIC_send(0x8A);  //control de visualización, establecer ancho de pulso a 4/16
+  IIC_send(0x8A);  //contrôle d'affichage, définir la largeur d'impulsion sur 4/16
   IIC_end();
 }
-//La condición para comenzar a transmitir datos
+//La condition pour commencer la transmission de données
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -102,14 +102,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-//transmitir datos
+//transmettre les données
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  //Cada byte tiene 8 bits
+  for(char i = 0;i < 8;i++)  //Chaque octet a 8 bits
   {
-      digitalWrite(SCL_Pin,LOW);  //bajar el pin de reloj SCL_Pin para cambiar las señales de SDA
+      digitalWrite(SCL_Pin,LOW);  //abaisser la broche d'horloge SCL_Pin pour modifier les signaux de SDA
       delayMicroseconds(3);
-      if(send_data & 0x01)  //establecer nivel alto y bajo de SDA_Pin según el 1 o 0 de cada bit
+      if(send_data & 0x01)  //définir le niveau haut et bas de SDA_Pin selon le 1 ou 0 de chaque bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -118,12 +118,12 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); //subir el pin de reloj SCL_Pin para detener la transmisión de datos
+      digitalWrite(SCL_Pin,HIGH); //relever la broche d'horloge SCL_Pin pour arrêter la transmission de données
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // Detectar bit por bit, por lo que desplazar los datos a la derecha en uno
+      send_data = send_data >> 1;  // Détecter bit par bit, donc décaler les données vers la droite d'un
   }
 }
-//La señal de que la transmisión de datos ha finalizado
+//Le signe que la transmission de données se termine
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -135,7 +135,7 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/*************la función para ejecutar el motor**************/
+/*************la fonction pour faire fonctionner le moteur**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -187,10 +187,10 @@ void Car_T_right()
 }
 ```
 
-**Resultado de la Prueba**
+**Résultat du Test**
 
-**Nota:** Retire el módulo Bluetooth antes de cargar el código de prueba. De lo contrario, no podrá cargar el código de prueba. Vuelva a conectar el módulo Bluetooth después de cargar el código de prueba.
+**Remarque :** Retirez le module Bluetooth avant de télécharger le code de test. Sinon, vous échouerez à télécharger le code de test. Reconnectez le module Bluetooth après le téléchargement du code de test.
 
-Cargue el código de prueba con éxito, inserte el módulo Bluetooth, encienda y conéctese a Bluetooth. El robot tanque puede mostrar funciones distintas mediante la aplicación.
+Téléchargez le code de test avec succès, insérez le module Bluetooth, allumez l'appareil et connectez-vous à Bluetooth. Le robot réservoir peut afficher des fonctions distinctes via l'application.
 
-Bien, todos los proyectos están terminados. No dude en contactarnos si encuentra algún problema.
+Très bien, tous les projets sont terminés. N'hésitez pas à nous contacter si vous rencontrez des problèmes.

@@ -1,44 +1,44 @@
-# 3. Instalación de controladores
+# 3. Installation des pilotes
 
-> Para la instalación de controladores, puede omitir este paso inicialmente, ya que los controladores generalmente se instalan automáticamente cuando la placa de desarrollo se conecta a su computadora. Si la placa no se reconoce después de la conexión, consulte esta sección para instalar los controladores.
+> Pour l'installation des pilotes, vous pouvez ignorer cette étape initialement, car les pilotes s'installent généralement automatiquement lorsque la carte de développement est connectée à votre ordinateur. Si la carte n'est pas reconnue après la connexion, reportez-vous à cette section pour installer les pilotes.
 
-## 3.1 Sistema Windows
+## 3.1 Système Windows
 
-**Verificación del controlador**
+**Vérification du pilote**
 
-1. Conecte la placa base a la computadora.
+1. Connectez la carte mère à l'ordinateur.
 
 ![](./media/1.jpg)
 
-2. Abra el Administrador de dispositivos. Si aparece el mensaje **"Silicon Labs CP210x USB to UART Bridge (COMx)"**, esto demuestra que el controlador ha sido instalado. Por favor, omita la parte de **"Instalación de controladores"**.
+2. Ouvrez le Gestionnaire des périphériques. Si l'invite **"Silicon Labs CP210x USB to UART Bridge (COMx)"** apparaît, cela prouve que le pilote a été installé. Veuillez ignorer la partie **"Installation du pilote"**.
 
 ![](./media/Animation.gif)
 
-**Instalación manual del controlador**
+**Installation manuelle du pilote**
 
-1. Descarga del controlador
+1. Téléchargement du pilote
 
-- Sistema Windows: [Controlador del sistema Windows](./Windows.7z)
+- Système Windows : [Pilote du système Windows](./Windows.7z)
 
-2. Conecte la placa base a la computadora y abra el Administrador de dispositivos. Si hay un signo de exclamación amarillo frente al controlador en la imagen, esto demuestra que el controlador no está instalado. Por favor, descargue e instale el controlador manualmente.
+2. Connectez la carte mère à l'ordinateur, ouvrez le Gestionnaire des périphériques. S'il y a un point d'exclamation jaune devant le pilote dans l'image, cela prouve que le pilote n'est pas installé. Veuillez télécharger et installer le pilote manuellement.
 
 ![](./media/Animation-1750921346712-3.gif)
 
-## 3.2 Sistema MAC
+## 3.2 Système MAC
 
-**1 Verificación del controlador**
+**1 Vérification du pilote**
 
-Conecte la placa de desarrollo a la computadora. Según [Herramientas] ---> [Puerto], seleccione el puerto de la placa de desarrollo (Nota: Si no puede confirmar cuál es el puerto de la placa de desarrollo, conecte la placa base y tome fotografías para registrar todos los puertos. Luego desconecte la placa de desarrollo y vuelva a tomar fotografías para registrar todos los puertos. Compare para encontrar los puertos que desaparecieron. El puerto que desapareció es el puerto de la placa. Seleccione ese puerto). Si no puede reconocer el puerto, intente cambiar el puerto USB de la computadora o use un cable diferente para reconocer el puerto. Si aún no funciona, consulte los siguientes pasos para instalar el controlador.
+Connectez la carte de développement à l'ordinateur, selon [Outils] ---> [Port] pour sélectionner le port de la carte de développement (Remarque : Si vous ne pouvez pas confirmer quel port est la carte de développement, veuillez connecter la carte mère et prendre des photos pour enregistrer tous les ports, puis débranchez la carte de développement et reprenez des photos pour enregistrer tous les ports, puis comparez pour trouver les ports disparus. Le port disparu est le port de la carte. Sélectionnez ensuite le port). Si vous ne pouvez pas reconnaître le port, veuillez remplacer le port USB de l'ordinateur ou essayer un autre câble pour reconnaître le port. Si cela ne fonctionne toujours pas, reportez-vous aux étapes suivantes pour installer le pilote.
 
 ![](./media/20250626154343.png)
 
-**2 Instalación manual del controlador**
+**2 Installation manuelle du pilote**
 
-1. Descarga del controlador
+1. Téléchargement du pilote
 
-​       Sistema Mac: [Controlador del sistema Mac](./Mac.7z)
+​       Système Mac : [Pilote du système Mac](./Mac.7z)
 
-2. Haga doble clic para descomprimir el paquete zip del controlador descargado
+2. Double-cliquez pour décompresser le package zip du pilote téléchargé
 
 ![](./media/image-20250417083615847-1749262759458-8.png)
 
@@ -46,16 +46,16 @@ Conecte la placa de desarrollo a la computadora. Según [Herramientas] ---> [Pue
 
 ![](./media/image-20250417083918581-1749262759458-5.png)
 
-3. Después de eso, continúe haciendo clic en **"Siguiente"** hasta que se complete la instalación
+3. Après cela, continuez à cliquer sur **"Suivant"** jusqu'à ce que l'installation soit terminée
 
 ![](./media/7cca827fe946096f228797dadce10661.png)
 
-En este punto, el puerto puede ser reconocido enchufando la placa nuevamente.
+À ce stade, le port peut être reconnu en branchant à nouveau la carte.
 
-4. Luego vaya al Arduino IDE, haga clic en "Herramientas", seleccione la placa Arduino Uno y el puerto de la placa de desarrollo reconocido.
+4. Ensuite, allez dans l'Arduino IDE, cliquez sur "Outils", sélectionnez la carte Arduino Uno et le port de la carte de développement reconnu.
 
 ![](./media/2.png)
 
-5. Haga clic en ![image-20250417085312966](./media/image-20250417085312966-1749262759459-18.png) para cargar el código y mostrar "Carga completada".
+5. Cliquez sur ![image-20250417085312966](./media/image-20250417085312966-1749262759459-18.png) pour télécharger le code et afficher "Téléchargement terminé".
 
 ![](./media/3.png)

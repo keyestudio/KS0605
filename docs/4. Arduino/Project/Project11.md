@@ -1,31 +1,31 @@
-# Proyecto 11 Tanque Evasor Ultrasónico
+# Projet 11 Réservoir d'évitement ultrasonique
 
 ![](media/image-20250908171729897.png)
 
-**Descripción**
+**Description**
 
-En este programa, el sensor ultrasónico detecta la distancia del obstáculo para enviar señales que controlan el robot coche. A continuación, te mostraremos cómo hacer un coche que evita obstáculos.
+Dans ce programme, le capteur ultrasonique détecte la distance de l'obstacle pour envoyer des signaux qui contrôlent la voiture robot. Ensuite, nous vous montrerons comment fabriquer une voiture d'évitement d'obstacles.
 
-**La lógica específica del robot evasor ultrasónico se muestra a continuación:**
+**La logique spécifique du robot d'évitement ultrasonique est présentée ci-dessous :**
 
 ![](media/image-20250908171756879.png)
 
- **Diagrama de flujo**
+ **Organigramme**
 
 ![](media/image-20250908171812532.png)
 
-**Diagrama de conexión:**
+**Schéma de connexion :**
 
 ![](media/image-20250908171829321.png)
 
-Nota: Los pines "-", "+" y "S" del servo están conectados respectivamente a G（GND）, V（VCC）y D9 de la placa de expansión. El VCC, Trig, Echo y Gnd del sensor ultrasónico están conectados con 5v(V), 5(S), Echo y Gnd(G) de la placa de expansión.
+Remarque : Les broches « - », « + » et « S » du servo sont respectivement connectées à G (GND), V (VCC) et D9 de la carte d'extension. Le VCC, Trig, Echo et Gnd du capteur ultrasonique sont liés à 5v (V), 5 (S), Echo et Gnd (G) de la carte d'extension.
 
-**Código de prueba:**
+**Code de test :**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lección 11
+ leçon 11
  ultrasonic_avoid_tank
  http://www.keyestudio.com
 */
@@ -33,17 +33,17 @@ int random2;
 int a;
 int a1;
 int a2;
-#define ML_Ctrl 13  //define el pin de control de dirección del motor izquierdo
-#define ML_PWM 11   //define el pin de control PWM del motor izquierdo
-#define MR_Ctrl 12  //define el pin de control de dirección del motor derecho
-#define MR_PWM 3   //define el pin de control PWM del motor derecho
+#define ML_Ctrl 13  // définir la broche de contrôle de direction du moteur gauche
+#define ML_PWM 11   // définir la broche de contrôle PWM du moteur gauche
+#define MR_Ctrl 12  // définir la broche de contrôle de direction du moteur droit
+#define MR_PWM 3   // définir la broche de contrôle PWM du moteur droit
 
-#define Trig 5  //pin Trig ultrasónico
-#define Echo 4  //pin Echo ultrasónico
+#define Trig 5  // broche Trig ultrasonique
+#define Echo 4  // broche Echo ultrasonique
 int distance;
-#define servoPin 9  //pin del servo
+#define servoPin 9  // broche servo
 int pulsewidth;
-/************la función para ejecutar el motor**************/
+/************la fonction pour faire fonctionner le moteur**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -80,7 +80,7 @@ void Car_Stop()
   analogWrite(ML_PWM,0);
 }
 
-//La función para controlar el servo
+// La fonction pour contrôler le servo
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -90,21 +90,21 @@ void procedure(int myangle) {
     delay((20 - pulsewidth / 1000));
   }
 }
-//La función para controlar el sensor ultrasónico
+// La fonction pour contrôler le capteur ultrasonique
 float checkdistance() {
   digitalWrite(Trig, LOW);
   delayMicroseconds(2);
   digitalWrite(Trig, HIGH);
   delayMicroseconds(10);
   digitalWrite(Trig, LOW);
-  float distance = pulseIn(Echo, HIGH) / 58.00;  //58.20, es decir, 2*29.1=58.2
+  float distance = pulseIn(Echo, HIGH) / 58.00;  // 58.20, c'est-à-dire 2*29.1=58.2
   delay(10);
   return distance;
 }
   //****************************************************************
 void setup(){
   pinMode(servoPin, OUTPUT);
-  procedure(90); //establece el servo a 90°
+  procedure(90); // définir le servo à 90°
   
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
@@ -115,64 +115,64 @@ void setup(){
 }
 void loop(){
   random2 = random(1, 100);
-  a = checkdistance();  //asigna la distancia frontal detectada por el sensor ultrasónico a la variable a
+  a = checkdistance();  // attribuer la distance avant détectée par le capteur ultrasonique à la variable a
   
-  if (a < 20) //cuando la distancia frontal detectada es menor que 20 
+  if (a < 20) // quand la distance avant détectée est inférieure à 20 
   {
-      Car_Stop();  //el robot se detiene
-      delay(500); //retraso de 500ms
-      procedure(160);  //la plataforma ultrasónica gira a la izquierda
-      for (int j = 1; j <= 10; j = j + (1)) { //sentencia for, los datos serán más precisos si el sensor ultrasónico detecta varias veces.
-        a1 = checkdistance();  //asigna la distancia izquierda detectada por el sensor ultrasónico a la variable a1
+      Car_Stop();  // le robot s'arrête
+      delay(500); // délai de 500ms
+      procedure(160);  // La plateforme ultrasonique tourne à gauche
+      for (int j = 1; j <= 10; j = j + (1)) { // instruction for, les données seront plus précises si le capteur ultrasonique détecte plusieurs fois.
+        a1 = checkdistance();  // attribuer la distance gauche détectée par le capteur ultrasonique à la variable a1
       }
       delay(300);
-      procedure(20); //la plataforma ultrasónica gira a la derecha
+      procedure(20); // La plateforme ultrasonique tourne à droite
       for (int k = 1; k <= 10; k = k + (1)) {
-        a2 = checkdistance(); //asigna la distancia derecha detectada por el sensor ultrasónico a la variable a2
+        a2 = checkdistance(); // attribuer la distance droite détectée par le capteur ultrasonique à la variable a2
       }
       
-      if (a1 < 50 || a2 < 50)  //el robot girará hacia el lado de mayor distancia cuando la distancia izquierda o derecha es menor que 50cm. 
+      if (a1 < 50 || a2 < 50)  // le robot tournera vers le côté de distance plus longue quand la distance gauche ou droite est inférieure à 50cm. 
       {
-        if (a1 > a2) //la distancia izquierda es mayor que el lado derecho      
+        if (a1 > a2) // la distance gauche est supérieure au côté droit      
         {
-          procedure(90);  //la plataforma ultrasónica gira hacia adelante a la derecha         
-          Car_left();  //el robot gira a la izquierda
-          delay(500);  //gira a la izquierda durante 500ms
-          Car_front(); //avanza
+          procedure(90);  // La plateforme ultrasonique tourne vers l'avant droit         
+          Car_left();  // le robot tourne à gauche
+          delay(500);  // tourner à gauche pendant 500ms
+          Car_front(); // aller vers l'avant
         } 
         else 
         {
           procedure(90);
-          Car_right(); //el robot gira a la derecha
+          Car_right(); // le robot tourne à droite
           delay(500);
-          Car_front();  //avanza
+          Car_front();  // aller vers l'avant
         }
       } 
-      else  //Si ambos lados son mayores o iguales a 50cm, gira a la izquierda o derecha aleatoriamente
+      else  // Si les deux côtés sont supérieurs ou égaux à 50cm, tourner à gauche ou à droite aléatoirement
       {
-        if ((long) (random2) % (long) (2) == 0)  //Cuando el número aleatorio es par
+        if ((long) (random2) % (long) (2) == 0)  // Quand le nombre aléatoire est pair
         {
           procedure(90);
-          Car_left(); //el robot tanque gira a la izquierda
+          Car_left(); // le réservoir robot tourne à gauche
           delay(500);
-          Car_front(); //avanza
+          Car_front(); // aller vers l'avant
         } 
         else 
         {
           procedure(90);
-          Car_right(); //el robot gira a la derecha
+          Car_right(); // le robot tourne à droite
           delay(500);
-          Car_front(); //avanza
+          Car_front(); // aller vers l'avant
        }
      }
   } 
-  else  //Si la distancia frontal es mayor o igual a 20cm, el robot coche avanzará
+  else  // Si la distance avant est supérieure ou égale à 20cm, la voiture robot ira vers l'avant
   {
-      Car_front(); //avanza
+      Car_front(); // aller vers l'avant
   }
 }
 ```
 
- **Resultado de la prueba**
+ **Résultat du test**
 
-Carga el código exitosamente, coloca el interruptor DIP hacia el extremo derecho y enciende, el robot tanque avanza y evita automáticamente el obstáculo.
+Téléchargez le code avec succès, le commutateur DIP est basculé vers l'extrémité droite et l'alimentation est activée, le réservoir robot avance et évite automatiquement l'obstacle.

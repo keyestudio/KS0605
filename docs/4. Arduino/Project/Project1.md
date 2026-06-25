@@ -1,109 +1,109 @@
-# Proyecto 1 LED Parpadea
+# Projet 1 LED Clignote
 
 ![](media/image-20250908174750401.png)
 
-**Descripción**
+**Description**
 
-Para principiantes y entusiastas, el parpadeo de LED es un programa fundamental. LED, la abreviatura de diodos emisores de luz, está compuesto por compuestos químicos como Ga, As, P, N, entre otros. El LED puede parpadear en diversos colores alterando el tiempo de retardo en el código de prueba. Cuando está bajo control, con la alimentación en GND y VCC, el LED se encenderá si el extremo S está en nivel alto; sin embargo, se apagará.
+Pour les débutants et les passionnés, le clignotement LED est un programme fondamental. LED, l'abréviation de diodes électroluminescentes, est composée de composés chimiques Ga, As, P, N, etc. La LED peut clignoter dans diverses couleurs en modifiant le temps de délai dans le code de test. Lors de la commande, en mettant sous tension GND et VCC, la LED s'allume si la broche S est au niveau haut ; néanmoins, elle s'éteindra.
 
-**Especificación**
+**Spécification**
 
 ![](./media/image-20250902164418568.png)
 
-- Interfaz de control: puerto digital
-- Voltaje de funcionamiento: DC 3.3-5V
-- Espaciado de pines: 2.54mm
-- Color de visualización LED: rojo
+- Interface de contrôle : port numérique
+- Tension de fonctionnement : DC 3.3-5V
+- Espacement des broches : 2.54mm
+- Couleur d'affichage LED : rouge
 
-**Componentes**
+**Composants**
 
 ![](./media/image-20250902164804229.png)
 
-**Escudo de Sensor V5**
+**Bouclier de capteur V5**
 
-Sería problemático cuando combinamos placas de desarrollo Arduino con numerosos sensores. Sin embargo, el escudo de sensor V5, compatible con la placa de desarrollo Arduino, resuelve este problema perfectamente. Solo apile la placa V5 en él.
+Il serait fastidieux de combiner les cartes de développement Arduino avec de nombreux capteurs. Cependant, le bouclier de capteur V5, compatible avec la carte de développement Arduino, résout parfaitement ce problème. Il suffit de l'empiler dessus.
 
-Este escudo de sensor puede insertarse en módulos de sensor de 3 pines y expone algunos pines de comunicación, como comunicación serial, IIC y SPI también.
+Ce bouclier de capteur peut être inséré dans des modules de capteur 3 broches et expose certaines broches de communication, comme la communication série, IIC et SPI.
 
-**Descripción de Pines**
+**Description des broches**
 
 ![](./media/image-20250902165027854.png)
 
-**Diagrama de Conexión**
+**Schéma de connexion**
 
 ![](./media/image-20250902165110913.png)
 
-Como se ve en el diagrama anterior, el LED está conectado con D2.
+Selon le schéma ci-dessus, la LED est connectée à D2.
 
-**Código de Prueba**
+**Code de test**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lección 1.1
- Parpadeo
+ leçon 1.1
+ Clignotement
  http://www.keyestudio.com
 */
 void setup()
 { 
-    pinMode(2, OUTPUT);// inicializar el pin digital 2 como salida.
+    pinMode(2, OUTPUT);// initialiser la broche numérique 2 comme sortie.
 }
 
-void loop() // la función loop se ejecuta una y otra vez indefinidamente
+void loop() // la fonction loop s'exécute indéfiniment
 {
-   digitalWrite(2, HIGH); // encender el LED (HIGH es el nivel de voltaje)
-   delay(1000); // esperar un segundo
-   digitalWrite(2, LOW); // apagar el LED haciendo el voltaje LOW
-   delay(1000); // esperar un segundo
+   digitalWrite(2, HIGH); // allumer la LED (HIGH est le niveau de tension)
+   delay(1000); // attendre une seconde
+   digitalWrite(2, LOW); // éteindre la LED en mettant la tension à LOW
+   delay(1000); // attendre une seconde
 }
 ```
 
-**Resultado de la Prueba**
+**Résultat du test**
 
-(Habrá contradicción sobre comunicación serial entre el código y Bluetooth al cargar el código. Por lo tanto, no conecte con el módulo Bluetooth antes de cargar el código.)
+(Il y aura une contradiction concernant la communication série entre le code et le Bluetooth lors du téléchargement du code. Par conséquent, ne connectez pas le module Bluetooth avant de télécharger le code.)
 
-Cargue el programa en la placa de desarrollo, el LED parpadea a intervalos de 1s.
+Téléchargez le programme sur la carte de développement, la LED clignote à l'intervalle de 1s.
 
 ![](./media/image-20250902165335641.png)
 
-**Explicación del Código**
+**Explication du code**
 
-**pinMode(2，OUTPUT) -** Establecer el pin2 como OUTPUT
+**pinMode(2，OUTPUT) -** Définir la broche 2 en OUTPUT
 
-**digitalWrite(2，HIGH) -** Cuando se establece el pin2 en nivel HIGH (salida 5V) o en nivel LOW (salida 0V)
+**digitalWrite(2，HIGH) -** Lorsque la broche 2 est définie à HIGH (sortie 5V) ou à LOW (sortie 0V)
 
-**Práctica de Extensión**
+**Pratique d'extension**
 
-Hemos logrado hacer parpadear el LED. A continuación, observemos qué cambiará en el LED si modificamos los pines y el tiempo de retardo.
+Nous avons réussi à faire clignoter la LED. Ensuite, observons comment la LED changera si nous modifions les broches et le temps de délai.
 
-**Diagrama de Conexión**
+**Schéma de connexion**
 
 ![](./media/image-20250902165631206.png)
 
-Hemos alterado los pines y conectado el LED a D10.
+Nous avons modifié les broches et connecté la LED à D10.
 
-**Código de Prueba**
+**Code de test**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lección 1.2
- retardo
+ leçon 1.2
+ délai
  http://www.keyestudio.com
 */
-void setup() // inicializar el pin digital 10 como salida.
+void setup() // initialiser la broche numérique 10 comme sortie.
 {  
    pinMode(10, OUTPUT);
 }
 
-// la función loop se ejecuta una y otra vez indefinidamente
+// la fonction loop s'exécute indéfiniment
 void loop() 
 {
-   digitalWrite(10, HIGH); // encender el LED (HIGH es el nivel de voltaje)
-   delay(100); // esperar 0.1 segundo
-   digitalWrite(10, LOW); // apagar el LED haciendo el voltaje LOW
-   delay(100); // esperar 0.1 segundo
+   digitalWrite(10, HIGH); // allumer la LED (HIGH est le niveau de tension)
+   delay(100); // attendre 0.1 seconde
+   digitalWrite(10, LOW); // éteindre la LED en mettant la tension à LOW
+   delay(100); // attendre 0.1 seconde
 }
 ```
 
-El resultado de la prueba muestra que el LED parpadea más rápido. Por lo tanto, podemos llegar a la conclusión de que los pines y el tiempo de retardo afectan la frecuencia de parpadeo.
+Le résultat du test montre que la LED clignote plus rapidement. Par conséquent, nous pouvons conclure que les broches et le délai de temps affectent la fréquence de clignotement.
