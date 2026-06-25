@@ -1,64 +1,64 @@
-# Projekt 7 Bluetooth-Fernsteuerung
+# Proyecto 7 Control Remoto por Bluetooth
 
-**Beschreibung**
+**Descripción**
 
-Bluetooth, ein einfaches drahtloses Kommunikationsmodul, ist in den letzten Jahrzehnten weit verbreitet und wird in den meisten batteriebetriebenen Geräten verwendet, da es benutzerfreundlich ist.
+Bluetooth, un módulo de comunicación inalámbrica simple, se ha popularizado durante las últimas décadas y se utiliza en la mayoría de dispositivos alimentados por batería por su función fácil de usar.
 
 ![](media/image-20250908161056017.png)
 
-In den letzten Jahren gab es viele Upgrades des Bluetooth-Standards, um die Anforderungen der Kunden und die technologische Entwicklung sowie den Zeittrend zu erfüllen.
+En los últimos años, ha habido muchas actualizaciones del estándar Bluetooth para satisfacer las demandas de los clientes y el desarrollo de la tecnología, así como para seguir la tendencia de los tiempos.
 
-In den letzten Jahren haben sich viele Dinge verändert, darunter die Datenübertragungsrate, der Stromverbrauch bei tragbaren Geräten und IoT-Geräten sowie das Sicherheitssystem.
+En los últimos años, muchas cosas han cambiado, incluyendo la velocidad de transmisión de datos, el consumo de energía en dispositivos portátiles e IoT y el sistema de seguridad.
 
-Hier werden wir das HM-10 BLE 4.0 mit dem Arduino Board kennenlernen. Das HM-10 ist ein leicht verfügbares Bluetooth 4.0-Modul. Dieses Modul wird zur Herstellung einer drahtlosen Datenkommunikation verwendet. Das Modul wurde mit dem Bluetooth Low Energy (BLE) System on Chip (SoC) CC2540 oder CC2541 von Texas Instruments entwickelt.
+Aquí vamos a aprender sobre HM-10 BLE 4.0 con Arduino Board. El HM-10 es un módulo Bluetooth 4.0 fácilmente disponible. Este módulo se utiliza para establecer comunicación de datos inalámbrica. El módulo está diseñado utilizando el Sistema en Chip (SoC) Bluetooth de bajo consumo CC2540 o CC2541 de Texas Instruments.
 
-**Spezifikation**
+**Especificaciones**
 
-- Bluetooth-Protokoll: Bluetooth-Spezifikation V4.0 BLE.
-- Keine Byte-Grenze bei der seriellen Datenübertragung.
-- In offener Umgebung Kommunikation über 100 m Ultrafernstrecke mit iPhone4s.
-- Arbeitsfrequenz: 2,4-GHz-ISM-Band.
-- Modulationsverfahren: GFSK (Gaussian Frequency Shift Keying).
-- Sendeleistung: -23 dBm, -6 dBm, 0 dBm, 6 dBm, kann durch AT-Befehl geändert werden.
-- Empfindlichkeit: ≤-84 dBm bei 0,1 % BER.
-- Übertragungsrate: Asynchron: 6 K Bytes; Synchron: 6 K Bytes.
-- Sicherheitsmerkmale: Authentifizierung und Verschlüsselung.
-- Unterstützter Service: Central & Peripheral UUID FFE0, FFE1.
-- Stromverbrauch: Automatischer Schlafmodus, Standby-Strom 400 µA ~ 800 µA, 8,5 mA während der Übertragung.
-- Stromversorgung: 5 V DC.
-- Arbeitstemperatur: –5 bis +65 Grad Celsius.
+- Protocolo Bluetooth: Especificación Bluetooth V4.0 BLE.
+- Sin límite de bytes en la transcepcción del puerto serie.
+- En ambiente abierto, realiza comunicación de ultra-distancia de 100m con iphone4s.
+- Frecuencia de funcionamiento: banda ISM 2.4GHz.
+- Método de modulación: GFSK (Gaussian Frequency Shift Keying).
+- Potencia de transmisión: -23dbm, -6dbm, 0dbm, 6dbm, puede ser modificada por comando AT.
+- Sensibilidad: ≤-84dBm a 0.1% BER.
+- Velocidad de transmisión: Asincrónica: 6K bytes; Sincrónica: 6k Bytes.
+- Característica de seguridad: Autenticación y encriptación.
+- Servicio de soporte: Central & Peripheral UUID FFE0, FFE1.
+- Consumo de energía: Modo de sueño automático, corriente de espera 400uA\~800uA, 8.5mA durante la transmisión.
+- Suministro de energía: 5V DC.
+- Temperatura de funcionamiento: –5 a +65 Centígrados.
 
-**Komponenten**
+**Componentes**
 
 ![](media/image-20250908161515087.png)
 
-**Schaltplan**
+**Diagrama de Conexión**
 
-**1. STATE:** *State-Test-Pins, verbunden mit interner LED, normalerweise nicht verbunden.*
+**1. STATE:** *pines de prueba de estado, conectados a LED interno, generalmente manténgase desconectado.*
 
-**2. RXD:** *Serielle Schnittstelle, Empfängerterminal.*
+**2. RXD:** *interfaz serie, terminal receptora.*
 
-**3. TXD:** *Serielle Schnittstelle, Senderterminal.*
+**3. TXD:** *interfaz serie, terminal transmisora.*
 
-**4. GND:** *Masse.*
+**4. GND:** *Tierra.*
 
-**5. VCC:** *Positive Stromversorgung.*
+**5. VCC:** *polo positivo de la fuente de alimentación.*
 
-**6. EN/BRK:** *Verbindungsunterbrechung, bedeutet Unterbrechung der Bluetooth-Verbindung, normalerweise nicht verbunden.*
+**6. EN/BRK:** *romper conexión, significa romper la conexión Bluetooth, generalmente, manténgase desconectado.*
 
 ![](media/image-20250908161703926.png)
 
-**Test-Code**
+**Código de Prueba**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 7.1
- Bluetooth 
+ lección 7.1
+ bluetooth 
 http://www.keyestudio.com
 */
 
-char ble_val; // Zeichenvariable: speichert den Wert des Bluetooth-Empfangs
+char ble_val; //variable de carácter: guarda el valor de la recepción Bluetooth
 
 void setup() 
 {
@@ -67,105 +67,105 @@ void setup()
 
 void loop() 
 {
-  if(Serial.available() > 0)  // Überprüfen, ob Daten im seriellen Puffer vorhanden sind
+  if(Serial.available() > 0)  //asegúrate de que hay datos en el búfer serie
   {
-    ble_val = Serial.read();  // Daten aus dem seriellen Puffer lesen
-    Serial.println(ble_val);  // Ausgeben
+    ble_val = Serial.read();  //Lee datos del búfer serie
+    Serial.println(ble_val);  //Imprime
   }
 }
 //*******************************************
 ```
 
-(Es gibt einen Konflikt zwischen der seriellen Kommunikation des Codes und der Bluetooth-Kommunikation beim Hochladen des Codes. Daher sollte das Bluetooth-Modul vor dem Hochladen des Codes nicht angeschlossen werden.)
+(Habrá contradicción entre la comunicación serie del código y la comunicación Bluetooth al cargar el código. Por lo tanto, no conectes el módulo Bluetooth antes de cargar el código.)
 
-Nach dem Hochladen des Codes auf die Entwicklungsplatine das Bluetooth-Modul einsetzen und auf Befehle vom Mobiltelefon warten.
+Después de cargar el código en la placa de desarrollo, inserta el módulo Bluetooth y espera el comando del teléfono celular.
 
-**APP herunterladen**
+**Descargar APP**
 
-Der Code dient zum Lesen des empfangenen Signals, und wir benötigen auch ein Gerät zum Senden des Signals. In diesem Projekt senden wir Signale, um das Roboter-Auto über das Mobiltelefon zu steuern.
+El código es para leer la señal recibida, y también necesitamos algo para enviar la señal. En este proyecto, enviamos señal para controlar el robot mediante el teléfono celular.
 
-Dann müssen wir die APP herunterladen.
+Entonces necesitamos descargar la APP.
 
-**iOS-System**
+**Sistema iOS**
 
-**Hinweis: Erlauben Sie der APP, auf „Standort" in den Einstellungen Ihres Mobiltelefons zuzugreifen, wenn Sie sich mit dem Bluetooth-Modul verbinden. Andernfalls funktioniert Bluetooth möglicherweise nicht.**
+**Nota: Permite que la APP acceda a "ubicación" en la configuración de tu teléfono celular al conectarse al módulo Bluetooth. De lo contrario, Bluetooth puede no conectarse.**
 
-Gehen Sie zum APP STORE und suchen Sie nach **BLE Scanner 4.0, dann laden Sie es herunter.**
+Entra en APP STORE para buscar **BLE Scanner 4.0, luego descárgalo.**
 
 ![](media/image-20250908162043691.png)
 
-**Android-System**
+**Sistema Android**
 
-Bitte laden Sie die APP hier herunter.
+Por favor descarga la APP aquí.
 
-**Und erlauben Sie der APP, auf „Standort" zuzugreifen. Sie können „Standort" in den Einstellungen Ihres Mobiltelefons aktivieren.**
+**Y permite que la APP acceda a "ubicación", puedes habilitar "ubicación" en la configuración de tu teléfono celular.**
 
 ![](media/image-20250909115039773.png)
 
 ![](media/image-20250908162115901.png)
 
-1. Öffnen Sie nach der Installation die App und aktivieren Sie die Berechtigung „Standort und Bluetooth".
-2. Wir nehmen die iOS-Version als Beispiel. Die Bedienungsweise der Android-Version ist fast gleich.
-3. Scannen Sie das Bluetooth-Modul, um Bluetooth BLE 4.0 zu finden. Der Name ist HMSoft. Klicken Sie dann auf „Verbinden", um sich mit Bluetooth zu verbinden und es zu verwenden.
+1. Después de la instalación, abre la App y habilita el permiso de "Ubicación y Bluetooth".
+2. Tomamos la versión iOS como ejemplo. El método de operación de la versión Android es casi igual.
+3. Escanea el módulo Bluetooth para obtener Bluetooth BLE 4.0. Su nombre es HMSoft. Luego haz clic en "conectar" para vincularlo con Bluetooth y úsalo.
 
 ![](media/image-20250908162157692.png)
 
-4. Nach der Verbindung mit HMSoft klicken Sie darauf, um mehrere Optionen zu erhalten, wie z. B. Geräteinformationen, Zugriffsberechtigung, Allgemein und benutzerdefinierten Service. Wählen Sie „CUSTOM SERVICE".
+4. Después de conectarse a HMSoft, haz clic en él para obtener múltiples opciones, como información del dispositivo, permiso de acceso, general y servicio personalizado. Elige "CUSTOM SERVICE".
 
 ![](media/image-20250908162224719.png)
 
-5. Dann wird die folgende Seite angezeigt.
+5. Luego aparece la siguiente página.
 
 ![](media/image-20250908162314786.png)
 
-6. Klicken Sie auf (Read, Notify, WriteWithoutResponse), um die folgende Seite zu öffnen.
+6. Haz clic en (Read, Notify, WriteWithoutResponse) para entrar en la siguiente página.
 
 ![](media/image-20250908162335862.png)
 
-7. Klicken Sie auf **Write Value, es erscheint die Schnittstelle zum Eingeben von HEX oder Text.**
+7. Haz clic en **Write Value, aparece la interfaz para ingresar HEX o Texto.**
 
 ![](media/image-20250908162354140.png)
 
-8. Öffnen Sie den seriellen Monitor auf Arduino und geben Sie eine 0 oder ein anderes Zeichen in der Text-Schnittstelle ein.
+8. Abre el monitor serie en Arduino, ingresa un 0 u otro carácter en la interfaz de Texto.
 
    ![](media/image-20250908162413278.png)
 
-9. Klicken Sie dann auf „Write", öffnen Sie den seriellen Monitor, um zu überprüfen, ob ein „0"-Signal vorhanden ist.
+9. Luego haz clic en "Write", abre el monitor serie para ver si hay una señal "0".
 
    ![](media/image-20250908162441251.png)
 
-**Code-Erklärung**
+**Explicación del Código**
 
-**Serial.available()** : Die aktuellen verbleibenden Zeichen beim Rückgabepuffer. Im Allgemeinen wird diese Funktion verwendet, um zu überprüfen, ob Daten im Puffer vorhanden sind. Wenn Serial.available() > 0, bedeutet dies, dass die serielle Schnittstelle Daten empfangen hat und gelesen werden können.
+**Serial.available()** : Los caracteres restantes actuales cuando se devuelven al área del búfer. Generalmente, esta función se utiliza para determinar si hay datos en el búfer. Cuando Serial.available()\>0, significa que el puerto serie ha recibido los datos y pueden ser leídos.
 
-**Serial.read()：** Lesen Sie ein Datenbyte im Puffer der seriellen Schnittstelle. Wenn beispielsweise ein Gerät Daten über die serielle Schnittstelle an Arduino sendet, können wir die Daten mit „Serial.read()" lesen.
+**Serial.read()：**Lee un dato de un Byte en el búfer del puerto serie, por ejemplo, el dispositivo envía datos a Arduino a través del puerto serie, entonces podemos leer los datos mediante "Serial.read()".
 
-**Erweiterungspraxis**
+**Práctica de Extensión**
 
-Wir können einen Befehl über das Mobiltelefon senden, um eine LED ein- und auszuschalten.
+Podemos enviar un comando a través del teléfono celular para encender y apagar un LED.
 
-D10 ist mit einer LED verbunden, wie unten gezeigt:
+D10 está conectado a un LED, como se muestra a continuación:
 
 ![](media/image-20250908162550263.png)
 
-**Code-Erklärung**
+**Explicación del Código**
 
-**Serial.available()** : Die aktuellen verbleibenden Zeichen beim Rückgabepuffer. Im Allgemeinen wird diese Funktion verwendet, um zu überprüfen, ob Daten im Puffer vorhanden sind. Wenn Serial.available() > 0, bedeutet dies, dass die serielle Schnittstelle Daten empfangen hat und gelesen werden können.
+**Serial.available()** : Los caracteres restantes actuales cuando se devuelven al área del búfer. Generalmente, esta función se utiliza para determinar si hay datos en el búfer. Cuando Serial.available()\>0, significa que el puerto serie ha recibido los datos y pueden ser leídos.
 
-**Serial.read()：** Lesen Sie ein Datenbyte im Puffer der seriellen Schnittstelle. Wenn beispielsweise ein Gerät Daten über die serielle Schnittstelle an Arduino sendet, können wir die Daten mit „Serial.read()" lesen.
+**Serial.read()：**Lee un dato de un Byte en el búfer del puerto serie, por ejemplo, el dispositivo envía datos a Arduino a través del puerto serie, entonces podemos leer los datos mediante "Serial.read()".
 
-**Erweiterungspraxis**
+**Práctica de Extensión**
 
-Wir können einen Befehl über das Mobiltelefon senden, um eine LED ein- und auszuschalten.
+Podemos enviar un comando a través del teléfono celular para encender y apagar un LED.
 
-D10 ist mit einer LED verbunden, wie unten gezeigt:
+D10 está conectado a un LED, como se muestra a continuación:
 
 ![](media/image-20250908162720671.png)
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 7.2
+ lección 7.2
  Bluetooth 
  http://www.keyestudio.com
 */ 
@@ -178,14 +178,14 @@ void loop()
 { int i;
   if (Serial.available())
   {i=Serial.read();
-    Serial.println("DATEN EMPFANGEN:");
+    Serial.println("DATOS RECIBIDOS:");
     if(i=='1')
     { digitalWrite(ledpin,1);
-      Serial.println("LED an");
+      Serial.println("led encendido");
     }
     if(i=='0')
     { digitalWrite(ledpin,0);
-      Serial.println("LED aus");
+      Serial.println("led apagado");
     }
   }
 }//*******************************************
@@ -195,4 +195,4 @@ void loop()
 
 ![](media/image-20250908162747210.png)
 
-Klicken Sie auf „Write" in der APP. Wenn Sie 1 eingeben, leuchtet die LED auf; wenn Sie 0 eingeben, geht die LED aus. (Denken Sie daran, das Bluetooth-Modul nach Abschluss des Experiments zu entfernen, da sonst das Code-Brennen beeinträchtigt wird).
+Haz clic en "Write" en la APP, cuando ingreses 1, el LED se encenderá; cuando ingreses 0, el LED se apagará. (Recuerda remover el módulo Bluetooth después de terminar el experimento, de lo contrario, la carga de código se verá afectada).

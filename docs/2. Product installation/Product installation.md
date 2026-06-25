@@ -1,49 +1,49 @@
-# 2. Produktmontage
+# 2. Instalación del producto
 
-Nachdem alle Teile dieses Bausatzes überprüft wurden, muss der Panzerroboter zusammengebaut werden. Bitte montieren Sie das Smart Car gemäß den folgenden Anweisungen.
+Después de verificar todas las piezas en este kit, necesitamos montar el robot tanque. Instalemos el coche inteligente siguiendo las siguientes instrucciones.
 
-## Montagevideo
+## Vídeo de montaje
 
-[Video herunterladen](video.7z).
+[Descargar vídeo](video.7z).
 
-> **Hinweis:** Das Montagevideo befindet sich in der Datei `video.7z`, die diesem Paket beiliegt. Bitte entpacken Sie die Datei, um `video/KS0605.mp4` anzusehen.
+> **Nota:** El vídeo de montaje se proporciona en el archivo `video.7z` incluido en este paquete. Por favor, extráigalo para ver `video/KS0605.mp4`.
 
-**Hinweis: Entfernen Sie zunächst die Schutzfolie von der Platine, bevor Sie das Smart Car montieren.**
+**Nota: Retire la película de plástico de la placa primero al instalar el coche inteligente.**
 
-## Schritt 1: Unterbodenmotor einbauen
+## Paso 1: Instalar el motor inferior
 
-Bereiten Sie folgende Teile vor:
+Prepare las piezas de la siguiente manera:
 
-- M4-Mutter \* 2
-- Metallmotor \*2
-- Metallhalterung \*2
-- Kupplung \*2
-- Blaue Stützteile \*2
-- M4\*12MM Innensechskantschraube \* 2
-- M1,5 Innensechskantschlüssel vernickelt \*1
-- M3 Innensechskantschlüssel vernickelt \*1
-- M2,5 Innensechskantschlüssel vernickelt \*1
-- M3\*8MM Innensechskantschraube \* 4
+- Tuerca M4 \* 2
+- Motor de metal \*2
+- Soporte de metal \*2
+- Acoplador \*2
+- Piezas de soporte azul \*2
+- Tornillo hexagonal interior M4\*12MM \* 2
+- Llave Allen hexagonal niquelada M1.5 \*1
+- Llave Allen hexagonal niquelada M3 \*1
+- Llave Allen hexagonal niquelada M2.5 \*1
+- Tornillo hexagonal interior M3\*8MM \* 4
 
 ![TK_02](media/TK_02.png)
 
 ![TK_03](media/TK_03.png)
 
-**Hinweis: Montieren Sie den Motor auf der anderen Seite auf dieselbe Weise.**
+**Indicación: Ensamble el motor del otro lado de la misma manera.**
 
-## Schritt 2: Antriebsrad einbauen
+## Paso 2: Instalar la rueda motriz
 
-Bereiten Sie folgende Teile vor:
+Prepare las piezas de la siguiente manera:
 
-- M3*8MM Innensechskantschraube \* 2
-- M4\*50MM Innensechskantschraube \* 2
-- Tragrad für Panzer \* 2
-- Flanschlager \* 4
-- Unterlegscheibe \*2
-- Raupenkette \*2
-- M4 Sicherungsmutter \* 2
-- M3 Innensechskantschlüssel vernickelt \*1
-- M2,5 Innensechskantschlüssel vernickelt \*1
+- Tornillo hexagonal interior M3*8MM \* 2
+- Tornillo hexagonal interior M4\*50MM \* 2
+- Rueda de carga del tanque \* 2
+- Rodamiento de brida \* 4
+- Arandela\*2
+- Banda de oruga \*2
+- Tuerca autoblocante M4 \* 2
+- Llave Allen hexagonal niquelada M3 \*1
+- Llave Allen hexagonal niquelada M2.5 \*1
 
 ![TK_04](media/TK_04.png)
 
@@ -53,27 +53,27 @@ Bereiten Sie folgende Teile vor:
 
 ![TK_07](media/TK_07.png)
 
-## Schritt 3: Batteriehalter einbauen
+## Paso 3: Instalar el soporte de batería
 
-Bereiten Sie folgende Teile vor:
+Prepare las piezas de la siguiente manera:
 
-- Batteriehalter \*1
-- M3-Mutter \* 2
-- Blaue Metallhalterung \*2
-- M4-Mutter \*8
-- M3\*10MM Senkkopfschraube \* 2
-- M4\*40MM Innensechskantschraube \*4
-- M2,5 Innensechskantschlüssel vernickelt \*1
-- M3 Innensechskantschlüssel vernickelt \*1
-- M3\*25MM Innensechskantschraube \*4
-- M3*45MM Sechskant-Abstandsbolzen (Messing) *4
-- Schraubendreher
+- Soporte de batería \*1
+- Tuerca M3 \* 2
+- Soporte de metal azul \*2
+- Tuerca M4 \*8
+- Tornillo de cabeza plana M3\*10MM \* 2
+- Tornillo hexagonal interior M4\*40MM \*4
+- Llave Allen hexagonal niquelada M2.5 \*1
+- Llave Allen hexagonal niquelada M3 \*1
+- Tornillo hexagonal interior M3\*25MM \*4
+- Pilar de cobre hexagonal M3*45MM *4
+- Destornillador
 
 ![TK_08](media/TK_08.png)
 
 ![TK_09](media/TK_09.png)
 
-Befestigen Sie nach Abschluss des Montagevorgangs die Metallhalterung mit vier M4\*40MM-Innensechskantschrauben und vier M4-Muttern am Motorrad.
+Mueva para fijar el soporte de metal en la rueda del motor con cuatro tornillos hexagonales interiores M4\*40MM y cuatro tuercas M4 cuando se complete el proceso de montaje.
 
 ![TK_10](media/TK_10.png)
 
@@ -83,22 +83,22 @@ Befestigen Sie nach Abschluss des Montagevorgangs die Metallhalterung mit vier M
 
 ![TK_13](media/TK_13.png)
 
-## Schritt 4: Acrylplatte und Sensoren montieren
+##  Paso 4: Montar la placa acrílica y los sensores
 
-- Acrylplatte \* 2
-- L-förmige schwarze Halterung \*1
-- Fotozellensenor \*2
-- IR-Empfängermodul \*1
-- 8X16 LED-Panel \*1
-- M2-Mutter \*4
-- M3-Mutter \*10
-- M3\*6MM Innensechskantschraube \* 8
-- M3\*8MM Innensechskantschraube \* 8
-- M2,5 Innensechskantschlüssel \*1
-- M3\*12MM Rundkopfschraube \*6
-- M3\*10MM Sechskant-Abstandsbolzen (Messing) \*8
-- M2\*10MM Rundkopfschraube \* 4
-- Schraubendreher
+- Placa acrílica \* 2
+- Soporte negro tipo L \*1
+- Sensor fotoeléctrico \*2
+- Módulo receptor IR \*1
+- Panel LED 8X16 \*1
+- Tuerca M2 \*4
+- Tuerca M3 \*10
+- Tornillo hexagonal interior M3\*6MM \* 8
+- Tornillo hexagonal interior M3\*8MM \* 8
+- Llave Allen hexagonal M2.5 \*1
+- Tornillo de cabeza redonda M3\*12MM \*6
+- Casquillo de cobre hexagonal M3\*10MM \*8
+- Tornillo de cabeza redonda M2\*10MM \* 4
+- Destornillador
 
 ![TK_14](media/TK_14.png)
 
@@ -120,49 +120,49 @@ Befestigen Sie nach Abschluss des Montagevorgangs die Metallhalterung mit vier M
 
 ![TK_23](media/TK_23.png)
 
-## Schritt 5: Servo-Plattform einbauen
+## Paso 5: Instalar la plataforma del servo
 
-Bereiten Sie folgende Teile vor:
+Prepare las piezas de la siguiente manera:
 
 -   Servo \*1
--   Schwarzes Gimbal \*1
--   Kabelbinder \*2
--   M2x8 Rundkopf-Kreuzschlitz-Blechschraube \*2
--   Ultraschallsensor \*1
--   M2\*4-Schraube \*1
--   M1,2\*5-Schraube \*4
--   Schraubendreher
+-   Cardán negro \*1
+-   Brida de cable \*2
+-   Tornillo de rosca de cruz de cabeza redonda M2x8 \*2
+-   Sensor ultrasónico \*1
+-   Tornillo M2\*4 \*1
+-   Tornillo M1.2\*5 \*4
+-   Destornillador
 
-**Hinweis:** Für eine einfache Fehlersuche sollte das Ultraschallmodul geradeaus ausgerichtet und der Servowinkel auf 90° eingestellt sein. Daher muss der Servo vor der Montage der Servo-Plattform auf 90° eingestellt werden.
+**Nota: **Para una depuración conveniente, mantenga el módulo ultrasónico recto hacia adelante y el ángulo del motor servo a 90°. Por lo tanto, necesitamos establecer el servo a 90° antes de instalar la plataforma del servo.
 
-Kopieren Sie den folgenden 90-Grad-Code und laden Sie ihn auf das Entwicklungsboard hoch. Das an Port D9 angeschlossene Lenkgetriebe dreht sich auf 90°.
+Establezca el código de 90 grados, copie el código y cárguelo en la placa de desarrollo. El engranaje de dirección conectado al puerto D9 girará a 90°.
 
-> Zum Hochladen des Codes benötigen Sie die Arduino IDE. Bitte installieren Sie zunächst die Arduino IDE gemäß den Abschnitten 4.2–4.4. (Software-Download, Arduino IDE einrichten und Bibliothek hinzufügen)
+> Para cargar código, necesitará el Arduino IDE. Por favor, instale primero el Arduino IDE siguiendo las secciones 4.2–4.4. (Descarga de software, Configuración de Arduino IDE y Agregar biblioteca)
 
 ```c
-#define servoPin 9 //Servo-Pin
-int pos; //Winkelvariable des Servos
-int pulsewidth; // Pulsbreitenvariable des Servos
+#define servoPin 9 //pin del servo
+int pos; //variable del ángulo del servo
+int pulsewidth; //variable del ancho de pulso del servo
 
 void setup() 
 {
-    pinMode(servoPin, OUTPUT); //Servo-Pin als Ausgang setzen
-    procedure(0); //Servowinkel auf 0° setzen
+    pinMode(servoPin, OUTPUT); //establecer el pin del servo como OUTPUT
+    procedure(0); //establecer el ángulo del servo a 0°
 }
 
 void loop() 
 {
-	procedure(90); // Servo auf Position 90° fahren
+	procedure(90); //indicar al servo que vaya a la posición de 90°
 }
 
-// Funktion zur Steuerung des Servos
+//función para controlar el servo
 void procedure(int myangle) 
 {
-    pulsewidth = myangle * 11 + 500; //Pulsbreitenwert berechnen
+    pulsewidth = myangle * 11 + 500; //calcular el valor del ancho de pulso
     digitalWrite(servoPin,HIGH);
-    delayMicroseconds(pulsewidth); //Die Dauer des High-Pegels entspricht der Pulsbreite
+    delayMicroseconds(pulsewidth); //la duración del nivel alto es el ancho de pulso
     digitalWrite(servoPin,LOW);
-    delay((20 - pulsewidth / 1000)); // Der Zyklus beträgt 20ms, der Low-Pegel hält die restliche Zeit an
+    delay((20 - pulsewidth / 1000)); //el ciclo es 20ms, el nivel bajo dura el resto del tiempo
 }
 ```
 
@@ -170,23 +170,23 @@ void procedure(int myangle)
 
 ![](media/image-20250902144145590.png)
 
-**Hinweis:** Die M1,2\*5-Schrauben befinden sich im Beutel der Kunststoffplattform.
+**Nota: **Puede encontrar tornillos M1.2\*5 dentro de la bolsa de la plataforma de plástico.
 
 ![TK_25](media/TK_25.png)
 
 ![TK_26](media/TK_26.png)
 
-## Schritt 6: Sensoren und Platinen einbauen
+## Paso 6: Instalar sensores y placas
 
-Bereiten Sie folgende Teile vor:
+Prepare las piezas de la siguiente manera:
 
-- M3\*6MM Rundkopfschraube \*12
-- L298P Shield \*1
-- V4.0 Board \*1
-- V5 Sensor Shield \*1
-- Schraubendreher \*1
-- Bluetooth-Modul \*1
-- M2,5 Innensechskantschlüssel vernickelt \*1
+- Tornillo de cabeza redonda M3\*6MM \*12
+- Escudo L298P \*1
+- Placa V4.0 \*1
+- Escudo de sensor V5 \*1
+- Destornillador \*1
+- Módulo Bluetooth \*1
+- Llave Allen hexagonal niquelada M2.5 \*1
 
 ![TK_27](media/TK_27.png)
 
@@ -206,7 +206,7 @@ Bereiten Sie folgende Teile vor:
 
 
 
-## Schritt 7: Verkabelungsanleitung
+## Paso 7: Guía de conexión
 
 ![](media/image-20250902144534790.png)
 
@@ -218,7 +218,7 @@ Bereiten Sie folgende Teile vor:
 
 ![](media/image-20250902144902221.png)
 
-## Schritt 8: LED-Panel anschließen
+##  Paso 8: Cableado del panel LED
 
 ![](media/image-20250902145026905.png)
 
@@ -226,7 +226,7 @@ Bereiten Sie folgende Teile vor:
 
 ![](media/image-20250902145129382.png)
 
-| LED-Panel                              | V5 Sensor Shield                       |
+| Panel LED                              | Escudo de sensor V5                    |
 | -------------------------------------- | -------------------------------------- |
 | GND                                    | -(GND)                                 |
 | VCC                                    | +(VCC)                                 |
@@ -234,7 +234,7 @@ Bereiten Sie folgende Teile vor:
 | SCL                                    | SCL                                    |
 | ![](media/image-20250902145404151.png) | ![](media/image-20250902145414755.png) |
 
-## Schritt 9: Alle Teile der Acrylplatte einbauen
+## Paso 9: Instalar todas las piezas de la placa acrílica
 
 ![](media/image-20250902145506652.png)
 
@@ -262,33 +262,33 @@ Bereiten Sie folgende Teile vor:
 
 ![](media/image-20250902150711706.png)
 
-## Schritt 10: Panzerroboter
+##  Paso 10: Robot tanque
 
-**Hinweis:** Entfernen Sie das Bluetooth-Modul, bevor Sie den Testcode hochladen. Andernfalls schlägt das Hochladen des Testcodes fehl.
+**Nota:** Retire el módulo Bluetooth antes de cargar el código de prueba. De lo contrario, no podrá cargar el código de prueba.
 
 ![](media/image-20250902151034545.png)
 
-**Multifunktionaler Roboterwagen**
+**Coche robot multiusos**
 
 ![](media/image-20250902151133169.png)
 
-  **Beschreibung**
+  **Descripción**
 
-In den vorherigen Projekten hat der Panzerwagen jeweils nur eine einzelne Funktion ausgeführt. In dieser Lektion werden jedoch alle Funktionen integriert, um das Smart Car über Bluetooth zu steuern.
+En los proyectos anteriores, el coche tanque solo realiza una función única. Sin embargo, en esta lección, integramos todas sus funciones para controlar el coche inteligente a través del control Bluetooth.
 
-Nachfolgend finden Sie ein vereinfachtes Ablaufdiagramm des multifunktionalen Roboterwagens als Referenz.
+Aquí hay un diagrama de flujo simple del coche robot multiusos para su referencia.
 
 ![](media/image-20250902151215210.png)
 
-  **Schaltplan**
+  **Diagrama de conexión**
 
 ![](media/image-20250902151230702.png)
 
-**Achtung:** Stellen Sie sicher, dass alle Komponenten angeschlossen sind.
+**Atención：**Confirme que cada componente está conectado.
 
-Verkabelungsanleitung:
+Guía de cableado:
 
-| 8x16 LED-Panel | | Erweiterungsplatine |
+| Panel LED 8x16 | | Placa de expansión |
 | -------------- | ---- | --------------- |
 | GND            | →    | -（GND）        |
 | VCC            | →    | +（VCC）        |
@@ -297,7 +297,7 @@ Verkabelungsanleitung:
 
 ![](media/image-20250902152539713.png)
 
-| Ultraschallmodul  |      |        |
+| Módulo ultrasónico |      |        |
 | ----------------- | ---- | ------ |
 | VCC               | →    | 5v(V)  |
 | Trig              | →    | 5(S)   |
@@ -308,29 +308,29 @@ Verkabelungsanleitung:
 
 ![](media/image-20250902152906103.png)
 
-| Servomotor      |      |        |
-| --------------- | ---- | ------ |
-| Servomotor      | →    | Gnd(G) |
-| Rotes Kabel     | →    | 5v(V)  |
-| Oranges Kabel   | →    | 9      |
+| Motor servo |      |        |
+| ----------- | ---- | ------ |
+| Motor servo | →    | Gnd(G) |
+| Cable rojo    | →    | 5v(V)  |
+| Cable naranja | →    | 9      |
 
 ![](media/image-20250902154418006.png)
 
 ![](media/image-20250902154820948.png)
 
-| Bluetooth-Modul                                    |      |          |
-| -------------------------------------------------- | ---- | -------- |
-| RXD                                                | →    | TX       |
-| TXD                                                | →    | RX       |
-| GND                                                | →    | -（GND） |
-| VCC                                                |      | +（VCC） |
-| STATE- und BRK-Pins müssen nicht angeschlossen werden |      |          |
+| Módulo Bluetooth                        |      |          |
+| --------------------------------------- | ---- | -------- |
+| RXD                                     | →    | TX       |
+| TXD                                     | →    | RX       |
+| GND                                     | →    | -（GND） |
+| VCC                                     |      | +（VCC） |
+| No es necesario conectar los pines STATE y BRK |      |          |
 
 ![](media/image-20250902155229663.png)
 
 ![](media/image-20250902155236836.png)
 
-| IR-Empfängermodul  |      | Sensor Shield |
+| Módulo receptor IR |      | Escudo de sensor |
 | ------------------ | ---- | ------------- |
 | －                 | →    | G（GND）      |
 | +                  | →    | V（VCC）      |
@@ -340,19 +340,19 @@ Verkabelungsanleitung:
 
 ![](media/image-20250902155452133.png)
 
-| Linker Fotowiderstand  |      | Sensor Shield |
-| ---------------------- | ---- | ------------- |
-| －                     | →    | G（GND）      |
-| ＋                     | →    | V（VCC）      |
-| S                      | →    | A1            |
-|                        |      |               |
-| Rechter Fotowiderstand |      | Sensor Shield |
-| －                     | →    | G（GND）      |
-| ＋                     | →    | V（VCC）      |
-| S                      | →    | A2            |
+| Fotorresistencia izquierda  |      | Escudo de sensor |
+| -------------------- | ---- | ------------- |
+| －                   | →    | G（GND）      |
+| ＋                   | →    | V（VCC）      |
+| S                    | →    | A1            |
+|                      |      |               |
+| Fotorresistencia derecha |      | Escudo de sensor |
+| －                   | →    | G（GND）      |
+| ＋                   | →    | V（VCC）      |
+| S                    | →    | A2            |
 
 ![](media/image-20250902155938106.png)
 
 ![](media/image-20250902155946213.png)
 
- Montage abgeschlossen.
+ Instalación completada.

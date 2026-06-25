@@ -1,47 +1,47 @@
-# Projekt 4 Servo-Steuerung
+# Proyecto 4 Control de Servo
 
 ![](media/image-20250908152354194.png)
 
-**Beschreibung**
+**Descripción**
 
-Ein Servomotor ist ein rotierender Stellantrieb zur Positionsregelung. Er besteht hauptsächlich aus einem Gehäuse, einer Leiterplatte, einem kernlosen Motor, einem Getriebe und einem Positionssensor. Das Funktionsprinzip besteht darin, dass der Servo das von Mikrocontrollern oder Empfängern gesendete Signal empfängt und ein Referenzsignal mit einer Periode von 20 ms und einer Breite von 1,5 ms erzeugt. Anschließend wird die erfasste DC-Vorspannung mit der Spannung des Potentiometers verglichen und die Spannungsdifferenz ausgegeben.
+El servomotor es un actuador rotativo de control de posición. Está compuesto principalmente por una carcasa, una placa de circuito, un motor sin núcleo, un engranaje y un sensor de posición. Su principio de funcionamiento consiste en que el servo recibe la señal enviada por microcontroladores o receptores y genera una señal de referencia con un período de 20ms y un ancho de 1.5ms; luego compara la tensión de polarización de CC adquirida con la tensión del potenciómetro y obtiene la salida de diferencia de tensión.
 
-Wenn die Motordrehzahl konstant ist, wird das Potentiometer über das mehrstufige Untersetzungsgetriebe gedreht, wodurch die Spannungsdifferenz 0 wird und der Motor stoppt. Im Allgemeinen beträgt der Drehwinkelbereich eines Servos 0°–180°.
+Cuando la velocidad del motor es constante, el potenciómetro es accionado para girar a través del engranaje reductor en cascada, lo que hace que la diferencia de tensión sea 0 y el motor deje de girar. En general, el rango de ángulo de rotación del servo es de 0° a 180°.
 
-Der Drehwinkel des Servomotors wird durch die Regelung des Tastverhältnisses des PWM-Signals (Pulsweitenmodulation) gesteuert. Die Standardperiode des PWM-Signals beträgt 20 ms (50 Hz). Theoretisch liegt die Breite zwischen 1 ms und 2 ms, in der Praxis jedoch zwischen 0,5 ms und 2,5 ms. Die Breite entspricht dem Drehwinkel von 0° bis 180°. Zu beachten ist, dass bei Motoren verschiedener Hersteller dasselbe Signal zu unterschiedlichen Drehwinkeln führen kann.
+El ángulo de rotación del servomotor se controla regulando el ciclo de trabajo de la señal PWM (Modulación por Ancho de Pulso). El ciclo estándar de la señal PWM es de 20ms (50Hz). Teóricamente, el ancho se distribuye entre 1ms y 2ms, pero en la práctica está entre 0.5ms y 2.5ms. El ancho corresponde al ángulo de rotación de 0° a 180°. Sin embargo, hay que tener en cuenta que para motores de diferentes marcas, la misma señal puede producir ángulos de rotación distintos.
 
 ![](media/image-20250908152510007.png)
 
-Im Allgemeinen hat ein Servo drei Leitungen in den Farben Braun, Rot und Orange. Die braune Leitung ist die Masseleitung, die rote ist der Pluspol und die orange ist die Signalleitung.
+En general, el servo tiene tres cables: marrón, rojo y naranja. El cable marrón es la conexión a tierra, el rojo es el polo positivo y el naranja es la línea de señal.
 
 ![](media/image-20250908152525491.png)
 
-Die entsprechenden Servowinkel sind nachfolgend dargestellt:
+Los ángulos correspondientes del servo se muestran a continuación:
 
 ![](media/image-20250908152558682.png)
 
-**Technische Daten**
+**Especificaciones**
 
-- Betriebsspannung: DC 4,8 V \~ 6 V
-- Betriebswinkelbereich: ca. 180° (bei 500 → 2500 μsec)
-- Pulsbreitenbereich: 500 → 2500 μsec
-- Leerlaufdrehzahl: 0,12 ± 0,01 sek / 60° (DC 4,8 V) 0,1 ± 0,01 sek / 60° (DC 6 V)
-- Leerlaufstrom: 200 ± 20 mA (DC 4,8 V) 220 ± 20 mA (DC 6 V)
-- Haltemoment: 1,3 ± 0,01 kg·cm (DC 4,8 V) 1,5 ± 0,1 kg·cm (DC 6 V)
-- Haltestrom: ≦ 850 mA (DC 4,8 V) ≦ 1000 mA (DC 6 V)
-- Ruhestrom: 3 ± 1 mA (DC 4,8 V) 4 ± 1 mA (DC 6 V)
+- Tensión de trabajo: DC 4.8V \~ 6V
+- Rango de ángulo de operación: aproximadamente 180° (a 500 → 2500 μsec)
+- Rango de ancho de pulso: 500 → 2500 μsec
+- Velocidad sin carga: 0.12 ± 0.01 seg / 60 (DC 4.8V) 0.1 ± 0.01 seg / 60 (DC 6V)
+- Corriente sin carga: 200 ± 20mA (DC 4.8V) 220 ± 20mA (DC 6V)
+- Par de parada: 1.3 ± 0.01kg · cm (DC 4.8V) 1.5 ± 0.1kg · cm (DC 6V)
+- Corriente de parada: ≦ 850mA (DC 4.8V) ≦ 1000mA (DC 6V)
+- Corriente en espera: 3 ± 1mA (DC 4.8V) 4 ± 1mA (DC 6V)
 
-**Komponenten**
+**Componentes**
 
 ![](media/image-20250908152809268.png)
 
-**Schaltplan:**
+**Diagrama de conexión：**
 
-![](media/image-20250908152824930.png)**Verdrahtungshinweise:** Die braune Leitung des Servos wird mit GND (G) verbunden, die rote Leitung mit 5 V (V) und die orange Leitung mit dem digitalen Pin 9.
+![](media/image-20250908152824930.png)**Notas de cableado:** el cable marrón del servo se conecta a GND (G), el cable rojo se conecta a 5V (V) y el cable naranja se conecta al pin digital 9.
 
-Der Servo muss an eine externe Stromversorgung angeschlossen werden, da er einen hohen Strombedarf für den Antrieb hat. In der Regel liefert das Entwicklungsboard nicht genügend Strom. Ohne angeschlossene Stromversorgung könnte das Entwicklungsboard beschädigt werden.
+El servo debe conectarse a una fuente de alimentación externa debido a su alta demanda de corriente para el accionamiento. En general, la corriente de la placa de desarrollo no es suficiente. Si no se conecta la alimentación externa, la placa de desarrollo podría quemarse.
 
-**Testcode 1**
+**Código de prueba 1**
 
 ```c
 /*
@@ -50,42 +50,42 @@ lesson 4.1
 Servo
 http://www.keyestudio.com
 */
-#define servoPin 9  //Servo-Pin
-int pos; //Winkelvariable des Servos
-int pulsewidth; // Pulsbreitenvariable des Servos
+#define servoPin 9  //pin del servo
+int pos; //variable del ángulo del servo
+int pulsewidth; // variable del ancho de pulso del servo
 
 void setup() 
 {
-  pinMode(servoPin, OUTPUT);  //Servo-Pin als Ausgang setzen
-  procedure(0); //Servo-Winkel auf 0° setzen
+  pinMode(servoPin, OUTPUT);  //configurar el pin del servo como SALIDA
+  procedure(0); //establecer el ángulo del servo en 0°
 }
 
 void loop() 
 {
-  for (pos = 0; pos <= 180; pos += 1) // von 0 Grad bis 180 Grad
+  for (pos = 0; pos <= 180; pos += 1) // va de 0 grados a 180 grados
   { 
-    // in Schritten von 1 Grad
-    procedure(pos);              // Servo zur Position in Variable 'pos' bewegen
-    delay(15);                   //Rotationsgeschwindigkeit des Servos steuern
+    // en pasos de 1 grado
+    procedure(pos);              // indicar al servo que vaya a la posición en la variable 'pos'
+    delay(15);                   //controlar la velocidad de rotación del servo
   }
-  for (pos = 180; pos >= 0; pos -= 1) // von 180 Grad bis 0 Grad
+  for (pos = 180; pos >= 0; pos -= 1) // va de 180 grados a 0 grados
   { 
-    procedure(pos);              // Servo zur Position in Variable 'pos' bewegen
+    procedure(pos);              // indicar al servo que vaya a la posición en la variable 'pos'
     delay(15);                    
   }
 }
-// Funktion zur Servo-Steuerung
+// función para controlar el servo
 void procedure(int myangle) 
 {
-  pulsewidth = myangle * 11 + 500;  //Pulsbreitenwert berechnen
+  pulsewidth = myangle * 11 + 500;  //calcular el valor del ancho de pulso
   digitalWrite(servoPin,HIGH);
-  delayMicroseconds(pulsewidth);   //Die Dauer des High-Pegels entspricht der Pulsbreite
+  delayMicroseconds(pulsewidth);   //la duración del nivel alto es el ancho de pulso
   digitalWrite(servoPin,LOW);
-  delay((20 - pulsewidth / 1000));  // Die Periode beträgt 20 ms, der Low-Pegel füllt die restliche Zeit
+  delay((20 - pulsewidth / 1000));  // el ciclo es de 20ms, el nivel bajo dura el tiempo restante
 }
 ```
 
-Nach erfolgreichem Hochladen des Codes schwenkt der Servo im Bereich von 0° bis 180° hin und her.
+Una vez cargado el código correctamente, el servo oscila en el rango de 0° a 180°.
 
 ```c
 /*
@@ -95,43 +95,43 @@ Nach erfolgreichem Hochladen des Codes schwenkt der Servo im Bereich von 0° bis
  http://www.keyestudio.com
 */
 #include <Servo.h>
-Servo myservo;  // Servo-Objekt zur Steuerung eines Servos erstellen
-// auf den meisten Boards können zwölf Servo-Objekte erstellt werden
-int pos = 0;    // Variable zum Speichern der Servo-Position
+Servo myservo;  // crear objeto servo para controlar un servo
+// en la mayoría de las placas se pueden crear hasta doce objetos servo
+int pos = 0;    // variable para almacenar la posición del servo
 
 void setup() 
 {
-  myservo.attach(9);  // Servo an Pin 9 mit dem Servo-Objekt verbinden
+  myservo.attach(9);  // asocia el servo en el pin 9 al objeto servo
 }
 
 void loop() 
 {
-  for (pos = 0; pos <= 180; pos += 1)  // von 0 Grad bis 180 Grad
+  for (pos = 0; pos <= 180; pos += 1)  // va de 0 grados a 180 grados
   {
-    // in Schritten von 1 Grad
-    myservo.write(pos);              // Servo zur Position in Variable 'pos' bewegen
-    delay(15);                       // 15 ms warten, bis der Servo die Position erreicht hat
+    // en pasos de 1 grado
+    myservo.write(pos);              // indicar al servo que vaya a la posición en la variable 'pos'
+    delay(15);                       // espera 15ms para que el servo alcance la posición
   }
-  for (pos = 180; pos >= 0; pos -= 1) { // von 180 Grad bis 0 Grad
-    myservo.write(pos);              // Servo zur Position in Variable 'pos' bewegen
-    delay(15);                       // 15 ms warten, bis der Servo die Position erreicht hat
+  for (pos = 180; pos >= 0; pos -= 1) { // va de 180 grados a 0 grados
+    myservo.write(pos);              // indicar al servo que vaya a la posición en la variable 'pos'
+    delay(15);                       // espera 15ms para que el servo alcance la posición
   }
 }
 ```
 
-**Testergebnis**
+**Resultado de la prueba**
 
-Nach erfolgreichem Hochladen des Codes und dem Einschalten der Stromversorgung schwenkt der Servo im Bereich von 0° bis 180°.
+Una vez cargado el código correctamente y con la alimentación conectada, el servo oscila en el rango de 0° a 180°.
 
-Das Ergebnis ist identisch. In der Regel wird der Servo über eine Bibliotheksdatei gesteuert.
+El resultado es el mismo. Normalmente lo controlamos mediante el archivo de biblioteca.
 
-**Code-Erklärung**
+**Explicación del código**
 
-Arduino wird mit **\#include \<Servo.h\>** geliefert (Servo-Funktionen und -Anweisungen).
+Arduino incluye **\#include \<Servo.h\>** (funciones y declaraciones del servo)
 
-Im Folgenden sind einige häufig verwendete Anweisungen der Servo-Funktion aufgeführt:
+A continuación se presentan algunas instrucciones comunes de la función servo:
 
-1. attach（Schnittstelle）——Servo-Schnittstelle festlegen; Port 9 und 10 sind verfügbar.
-2. write（Winkel）——Anweisung zum Festlegen des Drehwinkels des Servos.
-3. read（）——Anweisung zum Auslesen des Servo-Winkels; liest den Befehlswert von „write()".
-4. **Hinweis:** Das oben genannte Schreibformat lautet „Servo-Variablenname.spezifische Anweisung（）", zum Beispiel: myservo.attach(9).
+1. attach（interfaz）——Establece la interfaz del servo; los puertos 9 y 10 están disponibles.
+2. write（ángulo）——Instrucción para establecer el ángulo de rotación del servo.
+3. read（）——Instrucción para leer el ángulo del servo; lee el valor del comando de "write()".
+4. **Nota:** El formato de escritura mencionado es "nombre de variable del servo, instrucción específica（）", por ejemplo: myservo.attach(9).

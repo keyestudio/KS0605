@@ -1,109 +1,109 @@
-# Projekt 1 LED-Blinken
+# Proyecto 1 LED Parpadea
 
 ![](media/image-20250908174750401.png)
 
-**Beschreibung**
+**Descripción**
 
-Das LED-Blinken ist ein grundlegendes Programm für Anfänger und Enthusiasten. LED ist die Abkürzung für Leuchtdioden und besteht aus chemischen Verbindungen wie Ga, As, P und N. Die LED kann in verschiedenen Farben blinken, indem man die Verzögerungszeit im Testcode ändert. Bei der Steuerung leuchtet die LED auf, wenn der S-Anschluss auf hohem Niveau liegt, wenn GND und VCC mit Strom versorgt werden; andernfalls schaltet sie sich aus.
+Para principiantes y entusiastas, el parpadeo de LED es un programa fundamental. LED, la abreviatura de diodos emisores de luz, está compuesto por compuestos químicos como Ga, As, P, N, entre otros. El LED puede parpadear en diversos colores alterando el tiempo de retardo en el código de prueba. Cuando está bajo control, con la alimentación en GND y VCC, el LED se encenderá si el extremo S está en nivel alto; sin embargo, se apagará.
 
-**Spezifikation**
+**Especificación**
 
 ![](./media/image-20250902164418568.png)
 
-- Steuerungsschnittstelle: digitaler Anschluss
-- Betriebsspannung: DC 3,3-5V
-- Stiftabstand: 2,54mm
-- LED-Anzeigefarbe: rot
+- Interfaz de control: puerto digital
+- Voltaje de funcionamiento: DC 3.3-5V
+- Espaciado de pines: 2.54mm
+- Color de visualización LED: rojo
 
-**Komponenten**
+**Componentes**
 
 ![](./media/image-20250902164804229.png)
 
-**V5 Sensor Shield**
+**Escudo de Sensor V5**
 
-Es ist mühsam, Arduino-Entwicklungsboards mit zahlreichen Sensoren zu kombinieren. Das V5 Sensor Shield ist jedoch mit Arduino-Entwicklungsboards kompatibel und löst dieses Problem perfekt. Stapeln Sie einfach das V5-Board darauf.
+Sería problemático cuando combinamos placas de desarrollo Arduino con numerosos sensores. Sin embargo, el escudo de sensor V5, compatible con la placa de desarrollo Arduino, resuelve este problema perfectamente. Solo apile la placa V5 en él.
 
-Dieses Sensor Shield kann in 3-Pin-Sensormodule eingesteckt werden und bricht einige Kommunikationspins auf, wie serielle, IIC- und SPI-Kommunikation.
+Este escudo de sensor puede insertarse en módulos de sensor de 3 pines y expone algunos pines de comunicación, como comunicación serial, IIC y SPI también.
 
-**Pins-Beschreibung**
+**Descripción de Pines**
 
 ![](./media/image-20250902165027854.png)
 
-**Schaltschema**
+**Diagrama de Conexión**
 
 ![](./media/image-20250902165110913.png)
 
-Wie aus dem obigen Diagramm ersichtlich ist, ist die LED mit D2 verbunden.
+Como se ve en el diagrama anterior, el LED está conectado con D2.
 
-**Testcode**
+**Código de Prueba**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 1.1
- Blink
+ lección 1.1
+ Parpadeo
  http://www.keyestudio.com
 */
 void setup()
 { 
-    pinMode(2, OUTPUT);// Initialisieren Sie digitalen Pin 2 als Ausgang.
+    pinMode(2, OUTPUT);// inicializar el pin digital 2 como salida.
 }
 
-void loop() // Die Loop-Funktion läuft immer wieder endlos ab
+void loop() // la función loop se ejecuta una y otra vez indefinidamente
 {
-   digitalWrite(2, HIGH); // LED einschalten (HIGH ist die Spannungsebene)
-   delay(1000); // eine Sekunde warten
-   digitalWrite(2, LOW); // LED ausschalten, indem die Spannung auf LOW gesetzt wird
-   delay(1000); // eine Sekunde warten
+   digitalWrite(2, HIGH); // encender el LED (HIGH es el nivel de voltaje)
+   delay(1000); // esperar un segundo
+   digitalWrite(2, LOW); // apagar el LED haciendo el voltaje LOW
+   delay(1000); // esperar un segundo
 }
 ```
 
-**Testergebnis**
+**Resultado de la Prueba**
 
-(Es gibt einen Widerspruch zwischen der seriellen Kommunikation im Code und dem Bluetooth beim Hochladen des Codes. Verbinden Sie daher das Bluetooth-Modul nicht vor dem Hochladen des Codes.)
+(Habrá contradicción sobre comunicación serial entre el código y Bluetooth al cargar el código. Por lo tanto, no conecte con el módulo Bluetooth antes de cargar el código.)
 
-Laden Sie das Programm auf das Entwicklungsboard hoch. Die LED blinkt in einem Intervall von 1s.
+Cargue el programa en la placa de desarrollo, el LED parpadea a intervalos de 1s.
 
 ![](./media/image-20250902165335641.png)
 
-**Code-Erklärung**
+**Explicación del Código**
 
-**pinMode(2，OUTPUT) -** Setzt Pin 2 auf OUTPUT
+**pinMode(2，OUTPUT) -** Establecer el pin2 como OUTPUT
 
-**digitalWrite(2，HIGH) -** Wenn Pin 2 auf HIGH-Ebene (5V Ausgang) oder LOW-Ebene (0V Ausgang) gesetzt wird
+**digitalWrite(2，HIGH) -** Cuando se establece el pin2 en nivel HIGH (salida 5V) o en nivel LOW (salida 0V)
 
-**Erweiterungspraxis**
+**Práctica de Extensión**
 
-Wir haben es geschafft, die LED zum Blinken zu bringen. Schauen wir uns nun an, wie sich die LED ändert, wenn wir die Pins und die Verzögerungszeit ändern.
+Hemos logrado hacer parpadear el LED. A continuación, observemos qué cambiará en el LED si modificamos los pines y el tiempo de retardo.
 
-**Schaltschema**
+**Diagrama de Conexión**
 
 ![](./media/image-20250902165631206.png)
 
-Wir haben die Pins geändert und die LED mit D10 verbunden.
+Hemos alterado los pines y conectado el LED a D10.
 
-**Testcode**
+**Código de Prueba**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 1.2
- Verzögerung
+ lección 1.2
+ retardo
  http://www.keyestudio.com
 */
-void setup() // Initialisieren Sie digitalen Pin 10 als Ausgang.
+void setup() // inicializar el pin digital 10 como salida.
 {  
    pinMode(10, OUTPUT);
 }
 
-// Die Loop-Funktion läuft immer wieder endlos ab
+// la función loop se ejecuta una y otra vez indefinidamente
 void loop() 
 {
-   digitalWrite(10, HIGH); // LED einschalten (HIGH ist die Spannungsebene)
-   delay(100); // 0,1 Sekunde warten
-   digitalWrite(10, LOW); // LED ausschalten, indem die Spannung auf LOW gesetzt wird
-   delay(100); // 0,1 Sekunde warten
+   digitalWrite(10, HIGH); // encender el LED (HIGH es el nivel de voltaje)
+   delay(100); // esperar 0.1 segundo
+   digitalWrite(10, LOW); // apagar el LED haciendo el voltaje LOW
+   delay(100); // esperar 0.1 segundo
 }
 ```
 
-Das Testergebnis zeigt, dass die LED schneller blinkt. Daher können wir zu dem Ergebnis kommen, dass Pins und Verzögerungszeit die Blinkfrequenz beeinflussen.
+El resultado de la prueba muestra que el LED parpadea más rápido. Por lo tanto, podemos llegar a la conclusión de que los pines y el tiempo de retardo afectan la frecuencia de parpadeo.

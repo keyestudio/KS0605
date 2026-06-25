@@ -1,16 +1,16 @@
-# Projekt 15: Vollständiges funktionsfähiges Projekt
+# Proyecto 15: Proyecto Final Completamente Funcional
 
-**Testcode**
+**Código de Prueba**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 15
- Bluetooth-Panzer
+ lección 15
+ tanque bluetooth
  http://www.keyestudio.com
 */
 
-//Array, wird verwendet, um die Daten des Musters zu speichern, kann selbst berechnet oder mit dem Modulus-Tool erhalten werden
+//Array, utilizado para almacenar los datos del patrón, puede ser calculado por usted mismo u obtenido de la herramienta de módulo
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -18,15 +18,15 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  //Taktsignal-Pin auf A5 setzen
-#define SDA_Pin  A4  //Daten-Pin auf A4 setzen
+#define SCL_Pin  A5  //Establecer el pin de reloj a A5
+#define SDA_Pin  A4  //Establecer el pin de datos a A4
 
-#define ML_Ctrl 13  //Richtungssteuerungs-Pin des linken Motors definieren
-#define ML_PWM 11   //PWM-Steuerungs-Pin des linken Motors definieren
-#define MR_Ctrl 12  //Richtungssteuerungs-Pin des rechten Motors definieren
-#define MR_PWM 3    //PWM-Steuerungs-Pin des rechten Motors definieren
+#define ML_Ctrl 13  //definir pin de control de dirección del motor izquierdo
+#define ML_PWM 11   //definir pin de control PWM del motor izquierdo
+#define MR_Ctrl 12  //definir pin de control de dirección del motor derecho
+#define MR_PWM 3    //definir pin de control PWM del motor derecho
 
-char bluetooth_val; //Wert des Bluetooth-Empfangs speichern
+char bluetooth_val; //guardar el valor de la recepción Bluetooth
 
 void setup()
 {
@@ -34,8 +34,8 @@ void setup()
   
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear);    //Display löschen
-  matrix_display(start01);  //Startmuster anzeigen
+  matrix_display(clear);    //Limpiar la pantalla
+  matrix_display(start01);  //mostrar patrón de inicio
 
   pinMode(ML_Ctrl, OUTPUT);
   pinMode(ML_PWM, OUTPUT);
@@ -52,47 +52,47 @@ void loop()
   }
   switch (bluetooth_val) 
   {
-     case 'F':  //Vorwärts-Befehl
+     case 'F':  //comando de avance
         Car_front();
-        matrix_display(front);  //Vorwärts-Design anzeigen
+        matrix_display(front);  // mostrar diseño de avance
         break;
-     case 'B':  //Rückwärts-Befehl
+     case 'B':  //comando de retroceso
         Car_back();
-        matrix_display(back);  //Rückwärts-Muster anzeigen
+        matrix_display(back);  //mostrar patrón de retroceso
         break;
-     case 'L':  //Linksabbiege-Befehl
+     case 'L':  // instrucción de giro a la izquierda
         Car_left();
-        matrix_display(left);  //Zeichen „Linksabbiegen" anzeigen
+        matrix_display(left);  //mostrar signo de "giro a la izquierda"
         break;
-     case 'R':  //Rechtsabbiege-Befehl
+     case 'R':  //instrucción de giro a la derecha
         Car_right();
-        matrix_display(right);  //Zeichen „Rechtsabbiegen" anzeigen
+        matrix_display(right);  //mostrar signo de giro a la derecha
         break;
-     case 'S':  //Stopp-Befehl
+     case 'S':  //comando de parada
         Car_Stop();
-        matrix_display(STOP01);  //Stoppbild anzeigen
+        matrix_display(STOP01);  //mostrar imagen de parada
         break;
   }
 }
 
-/**************Die Funktion der Dot-Matrix****************/
-//Diese Funktion wird für die Dot-Matrix-Anzeige verwendet
+/**************La función de la matriz de puntos****************/
+//esta función se utiliza para la visualización de la matriz de puntos
 void matrix_display(unsigned char matrix_value[])
 {
   IIC_start();
-  IIC_send(0xc0);  //Adresse wählen
+  IIC_send(0xc0);  //Elegir dirección
   
-  for(int i = 0;i < 16;i++) //Musterdaten haben 16 Bits
+  for(int i = 0;i < 16;i++) //los datos del patrón tienen 16 bits
   {
-     IIC_send(matrix_value[i]); //Daten zur Übertragung von Mustern
+     IIC_send(matrix_value[i]); //datos para transmitir patrones
   }
-  IIC_end();   //Beendigung der Musterübertragung
+  IIC_end();   //finalizar la transmisión de datos del patrón
   
   IIC_start();
-  IIC_send(0x8A);  //Anzeigesteuerung, Impulsbreite auf 4/16 setzen
+  IIC_send(0x8A);  //control de visualización, establecer ancho de pulso a 4/16
   IIC_end();
 }
-//Die Bedingung zum Starten der Datenübertragung
+//La condición para comenzar a transmitir datos
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -102,14 +102,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-//Daten übertragen
+//transmitir datos
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  //Jedes Byte hat 8 Bits
+  for(char i = 0;i < 8;i++)  //Cada byte tiene 8 bits
   {
-      digitalWrite(SCL_Pin,LOW);  //Taktsignal-Pin SCL herunterziehen, um die Signale von SDA zu ändern
+      digitalWrite(SCL_Pin,LOW);  //bajar el pin de reloj SCL_Pin para cambiar las señales de SDA
       delayMicroseconds(3);
-      if(send_data & 0x01)  //Hohe und niedrige Pegel von SDA_Pin gemäß 1 oder 0 jedes Bits setzen
+      if(send_data & 0x01)  //establecer nivel alto y bajo de SDA_Pin según el 1 o 0 de cada bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -118,12 +118,12 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); //Taktsignal-Pin SCL hochziehen, um die Datenübertragung zu stoppen
+      digitalWrite(SCL_Pin,HIGH); //subir el pin de reloj SCL_Pin para detener la transmisión de datos
       delayMicroseconds(3);
-      send_data = send_data >> 1;  //Bit für Bit erkennen, daher die Daten um eins nach rechts verschieben
+      send_data = send_data >> 1;  // Detectar bit por bit, por lo que desplazar los datos a la derecha en uno
   }
 }
-//Das Zeichen, dass die Datenübertragung endet
+//La señal de que la transmisión de datos ha finalizado
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -135,7 +135,7 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/*************Die Funktion zum Ausführen des Motors**************/
+/*************la función para ejecutar el motor**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -187,10 +187,10 @@ void Car_T_right()
 }
 ```
 
-**Testergebnis**
+**Resultado de la Prueba**
 
-**Hinweis:** Entfernen Sie das Bluetooth-Modul vor dem Hochladen des Testcodes. Andernfalls können Sie den Testcode nicht hochladen. Verbinden Sie das Bluetooth-Modul nach dem Hochladen des Testcodes wieder.
+**Nota:** Retire el módulo Bluetooth antes de cargar el código de prueba. De lo contrario, no podrá cargar el código de prueba. Vuelva a conectar el módulo Bluetooth después de cargar el código de prueba.
 
-Laden Sie den Testcode erfolgreich hoch, setzen Sie das Bluetooth-Modul ein, schalten Sie die Stromversorgung ein und verbinden Sie sich mit Bluetooth. Der Panzerroboter kann mit der App unterschiedliche Funktionen anzeigen.
+Cargue el código de prueba con éxito, inserte el módulo Bluetooth, encienda y conéctese a Bluetooth. El robot tanque puede mostrar funciones distintas mediante la aplicación.
 
-Alles klar, alle Projekte sind abgeschlossen. Bitte kontaktieren Sie uns gerne, wenn Sie auf Probleme stoßen.
+Bien, todos los proyectos están terminados. No dude en contactarnos si encuentra algún problema.

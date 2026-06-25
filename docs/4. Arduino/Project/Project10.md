@@ -1,57 +1,57 @@
-# Projekt 10 Lichtfolge-Roboter
+# Proyecto 10 Robot Seguidor de Luz
 
 ![](media/image-20250908171131879.png)
 
-**Beschreibung**
+**Descripción**
 
-Wir haben bereits gezeigt, wie man verschiedene Sensoren und Module verwendet.
+Hemos introducido cómo utilizar varios sensores y módulos.
 
-In dieser Lektion kombinieren wir unser Hardware-Wissen – Fotowiderstandsmodul, Motorsteuerung – um einen Lichtfolge-Roboter zu bauen!
+En esta lección, combinamos conocimientos de hardware -- módulo fotoresistor, conducción de motores, para construir un robot seguidor de luz.
 
-Wir benötigen nur 2 Fotowiderstandsmodule, um die Lichtintensität auf beiden Seiten des Roboters zu erfassen. Durch das Auslesen der Analogwerte steuern wir die 2 Motoren an und lassen den Panzerroboter fahren.
+Solo necesitamos usar 2 módulos fotoresistores para detectar la intensidad de luz en ambos lados del robot. Leer el valor analógico para rotar los 2 motores, así conducir el robot tanque.
 
-**Die spezifische Logik des Lichtfolge-Roboters ist in der folgenden Tabelle dargestellt:**
+**La lógica específica del robot seguidor de luz se muestra en la tabla siguiente:**
 
 ![](media/image-20250908171219561.png)
 
-Wir erstellen ein Flussdiagramm basierend auf der obigen Logiktabelle, wie unten gezeigt:
+Hacemos un diagrama de flujo basado en la tabla de lógica anterior, como se muestra a continuación:
 
 ![](media/image-20250908171232654.png)
 
-**Schaltplan**
+**Diagrama de Conexión**
 
 ![](media/image-20250908171305946.png)
 
-**Achtung:**
+**Atención:**
 
-Der 4-polige Anschlussblock ist mit dem Siebdruck 1234 gekennzeichnet. Die rote Leitung des rechten Hintermotor ist mit Anschluss 1 verbunden, die schwarze Leitung mit Anschluss 2. Die rote Leitung des linken Vordermotor ist mit Anschluss 3 verbunden, die schwarze Leitung mit Anschluss 4.
+El bloque terminal de 4 pines está marcado con serigrafía 1234. La línea roja del motor trasero derecho está conectada al terminal 1, la línea negra está vinculada al extremo 2. La línea roja del motor delantero izquierdo está conectada al terminal 3, la línea negra está vinculada al puerto 4.
 
-| Linker Fotowiderstand    |      | Sensor Shield     |
+| Fotoresistor izquierdo   |      | Sensor Shield     |
 | ------------------------ | ---- | ----------------- |
 | -                        | →    | G（GND）          |
 | +                        | →    | V（VCC）          |
 | S                        | →    | A1                |
 |                          |      |                   |
-| **Rechter Fotowiderstand** |      | **Sensor Shield** |
+| **Fotoresistor derecho** |      | **Sensor Shield** |
 | -                        | →    | G（GND）          |
 | +                        | →    | V（VCC）          |
 | S                        | →    | A2                |
 
-**Test-Code**
+**Código de Prueba**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 10
- Lichtfolge-Panzer
+ lección 10
+ Tanque seguidor de luz
  http://www.keyestudio.com
 */ 
-#define light_L_Pin A1   // definiere den Pin des linken Fotowiderstand
-#define light_R_Pin A2   // definiere den Pin des rechten Fotowiderstand
-#define ML_Ctrl 13  // definiere den Richtungssteuerpin des linken Motors
-#define ML_PWM 11   // definiere den PWM-Steuerpin des linken Motors
-#define MR_Ctrl 12  // definiere den Richtungssteuerpin des rechten Motors
-#define MR_PWM 3   // definiere den PWM-Steuerpin des rechten Motors
+#define light_L_Pin A1   //define el pin del fotoresistor izquierdo
+#define light_R_Pin A2   //define el pin del fotoresistor derecho
+#define ML_Ctrl 13  //define el pin de control de dirección del motor izquierdo
+#define ML_PWM 11   //define el pin de control PWM del motor izquierdo
+#define MR_Ctrl 12  //define el pin de control de dirección del motor derecho
+#define MR_PWM 3   //define el pin de control PWM del motor derecho
 int left_light; 
 int right_light;
 void setup(){
@@ -70,19 +70,19 @@ void loop(){
   Serial.println(left_light);
   Serial.print("right_light_value = ");
   Serial.println(right_light);
-  if (left_light > 650 && right_light > 650) // der vom Fotowiderstand erfasste Wert, fahre vorwärts
+  if (left_light > 650 && right_light > 650) //el valor detectado por el fotoresistor, avanzar
   {  
     Car_front();
   } 
-  else if (left_light > 650 && right_light <= 650)  // der vom Fotowiderstand erfasste Wert, drehe nach links
+  else if (left_light > 650 && right_light <= 650)  //el valor detectado por el fotoresistor, girar a la izquierda
   {
     Car_left();
   } 
-  else if (left_light <= 650 && right_light > 650) // der vom Fotowiderstand erfasste Wert, drehe nach rechts
+  else if (left_light <= 650 && right_light > 650) //el valor detectado por el fotoresistor, girar a la derecha
   {
     Car_right();
   } 
-  else  // andere Situationen, stoppe
+  else  //otras situaciones, detener
   {
     Car_Stop();
   }
@@ -118,6 +118,6 @@ void Car_Stop()
 //****************************************************************
 ```
 
-**Test-Ergebnis**
+**Resultado de la Prueba**
 
-Laden Sie den Code auf das keyestudio V4.0 Entwicklungsboard hoch, stellen Sie den DIP-Schalter auf die rechte Position und schalten Sie die Stromversorgung ein. Der intelligente Roboter folgt dem Licht und bewegt sich.
+Cargue el código en la placa de desarrollo keyestudio V4.0, el interruptor DIP se coloca en el extremo derecho y encienda la alimentación, el robot inteligente sigue la luz para moverse.

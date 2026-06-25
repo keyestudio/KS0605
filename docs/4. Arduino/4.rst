@@ -1,56 +1,58 @@
 4. Arduino
 ==========
 
-4.1 Daten-Download
-------------------
+Aquí tienes la traducción al español del contenido que has proporcionado. He mantenido intactos los enlaces, nombres de archivos y marcadores de posición de imágenes tal como solicitaste:
 
-Die Arduino-Unterlagen enthalten Bibliotheksdateien und Projektcode; bitte klicken Sie hier, um sie für das weitere Studium herunterzuladen.
-
-Daten-Download: :download:`Arduino Data <./Arduino.7z>`
-
-Hier ist die übersetzte Version des Inhalts ins Deutsche:
-
-APP-Download:
-
-Tank Car Android-Download: `Tank Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
-
-HC_BLE-Download: :download:`APP <./APP.7z>`
-
-4.2 Software-Download
+4.1 Descarga de datos
 ---------------------
 
-Wenn wir das Steuerungsboard erhalten, müssen wir zuerst die Arduino IDE und den Treiber herunterladen.
+La información de Arduino contiene archivos de biblioteca y código del proyecto, por favor haz clic para descargar para el estudio posterior.
 
-Sie können die Arduino IDE von der offiziellen Website herunterladen:
+Descarga de datos: :download:`Arduino Data <./Arduino.7z>`
+
+Descarga de la APP:
+
+Descarga de Tank Car para Android: `Tank
+Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
+
+Descarga de HC_BLE: :download:`APP <./APP.7z>`
+
+4.2 Descarga de software
+------------------------
+
+Cuando tengamos la placa de control, primero necesitamos descargar el IDE de Arduino y el controlador.
+
+Puedes descargar el IDE de Arduino desde el sitio web oficial:
 https://www.arduino.cc/en/software.
 
-Es gibt verschiedene Versionen für Arduino. Laden Sie einfach eine für Ihr System geeignete Version herunter. Wir werden das WINDOWS-System als Beispiel nehmen, um Ihnen zu zeigen, wie man es herunterlädt und installiert.
+Hay varias versiones para Arduino, simplemente descarga una versión adecuada para tu sistema; tomaremos el sistema WINDOWS como ejemplo para mostrarte cómo descargar e instalar.
 
 |image1|
 
-Sie müssen nur auf "JUST DOWNLOAD" klicken und dann auf die heruntergeladene Datei klicken, um sie zu installieren.
+Solo necesitas hacer clic en JUSTDOWNLOAD, luego haz clic en el archivo descargado para instalarlo.
 
-Und wenn die ZIP-Datei heruntergeladen ist, können Sie sie direkt entpacken und starten.
+Y cuando se descargue el archivo ZIP, puedes descomprimirlo y ejecutarlo directamente.
 
 |image2|
 
-4.3 Arduino IDE einrichten
+4.3 Configurar Arduino IDE
 --------------------------
 
-Verbinden Sie das Board mit dem Computer.
+Conecta la placa al ordenador.
 
 |image3|
 
-4.4 Bibliothek hinzufügen
--------------------------
+4.4 Añadir biblioteca
+---------------------
 
-Was sind Bibliotheken?
+¿Qué son las bibliotecas?
 
-Bibliotheken sind eine Sammlung von Code, die es Ihnen leicht macht, sich mit einem Sensor, Display, Modul usw. zu verbinden.
+Las bibliotecas son una colección de código que te facilita la conexión con un sensor, pantalla, módulo, etc.
 
-Es gibt Hunderte von zusätzlichen Bibliotheken, die im Internet zum Download verfügbar sind.
+Hay cientos de bibliotecas adicionales disponibles en Internet para descargar.
 
-Wir werden Ihnen den einfachsten Weg vorstellen, Bibliotheken hinzuzufügen.
+Te presentaremos la forma más sencilla de añadir bibliotecas.
+
 
 |image4|
 
@@ -60,7 +62,7 @@ Wir werden Ihnen den einfachsten Weg vorstellen, Bibliotheken hinzuzufügen.
 .. |image4| image:: ./media/20250910193751.gif
 
 
-4.5 Projekte
+4.5 Proyectos
 ---------------
 
 .. toctree::

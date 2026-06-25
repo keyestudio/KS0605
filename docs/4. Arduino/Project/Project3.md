@@ -1,51 +1,51 @@
-# Projekt 3 Fotowiderstand-Sensor
+# Proyecto 3 Sensor de Fotoresistencia
 
 ![](./media/image-20250902173047302.png)
 
- **Beschreibung**
+ **Descripción**
 
-Der Fotowiderstand ist ein spezieller Widerstand aus Halbleitermaterialien wie CdS oder Selenid-Septum. Die Oberfläche ist auch mit feuchtigkeitsbeständigem Harz beschichtet, das eine photoleitende Wirkung hat. Er ist empfindlich gegenüber Umgebungslicht. Sein Widerstand variiert je nach unterschiedlichen Lichtintensitäten.
+La fotoresistencia es una resistencia especial fabricada con materiales semiconductores como CdS o septo de selenio. La superficie también está recubierta con resina a prueba de humedad, que tiene un efecto fotoconductor. Es sensible a la luz ambiental. Su resistencia varía según diferentes intensidades de luz.
 
-Wir nutzen die Eigenschaften des Fotowiderstands, um die Schaltung zu entwerfen und das Fotowiderstand-Modul zu erzeugen.
+Utilizamos las características de la fotoresistencia para diseñar el circuito y generar el módulo de fotoresistencia.
 
-Wenn Sie den Signalpin des Fotowiderstand-Moduls mit einem analogen Port verbinden, werden Sie feststellen, dass je stärker die Lichtintensität ist, desto größer die Spannung des analogen Ports und desto größer der analoge Wert ist.
+Al conectar el pin de señal del módulo de fotocélula a un puerto analógico, descubrirá que cuanto mayor sea la intensidad de luz, mayor será el voltaje del puerto analógico y mayor será el valor analógico.
 
-Im Gegenteil, je schwächer die Lichtintensität ist, desto kleiner die Spannung des analogen Ports und desto kleiner ist der analoge Wert.
+Por el contrario, cuanto menor sea la intensidad de luz, menor será el voltaje del puerto analógico y menor será el valor analógico.
 
-Basierend darauf können wir das Fotowiderstand-Modul verwenden, um den analogen Wert zu lesen und so die Umgebungslichtintensität zu ermitteln.
+Basándonos en esto, podemos usar el módulo de fotocélula para leer el valor analógico y así obtener la intensidad de luz ambiental.
 
- **Spezifikation**
+ **Especificaciones**
 
-![](./media/image-20250902173349950.png)\
+![](./media/image-20250902173349950.png)
 
-- Widerstand: 5K Ohm-0,5 MOhm
-- Schnittstellentyp: analog
-- Arbeitsspannung: 3,3V-5V
-- Einfache Installation: mit Schraubfixierungslöchern
-- Pin-Abstand: 2,54 mm
+- Resistencia: 5K ohmios - 0,5 Mohmios
+- Tipo de interfaz: analógica
+- Voltaje de funcionamiento: 3,3V - 5V
+- Instalación fácil: con orificios de fijación con tornillo
+- Espaciado de pines: 2,54 mm
 
- **Komponenten**
+ **Componentes**
 
 ![](./media/image-20250902173528860.png)
 
- **Schaltschema:**
+ **Diagrama de conexión:**
 
 ![](./media/image-20250902173558747.png)
 
-Die beiden Fotowiderstand-Sensoren sind mit A1 und A2 verbunden, dann wird das Experiment über den mit A1 verbundenen Fotowiderstand abgeschlossen. Lassen Sie uns seinen analogen Wert auslesen.
+Los dos sensores de fotoresistencia están conectados con A1 y A2, luego complete el experimento a través de la fotoresistencia conectada a A1. Leamos su valor analógico.
 
-**Test-Code**
+**Código de prueba**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 3.1
- Fotowiderstand
+ lección 3.1
+ fotocélula
  http://www.keyestudio.com
 */
 
-int sensorPin = A1;    // Wählen Sie den Eingangspin für den Fotowiderstand
-int sensorValue = 0;  // Variable zum Speichern des Wertes vom Sensor
+int sensorPin = A1;    // selecciona el pin de entrada para la fotocélula
+int sensorValue = 0;  // variable para almacenar el valor que viene del sensor
 void setup() 
 {
 	Serial.begin(9600);
@@ -53,45 +53,45 @@ void setup()
 
 void loop() 
 {
-    sensorValue = analogRead(sensorPin);  // Lesen Sie den Wert vom Sensor:
-    Serial.println(sensorValue);  // Serielle Schnittstelle gibt den Widerstandswert aus
+    sensorValue = analogRead(sensorPin);  // lee el valor del sensor:
+    Serial.println(sensorValue);  // el puerto serie imprime el valor de resistencia
     delay(500);
 }
 //******************************************************
 ```
 
- **Test-Ergebnis**
+ **Resultado de la prueba**
 
-Laden Sie den Code auf die Entwicklungsplatine hoch, öffnen Sie den seriellen Monitor und überprüfen Sie, ob sein Wert abnimmt, wenn Sie den Fotowiderstand abdecken. Wenn Sie ihn jedoch aufdecken, erhöht sich der Wert.
+Cargue el código en la placa de desarrollo, abra el monitor serie y verifique si su valor disminuye al cubrir la fotoresistencia. Sin embargo, el valor aumenta cuando está descubierta.
 
 ![](./media/image-20250902174159923.png)
 
-**Code-Erklärung**
+**Explicación del código**
 
-**analogRead(sensorPin):** Lesen Sie den analogen Wert des Fotowiderstands über analoge Ports.
+**analogRead(sensorPin):** lee el valor analógico de la fotoresistencia a través de los puertos analógicos.
 
-**Serial.begin(9600):** Initialisieren Sie die serielle Schnittstelle, die Baudrate der seriellen Kommunikation beträgt 9600.
+**Serial.begin(9600):** inicializa el puerto serie, la velocidad en baudios de la comunicación serie es 9600.
 
-**Serial.println:** Serielle Schnittstelle gibt aus und führt einen Zeilenumbruch durch.
+**Serial.println:** el puerto serie imprime y hace un salto de línea.
 
-**Erweiterungspraktikum**
+**Práctica de extensión**
 
-Wir haben gelernt, wie man den Wert des Fotowiderstands ausliest. Lassen Sie uns den Fotowiderstand mit einer LED kombinieren und den Status der LED beobachten.
+Ya sabemos cómo leer el valor de la fotoresistencia. Combinemos la fotoresistencia con un LED y veamos el estado del LED.
 
 ![](./media/image-20250902174256941.png)
 
-PWM begrenzt die Helligkeit, daher ist die LED mit PWM-Pins verbunden. Verbinden Sie die LED mit Pin 10, behalten Sie den Pin des Fotowiderstands unverändert bei und entwerfen Sie dann den Code:
+PWM controla el brillo, por lo que el LED está conectado con pines PWM. Conecte el LED al pin 10, mantenga el pin de la fotoresistencia sin cambios, luego diseñe el código:
 
 ```c
 /*keyestudio Mini Tank Robot V2.1
-Lektion 3.2
-Fotowiderstand-analoger Ausgang
+lección 3.2
+fotocélula-salida analógica
 http://www.keyestudio.com
 */
-int analogInPin = A1;  // Analoger Eingangspin, an dem der Fotowiderstand angeschlossen ist
-int analogOutPin = 10; // Analoger Ausgangspin, an dem die LED angeschlossen ist
-int sensorValue = 0;        // Vom Sensor gelesener Wert
-int outputValue = 0;        // Wert, der an PWM (analoger Ausgang) ausgegeben wird
+int analogInPin = A1;  // pin de entrada analógica al que está conectada la fotocélula
+int analogOutPin = 10; // pin de salida analógica al que está conectado el LED
+int sensorValue = 0;        // valor leído de la fotocélula
+int outputValue = 0;        // valor de salida al PWM (salida analógica)
 
 void setup() 
 {
@@ -99,18 +99,18 @@ void setup()
  }
 void loop() 
 {
-  // Lesen Sie den analogen Eingabewert:
+  // lee el valor de entrada analógica:
   sensorValue = analogRead(analogInPin);
-  // Ordnen Sie ihn dem Bereich des analogen Ausgangs zu:
+  // mapéalo al rango de la salida analógica:
   outputValue = map(sensorValue, 0, 1023, 0, 255);
-  // Ändern Sie den analogen Ausgabewert:
+  // cambia el valor de salida analógica:
   analogWrite(analogOutPin, outputValue);
-  // Warten Sie 2 Millisekunden, bevor die nächste Schleife ausgeführt wird, damit der Analog-Digital-
-  // Wandler nach der letzten Messung stabilisiert:
- Serial.println(sensorValue);  // Serielle Schnittstelle gibt den Wert des Fotowiderstands aus
+  // espera 2 milisegundos antes del siguiente ciclo para que el convertidor
+  // analógico-digital se estabilice después de la última lectura:
+ Serial.println(sensorValue);  // el puerto serie imprime el valor de la fotoresistencia
  delay(2);
 }
 //***************************************************************
 ```
 
-Laden Sie den Code hoch und drücken Sie ihn mit der Hand, um die LED-Helligkeit zu beobachten.
+Cargue el código, presione con la mano para observar el brillo del LED.

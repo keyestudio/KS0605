@@ -1,35 +1,35 @@
-# Projekt 14 Bluetooth-Steuerung Roboter
+# Proyecto 14 Robot Controlado por Bluetooth
 
 ![](media/image-20250908173626827.png)
 
-**Beschreibung**
+**Descripción**
 
-Wir haben die grundlegenden Kenntnisse über Bluetooth erworben. In dieser Lektion werden wir ein Bluetooth-Fernbedienungs-Smartcar herstellen. Im Experiment gehen wir davon aus, dass das HM-10 Bluetooth-Modul als Slave und das Mobiltelefon als Host fungiert.
+Hemos aprendido los conocimientos básicos de Bluetooth. En esta lección, crearemos un automóvil inteligente controlado por Bluetooth. En el experimento, consideramos por defecto el módulo Bluetooth HM-10 como Esclavo y el teléfono celular como Host.
 
-keyes BT car ist eine APP, die vom keyestudio-Team entwickelt wurde. Sie können den Roboter damit problemlos steuern.
+El keyestudio BT car es una APP lanzada por el equipo keyestudio. Puedes controlar el automóvil robot fácilmente con ella.
 
 **APP**
 
-- **Android APP**
+- **APP Android**
 
-  - Bitte laden Sie die APP hier herunter.
+  - Por favor descarga la APP aquí.
 
   ![](media/image-20250909110725934.png)
 
-  - Tippen Sie auf das Tank_Car-Symbol, um die Bluetooth-APP zu öffnen. Wie unten gezeigt.
+  - Toca el icono Tank_Car para entrar a la APP de Bluetooth. Como se muestra a continuación.
 
     ![](media/image-20250909112000615.png)
 
-  - Nach dem Hochladen des Codes auf das UNO R3-Board verbinden Sie das Bluetooth-Modul. Die LED am Bluetooth-Modul blinkt. Tippen Sie dann auf die Option CONNECT in der APP, um nach Bluetooth zu suchen.
+  - Después de cargar el código en la placa UNO R3, conecta el módulo Bluetooth, el LED en el módulo Bluetooth parpadeará. Luego toca la opción CONNECT en la APP, buscando el Bluetooth.
 
   ![](media/image-20250909112142944.png)
 
-  - Klicken Sie, um das Bluetooth zu verbinden. HMSoft verbunden, die Bluetooth-LED leuchtet normal.
+  - Haz clic para conectar el Bluetooth. HMSoft conectado, el LED de Bluetooth se encenderá normalmente.
 
   ![](media/image-20250909112205361.png)
 
-  - Tippen Sie auf die Schaltfläche![](media/image-20250909112233736.png)①, das 8x16 LED-Panel zeigt das Vorne-Symbol an. Lassen Sie die Schaltfläche los, wird „STOP" angezeigt.
-  - Unten ist die Tank Robot Bluetooth APP-Oberfläche und wir haben aufgelistet, welche Funktion jede Taste hat:
+  - Toca el botón![](media/image-20250909112233736.png)①, el panel LED 8x16 mostrará el icono frontal. Suelta el botón, muestra "STOP".
+  - A continuación se muestra la interfaz de la APP de Bluetooth del Robot Tank y hemos enumerado la función de cada tecla:
 
   ![](media/image-20250909112313634.png)
 
@@ -37,29 +37,29 @@ keyes BT car ist eine APP, die vom keyestudio-Team entwickelt wurde. Sie können
 
   ![](media/image-20250909111712783.png)
 
-- **iOS APP**
+- **APP iOS**
 
-  - Öffnen Sie den APP Store
+  - Abre la APP store
 
     ![](media/wps1.jpg)
 
-  - Klicken Sie, um keyestudio zu suchen, und Sie werden keyes BT car sehen.
+  - Haz clic para buscar keyestudio, y verás el keyes BT car.
 
     ![](media/wps2.jpg)
 
-  - Tippen Sie, um keyes BT car zu öffnen
+  - Toca para abrir el keyes BT car
 
-  - Um Bluetooth zu öffnen, klicken Sie auf „Connect" in der oberen linken Ecke und suchen und verbinden Sie Bluetooth.
+  - Para abrir Bluetooth, haz clic en "Connect" en la esquina superior izquierda, buscando y conectando Bluetooth.
 
   ![](media/wps3.jpg)
 
-  - Tippen Sie auf das Tank_Car-Symbol, um die Steueroberfläche zu öffnen.
+  - Toca el icono Tank_Car para entrar a la interfaz de control.
 
     ![](media/wps4.jpg)
 
     ![](media/wps5.jpg)
 
-  - Unten ist die Tank Robot Bluetooth APP-Oberfläche und wir haben aufgelistet, welche Funktion jede Taste hat:
+  - A continuación se muestra la interfaz de la APP de Bluetooth del Robot Tank y hemos enumerado la función de cada tecla:
 
 ![](media/wps6.jpg)
 
@@ -67,16 +67,16 @@ keyes BT car ist eine APP, die vom keyestudio-Team entwickelt wurde. Sie können
 
 ![](media/image-20250909111712783.png)
 
-**Test-Code**
+**Código de Prueba**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- Lektion 14.1
- Bluetooth-Test
+ lección 14.1
+ prueba de bluetooth
  http://www.keyestudio.com
 */
-char ble_val; // Zeichenvariable, wird verwendet, um den Wert des Bluetooth-Empfangs zu speichern
+char ble_val; //variable de carácter, utilizada para guardar el valor de la recepción de Bluetooth
 void setup() 
 {
   Serial.begin(9600);
@@ -84,50 +84,50 @@ void setup()
 
 void loop() 
 {
-  if(Serial.available() > 0)  // Überprüfen Sie, ob sich Daten im Pufferspeicher befinden
-  { ble_val = Serial.read();  // Lesen Sie die Daten aus dem seriellen Puffer
-    Serial.println(ble_val);  // Geben Sie aus
+  if(Serial.available() > 0)  //juzgar si hay datos en el área del búfer
+  { ble_val = Serial.read();  //leer los datos del búfer serial
+    Serial.println(ble_val);  //imprimir
   }
 }//**************************************************************
 ```
 
-**Entfernen Sie das Bluetooth-Modul, laden Sie den Test-Code hoch, verbinden Sie das Bluetooth-Modul erneut, öffnen Sie den seriellen Monitor und stellen Sie die Baudrate auf 9600 ein. Richten Sie das Bluetooth-Modul aus und drücken Sie die Tasten auf der APP. Das entsprechende Zeichen wird wie folgt angezeigt.**
+**Desconecta el módulo Bluetooth, carga el código de prueba, reconecta el módulo Bluetooth, abre el monitor serial y establece la velocidad en baudios a 9600. Apunta al módulo Bluetooth y presiona las teclas en la APP, entonces el carácter correspondiente se muestra a continuación.**
 
 ![](media/image-20250908173736780.png)
 
-Das erkannte Zeichen und die entsprechende Funktion:
+El carácter detectado y la función correspondiente:
 
 ![](media/image-20250908173843012.png)
 
 ![](media/image-20250908173856246.png)
 
-**Schaltplan**
+**Diagrama de Conexión**
 
 ![](media/image-20250908173908251.png)
 
-**Verdrahtungshinweise:**
+**Atención al Cableado：**
 
-| 8x16 LED-Panel                                               |      | Erweiterungsboard |
+| Panel LED 8x16                                               |      | Placa de Expansión |
 | ------------------------------------------------------------ | ---- | --------------- |
 | GND                                                          | →    | -（GND）        |
 | VCC                                                          | →    | +（VCC）        |
 | SDA                                                          | →    | SDA             |
 | SCL                                                          | →    | SCL             |
-| Setzen Sie das Bluetooth-Modul senkrecht ein. Sie müssen seine STATE- und BRK-Pins nicht anschließen |      |                 |
+| Inserta el módulo Bluetooth verticalmente, no necesitas conectar sus pines STATE y BRK |      |                 |
 
-**Test-Code**
+**Código de Prueba**
 
-**Hinweis:** Entfernen Sie das Bluetooth-Modul vor dem Hochladen des Test-Codes. Andernfalls können Sie den Test-Code nicht hochladen.
+**Nota:** Retira el módulo Bluetooth antes de cargar el código de prueba. De lo contrario, fallarás al cargar el código de prueba.
 
 ```c
 /*
  keyestudio Robot Car v2.0
- Lektion 14.2
- Bluetooth-Auto
+ lección 14.2
+ coche bluetooth
  http://www.keyestudio.com
 */
 
-// Array, wird verwendet, um die Daten des Musters zu speichern. Sie können diese selbst berechnen oder mit dem Modulus-Tool abrufen
+//Array, utilizado para almacenar los datos del patrón, puede ser calculado por ti mismo u obtenido de la herramienta de módulo
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -135,23 +135,23 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  // Setzen Sie den Taktpin auf A5
-#define SDA_Pin  A4  // Setzen Sie den Datenpin auf A4
+#define SCL_Pin  A5  //Establecer el pin de reloj a A5
+#define SDA_Pin  A4  //Establecer el pin de datos a A4
 
-#define ML_Ctrl 13  // Definieren Sie den Richtungssteuerpin des linken Motors
-#define ML_PWM 11   // Definieren Sie den PWM-Steuerpin des linken Motors
-#define MR_Ctrl 12  // Definieren Sie den Richtungssteuerpin des rechten Motors
-#define MR_PWM 3    // Definieren Sie den PWM-Steuerpin des rechten Motors
+#define ML_Ctrl 13  //definir el pin de control de dirección del motor izquierdo
+#define ML_PWM 11   //definir el pin de control PWM del motor izquierdo
+#define MR_Ctrl 12  //definir el pin de control de dirección del motor derecho
+#define MR_PWM 3    //definir el pin de control PWM del motor derecho
 
-char bluetooth_val; // Speichern Sie den Wert des Bluetooth-Empfangs
+char bluetooth_val; //guardar el valor de la recepción de Bluetooth
 
 void setup(){
   Serial.begin(9600);
   
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear);    // Löschen Sie die Anzeige
-  matrix_display(start01);  // Zeigen Sie das Startmuster an
+  matrix_display(clear);    //Limpiar la pantalla
+  matrix_display(start01);  //mostrar patrón de inicio
 
   pinMode(ML_Ctrl, OUTPUT);
   pinMode(ML_PWM, OUTPUT);
@@ -167,47 +167,47 @@ void loop(){
   }
   switch (bluetooth_val) 
   {
-     case 'F':  // Vorwärtsbefehl
+     case 'F':  //comando de avance
         Car_front();
-        matrix_display(front);  // Zeigen Sie das Vorwärtsmuster an
+        matrix_display(front);  //mostrar diseño de avance
         break;
-     case 'B':  // Rückwärtsbefehl
+     case 'B':  //comando de retroceso
         Car_back();
-        matrix_display(back);  // Zeigen Sie das Rückwärtsmuster an
+        matrix_display(back);  //mostrar patrón de retroceso
         break;
-     case 'L':  // Linksabbiegebefehl
+     case 'L':  //instrucción de giro a la izquierda
         Car_left();
-        matrix_display(left);  // Zeigen Sie das Linksabbiegesymbol an
+        matrix_display(left);  //mostrar signo de "giro a la izquierda"
         break;
-     case 'R':  // Rechtsabbiegebefehl
+     case 'R':  //instrucción de giro a la derecha
         Car_right();
-        matrix_display(right);  // Zeigen Sie das Rechtsabbiegesymbol an
+        matrix_display(right);  //mostrar signo de giro a la derecha
        break;
-     case 'S':  // Stoppbefehl
+     case 'S':  //comando de parada
         Car_Stop();
-        matrix_display(STOP01);  // Zeigen Sie das Stoppbild an
+        matrix_display(STOP01);  //mostrar imagen de parada
         break;
   }
 }
 
-/**************Die Funktion der Punktmatrix-Anzeige****************/
-// Diese Funktion wird für die Punktmatrix-Anzeige verwendet
+/**************La función de la matriz de puntos****************/
+//esta función se utiliza para la visualización de la matriz de puntos
 void matrix_display(unsigned char matrix_value[])
 {
   IIC_start();
-  IIC_send(0xc0);  // Wählen Sie die Adresse
+  IIC_send(0xc0);  //Elegir dirección
   
-  for(int i = 0;i < 16;i++) // Das Mustermuster hat 16 Bits
+  for(int i = 0;i < 16;i++) //los datos del patrón tienen 16 bits
   {
-     IIC_send(matrix_value[i]); // Daten zum Übertragen von Mustern
+     IIC_send(matrix_value[i]); //datos para transmitir patrones
   }
-  IIC_end();   // Beenden Sie die Übertragung des Datenmusters
+  IIC_end();   //finalizar la transmisión del patrón de datos
   
   IIC_start();
-  IIC_send(0x8A);  // Anzeigesteuerung, stellen Sie die Pulsbreite auf 4/16 ein
+  IIC_send(0x8A);  //control de visualización, establecer el ancho de pulso a 4/16
   IIC_end();
 }
-// Die Bedingung zum Starten der Datenübertragung
+//La condición para comenzar a transmitir datos
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -217,14 +217,14 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-// Datenübertragung
+//transmitir datos
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  // Jedes Byte hat 8 Bits
+  for(char i = 0;i < 8;i++)  //Cada byte tiene 8 bits
   {
-      digitalWrite(SCL_Pin,LOW);  // Ziehen Sie den Taktpin SCL_Pin herunter, um die Signale von SDA zu ändern
+      digitalWrite(SCL_Pin,LOW);  //bajar el pin de reloj SCL_Pin para cambiar las señales de SDA    
 delayMicroseconds(3);
-      if(send_data & 0x01)  // Stellen Sie den hohen und niedrigen Pegel von SDA_Pin gemäß 1 oder 0 jedes Bits ein
+      if(send_data & 0x01)  //establecer el nivel alto y bajo de SDA_Pin según el 1 o 0 de cada bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -233,12 +233,12 @@ delayMicroseconds(3);
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); // Ziehen Sie den Taktpin SCL_Pin hoch, um die Datenübertragung zu stoppen
+      digitalWrite(SCL_Pin,HIGH); //subir el pin de reloj SCL_Pin para detener la transmisión de datos
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // Erkennen Sie Bit für Bit, verschieben Sie also die Daten um eins nach rechts
+      send_data = send_data >> 1;  //Detectar bit por bit, por lo que desplazar los datos a la derecha en uno
   }
 }
-// Das Zeichen, das die Datenübertragung beendet
+//El signo de que la transmisión de datos ha finalizado
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -250,7 +250,7 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/*************Die Funktion zum Ausführen des Motors**************/
+/*************la función para ejecutar el motor**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -303,16 +303,16 @@ void Car_T_right()
   //****************************************************************
 ```
 
-**Test-Ergebnis**
+**Resultado de la Prueba**
 
-Code erfolgreich hochgeladen, DIP-Schalter nach rechts gestellt und eingeschaltet. Nach der Bluetooth-Verbindung können wir das Smartcar mit der Bluetooth-App steuern.
+Carga el código exitosamente, el interruptor DIP se coloca en el extremo derecho y enciende. Después de conectar Bluetooth, podemos conducir el automóvil inteligente mediante la App de Bluetooth.
 
-Drücken Sie![](media/image-20250908174053007.png), der Tank-Roboter fährt vorwärts;
+Presiona![](media/image-20250908174053007.png), el robot tank avanza；
 
-Klicken Sie![](media/image-20250908174111419.png), das Smartcar fährt rückwärts;
+haz clic en![](media/image-20250908174111419.png), el automóvil inteligente retrocede；
 
-Drücken Sie![](media/image-20250908174138113.png)-Schaltfläche, der Tank-Roboter dreht sich nach links; Klicken Sie![](media/image-20250908174152325.png), der Roboter dreht sich nach rechts;
+presiona el botón![](media/image-20250908174138113.png), el robot tank gira a la izquierda；haz clic en![](media/image-20250908174152325.png), el robot gira a la derecha；
 
-Halten Sie![](media/image-20250908174213256.png), es stoppt.
+mantén presionado![](media/image-20250908174213256.png), se detiene.
 
-Klicken Sie![](media/image-20250908174235827.png), um die Gravitationssteuerung zu aktivieren. Tippen Sie![](media/image-20250908174249747.png)erneut an, um die Gravitationssteuerung zu beenden. Gleichzeitig zeigt das 8x16 LED-Panel auf dem Roboter das entsprechende Muster an.
+Haz clic en![](media/image-20250908174235827.png)para habilitar el control gravitacional，toca![](media/image-20250908174249747.png)nuevamente, finaliza el control gravitacional. Al mismo tiempo, el panel LED 8X16 en el automóvil robot muestra el patrón correspondiente.
