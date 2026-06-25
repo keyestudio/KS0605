@@ -1,58 +1,58 @@
-# プロジェクト 13 IR リモコンロボットタンク
+# Project 13 IR Remote Robot Tank
 
 ![](media/image-20250908172649810.png)
 
-**説明**
+**Beschrijving**
 
-IR リモコン制御は、テレビ、扇風機、および一部の家電製品に適用される最も一般的な制御方法の1つです。このプロジェクトでは、IR リモコンスマートカーを製作します。IR リモコンの各キーの値がわかっているため、対応するキー値を通じてスマートカーを制御し、ドットマトリックスにパターンを表示することができます。
+Infrarood afstandsbediening is een van de meest gebruikte besturingsmethoden, toegepast in televisies, elektrische ventilatoren en enkele huishoudelijke apparaten. In dit project maken we een IR-gestuurde slimme auto. Omdat we elke toetswaarde op de IR-afstandsbediening kennen, kunnen we de slimme auto via de afstandsbediening besturen en patronen op de dot matrix weergeven via de overeenkomstige toetswaarde.
 
-**赤外線リモコンロボットの具体的なロジックは以下の通りです：**
+**De specifieke logica van de infrarood afstandsbediening robotauto wordt hieronder weergegeven:**
 
-| 初期設定                               | サーボ角度 90°                          |                                     |
+| Initiële instellingen                  | Servo hoek 90°                          |                                     |
 | -------------------------------------- | --------------------------------------- | ----------------------------------- |
-|                                        | 8X16 LED マトリックスパネルに「V」アイコンを表示 |                                     |
-| **リモコン**                           | **キー値**                              | **キー状態**                        |
-| ![](media/image-20250908172904905.png) | FF629D                                  | 前進（PWM を 200 に設定）           |
-|                                        |                                         | 8X16 LED パネルに前進アイコンを表示 |
-| ![](media/image-20250908172927504.png) | FFA857                                  | 後進（PWM を 200 に設定）           |
-|                                        |                                         | 8X16 LED パネルに後進アイコンを表示 |
-| ![](media/image-20250908172954542.png) | FF22DD                                  | 左旋回                              |
-|                                        |                                         | 8X16 LED パネルに左向きアイコンを表示 |
-| ![](media/image-20250908173027144.png) | FFC23D                                  | 右旋回                              |
-|                                        |                                         | 8X16 LED パネルに右向きアイコンを表示 |
-| ![](media/image-20250908173139888.png) | FF02FD                                  | 停止                                |
-|                                        |                                         | 8X16 LED パネルに「STOP」を表示     |
-| ![](media/image-20250908173312378.png) | FF30CF                                  | 左回転（PWM を 200 に設定）         |
-|                                        |                                         | 8X16 LED パネルに左向きアイコンを表示 |
-| ![](media/image-20250908173336232.png) | FF7A85                                  | 右回転（PWM を 200 に設定）         |
-|                                        |                                         | 8X16 LED パネルに右向きアイコンを表示 |
+|                                        | 8X16 LED matrix paneel toont pictogram "V" |                                     |
+| **Afstandsbediening**                  | **Toetswaarde**                         | **Toestatus**                       |
+| ![](media/image-20250908172904905.png) | FF629D                                  | Vooruit gaan (PWM ingesteld op 200)  |
+|                                        |                                         | 8X16 LED paneel toont vooruit pictogram |
+| ![](media/image-20250908172927504.png) | FFA857                                  | Achteruit gaan (PWM ingesteld op 200) |
+|                                        |                                         | 8X16 LED paneel toont achteruit pictogram |
+| ![](media/image-20250908172954542.png) | FF22DD                                  | Links draaien                       |
+|                                        |                                         | 8X16 LED paneel toont links pictogram |
+| ![](media/image-20250908173027144.png) | FFC23D                                  | Rechts draaien                      |
+|                                        |                                         | 8X16 LED paneel toont rechts pictogram |
+| ![](media/image-20250908173139888.png) | FF02FD                                  | Stoppen                             |
+|                                        |                                         | 8X16 LED paneel toont "STOP"        |
+| ![](media/image-20250908173312378.png) | FF30CF                                  | Linksom roteren (PWM ingesteld op 200) |
+|                                        |                                         | 8X16 LED paneel toont linksom pictogram |
+| ![](media/image-20250908173336232.png) | FF7A85                                  | Rechtsom roteren (PWM ingesteld op 200) |
+|                                        |                                         | 8X16 LED paneel toont rechtsom pictogram |
 
-**フローチャート**
+**Stroomdiagram**
 
 ![](media/image-20250908173443316.png)
 
-**接続図**
+**Verbindingsschema**
 
 ![](media/image-20250908173458023.png)
 
-注意：8x16 LED パネルの GND、VCC、SDA、SCL はそれぞれ\-（GND）、+（VCC）、SDA、SCL に接続されます。IR レシーバーモジュールの「-」、「+」、S はセンサーシールドの G（GND）、V（VCC）、A0 に接続されます。デジタルポートが不足している場合、アナログポートをデジタルポートとして使用できます。A0 はデジタル 14 に相当し、A1 はデジタル 15 に相当します。
+Opmerking: GND, VCC, SDA, SCL van het 8x16 LED paneel zijn respectievelijk verbonden met - (GND), + (VCC), SDA, SCL. En "-", "+" en S van de IR-ontvanger module zijn aangesloten op G (GND), V (VCC) en A0 op de sensorshield. Bij onvoldoende digitale poorten kunnen de analoge poorten als digitale poorten worden gebruikt. A0 is gelijk aan digitaal 14, A1 is gelijk aan digitaal 15.
 
-**テストコード**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 13
- IR remote tank
+ les 13
+ IR afstandsbediening tank
  http://www.keyestudio.com
 */
 
 #include <IRremoteTank.h>
-IRrecv irrecv(A0);  // IRrecv irrecv を A0 に設定
+IRrecv irrecv(A0);  // stel IRrecv irrecv in op A0
 decode_results results;
-long ir_rec;  // 受信した IR 値を保存
+long ir_rec;  // sla de ontvangen IR-waarde op
 
-// 配列、パターンのデータを保存するために使用、自分で計算するか、モジュラスツールから取得できます
+// Array, gebruikt om de gegevens van het patroon op te slaan, kan zelf worden berekend of verkregen via het modulus-hulpmiddel
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -60,20 +60,20 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  // クロックピンを A5 に設定
-#define SDA_Pin  A4  // データピンを A4 に設定
+#define SCL_Pin  A5  // Stel klokpin in op A5
+#define SDA_Pin  A4  // Stel gegevenspin in op A4
 
-#define ML_Ctrl 13  // 左モーターの方向制御ピンを定義
-#define ML_PWM 11   // 左モーターの PWM 制御ピンを定義
-#define MR_Ctrl 12  // 右モーターの方向制御ピンを定義
-#define MR_PWM 3    // 右モーターの PWM 制御ピンを定義
+#define ML_Ctrl 13  // definieer de richtingscontrolpin van de linkermotor
+#define ML_PWM 11   // definieer PWM-controlpin van de linkermotor
+#define MR_Ctrl 12  // definieer de richtingscontrolpin van de rechtermotor
+#define MR_PWM 3    // definieer PWM-controlpin van de rechtermotor
 
-#define servoPin 9 // サーボのピン
-int pulsewidth; // サーボのパルス幅値を保存
+#define servoPin 9 // pin van servo
+int pulsewidth; // sla de pulsbreedte-waarde van servo op
 
 void setup(){
   Serial.begin(9600);
-  irrecv.enableIRIn();  // IR 受信ライブラリを初期化
+  irrecv.enableIRIn();  // Initialiseer de IR-ontvangstbibliotheek
   
   pinMode(ML_Ctrl, OUTPUT);
   pinMode(ML_PWM, OUTPUT);
@@ -82,15 +82,15 @@ void setup(){
   
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear); // 画面をクリア
-  matrix_display(start01);  // スタート画像を表示
+  matrix_display(clear); // Scherm wissen
+  matrix_display(start01);  // startafbeelding weergeven
   
   pinMode(servoPin, OUTPUT);
-  procedure(90);  // サーボを 90° に回転
+  procedure(90);  // Servo roteert naar 90°
 }
 
 void loop(){
-  if (irrecv.decode(&results)) // IR リモコン値を受信
+  if (irrecv.decode(&results)) // ontvang de IR-afstandsbediening waarde
   {
     ir_rec=results.value;
     String type="UNKNOWN";
@@ -103,43 +103,43 @@ void loop(){
     irrecv.resume();
   }
   
-  if (ir_rec == 0xFF629D) // 前進
+  if (ir_rec == 0xFF629D) // Vooruit gaan
   {
     Car_front();
-    matrix_display(front);  // 前進画像を表示
+    matrix_display(front);  // Vooruit afbeelding weergeven
   }
-  if (ir_rec == 0xFFA857)  // ロボットカーが後進
+  if (ir_rec == 0xFFA857)  // Robotauto gaat achteruit
   {
     Car_back();
-    matrix_display(front);  // 後進
+    matrix_display(front);  // Achteruit gaan
   }
-  if (ir_rec == 0xFF22DD)   // ロボットカーが左旋回
+  if (ir_rec == 0xFF22DD)   // Robotauto draait links
   {
     Car_T_left();
-    matrix_display(left);  // 左旋回画像を表示
+    matrix_display(left);  // Linksdraai afbeelding weergeven
   }
-  if (ir_rec == 0xFFC23D)   // ロボットカーが右旋回
+  if (ir_rec == 0xFFC23D)   // Robotauto draait rechts
   {
     Car_T_right();
-    matrix_display(right);  // 右旋回画像を表示
+    matrix_display(right);  // Rechtsdraai afbeelding weergeven
   }
-  if (ir_rec == 0xFF02FD)   // ロボットカーが停止
+  if (ir_rec == 0xFF02FD)   // Robotauto stopt
   { 
     Car_Stop();
-    matrix_display(STOP01);  // 停止画像を表示
+    matrix_display(STOP01);  // stopafbeelding weergeven
   }
-  if (ir_rec == 0xFF30CF)   // ロボットカーが反時計回りに回転
+  if (ir_rec == 0xFF30CF)   // robotauto roteert tegen de klok in
   {
     Car_left();
-    matrix_display(left);  // 反時計回り回転画像を表示
+    matrix_display(left);  // rotatie tegen de klok in afbeelding weergeven
   }
-  if (ir_rec == 0xFF7A85)  // ロボットカーが時計回りに回転
+  if (ir_rec == 0xFF7A85)  // robotauto roteert met de klok mee
   {
     Car_right();
-    matrix_display(right);  // 時計回り回転画像を表示
+    matrix_display(right);  // rotatie met de klok mee afbeelding weergeven
  }
 }
-/******************サーボ制御*******************/
+/******************Servo besturen*******************/
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -150,24 +150,24 @@ void procedure(int myangle) {
   }
 }
 
-/******************ドットマトリックス****************/
-// この関数はドットマトリックス表示に使用されます
+/******************Dot Matrix****************/
+// deze functie wordt gebruikt voor dot matrix weergave
 void matrix_display(unsigned char matrix_value[])
 {
   IIC_start();
-  IIC_send(0xc0);  // アドレスを選択
-   for(int i = 0;i < 16;i++) // 画像は 16 ビット
+  IIC_send(0xc0);  // Kies adres
+   for(int i = 0;i < 16;i++) // De afbeelding heeft 16 bits
   {
-     IIC_send(matrix_value[i]); // パターンを伝達するデータ
+     IIC_send(matrix_value[i]); // gegevens om patronen over te dragen
   }
-  IIC_end();   // データパターン伝達を終了
+  IIC_end();   // beëindig het overdragen van gegevenspatroon
   
   IIC_start();
-  IIC_send(0x8A);  // 表示制御、パルス幅を 4/16 に設定
+  IIC_send(0x8A);  // weergavebesturing, stel pulsbreedte in op 4/16
   IIC_end();
 }
 
-// データ伝達を開始する条件
+// De voorwaarde om gegevens over te dragen
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -180,11 +180,11 @@ void IIC_start()
 
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  // 各バイトは 8 ビット、各文字は 8 ビット
+  for(char i = 0;i < 8;i++)  // Elke byte heeft 8 bits, 8 bits voor elk teken
   {
-      digitalWrite(SCL_Pin,LOW);  // クロックピン SCL_Pin を下げて SDA の信号を変更
+      digitalWrite(SCL_Pin,LOW);  // trek klokpin SCL_Pin omlaag om de signalen van SDA te veranderen
       delayMicroseconds(3);
-      if(send_data & 0x01)  // 各ビットの 1 または 0 に従って SDA_Pin の高低レベルを設定
+      if(send_data & 0x01)  // stel hoog en laag niveau van SDA_Pin in volgens 1 of 0 van elke bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -193,12 +193,12 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); // クロックピン SCL_Pin を上げてデータ伝達を停止
+      digitalWrite(SCL_Pin,HIGH); // trek klokpin SCL_Pin omhoog om gegevensoverdracht te stoppen
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // ビットごとに検出するため、データを右に 1 ビットシフト
+      send_data = send_data >> 1;  // detecteer bit voor bit, dus verschuif de gegevens naar rechts met één
   }
 }
-// データ伝達が終了した合図
+// Het teken dat gegevensoverdracht eindigt
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -210,7 +210,7 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/***************モーターを実行する関数***************/
+/***************de functie om motor uit te voeren***************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -263,6 +263,6 @@ void Car_T_right()
  //****************************************************************
 ```
 
-**テスト結果**
+**Testresultaat**
 
-コードを正常にアップロードして電源を入れると、スマートロボットは IR リモコンで制御でき、同時に対応するパターンが 8X16 LED パネルに表示されます。
+Upload de code succesvol en schakel in. De slimme robot kan worden bestuurd via de IR-afstandsbediening. Tegelijkertijd wordt het overeenkomstige patroon weergegeven op het 8X16 LED paneel.

@@ -1,57 +1,57 @@
-# プロジェクト10 光追従ロボット
+# Project 10 Lichtvolgende Robot
 
 ![](media/image-20250908171131879.png)
 
-**説明**
+**Beschrijving**
 
-これまで、様々なセンサーやモジュールの使用方法を紹介してきました。
+We hebben al uitgelegd hoe je verschillende sensoren en modules gebruikt.
 
-このレッスンでは、ハードウェアの知識（フォトレジスタモジュール、モータ駆動）と組み合わせて、光追従ロボットを構築します！
+In deze les combineren we hardwarekennis -- fotoweerstandmodule, motorbesturing -- om een lichtvolgende robot te bouwen!
 
-ロボットの両側に2つのフォトレジスタモジュールを使用して光の強度を検出するだけです。アナログ値を読み取って2つのモータを回転させることで、タンクロボットを走行させます。
+Je hebt slechts 2 fotoweerstandmodules nodig om de lichtintensiteit aan beide zijden van de robot te detecteren. Lees de analoge waarde uit om de 2 motoren te draaien, zodat de tankrobot kan rijden.
 
-**光追従ロボットの具体的なロジックを以下の表に示します：**
+**De specifieke logica van de lichtvolgende robot wordt in de onderstaande tabel weergegeven:**
 
 ![](media/image-20250908171219561.png)
 
-上記のロジックテーブルに基づいてフローチャートを作成しました。以下に示します：
+We maken een stroomdiagram op basis van de bovenstaande logicatabel, zoals hieronder weergegeven:
 
 ![](media/image-20250908171232654.png)
 
-**接続図**
+**Verbindingsschema**
 
 ![](media/image-20250908171305946.png)
 
-**注意：**
+**Aandacht:**
 
-4ピンターミナルブロックはシルクスクリーンで1234とマークされています。右後部モータの赤線はターミナル1に接続され、黒線は端子2に接続されます。左前部モータの赤線は端子3に接続され、黒線はポート4に接続されます。
+Het 4-pins terminalblok is gemarkeerd met zijdescherm 1234. De rode draad van de rechter achtermotор is verbonden met terminal 1, de zwarte draad is verbonden met uiteinde 2. De rode draad van de linker voormotор is bevestigd aan terminal 3, de zwarte draad is verbonden met poort 4.
 
-| 左フォトレジスタ      |      | センサシールド    |
-| ------------------------ | ---- | ----------------- |
-| -                        | →    | G（GND）          |
-| +                        | →    | V（VCC）          |
-| S                        | →    | A1                |
-|                          |      |                   |
-| **右フォトレジスタ** |      | **センサシールド** |
-| -                        | →    | G（GND）          |
-| +                        | →    | V（VCC）          |
-| S                        | →    | A2                |
+| Linker fotoweerstand    |      | Sensor Shield     |
+| ----------------------- | ---- | ----------------- |
+| -                       | →    | G（GND）          |
+| +                       | →    | V（VCC）          |
+| S                       | →    | A1                |
+|                         |      |                   |
+| **Rechter fotoweerstand** |      | **Sensor Shield** |
+| -                       | →    | G（GND）          |
+| +                       | →    | V（VCC）          |
+| S                       | →    | A2                |
 
-**テストコード**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 10
- Light-following tank
+ les 10
+ Lichtvolgende tank
  http://www.keyestudio.com
 */ 
-#define light_L_Pin A1   // 左フォトレジスタのピンを定義
-#define light_R_Pin A2   // 右フォトレジスタのピンを定義
-#define ML_Ctrl 13  // 左モータの方向制御ピンを定義
-#define ML_PWM 11   // 左モータのPWM制御ピンを定義
-#define MR_Ctrl 12  // 右モータの方向制御ピンを定義
-#define MR_PWM 3   // 右モータのPWM制御ピンを定義
+#define light_L_Pin A1   //definieer de pin van de linker fotoweerstand
+#define light_R_Pin A2   //definieer de pin van de rechter fotoweerstand
+#define ML_Ctrl 13  //definieer de richtingscontrolepín van de linker motor
+#define ML_PWM 11   //definieer de PWM-controlepín van de linker motor
+#define MR_Ctrl 12  //definieer de richtingscontrolepín van de rechter motor
+#define MR_PWM 3   //definieer de PWM-controlepín van de rechter motor
 int left_light; 
 int right_light;
 void setup(){
@@ -70,19 +70,19 @@ void loop(){
   Serial.println(left_light);
   Serial.print("right_light_value = ");
   Serial.println(right_light);
-  if (left_light > 650 && right_light > 650) // フォトレジスタが検出した値、前進
+  if (left_light > 650 && right_light > 650) //de waarde gedetecteerd door fotoweerstand, ga vooruit
   {  
     Car_front();
   } 
-  else if (left_light > 650 && right_light <= 650)  // フォトレジスタが検出した値、左旋回
+  else if (left_light > 650 && right_light <= 650)  //de waarde gedetecteerd door fotoweerstand, draai links
   {
     Car_left();
   } 
-  else if (left_light <= 650 && right_light > 650) // フォトレジスタが検出した値、右旋回
+  else if (left_light <= 650 && right_light > 650) //de waarde gedetecteerd door fotoweerstand, draai rechts
   {
     Car_right();
   } 
-  else  // その他の状況、停止
+  else  //andere situaties, stop
   {
     Car_Stop();
   }
@@ -118,6 +118,6 @@ void Car_Stop()
 //****************************************************************
 ```
 
-**テスト結果**
+**Testresultaat**
 
-keyestudio V4.0開発ボードにコードをアップロードし、DIPスイッチを右端に設定して電源を入れると、スマートロボットが光に追従して移動します。
+Upload de code op het keyestudio V4.0-ontwikkelingsbord, zet de DIP-schakelaar op de rechterkant en schakel het in. De slimme robot volgt het licht en beweegt.

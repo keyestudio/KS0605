@@ -1,122 +1,122 @@
-# 1. 製品紹介
+# 1. Productintroductie
 
 ![](./media/image-20250902113848702.png)
 
-## 1.1 はじめに
+## 1.1 Inleiding
 
-近年、VR、子ども向けプログラミング、人工知能などの技術教育が教育業界の主流となっており、STEAM教育への関心がますます高まっています。
+Tegenwoordig is technologisch onderwijs zoals VR, programmeren voor kinderen en kunstmatige intelligentie een mainstream geworden in de onderwijssector. Daardoor hechten mensen meer belang aan STEAM-onderwijs.
 
-ArduinoはMaker教育分野において広く知られています。Keyestudioはこの潮流に乗り、Arduinoとプログラミングをかけあわせたスマートミニタンクロボットを開発・発売しました。
+Omdat Arduino bijzonder bekend is in de Maker-educatiesector, speelt Keyestudio hierop in en lanceert een slimme mini-tankrobot die een combinatie is van Arduino en programmeren.
 
-では、Arduinoとは何でしょうか？Arduinoは、使いやすいハードウェアとソフトウェアをベースにしたオープンソースのエレクトロニクスプラットフォームです。Arduinoボードはセンサーの光、ボタンへのタッチ、Twitterのメッセージなどの入力を読み取り、モーターの駆動、LEDの点灯、オンラインへの投稿などの出力に変換することができます。
+Maar wat is Arduino eigenlijk? Arduino is een open-source elektronicaplatform gebaseerd op eenvoudig te gebruiken hardware en software. Arduino-boards kunnen invoer lezen – licht op een sensor, een vinger op een knop of een Twitter-bericht – en dit omzetten naar een uitvoer: een motor activeren, een LED inschakelen of iets online publiceren.
 
-これをもとに、Keyestudioチームはミニタンクロボットを設計しました。このロボットにはArduino IDEでプログラム可能なプロセッサが搭載されており、プロセッサに差し込むシールドによってピンをセンサーやアクチュエーターにマッピングし、センサーの読み取りやアクチュエーターの制御、動作の判断を行います。
+Op basis hiervan heeft het Keyestudio-team een mini-tankrobot ontworpen. Deze beschikt over een processor die programmeerbaar is via de Arduino IDE, waarbij de pinnen worden gekoppeld aan sensoren en actuatoren via een shield dat op de processor wordt aangesloten. De robot leest sensoren, bestuurt actuatoren en bepaalt zelfstandig hoe hij moet handelen.
 
-障害物回避、IRリモコン操作、BT制御、ライトフォローイングなど、多彩な機能を実現できます。
+Hij kan meerdere functies uitvoeren, zoals obstakels vermijden, IR-afstandsbediening, BT-bediening, licht volgen enzovoort.
 
-シンプルなものから複雑なものまで、全15の学習プロジェクトを通じて、自分だけのスマートミニタンクロボットを組み立てながら、センサーやモジュールの基礎知識を習得できます。また、グラフィカルプログラミング教育にも最適な教材です。
+15 gedetailleerde leerprojecten, van eenvoudig tot complex, begeleiden u bij het bouwen van uw eigen slimme mini-tankrobot en bieden basiskennis over sensoren en modules. Bovendien is het de beste keuze voor grafisch programmeeronderwijs.
 
-## 1.2 特徴
+## 1.2 Kenmerken
 
-1. 多機能：障害物回避、追従、IRリモコン制御、Bluetooth制御、超音波追従、顔文字ディスプレイ表示。
-2. 簡単な組み立て：はんだ付け不要で、簡単に組み立て完了。
-3. 高い耐久性：アルミ合金ブラケット、金属製モーター、高品質なホイールとキャタピラ。
-4. 高い拡張性：モータードライバーシールドとセンサーシールドを通じて、多数のセンサーやモジュールを接続可能。
-5. 多様な制御方法：IRリモコン制御、アプリ制御（iOSおよびAndroid対応）。
-6. 基本プログラミング：Arduino IDEのC言語コード。
+1. Multifunctioneel: Obstakels vermijden, volgen, IR-afstandsbediening, Bluetooth-bediening, ultrasoon volgen en weergave van gezichtsemoticons.
+2. Eenvoudige montage: Geen soldeerwerk vereist, eenvoudig volledig te monteren.
+3. Hoge duurzaamheid: Aluminium legering beugel, metalen motoren, hoogwaardige wielen en rupsbanden.
+4. Hoge uitbreidbaarheid: Verbind talrijke sensoren en modules via het motorstuurshield en het sensorshield.
+5. Meerdere bedieningsmogelijkheden: IR-afstandsbediening, App-bediening (iOS en Android).
+6. Basisprogrammering: C-taalcode van Arduino IDE.
 
-## 1.3 仕様
+## 1.3 Specificaties
 
-- 動作電圧：5V
-- 入力電圧：7〜12V
-- 最大出力電流：2A
-- 最大消費電力：25W（T=75℃）
-- モーター回転数：5V 200 rpm/min
-- モーター駆動方式：デュアルHブリッジ駆動（L298P）
-- 超音波感知角度：\<15度
-- 超音波検知距離：2cm〜400cm
-- 赤外線リモコン距離：10メートル（実測値）
-- Bluetoothリモコン距離：50メートル（実測値）
+- Werkspanning: 5V
+- Ingangsspanning: 7-12V
+- Maximale uitgangsstroom: 2A
+- Maximaal vermogensverlies: 25W (T=75℃)
+- Motorsnelheid: 5V 200 rpm/min
+- Motoraansturingsmodus: dubbele H-brug aansturing (L298P)
+- Ultrasone inductiehoek: \<15 graden
+- Ultrasone detectieafstand: 2cm-400cm
+- Infrarood afstandsbedieningsafstand: 10 meter (gemeten)
+- Bluetooth afstandsbedieningsafstand: 50 meter (gemeten)
 
-## 1.4 製品一覧
+## 1.4 Productlijst
 
-|              名称               | 数量  |                           画像                            |
-| :-----------------------------: | :--: | :----------------------------------------------------------: |
-|        開発ボード        |  1   | ![image-20260424114744301](assets/image-20260424114744301.png) |
-|            V5シールド            |  1   | ![image-20260424114806021](assets/image-20260424114806021.png) |
-|            BTモジュール            |  1   | ![image-20260424114823332](assets/image-20260424114823332.png) |
-|           サーボモーター           |  1   | ![image-20260424114835628](assets/image-20260424114835628.png) |
-|        光センサー         |  2   | ![image-20260424114848289](assets/image-20260424114848289.png) |
+|              Naam               | Aantal |                           Afbeelding                            |
+| :-----------------------------: | :----: | :----------------------------------------------------------: |
+|        Ontwikkelbord        |  1   | ![image-20260424114744301](assets/image-20260424114744301.png) |
+|            V5 Shield            |  1   | ![image-20260424114806021](assets/image-20260424114806021.png) |
+|            BT-module            |  1   | ![image-20260424114823332](assets/image-20260424114823332.png) |
+|           Servomotor           |  1   | ![image-20260424114835628](assets/image-20260424114835628.png) |
+|        Fotocelssensor         |  2   | ![image-20260424114848289](assets/image-20260424114848289.png) |
 |             RGB LED             |  1   | ![image-20260424114857727](assets/image-20260424114857727.png) |
-|           金属製モーター           |  1   | ![image-20260424114906569](assets/image-20260424114906569.png) |
-|        タンク駆動ホイール         |  2   | ![image-20260424114915600](assets/image-20260424114915600.png) |
-|          L298Pシールド           |  1   | ![image-20260424114928411](assets/image-20260424114928411.png) |
-|        超音波モジュール        |  1   | ![image-20260424114936945](assets/image-20260424114936945.png) |
-|     8X16 LEDパネル＋ワイヤー      |  1   | ![image-20260424114951961](assets/image-20260424114951961.png) |
-|           IR受信機           |  1   | ![image-20260424115002601](assets/image-20260424115002601.png) |
-|         リモコン          |      | ![image-20260424115010231](assets/image-20260424115010231.png) |
-|        キャタピラバンド         |  1   | ![image-20260424115018466](assets/image-20260424115018466.png) |
-|  バッテリーホルダー（18650バッテリー）  |  1   | ![image-20260424115042841](assets/image-20260424115042841.png) |
-|     タンク従動輪     |  2   | ![image-20260424115054017](assets/image-20260424115054017.png) |
-|         L型ブラケット          |  1   | ![image-20260424115106686](assets/image-20260424115106686.png) |
-| サポートパーツ（カラーランダム） |  2   | ![image-20260424115122810](assets/image-20260424115122810.png) |
-|          金属ホルダー           |  4   | ![image-20260424115139256](assets/image-20260424115139256.png) |
-|          配線チューブ           |  1   | ![image-20260424115154850](assets/image-20260424115154850.png) |
-|      プラスチックプラットフォーム（PC）      |  1   | ![image-20260424115245568](assets/image-20260424115245568.png) |
-|        アルミカップラー         |  2   | ![image-20260424115257516](assets/image-20260424115257516.png) |
-|          アルミブッシュ          |  2   | ![image-20260424115311644](assets/image-20260424115311644.png) |
-|       M4セルフロックナット       |  2   | ![image-20260424115321342](assets/image-20260424115321342.png) |
-|             M3ナット              |  14  | ![image-20260424115330779](assets/image-20260424115330779.png) |
-|          アクリル板          |  2   | ![image-20260424115348411](assets/image-20260424115348411.png) |
-|    M2×10mm丸頭ネジ     |  6   | ![image-20260424115357883](assets/image-20260424115357883.png) |
-|           ドライバー           |  2   | ![image-20260424115431293](assets/image-20260424115431293.png) |
-|           ナイロンケーブル           |  6   | ![image-20260424115446140](assets/image-20260424115446140.png) |
-|        M1.5/2.5/3レンチ        |  3   | ![image-20260424115458269](assets/image-20260424115458269.png) |
-|      150mm メス-メス デュポンワイヤー      |  10  | ![image-20260424115511197](assets/image-20260424115511197.png) |
-|            USBケーブル            |  1   | ![image-20260424115524400](assets/image-20260424115524400.png) |
-|      200mm メス-メス デュポンワイヤー      |  5   | ![image-20260424115535336](assets/image-20260424115535336.png) |
-|         フランジベアリング          |  4   | ![image-20260424115600730](assets/image-20260424115600730.png) |
-|             M2ナット              |  8   | ![image-20260424115618761](assets/image-20260424115618761.png) |
-|             M4ナット              |  10  | ![image-20260424115628936](assets/image-20260424115628936.png) |
-|      M3×10mm銅スペーサー      |  10  | ![image-20260424115639400](assets/image-20260424115639400.png) |
-|      M3×45mm銅スペーサー      |  4   | ![image-20260424115651555](assets/image-20260424115651555.png) |
-|    M3\×10mm皿頭ネジ     |  3   | ![image-20260424115703860](assets/image-20260424115703860.png) |
-|          M3×6mmネジ           |  20  | ![image-20260424115715005](assets/image-20260424115715005.png) |
-|          M4×50mmネジ          |  2   | ![image-20260424115723402](assets/image-20260424115723402.png) |
-|          M4×40mmネジ          |  4   | ![image-20260424115749041](assets/image-20260424115749041.png) |
-|          M3×8mmネジ           |  14  | ![image-20260424115827213](assets/image-20260424115827213.png) |
-|    M3×12mm丸頭ネジ     |  8   | ![image-20260424115854821](assets/image-20260424115854821.png) |
-|         M4\×112mmネジ         |  4   | ![image-20260424115920087](assets/image-20260424115920087.png) |
-|         M3\×25mmネジ          |  4   | ![image-20260424115955301](assets/image-20260424115955301.png) |
-|      装飾用ボール紙       |  1   | ![image-20260424120010842](assets/image-20260424120010842.png) |
+|           Metalen motor           |  1   | ![image-20260424114906569](assets/image-20260424114906569.png) |
+|        Tankandrijfwiel         |  2   | ![image-20260424114915600](assets/image-20260424114915600.png) |
+|          L298P shield           |  1   | ![image-20260424114928411](assets/image-20260424114928411.png) |
+|        Ultrasoonmodule        |  1   | ![image-20260424114936945](assets/image-20260424114936945.png) |
+|     8X16 LED-paneel + draden      |  1   | ![image-20260424114951961](assets/image-20260424114951961.png) |
+|           IR-ontvanger           |  1   | ![image-20260424115002601](assets/image-20260424115002601.png) |
+|         Afstandsbediening          |      | ![image-20260424115010231](assets/image-20260424115010231.png) |
+|        Rupsband         |  1   | ![image-20260424115018466](assets/image-20260424115018466.png) |
+|  Batterijhouder (18650 batterij)  |  1   | ![image-20260424115042841](assets/image-20260424115042841.png) |
+|     Tankdraagwiel     |  2   | ![image-20260424115054017](assets/image-20260424115054017.png) |
+|         L-vormige beugel          |  1   | ![image-20260424115106686](assets/image-20260424115106686.png) |
+| Ondersteunende onderdelen (willekeurige kleur) |  2   | ![image-20260424115122810](assets/image-20260424115122810.png) |
+|          Metalen houder           |  4   | ![image-20260424115139256](assets/image-20260424115139256.png) |
+|          Wikkelslang           |  1   | ![image-20260424115154850](assets/image-20260424115154850.png) |
+|      Kunststof platform (PC)      |  1   | ![image-20260424115245568](assets/image-20260424115245568.png) |
+|        Aluminium koppeling         |  2   | ![image-20260424115257516](assets/image-20260424115257516.png) |
+|          Aluminium bus          |  2   | ![image-20260424115311644](assets/image-20260424115311644.png) |
+|       M4 zelfborgende moer       |  2   | ![image-20260424115321342](assets/image-20260424115321342.png) |
+|             M3 moer              |  14  | ![image-20260424115330779](assets/image-20260424115330779.png) |
+|          Acrylplaat          |  2   | ![image-20260424115348411](assets/image-20260424115348411.png) |
+|    M2*10mm bolkopschroef     |  6   | ![image-20260424115357883](assets/image-20260424115357883.png) |
+|           Schroevendraaier           |  2   | ![image-20260424115431293](assets/image-20260424115431293.png) |
+|           Nylonkabel           |  6   | ![image-20260424115446140](assets/image-20260424115446140.png) |
+|        M1.5/2.5/3 sleutel        |  3   | ![image-20260424115458269](assets/image-20260424115458269.png) |
+|      150mm V-V DuPont-draad      |  10  | ![image-20260424115511197](assets/image-20260424115511197.png) |
+|            USB-kabel            |  1   | ![image-20260424115524400](assets/image-20260424115524400.png) |
+|      200mm V-V DuPont-draad      |  5   | ![image-20260424115535336](assets/image-20260424115535336.png) |
+|         Flenslagering          |  4   | ![image-20260424115600730](assets/image-20260424115600730.png) |
+|             M2 moer              |  8   | ![image-20260424115618761](assets/image-20260424115618761.png) |
+|             M4 moer              |  10  | ![image-20260424115628936](assets/image-20260424115628936.png) |
+|      M3*10mm koperen afstandsbus      |  10  | ![image-20260424115639400](assets/image-20260424115639400.png) |
+|      M3*45mm koperen afstandsbus      |  4   | ![image-20260424115651555](assets/image-20260424115651555.png) |
+|    M3\*10mm verzonken schroef     |  3   | ![image-20260424115703860](assets/image-20260424115703860.png) |
+|          M3*6mm schroef           |  20  | ![image-20260424115715005](assets/image-20260424115715005.png) |
+|          M4*50mm schroef          |  2   | ![image-20260424115723402](assets/image-20260424115723402.png) |
+|          M4*40mm schroef          |  4   | ![image-20260424115749041](assets/image-20260424115749041.png) |
+|          M3*8mm schroef           |  14  | ![image-20260424115827213](assets/image-20260424115827213.png) |
+|    M3*12mm bolkopschroef     |  8   | ![image-20260424115854821](assets/image-20260424115854821.png) |
+|         M4\*112mm schroef         |  4   | ![image-20260424115920087](assets/image-20260424115920087.png) |
+|         M3\*25mm schroef          |  4   | ![image-20260424115955301](assets/image-20260424115955301.png) |
+|      Decoratief karton       |  1   | ![image-20260424120010842](assets/image-20260424120010842.png) |
 
-## 1.5 Keyestudio V4.0開発ボード
+## 1.5 Keyestudio V4.0 Ontwikkelbord
 
-keyestudio V4.0開発ボードがこのスマートカーの中核であることを理解しておく必要があります。
+U dient te weten dat het keyestudio V4.0 ontwikkelbord de kern is van deze slimme auto.
 
 ![](./media/image-20250902134144516.png)
 
-keyestudio V4.0開発ボードはArduino uno互換ボードであり、ATmega328P MCUをベースとし、UART-USB変換チップとしてcp2102を搭載しています。
+Het keyestudio V4.0 ontwikkelbord is een Arduino Uno-compatibel board, gebaseerd op de ATmega328P MCU, met een cp2102-chip als UART-naar-USB-converter.
 
 ![](./media/image-20250902134315550.png)
 
-14本のデジタル入出力ピン（うち6本はPWM出力として使用可能）、6本のアナログ入力、16MHzの水晶発振子、USB接続端子、電源ジャック、2つのICSPヘッダー、およびリセットボタンを備えています。
+Het heeft 14 digitale invoer-/uitvoerpinnen (waarvan 6 kunnen worden gebruikt als PWM-uitgangen), 6 analoge ingangen, een 16 MHz kwartskristal, een USB-aansluiting, een voedingsaansluiting, 2 ICSP-headers en een resetknop.
 
 ![](./media/image-20250902134544777.png)
 
-マイクロコントローラーの動作に必要なものがすべて揃っています。USBケーブルでコンピューターに接続するか、外部DCパワージャック（DC 7〜12V）またはメスヘッダーのVin/GND（DC 7〜12V）から電源を供給するだけで使用を開始できます。
+Het bevat alles wat nodig is om de microcontroller te ondersteunen. Sluit het eenvoudigweg aan op een computer via een USB-kabel, of voed het via een externe DC-voedingsaansluiting (DC 7-12V) of via de female headers Vin/GND (DC 7-12V) om aan de slag te gaan.
 
-| マイクロコントローラー             | ATmega328P-PU                                            |
+| Microcontroller             | ATmega328P-PU                                            |
 | --------------------------- | -------------------------------------------------------- |
-| 動作電圧           | 5V                                                       |
-| 入力電圧（推奨） | DC7〜12V                                                  |
-| デジタルI/Oピン            | 14本（D0〜D13）（うち6本がPWM出力対応）             |
-| PWMデジタルI/Oピン        | 6本（D3, D5, D6, D9, D10, D11）                             |
-| アナログ入力ピン           | 6本（A0〜A5）                                                |
-| I/Oピンあたりの直流電流      | 20 mA                                                    |
-| 3.3Vピンの直流電流     | 50 mA                                                    |
-| フラッシュメモリ                | 32 KB（ATmega328P-PU）うち0.5 KBはブートローダーが使用 |
-| SRAM                        | 2 KB（ATmega328P-PU）                                     |
-| EEPROM                      | 1 KB（ATmega328P-PU）                                     |
-| クロック速度                 | 16 MHz                                                   |
+| Werkspanning           | 5V                                                       |
+| Ingangsspanning (aanbevolen) | DC7-12V                                                  |
+| Digitale I/O-pinnen            | 14 (D0-D13) (waarvan 6 PWM-uitgang bieden)             |
+| PWM digitale I/O-pinnen        | 6 (D3, D5, D6, D9, D10, D11)                             |
+| Analoge ingangspinnen           | 6 (A0-A5)                                                |
+| DC-stroom per I/O-pin      | 20 mA                                                    |
+| DC-stroom voor 3.3V-pin     | 50 mA                                                    |
+| Flashgeheugen                | 32 KB (ATmega328P-PU) waarvan 0,5 KB gebruikt door bootloader |
+| SRAM                        | 2 KB (ATmega328P-PU)                                     |
+| EEPROM                      | 1 KB (ATmega328P-PU)                                     |
+| Kloksnelheid                 | 16 MHz                                                   |
 | LED_BUILTIN                 | D13                                                      |

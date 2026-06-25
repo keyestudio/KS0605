@@ -1,51 +1,51 @@
-# プロジェクト3 フォトレジスタセンサー
+# Project 3 Fotoresistor Sensor
 
 ![](./media/image-20250902173047302.png)
 
- **説明**
+ **Beschrijving**
 
-フォトレジスタは、CdSやセレン化合物などの半導体材料で作られた特殊な抵抗です。表面は防湿樹脂でコーティングされており、光導電効果を持っています。周囲の光に敏感で、その抵抗値は異なる光の強度によって変わります。
+De fotoresistor is een speciale weerstand gemaakt van halfgeleidermaterialen zoals CdS of Selenide septum. Het oppervlak is ook bedekt met vochtbestendige hars, die een fotogeleidend effect heeft. Het is gevoelig voor omgevingslicht. De weerstand varieert afhankelijk van verschillende lichtintensiteiten.
 
-フォトレジスタの特性を利用して回路を設計し、フォトレジスタモジュールを生成します。
+We gebruiken de eigenschappen van de fotoresistor om het circuit te ontwerpen en de fotoresistor module te genereren.
 
-フォトセルモジュールの信号ピンをアナログポートに接続すると、光の強度が強いほどアナログポートの電圧が大きくなり、アナログ値も大きくなることがわかります。
+Als u de signaalpin van de fotocellmodule aansluit op een analoge poort, zult u merken dat hoe sterker de lichtintensiteit, hoe groter de spanning van de analoge poort, en hoe groter de analoge waarde.
 
-逆に、光の強度が弱いほどアナログポートの電圧が小さくなり、アナログ値も小さくなります。
+Omgekeerd, hoe zwakker de lichtintensiteit, hoe kleiner de spanning van de analoge poort, hoe kleiner de analoge waarde is.
 
-これに基づいて、フォトセルモジュールを使用してアナログ値を読み取り、周囲の光の強度を取得することができます。
+Op basis daarvan kunnen we de fotocellmodule gebruiken om de analoge waarde uit te lezen en zo de omgevingslichtintensiteit bepalen.
 
- **仕様**
+ **Specificatie**
 
-![](./media/image-20250902173349950.png)
+![](./media/image-20250902173349950.png)\
 
-- 抵抗値：5K ohm～0.5Mohm
-- インターフェースタイプ：アナログ
-- 動作電圧：3.3V～5V
-- 簡単な取り付け：ネジ固定穴付き
-- ピン間隔：2.54mm
+- Weerstand：5K ohm-0.5Mohm
+- Interfacetype: analoog
+- Werkspanning: 3.3V-5V
+- Gemakkelijke installatie: met schroefbevestigingsgaten
+- Pinafstand: 2.54mm
 
- **部品**
+ **Componenten**
 
 ![](./media/image-20250902173528860.png)
 
- **接続図：**
+ **Verbindingsschema：**
 
 ![](./media/image-20250902173558747.png)
 
-2つのフォトレジスタセンサーはA1とA2に接続されており、A1に接続されたフォトレジスタを通じて実験を完了します。そのアナログ値を読み取ってみましょう。
+De twee fotoresistorsensoren zijn verbonden met A1 en A2, voltooi vervolgens het experiment via fotoresistor verbonden met A1. Laten we de analoge waarde ervan uitlezen.
 
-**テストコード**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 3.1
- photocell
+ les 3.1
+ fotocell
  http://www.keyestudio.com
 */
 
-int sensorPin = A1;    // フォトセルの入力ピンを選択
-int sensorValue = 0;  // センサーから来た値を格納する変数
+int sensorPin = A1;    // selecteer de ingangspin voor de fotocell
+int sensorValue = 0;  // variabele om de waarde van de sensor op te slaan
 void setup() 
 {
 	Serial.begin(9600);
@@ -53,45 +53,45 @@ void setup()
 
 void loop() 
 {
-    sensorValue = analogRead(sensorPin);  // センサーから値を読み取る
-    Serial.println(sensorValue);  // シリアルポートに抵抗値を出力
+    sensorValue = analogRead(sensorPin);  // lees de waarde van de sensor:
+    Serial.println(sensorValue);  // seriële poort drukt de weerstandswaarde af
     delay(500);
 }
 //******************************************************
 ```
 
- **テスト結果**
+ **Testresultaat**
 
-開発ボードにコードをアップロードし、シリアルモニターを開いて、フォトレジスタを覆うと値が減少し、覆わないと値が増加することを確認します。
+Upload de code op het ontwikkelingsbord, open de seriële monitor en controleer of de waarde afneemt wanneer u de fotoresistor bedekt. Echter, de waarde neemt toe wanneer deze niet bedekt is.
 
 ![](./media/image-20250902174159923.png)
 
-**コード説明**
+**Code-uitleg**
 
-**analogRead(sensorPin)：** アナログポート経由でフォトレジスタのアナログ値を読み取ります。
+**analogRead(sensorPin)：** lees de analoge waarde van de fotoresistor via analoge poorten.
 
-**Serial.begin(9600):** シリアルポートを初期化し、シリアル通信のボーレートは9600です。
+**Serial.begin(9600):** initialiseer de seriële poort, de baudrate van seriële communicatie is 9600.
 
-**Serial.println** ：シリアルポートに出力して改行します。
+**Serial.println** : seriële poort drukt af en voert regelomslag uit.
 
-**応用練習**
+**Uitbreidingsoefening**
 
-フォトレジスタの値を読み取る方法を学びました。次に、フォトレジスタとLEDを組み合わせて、LEDの状態を確認してみましょう。
+We weten nu hoe we de waarde van de fotoresistor kunnen uitlezen. Laten we de fotoresistor combineren met een LED en de status van de LED bekijken.
 
 ![](./media/image-20250902174256941.png)
 
-PWMは明るさを制御するため、LEDはPWMピンに接続されます。LEDをピン10に接続し、フォトレジスタのピンは変更せずに、次のようにコードを設計します：
+PWM beperkt de helderheid, dus LED is verbonden met PWM-pinnen. Sluit LED aan op pin 10, houd de pin van de fotoresistor ongewijzigd, ontwerp vervolgens de code:
 
 ```c
 /*keyestudio Mini Tank Robot V2.1
-lesson 3.2
-photocell-analog output
+les 3.2
+fotocell-analoge uitgang
 http://www.keyestudio.com
 */
-int analogInPin = A1;  // フォトセルが接続されているアナログ入力ピン
-int analogOutPin = 10; // LEDが接続されているアナログ出力ピン
-int sensorValue = 0;        // ポテンショメータから読み取った値
-int outputValue = 0;        // PWM（アナログ出力）に出力する値
+int analogInPin = A1;  // Analoge ingangspin waaraan de fotocell is aangesloten
+int analogOutPin = 10; // Analoge uitgangspin waaraan de LED is aangesloten
+int sensorValue = 0;        // waarde gelezen van de pot
+int outputValue = 0;        // waarde uitgevoerd naar de PWM (analoge uitgang)
 
 void setup() 
 {
@@ -99,18 +99,18 @@ void setup()
  }
 void loop() 
 {
-  // アナログ入力値を読み取る：
+  // lees de analoge ingangswaarde:
   sensorValue = analogRead(analogInPin);
-  // アナログ出力の範囲にマッピングする：
+  // map het naar het bereik van de analoge uitgang:
   outputValue = map(sensorValue, 0, 1023, 0, 255);
-  // アナログ出力値を変更する：
+  // wijzig de analoge uitgangswaarde:
   analogWrite(analogOutPin, outputValue);
-  // 最後の読み取り後、アナログ-デジタル変換器が安定するまで
-  // 2ミリ秒待機する：
- Serial.println(sensorValue);  // シリアルポートにフォトレジスタの値を出力
+  // wacht 2 milliseconden voordat de volgende lus voor de analoog-naar-digitaal
+  // converter zich stabiliseert na de laatste meting:
+ Serial.println(sensorValue);  // seriële poort drukt de waarde van de fotoresistor af
  delay(2);
 }
 //***************************************************************
 ```
 
-コードをアップロードし、手で押さえてLEDの明るさを観察します。
+Upload de code en druk er met uw hand op om de LED-helderheid waar te nemen.

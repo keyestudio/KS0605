@@ -1,184 +1,184 @@
-# プロジェクト8 モーター駆動と速度制御
+# Project 8 Motorbesturing en Snelheidsregeling
 
-**説明**
+**Beschrijving**
 
 ![](media/image-20250908162844748.png)
 
-モーターを駆動する方法はたくさんありますが、当社のロボットカーは最も一般的なソリューション--L298P--を使用しています。これはSTMicroelectronicsが製造した優れた高出力モータードライバーICです。DC モーター、2相および4相ステッピングモーターを直接駆動できます。駆動電流は最大2Aで、モーターの出力端子は8個の高速ショットキーダイオードで保護されています。
+Er zijn veel manieren om een motor aan te sturen. Onze robotauto gebruikt de meest voorkomende oplossing--L298P--een uitstekende krachtige motorbesturings-IC van STMicroelectronics. Deze kan gelijkstroommotoren, twee-fase en vier-fase stapelmotoren rechtstreeks aansturen. De aandrijfstroom bedraagt tot 2A, en de uitgangsaansluiting van de motor is beveiligd met acht snelle Schottky-diodes.
 
-L298pの回路に基づいてシールドを設計しました。積み重ねられた設計により、モーターの使用と駆動の技術的難易度が軽減されます。
+We hebben een shield ontworpen op basis van het L298P-circuit. Het gestapelde ontwerp vermindert de technische moeilijkheid van het gebruik en de besturing van de motor.
 
-**仕様**
+**Specificatie**
 
-L298Pボード回路図
+Schakelschema voor L298P-board
 
 ![](media/image-20250908163017604.png)
 
-1. ロジック部入力電圧：DC5V
-2. 駆動部入力電圧：DC 7-12V
-3. ロジック部動作電流：\<36mA
-4. 駆動部動作電流：\<2A
-5. 最大消費電力：25W（T=75℃）
-6. 動作温度：-25℃～＋130℃
-7. 制御信号入力レベル：高レベル 2.3V\<Vin\<5V、低レベル\0.3V\<Vin\<1.5V
+1. Logisch deel ingansspanning: DC5V
+2. Aandrijfdeel ingansspanning: DC 7-12V
+3. Logisch deel werkstroom: \<36mA
+4. Aandrijfdeel werkstroom: \<2A
+5. Maximaal vermogensverlies: 25W (T=75℃)
+6. Werktemperatuur: -25℃～＋130℃
+7. Besturingssignaal ingangsniveau: hoog niveau 2.3V\<Vin\<5V, laag niveau\0.3V\<Vin\<1.5V
 
 ![](media/image-20250908163151925.png)
 
-**ロボットを動かす**
+**Robot Laten Bewegen**
 
-上記の回路図を通じて、Aモーターの方向ピンはD12、速度ピンはD3です。D13はBモーターの方向ピン、D11は速度ピンです。
+Via het bovenstaande schakelschema is de richtingspincode van motor A D12, en de snelheidspincode is D3; D13 is de richtingspincode van motor B, D11 is de snelheidspincode.
 
-以下のチャートに従ってデジタルポートを制御する方法を知っています。
+We weten hoe we digitale poorten kunnen besturen volgens het volgende schema.
 
-PWMは2つのモーターをオンにしてロボットカーを駆動します。PWM値の範囲は0～255です。数値が大きいほど、モーターの回転速度が速くなります。
+PWM zorgt ervoor dat 2 motoren inschakelen om de robotauto aan te drijven. De PWM-waarde ligt in het bereik van 0-255. Hoe groter het getal, hoe sneller de motor draait.
 
-| タンクロボット | モーター（A） | モーター（B） |
-| --------------- | ------------------ | ------------------ |
-| 前進         | 時計回りに回転     |                    |
-| 後進        | 反時計回りに回転 |                    |
-| 左回転  | 反時計回りに回転 | 時計回りに回転     |
-| 右回転 | 時計回りに回転     | 反時計回りに回転 |
-| 停止            | 停止               | 停止               |
+| Tankrobot       | Motor (A)           | Motor (B)           |
+| --------------- | ------------------- | ------------------- |
+| Vooruit         | Rechtsom draaien    |                     |
+| Achteruit       | Linksom draaien     |                     |
+| Naar links      | Linksom draaien     | Rechtsom draaien    |
+| Naar rechts     | Rechtsom draaien    | Linksom draaien     |
+| Stop            | Stop                | Stop                |
 
-**部品**
+**Onderdelen**
 
 ![](media/image-20250908163739200.png)
 
-**接続図**
+**Verbindingsschema**
 
 ![](media/d35ffe6c0c275548f40bcafb42a93da1.jpeg)
 
-**注意：** 4ピンターミナルブロックはシルクスクリーン1234でマークされています。右後部モーターの赤線はターミナル1に接続され、黒線は端子2に接続されます。左前部モーターの赤線は端子3に接続され、黒線はポート4に接続されます。
+**Opmerking:** het 4-pins terminalblok is gemarkeerd met zijdedruk 1234. De rode draad van de rechterachtermotor is verbonden met aansluiting 1, zwarte draad is verbonden met aansluiting 2. De rode draad van de linkervoorkantmotor is verbonden met aansluiting 3, zwarte draad is verbonden met aansluiting 4.
 
-**テストコード**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 8.1
- motor driver
+ les 8.1
+ motorbesturing
  http://www.keyestudio.com
 */ 
 
-#define ML_Ctrl 13  //左モーターの方向制御ピンを定義
-#define ML_PWM 11   //左モーターのPWM制御ピンを定義
-#define MR_Ctrl 12  //右モーターの方向制御ピンを定義
-#define MR_PWM 3   //右モーターのPWM制御ピンを定義
+#define ML_Ctrl 13  //definieer de richtingsbesturingspincode van de linkermotor
+#define ML_PWM 11   //definieer de PWM-besturingspincode van de linkermotor
+#define MR_Ctrl 12  //definieer de richtingsbesturingspincode van de rechtermotor
+#define MR_PWM 3   //definieer de PWM-besturingspincode van de rechtermotor
 
 void setup()
 {
-  pinMode(ML_Ctrl, OUTPUT);//左モーターの方向制御ピンを出力として定義
-  pinMode(ML_PWM, OUTPUT);//左モーターのPWM制御ピンを出力として定義
-  pinMode(MR_Ctrl, OUTPUT);//右モーターの方向制御ピンを出力として定義
-  pinMode(MR_PWM, OUTPUT);//右モーターのPWM制御ピンを出力として定義
+  pinMode(ML_Ctrl, OUTPUT);//definieer de richtingsbesturingspincode van de linkermotor als uitvoer
+  pinMode(ML_PWM, OUTPUT);//definieer de PWM-besturingspincode van de linkermotor als uitvoer
+  pinMode(MR_Ctrl, OUTPUT);//definieer de richtingsbesturingspincode van de rechtermotor als uitvoer
+  pinMode(MR_PWM, OUTPUT);//definieer de PWM-besturingspincode van de rechtermotor als uitvoer
 }
 
 void loop()
 { 
-  digitalWrite(ML_Ctrl,LOW);//左モーターの方向制御ピンをLOWに設定
-  analogWrite(ML_PWM,200);//左モーターのPWM制御速度を200に設定
-  digitalWrite(MR_Ctrl,LOW);//右モーターの方向制御ピンをLOWに設定
-  analogWrite(MR_PWM,200);//右モーターのPWM制御速度を200に設定
+  digitalWrite(ML_Ctrl,LOW);//stel de richtingsbesturingspincode van de linkermotor in op LAAG
+  analogWrite(ML_PWM,200);//stel de PWM-besturingsnelheid van de linkermotor in op 200
+  digitalWrite(MR_Ctrl,LOW);//stel de richtingsbesturingspincode van de rechtermotor in op LAAG
+  analogWrite(MR_PWM,200);//stel de PWM-besturingsnelheid van de rechtermotor in op 200
 
-  //前進
-  delay(2000);//2秒遅延
-   digitalWrite(ML_Ctrl,HIGH);//左モーターの方向制御ピンをHIGHに設定
-  analogWrite(ML_PWM,200);//左モーターのPWM制御速度を200に設定  
-digitalWrite(MR_Ctrl,HIGH);//右モーターの方向制御ピンをHIGHに設定
-  analogWrite(MR_PWM,200);//右モーターのPWM制御速度を200に設定
+  //vooruit
+  delay(2000);//vertraging van 2s
+   digitalWrite(ML_Ctrl,HIGH);//stel de richtingsbesturingspincode van de linkermotor in op HOOG
+  analogWrite(ML_PWM,200);//stel de PWM-besturingsnelheid van de linkermotor in op 200  
+digitalWrite(MR_Ctrl,HIGH);//stel de richtingsbesturingspincode van de rechtermotor in op HOOG
+  analogWrite(MR_PWM,200);//stel de PWM-besturingsnelheid van de rechtermotor in op 200
 
-   //後進
-  delay(2000);//2秒遅延 
-  digitalWrite(ML_Ctrl,HIGH);//左モーターの方向制御ピンをHIGHに設定
-  analogWrite(ML_PWM,200);//左モーターのPWM制御速度を200に設定
-  digitalWrite(MR_Ctrl,LOW);//右モーターの方向制御ピンをLOWに設定
-  analogWrite(MR_PWM,200);//右モーターのPWM制御速度を200に設定
+   //achteruit
+  delay(2000);//vertraging van 2s 
+  digitalWrite(ML_Ctrl,HIGH);//stel de richtingsbesturingspincode van de linkermotor in op HOOG
+  analogWrite(ML_PWM,200);//stel de PWM-besturingsnelheid van de linkermotor in op 200
+  digitalWrite(MR_Ctrl,LOW);//stel de richtingsbesturingspincode van de rechtermotor in op LAAG
+  analogWrite(MR_PWM,200);//stel de PWM-besturingsnelheid van de rechtermotor in op 200
 
-    //左回転
-  delay(2000);//2秒遅延
-   digitalWrite(ML_Ctrl,LOW);//左モーターの方向制御ピンをLOWに設定
-  analogWrite(ML_PWM,200);//左モーターのPWM制御速度を200に設定
-  digitalWrite(MR_Ctrl,HIGH);//右モーターの方向制御ピンをHIGHに設定
-  analogWrite(MR_PWM,200);//右モーターのPWM制御速度を200に設定
+    //links
+  delay(2000);//vertraging van 2s
+   digitalWrite(ML_Ctrl,LOW);//stel de richtingsbesturingspincode van de linkermotor in op LAAG
+  analogWrite(ML_PWM,200);//stel de PWM-besturingsnelheid van de linkermotor in op 200
+  digitalWrite(MR_Ctrl,HIGH);//stel de richtingsbesturingspincode van de rechtermotor in op HOOG
+  analogWrite(MR_PWM,200);//stel de PWM-besturingsnelheid van de rechtermotor in op 200
 
-   //右回転
-  delay(2000);//2秒遅延
-  analogWrite(ML_PWM,0);//左モーターのPWM制御速度を0に設定
-  analogWrite(MR_PWM,0);//右モーターのPWM制御速度を0に設定
+   //rechts
+  delay(2000);//vertraging van 2s
+  analogWrite(ML_PWM,0);//stel de PWM-besturingsnelheid van de linkermotor in op 0
+  analogWrite(MR_PWM,0);//stel de PWM-besturingsnelheid van de rechtermotor in op 0
 
-    //停止
-  delay(2000);//2秒遅延
+    //stop
+  delay(2000);//vertraging van 2s
 }//*****************************************
 ```
 
-**テスト結果**
+**Testresultaat**
 
-接続図に従って接続し、コードをアップロードして電源を入れると、スマートカーが2秒間前進・後進し、2秒間左右に回転し、2秒間停止して交互に繰り返します。
+Maak verbinding volgens het verbindingsschema, upload de code en schakel in. De slimme auto gaat 2s vooruit en achteruit, draait 2s naar links en rechts, stopt 2s en herhaalt dit afwisselend.
 
-**コード説明**
+**Codeuitleg**
 
-**digitalWrite(ML_Ctrl,LOW)：** モーターの回転方向は高/低レベルによって決定され、回転方向を決定するピンはデジタルピンです。
+**digitalWrite(ML_Ctrl,LOW):** de draairichting van de motor wordt bepaald door het hoog/laag niveau en de pinnen die de draairichting bepalen zijn digitale pinnen.
 
-**analogWrite(ML_PWM,200)：** モーターの速度はPWMで調整され、モーターの速度を決定するピンはPWMピンである必要があります。
+**analogWrite(ML_PWM,200):** de snelheid van de motor wordt geregeld door PWM, en de pinnen die de snelheid van de motor bepalen moeten PWM-pinnen zijn.
 
-**応用練習**
+**Uitbreidingsoefening**
 
-PWMがモーターを制御する速度を調整し、同じ方法で接続します。
+Pas de snelheid aan die PWM de motor bestuurt, en maak verbinding op dezelfde manier.
 
 ![](media/d35ffe6c0c275548f40bcafb42a93da1-1757321401643-2.jpeg)
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 8.2
- motor driver pwm
+ les 8.2
+ motorbesturing pwm
  http://www.keyestudio.com
 */ 
-#define ML_Ctrl 13  //左モーターの方向制御ピンを定義
-#define ML_PWM 11   //左モーターのPWM制御ピンを定義
-#define MR_Ctrl 12  //右モーターの方向制御ピンを定義
-#define MR_PWM 3   //右モーターのPWM制御ピンを定義
+#define ML_Ctrl 13  //definieer de richtingsbesturingspincode van de linkermotor
+#define ML_PWM 11   //definieer de PWM-besturingspincode van de linkermotor
+#define MR_Ctrl 12  //definieer de richtingsbesturingspincode van de rechtermotor
+#define MR_PWM 3   //definieer de PWM-besturingspincode van de rechtermotor
 
 void setup()
 { 
-  pinMode(ML_Ctrl, OUTPUT);//左モーターの方向制御ピンをOUTPUTとして定義
-  pinMode(ML_PWM, OUTPUT);//左モーターのPWM制御ピンをOUTPUTとして定義
-  pinMode(MR_Ctrl, OUTPUT);//右モーターの方向制御ピンをOUTPUTとして定義
-  pinMode(MR_PWM, OUTPUT);//右モーターのPWM制御ピンをOUTPUTとして定義
+  pinMode(ML_Ctrl, OUTPUT);//definieer de richtingsbesturingspincode van de linkermotor als UITVOER
+  pinMode(ML_PWM, OUTPUT);//definieer de PWM-besturingspincode van de linkermotor als UITVOER
+  pinMode(MR_Ctrl, OUTPUT);//definieer de richtingsbesturingspincode van de rechtermotor als UITVOER
+  pinMode(MR_PWM, OUTPUT);//definieer de PWM-besturingspincode van de rechtermotor als UITVOER
 }
 
 void loop()
 { 
-  digitalWrite(ML_Ctrl,LOW);//左モーターの方向制御ピンをLOWに設定
-  analogWrite(ML_PWM,100);//左モーターのPWM制御速度を100に設定
-  digitalWrite(MR_Ctrl,LOW);//右モーターの方向制御ピンをLOWに設定
-  analogWrite(MR_PWM,100);//右モーターのPWM制御速度を100に設定
-  //前進
-  delay(2000);//2秒定義
-  digitalWrite(ML_Ctrl,HIGH);//左モーターの方向制御ピンをHIGHレベルに設定
-  analogWrite(ML_PWM,250);//左モーターのPWM制御速度を100に設定
-  digitalWrite(MR_Ctrl,HIGH);//右モーターの方向制御ピンをHIGHレベルに設定
-  analogWrite(MR_PWM,250);//右モーターのPWM制御速度を100に設定
-   //後進
-  delay(2000);//2秒定義
-  digitalWrite(ML_Ctrl,HIGH);//左モーターの方向制御ピンをHIGHレベルに設定
-  analogWrite(ML_PWM,250);//左モーターのPWM制御速度を100に設定
-  digitalWrite(MR_Ctrl,LOW);//右モーターの方向制御ピンをLOWレベルに設定
-  analogWrite(MR_PWM,250);//右モーターのPWM制御速度を100に設定
-    //左回転
-  delay(2000);//2秒定義
-   digitalWrite(ML_Ctrl,LOW);//左モーターの方向制御ピンをLOWに設定
-  analogWrite(ML_PWM,250);//左モーターのPWM制御速度を200に設定
-  digitalWrite(MR_Ctrl,HIGH);//右モーターの方向制御ピンをHIGHに設定
-  analogWrite(MR_PWM,250);//右モーターのPWM制御速度を100に設定
-   //右回転
-  delay(2000);//2秒定義
-  analogWrite(ML_PWM,0);//左モーターのPWM制御速度を0に設定
-  analogWrite(MR_PWM,0);//右モーターのPWM制御速度を0に設定
+  digitalWrite(ML_Ctrl,LOW);//stel de richtingsbesturingspincode van de linkermotor in op LAAG
+  analogWrite(ML_PWM,100);//stel de PWM-besturingsnelheid van de linkermotor in op 100
+  digitalWrite(MR_Ctrl,LOW);//stel de richtingsbesturingspincode van de rechtermotor in op LAAG
+  analogWrite(MR_PWM,100);//stel de PWM-besturingsnelheid van de rechtermotor in op 100
+  //vooruit
+  delay(2000);//definieer 2s
+  digitalWrite(ML_Ctrl,HIGH);//stel de richtingsbesturingspincode van de linkermotor in op HOOG
+  analogWrite(ML_PWM,250);//stel de PWM-besturingsnelheid van de linkermotor in op 100
+  digitalWrite(MR_Ctrl,HIGH);//stel de richtingsbesturingspincode van de rechtermotor in op HOOG
+  analogWrite(MR_PWM,250);//stel de PWM-besturingsnelheid van de rechtermotor in op 100
+   //achteruit
+  delay(2000);//definieer 2s
+  digitalWrite(ML_Ctrl,HIGH);//stel de richtingsbesturingspincode van de linkermotor in op HOOG
+  analogWrite(ML_PWM,250);//stel de PWM-besturingsnelheid van de linkermotor in op 100
+  digitalWrite(MR_Ctrl,LOW);//stel de richtingsbesturingspincode van de rechtermotor in op LAAG
+  analogWrite(MR_PWM,250);//stel de PWM-besturingsnelheid van de rechtermotor in op 100
+    //links
+  delay(2000);//definieer 2s
+   digitalWrite(ML_Ctrl,LOW);//stel de richtingsbesturingspincode van de linkermotor in op LAAG
+  analogWrite(ML_PWM,250);//stel de PWM-besturingsnelheid van de linkermotor in op 200
+  digitalWrite(MR_Ctrl,HIGH);//stel de richtingsbesturingspincode van de rechtermotor in op HOOG
+  analogWrite(MR_PWM,250);//stel de PWM-besturingsnelheid van de rechtermotor in op 100
+   //rechts
+  delay(2000);//definieer 2s
+  analogWrite(ML_PWM,0);//stel de PWM-besturingsnelheid van de linkermotor in op 0
+  analogWrite(MR_PWM,0);//stel de PWM-besturingsnelheid van de rechtermotor in op 0
 
-    //停止
-  delay(2000);//2秒定義
+    //stop
+  delay(2000);//definieer 2s
 }//******************************************************************
 ```
 
-コードが正常にアップロードされ、モーターがより速く回転します。
+Code succesvol geüpload, de motoren draaien sneller.

@@ -1,57 +1,57 @@
 4. Arduino
 ==========
 
-图片、网址などのフォーマットを一切変更せず、内容のみを日本語に翻訳しました。
+Hier is de vertaling in het Nederlands, met behoud van de originele opmaak, links en afbeeldingstags:
 
-4.1 データのダウンロード
--------------------------
+4.1 Gegevens downloaden
+-----------------------
 
-Arduinoの情報には、ライブラリファイルとプロジェクトコードが含まれています。今後の学習のために、クリックしてダウンロードしてください。
+De Arduino-informatie bevat bibliotheekbestanden en projectcode. Klik om te downloaden voor verder onderzoek.
 
-データのダウンロード: :download:`Arduino Data <./Arduino.7z>`
+Gegevens downloaden: :download:`Arduino Data <./Arduino.7z>`
 
-アプリのダウンロード:
+APP downloaden:
 
-Tank Car Android版のダウンロード: `Tank
+Tank Car Android downloaden: `Tank
 Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
 
-HC_BLEのダウンロード: :download:`APP <./APP.7z>`
+HC_BLE downloaden: :download:`APP <./APP.7z>`
 
-4.2 ソフトウェアのダウンロード
-------------------------------
+4.2 Software downloaden
+-----------------------
 
-コントロールボードを入手したら、まずArduino IDEとドライバをダウンロードする必要があります。
+Wanneer we het besturingsbord ontvangen, moeten we eerst de Arduino IDE en het stuurprogramma downloaden.
 
-Arduino IDEは公式サイトからダウンロードできます:
+U kunt de Arduino IDE downloaden van de officiële website:
 https://www.arduino.cc/en/software.
 
-Arduinoにはさまざまなバージョンがありますので、ご使用のシステムに合ったバージョンをダウンロードしてください。ここでは、WINDOWSシステムを例にとって、ダウンロードとインストールの方法をご説明します。
+Er zijn verschillende versies voor Arduino beschikbaar; download gewoon een geschikte versie voor uw systeem. We nemen het WINDOWS-systeem als voorbeeld om u te laten zien hoe u het kunt downloaden en installeren.
 
 |image1|
 
-「JUSTDOWNLOAD」をクリックし、ダウンロードしたファイルをクリックしてインストールするだけです。
+U hoeft alleen maar op JUSTDOWNLOAD te klikken en vervolgens op het gedownloade bestand te klikken om het te installeren.
 
-また、ZIPファイルがダウンロードされた場合は、直接解凍して起動することができます。
+En wanneer het ZIP-bestand is gedownload, kunt u het direct uitpakken en starten.
 
 |image2|
 
-4.3 Arduino IDEの設定
----------------------
+4.3 Arduino IDE instellen
+-------------------------
 
-ボードをコンピュータに接続します。
+Sluit het bord aan op de computer.
 
 |image3|
 
-4.4 ライブラリの追加
---------------------
+4.4 Bibliotheek toevoegen
+-------------------------
 
-ライブラリとは何ですか？
+Wat zijn bibliotheken?
 
-ライブラリは、センサー、ディスプレイ、モジュールなどに簡単に接続できるようにするためのコードの集合体です。
+Bibliotheken zijn een verzameling code die het u gemakkelijk maakt om verbinding te maken met een sensor, display, module, enz.
 
-インターネット上には、ダウンロードできる追加のライブラリが数百種類あります。
+Er zijn honderden extra bibliotheken beschikbaar op internet om te downloaden.
 
-ここでは、ライブラリを追加する最も簡単な方法をご紹介します。
+We zullen u de meest eenvoudige manier introduceren om bibliotheken toe te voegen.
 
 |image4|
 
@@ -61,7 +61,7 @@ Arduinoにはさまざまなバージョンがありますので、ご使用の�
 .. |image4| image:: ./media/20250910193751.gif
 
 
-4.5 プロジェクト
+4.5 Projecten
 ---------------
 
 .. toctree::

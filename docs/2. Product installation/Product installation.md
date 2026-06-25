@@ -1,49 +1,49 @@
-# 2. 製品のインストール
+# 2. Productinstallatie
 
-このキットのすべての部品を確認した後、タンクロボットをマウントする必要があります。以下の指示に従ってスマートカーをインストールしましょう。
+Na het controleren van alle onderdelen in deze kit moeten we de tankrobot monteren. Laten we de slimme auto installeren volgens de volgende instructies.
 
-## 組立動画
+## Assemblagevideo
 
-[動画をダウンロード](video.7z)
+[Video downloaden](video.7z).
 
-> **注意:** 組立動画はこのパッケージに含まれている `video.7z` ファイルで提供されています。`video/KS0605.mp4` を表示するために抽出してください。
+> **Opmerking:** De assemblagevideo is beschikbaar in het bestand `video.7z` dat in dit pakket is opgenomen. Pak het uit om `video/KS0605.mp4` te bekijken.
 
-**注意: スマートカーをインストールする際、まずボードから保護フィルムをはがしてください。**
+**Opmerking: Verwijder eerst de plastic film van het bord bij het installeren van de slimme auto.**
 
-## ステップ1: 底部モーターのインストール
+## Stap 1: Onderste motor installeren
 
-以下の部品を準備してください:
+Bereid de volgende onderdelen voor:
 
-- M4ナット \* 2
-- メタルモーター \*2
-- メタルホルダー \*2
-- カップラー \*2
-- 青色サポートパーツ \*2
-- M4\*12MM内六角ネジ \* 2
-- M1.5六角キーニッケルメッキアレンレンチ \*1
-- M3六角キーニッケルメッキアレンレンチ \*1
-- M2.5六角キーニッケルメッキアレンレンチ \*1
-- M3\*8MM内六角ネジ \* 4
+- M4 Moer \* 2
+- Metalen Motor \*2
+- Metalen Houder \*2
+- Koppeling \*2
+- Blauwe Ondersteunende Onderdelen \*2
+- M4\*12MM Interne Zeskantschroef \* 2
+- M1.5 Zeskant Vernikkelde Inbussleutel \*1
+- M3 Zeskant Vernikkelde Inbussleutel \*1
+- M2.5 Zeskant Vernikkelde Inbussleutel \*1
+- M3\*8MM Interne Zeskantschroef \* 4
 
 ![TK_02](media/TK_02.png)
 
 ![TK_03](media/TK_03.png)
 
-**ヒント: 同じ方法で反対側のモーターも組み立ててください。**
+**Opmerking: monteer de motor aan de andere kant op dezelfde manier.**
 
-## ステップ2: 駆動輪のインストール
+## Stap 2: Aandrijfwiel installeren
 
-以下の部品を準備してください:
+Bereid de volgende onderdelen voor:
 
-- M3*8MM内六角ネジ \* 2
-- M4\*50MM内六角ネジ \* 2
-- タンク荷重輪 \* 2
-- フランジベアリング \* 4
-- ガスケット\*2
-- キャタピラバンド \*2
-- M4自己ロックナット \* 2
-- M3六角キーニッケルメッキアレンレンチ \*1
-- M2.5六角キーニッケルメッキアレンレンチ \*1
+- M3*8MM Interne Zeskantschroef \* 2
+- M4\*50MM Interne Zeskantschroef \* 2
+- Tankdraagwiel \* 2
+- Flenslagering \* 4
+- Pakking\*2
+- Rupsband \*2
+- M4 Zelfborgende Moer \* 2
+- M3 Zeskant Vernikkelde Inbussleutel \*1
+- M2.5 Zeskant Vernikkelde Inbussleutel \*1
 
 ![TK_04](media/TK_04.png)
 
@@ -53,27 +53,27 @@
 
 ![TK_07](media/TK_07.png)
 
-## ステップ3: バッテリーホルダーのインストール
+## Stap 3: Batterijhouder installeren
 
-以下の部品を準備してください:
+Bereid de volgende onderdelen voor:
 
-- バッテリーホルダー \*1
-- M3ナット \* 2
-- 青色メタルホルダー \*2
-- M4ナット \*8
-- M3\*10MM皿頭ネジ \* 2
-- M4\*40MM内六角ネジ \*4
-- M2.5六角キーニッケルメッキアレンレンチ\*1
-- M3六角キーニッケルメッキアレンレンチ \*1
-- M3\*25MM内六角ネジ \*4
-- M3*45MM六角銅柱 *4
-- ドライバー
+- Batterijhouder \*1
+- M3 Moer \* 2
+- Blauwe Metalen houder \*2
+- M4 Moer \*8
+- M3\*10MM Platte Kopschroef \* 2
+- M4\*40MM Interne Zeskantschroef \*4
+- M2.5 Zeskant Vernikkelde Inbussleutel\*1
+- M3 Zeskant Vernikkelde Inbussleutel \*1
+- M3\*25MM Interne Zeskantschroef \*4
+- M3*45MM Zeskantige Koperen Zuil *4
+- Schroevendraaier
 
 ![TK_08](media/TK_08.png)
 
 ![TK_09](media/TK_09.png)
 
-マウント処理が完了したら、4本のM4\*40MM内六角ネジと4本のM4ナットでメタルホルダーをモーター輪に固定するために移動してください。
+Bevestig de metalen houder op het motorwiel met vier M4\*40MM interne zeskantschroeven en vier M4 moeren wanneer het montageproces is voltooid.
 
 ![TK_10](media/TK_10.png)
 
@@ -83,22 +83,22 @@
 
 ![TK_13](media/TK_13.png)
 
-##  ステップ4: アクリル板とセンサーのマウント
+##  Stap 4: Acrylplaat en sensoren monteren
 
-- アクリル板 \* 2
-- L字型黒ブラケット \*1
-- フォトセルセンサー \*2
-- IRレシーバーモジュール \*1
-- 8X16 LEDパネル \*1
-- M2ナット \*4
-- M3ナット \*10
-- M3\*6MM内六角ネジ \* 8
-- M3\*8MM内六角ネジ \* 8
-- M2.5六角キーアレンレンチ \*1
-- M3\*12MM丸頭ネジ \*6
-- M3\*10MM六角銅ブッシュ \*8
-- M2\*10MM丸頭ネジ \* 4
-- ドライバー
+- Acrylplaat \* 2
+- L-vormige Zwarte Beugel \*1
+- Fotocelsensor \*2
+- IR Ontvanger Module \*1
+- 8X16 LED-paneel \*1
+- M2 Moer \*4
+- M3 Moer \*10
+- M3\*6MM Interne Zeskantschroef \* 8
+- M3\*8MM Interne Zeskantschroef \* 8
+- M2.5 Zeskant Inbussleutel \*1
+- M3\*12MM Ronde Kopschroef \*6
+- M3\*10MM Zeskantige Koperen Buis \*8
+- M2\*10MM Ronde Kopschroef \* 4
+- Schroevendraaier
 
 ![TK_14](media/TK_14.png)
 
@@ -120,49 +120,49 @@
 
 ![TK_23](media/TK_23.png)
 
-## ステップ5: サーボプラットフォームのインストール
+## Stap 5: Servomotor Platform installeren
 
-以下の部品を準備してください:
+Bereid de volgende onderdelen voor:
 
--   サーボ \*1
--   黒ジンバル \*1
--   ケーブルタイ \*2
--   M2x8丸頭十字タッピングネジ \*2
--   超音波センサー \*1
--   M2\*4ネジ \*1
--   M1.2\*5ネジ \*4
--   ドライバー
+-   Servomotor \*1
+-   Zwarte Gimbal \*1
+-   Kabelbinder \*2
+-   M2x8 Ronde Kopschroef met Kruis \*2
+-   Ultrasone Sensor \*1
+-   M2\*4 Schroef \*1
+-   M1.2\*5 Schroef \*4
+-   Schroevendraaier
 
-**注意: **デバッグを便利にするため、超音波モジュールを真っすぐ前に向け、サーボモーターの角度を90°に保ってください。したがって、サーボプラットフォームをインストールする前に、サーボを90°に設定する必要があります。
+**Opmerking: **voor gemakkelijk debuggen, houd de ultrasone module recht naar voren en de hoek van de servomotor op 90°. Daarom moeten we de servomotor op 90° instellen voordat we het servomotor platform installeren.
 
-90度設定コードをコピーして開発ボードにアップロードしてください。ポートD9に接続されたステアリングギアが90°回転します。
+Stel de 90-graden code in, kopieer de code en upload deze naar het ontwikkelingsbord. De stuurinrichting die is aangesloten op poort D9 zal naar 90° draaien.
 
-> コードをアップロードするには、Arduino IDEが必要です。セクション4.2～4.4（ソフトウェアダウンロード、Arduino IDEのセットアップ、ライブラリの追加）に従ってまずArduino IDEをインストールしてください。
+> Om code te uploaden, hebt u de Arduino IDE nodig. Installeer eerst de Arduino IDE door secties 4.2–4.4 te volgen. (Software Download, Arduino IDE instellen en bibliotheek toevoegen)
 
 ```c
-#define servoPin 9 //サーボピン
-int pos; //サーボの角度変数
-int pulsewidth; //サーボのパルス幅変数
+#define servoPin 9 //servo Pin
+int pos; //de hoekveranderlijke van servo
+int pulsewidth; // pulsbreedte veranderlijke van servo
 
 void setup() 
 {
-    pinMode(servoPin, OUTPUT); //サーボピンをOUTPUTに設定
-    procedure(0); //サーボの角度を0°に設定
+    pinMode(servoPin, OUTPUT); //stel servo pin in op OUTPUT
+    procedure(0); //stel de hoek van servo in op 0°
 }
 
 void loop() 
 {
-	procedure(90); //サーボを90°の位置に移動するよう指示
+	procedure(90); // zeg servo om naar positie in variabele 90° te gaan
 }
 
-//サーボを制御する関数
+// functie om servo te besturen
 void procedure(int myangle) 
 {
-    pulsewidth = myangle * 11 + 500; //パルス幅の値を計算
+    pulsewidth = myangle * 11 + 500; //bereken de waarde van pulsbreedte
     digitalWrite(servoPin,HIGH);
-    delayMicroseconds(pulsewidth); //高レベルの継続時間はパルス幅
+    delayMicroseconds(pulsewidth); //De duur van hoog niveau is pulsbreedte
     digitalWrite(servoPin,LOW);
-    delay((20 - pulsewidth / 1000)); //サイクルは20ms、低レベルは残りの時間続く
+    delay((20 - pulsewidth / 1000)); // de cyclus is 20ms, het lage niveau duurt de rest van de tijd
 }
 ```
 
@@ -170,23 +170,23 @@ void procedure(int myangle)
 
 ![](media/image-20250902144145590.png)
 
-**注意: **M1.2\*5ネジはプラスチックプラットフォームのバッグの中にあります。
+**Opmerking: **U kunt M1.2\*5 schroeven vinden in de zak van het kunststof platform.
 
 ![TK_25](media/TK_25.png)
 
 ![TK_26](media/TK_26.png)
 
-## ステップ6: センサーとボードのインストール
+## Stap 6: Sensoren en borden installeren
 
-以下の部品を準備してください:
+Bereid de volgende onderdelen voor:
 
-- M3\*6MM丸頭ネジ \*12
-- L298Pシールド \*1
-- V4.0ボード \*1
-- V5センサーシールド \*1
-- ドライバー \*1
-- Bluetoothモジュール \*1
-- M2.5六角キーニッケルメッキアレンレンチ \*1
+- M3\*6MM Ronde Kopschroef \*12
+- L298P Shield \*1
+- V4.0 Bord \*1
+- V5 Sensor Shield \*1
+- Schroevendraaier \*1
+- Bluetooth Module \*1
+- M2.5 Zeskant Vernikkelde Inbussleutel \*1
 
 ![TK_27](media/TK_27.png)
 
@@ -206,7 +206,7 @@ void procedure(int myangle)
 
 
 
-## ステップ7: 接続ガイド
+## Stap 7: Aansluitingsgids
 
 ![](media/image-20250902144534790.png)
 
@@ -218,7 +218,7 @@ void procedure(int myangle)
 
 ![](media/image-20250902144902221.png)
 
-##  ステップ8: LEDパネルの配線
+##  Stap 8: LED-paneel bedraden
 
 ![](media/image-20250902145026905.png)
 
@@ -226,7 +226,7 @@ void procedure(int myangle)
 
 ![](media/image-20250902145129382.png)
 
-| LEDパネル                              | V5センサーシールド                     |
+| LED-paneel                             | V5 Sensor Shield                       |
 | -------------------------------------- | -------------------------------------- |
 | GND                                    | -(GND)                                 |
 | VCC                                    | +(VCC)                                 |
@@ -234,7 +234,7 @@ void procedure(int myangle)
 | SCL                                    | SCL                                    |
 | ![](media/image-20250902145404151.png) | ![](media/image-20250902145414755.png) |
 
-## ステップ9: アクリル板のすべての部品をインストール
+## Stap 9: Alle onderdelen van acrylplaat installeren
 
 ![](media/image-20250902145506652.png)
 
@@ -262,97 +262,97 @@ void procedure(int myangle)
 
 ![](media/image-20250902150711706.png)
 
-##  ステップ10: タンクロボット
+##  Stap 10: Tankrobot
 
-**注意:** テストコードをアップロードする前にBluetoothモジュールを取り外してください。そうしないと、テストコードのアップロードに失敗します。
+**Opmerking:** Verwijder de Bluetooth-module voordat u testcode uploadt. Anders kunt u de testcode niet uploaden.
 
 ![](media/image-20250902151034545.png)
 
-**多目的ロボットカー**
+**Multifunctionele Robotauto**
 
 ![](media/image-20250902151133169.png)
 
-  **説明**
+  **Beschrijving**
 
-前のプロジェクトでは、タンクカーは単一の機能のみを実行していました。しかし、このレッスンでは、すべての機能を統合してBluetooth制御でスマートカーを制御します。
+In de vorige projecten voert de tankwagen slechts één functie uit. In deze les integreren we echter al zijn functies om de slimme auto via Bluetooth-besturing te besturen.
 
-参考のため、多目的ロボットカーの簡単なフローチャートを以下に示します。
+Hier is een eenvoudig stroomdiagram van de multifunctionele robotauto ter referentie.
 
 ![](media/image-20250902151215210.png)
 
-  **接続図**
+  **Verbindingsdiagram**
 
 ![](media/image-20250902151230702.png)
 
-**注意：**すべてのコンポーネントが接続されていることを確認してください。
+**Let op：**Controleer of elk onderdeel is aangesloten.
 
-配線ガイド:
+Aansluitingsgids:
 
-| 8x16 LEDパネル |      | 拡張ボード  |
-| -------------- | ---- | ----------- |
-| GND            | →    | -（GND）    |
-| VCC            | →    | +（VCC）    |
-| SDA            | →    | SDA         |
-| SCL            | →    | SCL         |
+| 8x16 LED-paneel | | Uitbreidingsbord |
+| -------------- | ---- | --------------- |
+| GND            | →    | -（GND）        |
+| VCC            | →    | +（VCC）        |
+| SDA            | →    | SDA             |
+| SCL            | →    | SCL             |
 
 ![](media/image-20250902152539713.png)
 
-| 超音波モジュール |      |        |
-| --------------- | ---- | ------ |
-| VCC             | →    | 5v(V)  |
-| Trig            | →    | 5(S)   |
-| Echo            | →    | 4(S)   |
-| Gnd             | →    | Gnd(G) |
+| Ultrasone Module |      |        |
+| ----------------- | ---- | ------ |
+| VCC               | →    | 5v(V)  |
+| Trig              | →    | 5(S)   |
+| Echo              | →    | 4(S)   |
+| Gnd               | →    | Gnd(G) |
 
 ![](media/image-20250902152857086.png)
 
 ![](media/image-20250902152906103.png)
 
-| サーボモーター |      |        |
-| -------------- | ---- | ------ |
-| サーボモーター | →    | Gnd(G) |
-| 赤ワイヤー     | →    | 5v(V)  |
-| オレンジワイヤー | →    | 9      |
+| Servomotor |      |        |
+| ----------- | ---- | ------ |
+| Servomotor | →    | Gnd(G) |
+| Rode Draad    | →    | 5v(V)  |
+| Oranje Draad | →    | 9      |
 
 ![](media/image-20250902154418006.png)
 
 ![](media/image-20250902154820948.png)
 
-| Bluetoothモジュール                     |      |          |
+| Bluetooth Module                        |      |          |
 | --------------------------------------- | ---- | -------- |
 | RXD                                     | →    | TX       |
 | TXD                                     | →    | RX       |
 | GND                                     | →    | -（GND） |
 | VCC                                     |      | +（VCC） |
-| STATEおよびBRKピンに接続する必要はありません |      |          |
+| Geen noodzaak om STATE en BRK pinnen aan te sluiten |      |          |
 
 ![](media/image-20250902155229663.png)
 
 ![](media/image-20250902155236836.png)
 
-| IRレシーバーモジュール |      | センサーシールド |
-| -------------------- | ---- | --------------- |
-| －                    | →    | G（GND）        |
-| +                     | →    | V（VCC）        |
-| S                     | →    | A0              |
+| IR Ontvanger Module |      | Sensor Shield |
+| ------------------ | ---- | ------------- |
+| －                 | →    | G（GND）      |
+| +                  | →    | V（VCC）      |
+| S                  | →    | A0            |
 
 ![](media/image-20250902155444270.png)
 
 ![](media/image-20250902155452133.png)
 
-| 左フォトレジスタ |      | センサーシールド |
-| --------------- | ---- | --------------- |
-| －              | →    | G（GND）        |
-| ＋              | →    | V（VCC）        |
-| S               | →    | A1              |
-|                 |      |                 |
-| 右フォトレジスタ |      | センサーシールド |
-| －              | →    | G（GND）        |
-| ＋              | →    | V（VCC）        |
-| S               | →    | A2              |
+| Linker fotoweerstand  |      | Sensor Shield |
+| -------------------- | ---- | ------------- |
+| －                   | →    | G（GND）      |
+| ＋                   | →    | V（VCC）      |
+| S                    | →    | A1            |
+|                      |      |               |
+| Rechter Fotoweerstand |      | Sensor Shield |
+| －                   | →    | G（GND）      |
+| ＋                   | →    | V（VCC）      |
+| S                    | →    | A2            |
 
 ![](media/image-20250902155938106.png)
 
 ![](media/image-20250902155946213.png)
 
- インストール完了です。
+ Installatie voltooid.

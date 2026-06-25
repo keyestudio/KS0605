@@ -1,109 +1,109 @@
-# プロジェクト1 LED点滅
+# Project 1 LED Knippert
 
 ![](media/image-20250908174750401.png)
 
-**説明**
+**Beschrijving**
 
-初心者と愛好家向けに、LED点滅は基本的なプログラムです。LED（発光ダイオードの略）は、Ga、As、P、N化合物などで構成されています。テストコード内の遅延時間を変更することで、LEDはさまざまな色で点滅させることができます。制御時に、GNDとVCCに電源を供給すると、S端子が高レベルの場合はLEDが点灯します。それ以外の場合は消灯します。
+Voor beginners en enthousiastelingen is LED Knippert een fundamenteel programma. LED, de afkorting van lichtemitterende diodes, bestaat uit Ga, As, P, N chemische verbindingen en dergelijke. De LED kan in diverse kleuren knipperen door de vertragingstijd in de testcode aan te passen. Bij bediening, wanneer GND en VCC onder stroom staan, zal de LED aan gaan als de S-uiteinde op hoog niveau staat; echter, deze zal uit gaan.
 
-**仕様**
+**Specificatie**
 
 ![](./media/image-20250902164418568.png)
 
-- 制御インターフェース：デジタルポート
-- 動作電圧：DC 3.3-5V
-- ピン間隔：2.54mm
-- LED表示色：赤
+- Besturingsinterface: digitale poort
+- Werkspanning: DC 3,3-5V
+- Pinafstand: 2,54mm
+- LED-weergavekleur: rood
 
-**部品**
+**Componenten**
 
 ![](./media/image-20250902164804229.png)
 
-**V5センサーシールド**
+**V5 Sensor Shield**
 
-Arduino開発ボードと多数のセンサーを組み合わせる場合、面倒になることがあります。しかし、Arduino開発ボードと互換性のあるV5センサーシールドは、この問題を完全に解決します。V5ボードをその上に積み重ねるだけです。
+Het kan lastig zijn wanneer we Arduino-ontwikkelingsborden met talrijke sensoren combineren. De V5 sensor shield, compatibel met Arduino-ontwikkelingsborden, lost dit probleem echter perfect op. Stapel gewoon de V5-kaart erop.
 
-このセンサーシールドは3ピンセンサーモジュールを挿入でき、シリアル、IIC、SPI通信などの通信ピンを引き出すことができます。
+Deze sensor shield kan in 3-pins sensormodules worden ingestoken en breekt enkele communicatiepinnen uit, zoals seriële, IIC- en SPI-communicatie.
 
-**ピン説明**
+**Pinbeschrijving**
 
 ![](./media/image-20250902165027854.png)
 
-**接続図**
+**Verbindingsschema**
 
 ![](./media/image-20250902165110913.png)
 
-上の図から、LEDはD2に接続されていることがわかります。
+Zoals te zien is in het bovenstaande diagram, is de LED verbonden met D2.
 
-**テストコード**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 1.1
- Blink
+ les 1.1
+ Knippert
  http://www.keyestudio.com
 */
 void setup()
 { 
-    pinMode(2, OUTPUT);// デジタルピン2を出力として初期化します
+    pinMode(2, OUTPUT);// initialiseer digitale pin 2 als uitgang.
 }
 
-void loop() // ループ関数は永遠に繰り返し実行されます
+void loop() // de loop-functie voert zich oneindig herhaald uit
 {
-   digitalWrite(2, HIGH); // LEDをオンにします（HIGHは電圧レベル）
-   delay(1000); // 1秒待機します
-   digitalWrite(2, LOW); // 電圧をLOWにしてLEDをオフにします
-   delay(1000); // 1秒待機します
+   digitalWrite(2, HIGH); // zet de LED aan (HIGH is het spanningsniveau)
+   delay(1000); // wacht een seconde
+   digitalWrite(2, LOW); // zet de LED uit door de spanning LOW in te stellen
+   delay(1000); // wacht een seconde
 }
 ```
 
-**テスト結果**
+**Testresultaat**
 
-（コードをアップロードする際、シリアル通信とBluetoothの間に矛盾が生じる可能性があります。したがって、コードをアップロードする前にBluetoothモジュールを接続しないでください。）
+(Er zal een tegenspraak zijn over seriële communicatie tussen code en Bluetooth bij het uploaden van code. Daarom moet u niet met de Bluetooth-module verbinden voordat u de code uploadt.)
 
-プログラムを開発ボードにアップロードすると、LEDは1秒間隔で点滅します。
+Upload het programma op de ontwikkelingsbord, LED knippert met een interval van 1s.
 
 ![](./media/image-20250902165335641.png)
 
-**コード説明**
+**Code-uitleg**
 
-**pinMode(2，OUTPUT) -** ピン2をOUTPUTに設定します
+**pinMode(2，OUTPUT) -** Stel pin2 in op OUTPUT
 
-**digitalWrite(2，HIGH) -** ピン2をHIGHレベル（5V出力）またはLOWレベル（0V出力）に設定します
+**digitalWrite(2，HIGH) -** Wanneer pin2 op HIGH-niveau (uitgang 5V) of LOW-niveau (uitgang 0V) wordt ingesteld
 
-**応用練習**
+**Uitbreidingsoefening**
 
-LEDの点滅に成功しました。次に、ピンと遅延時間を変更した場合、LEDがどのように変わるかを観察しましょう。
+We zijn erin geslaagd de LED te laten knipperen. Laten we nu observeren wat er met de LED verandert als we de pinnen en vertragingstijd aanpassen.
 
-**接続図**
+**Verbindingsschema**
 
 ![](./media/image-20250902165631206.png)
 
-ピンを変更し、LEDをD10に接続しました。
+We hebben de pinnen gewijzigd en de LED verbonden met D10.
 
-**テストコード**
+**Testcode**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 1.2
- delay
+ les 1.2
+ vertraging
  http://www.keyestudio.com
 */
-void setup() // デジタルピン10を出力として初期化します
+void setup() // initialiseer digitale pin 10 als uitgang.
 {  
    pinMode(10, OUTPUT);
 }
 
-// ループ関数は永遠に繰り返し実行されます
+// de loop-functie voert zich oneindig herhaald uit
 void loop() 
 {
-   digitalWrite(10, HIGH); // LEDをオンにします（HIGHは電圧レベル）
-   delay(100); // 0.1秒待機します
-   digitalWrite(10, LOW); // 電圧をLOWにしてLEDをオフにします
-   delay(100); // 0.1秒待機します
+   digitalWrite(10, HIGH); // zet de LED aan (HIGH is het spanningsniveau)
+   delay(100); // wacht 0,1 seconde
+   digitalWrite(10, LOW); // zet de LED uit door de spanning LOW in te stellen
+   delay(100); // wacht 0,1 seconde
 }
 ```
 
-テスト結果から、LEDがより速く点滅することがわかります。したがって、ピンと時間遅延が点滅周波数に影響することが結論づけられます。
+Het testresultaat toont aan dat de LED sneller knippert. Daarom kunnen we concluderen dat pinnen en tijdvertraging de knipperfrequentie beïnvloeden.

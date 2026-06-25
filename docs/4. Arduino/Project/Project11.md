@@ -1,31 +1,31 @@
-# プロジェクト11 超音波回避タンク
+# Project 11 Ultrasonic Avoiding Tank
 
 ![](media/image-20250908171729897.png)
 
-**説明**
+**Beschrijving**
 
-このプログラムでは、超音波センサーが障害物までの距離を検出し、ロボットカーを制御するシグナルを送信します。次に、障害物回避カーの作り方を説明します。
+In dit programma detecteert de ultrasone sensor de afstand tot obstakels en stuurt signalen die de robotauto besturen. Hieronder laten we je zien hoe je een auto maakt die obstakels vermijdt.
 
-**超音波回避ロボットの具体的なロジックは以下の通りです：**
+**De specifieke logica van de ultrasone vermijdingsrobot is als volgt:**
 
 ![](media/image-20250908171756879.png)
 
- **フローチャート**
+ **Stroomdiagram**
 
 ![](media/image-20250908171812532.png)
 
-**接続図：**
+**Verbindingsschema:**
 
 ![](media/image-20250908171829321.png)
 
-注：サーボの「-」、「+」、「S」ピンはそれぞれ拡張ボードのG（GND）、V（VCC）、D9に接続されています。超音波センサーのVCC、Trig、Echo、Gndは拡張ボードの5v(V)、5(S)、Echo、Gnd(G)に接続されています。
+Opmerking: De "-", "+" en "S" pinnen van de servo zijn respectievelijk verbonden met G (GND), V (VCC) en D9 van de uitbreidingskaart. De VCC, Trig, Echo en Gnd van de ultrasone sensor zijn verbonden met 5v (V), 5 (S), Echo en Gnd (G) van de uitbreidingskaart.
 
-**テストコード：**
+**Testcode:**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lesson 11
+ les 11
  ultrasonic_avoid_tank
  http://www.keyestudio.com
 */
@@ -33,17 +33,17 @@ int random2;
 int a;
 int a1;
 int a2;
-#define ML_Ctrl 13  // 左モーターの方向制御ピンを定義
-#define ML_PWM 11   // 左モーターのPWM制御ピンを定義
-#define MR_Ctrl 12  // 右モーターの方向制御ピンを定義
-#define MR_PWM 3   // 右モーターのPWM制御ピンを定義
+#define ML_Ctrl 13  // definieer de richtingscontrolepinnen van de linkermotor
+#define ML_PWM 11   // definieer PWM-controlepinnen van de linkermotor
+#define MR_Ctrl 12  // definieer de richtingscontrolepinnen van de rechtermotor
+#define MR_PWM 3   // definieer PWM-controlepinnen van de rechtermotor
 
-#define Trig 5  // 超音波トリガーピン
-#define Echo 4  // 超音波エコーピン
+#define Trig 5  // ultrasone trig pin
+#define Echo 4  // ultrasone echo pin
 int distance;
-#define servoPin 9  // サーボピン
+#define servoPin 9  // servo pin
 int pulsewidth;
-/************モーターを実行する関数**************/
+/************de functie om de motor uit te voeren**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -80,7 +80,7 @@ void Car_Stop()
   analogWrite(ML_PWM,0);
 }
 
-// サーボを制御する関数
+// De functie om de servo te besturen
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -90,21 +90,21 @@ void procedure(int myangle) {
     delay((20 - pulsewidth / 1000));
   }
 }
-// 超音波センサーを制御する関数
+// De functie om de ultrasone sensor te besturen
 float checkdistance() {
   digitalWrite(Trig, LOW);
   delayMicroseconds(2);
   digitalWrite(Trig, HIGH);
   delayMicroseconds(10);
   digitalWrite(Trig, LOW);
-  float distance = pulseIn(Echo, HIGH) / 58.00;  // 58.20、つまり2*29.1=58.2
+  float distance = pulseIn(Echo, HIGH) / 58.00;  // 58.20, dat wil zeggen, 2*29.1=58.2
   delay(10);
   return distance;
 }
   //****************************************************************
 void setup(){
   pinMode(servoPin, OUTPUT);
-  procedure(90); // サーボを90°に設定
+  procedure(90); // stel servo in op 90°
   
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
@@ -115,64 +115,64 @@ void setup(){
 }
 void loop(){
   random2 = random(1, 100);
-  a = checkdistance();  // 超音波センサーが検出した前方の距離を変数aに割り当て
+  a = checkdistance();  // wijs de voorafstand gedetecteerd door de ultrasone sensor toe aan variabele a
   
-  if (a < 20) // 検出された前方の距離が20未満の場合
+  if (a < 20) // wanneer de voorafstand minder dan 20 is
   {
-      Car_Stop();  // ロボットが停止
-      delay(500); // 500ms遅延
-      procedure(160);  // 超音波プラットフォームが左に回転
-      for (int j = 1; j <= 10; j = j + (1)) { // for文、超音波センサーが複数回検出するとデータがより正確になります
-        a1 = checkdistance();  // 超音波センサーが検出した左方の距離を変数a1に割り当て
+      Car_Stop();  // robot stopt
+      delay(500); // vertraging van 500ms
+      procedure(160);  // ultrasone platform draait naar links
+      for (int j = 1; j <= 10; j = j + (1)) { // for-statement, de gegevens zijn nauwkeuriger als de ultrasone sensor meerdere keren detecteert.
+        a1 = checkdistance();  // wijs de linkerafstand gedetecteerd door de ultrasone sensor toe aan variabele a1
       }
       delay(300);
-      procedure(20); // 超音波プラットフォームが右に回転
+      procedure(20); // ultrasone platform draait naar rechts
       for (int k = 1; k <= 10; k = k + (1)) {
-        a2 = checkdistance(); // 超音波センサーが検出した右方の距離を変数a2に割り当て
+        a2 = checkdistance(); // wijs de rechterafstand gedetecteerd door de ultrasone sensor toe aan variabele a2
       }
       
-      if (a1 < 50 || a2 < 50)  // 左または右の距離が50cm未満の場合、ロボットはより長い距離の側に回転します
+      if (a1 < 50 || a2 < 50)  // robot draait naar de kant met de langere afstand wanneer de linker- of rechterafstand minder dan 50cm is.
       {
-        if (a1 > a2) // 左方の距離が右側より大きい場合
+        if (a1 > a2) // linkerafstand is groter dan rechterkant
         {
-          procedure(90);  // 超音波プラットフォームが右前に戻る
-Car_left();  // ロボットが左に回転
-          delay(500);  // 500ms左に回転
-          Car_front(); // 前に進む
+          procedure(90);  // ultrasone platform draait terug naar rechts vooruit
+Car_left();  // robot draait naar links
+          delay(500);  // draai 500ms naar links
+          Car_front(); // ga vooruit
         } 
         else 
         {
           procedure(90);
-          Car_right(); // ロボットが右に回転
+          Car_right(); // robot draait naar rechts
           delay(500);
-          Car_front();  // 前に進む
+          Car_front();  // ga vooruit
         }
       } 
-      else  // 両側が50cm以上の場合、ランダムに左または右に回転
+      else  // als beide zijden groter dan of gelijk aan 50cm zijn, draai willekeurig naar links of rechts
       {
-        if ((long) (random2) % (long) (2) == 0)  // ランダム数が偶数の場合
+        if ((long) (random2) % (long) (2) == 0)  // wanneer het willekeurige getal even is
         {
           procedure(90);
-          Car_left(); // タンクロボットが左に回転
+          Car_left(); // tankrobot draait naar links
           delay(500);
-          Car_front(); // 前に進む
+          Car_front(); // ga vooruit
         } 
         else 
         {
           procedure(90);
-          Car_right(); // ロボットが右に回転
+          Car_right(); // robot draait naar rechts
           delay(500);
-          Car_front(); // 前に進む
+          Car_front(); // ga vooruit
        }
      }
   } 
-  else  // 前方の距離が20cm以上の場合、ロボットカーが前に進む
+  else  // als de voorafstand groter dan of gelijk aan 20cm is, gaat de robotauto vooruit
   {
-      Car_front(); // 前に進む
+      Car_front(); // ga vooruit
   }
 }
 ```
 
- **テスト結果**
+ **Testresultaat**
 
-コードのアップロードが成功し、DIPスイッチを右端に切り替えて電源を入れると、タンクロボットが前に進み、自動的に障害物を回避します。
+Code succesvol geüpload, DIP-schakelaar staat op de rechterkant en voeding ingeschakeld, tankrobot gaat vooruit en vermijdt automatisch het obstakel.
