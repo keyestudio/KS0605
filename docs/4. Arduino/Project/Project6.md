@@ -1,49 +1,49 @@
-# Progetto 6 Ricezione IR
+# プロジェクト6 IR受信
 
-**Descrizione**
+**説明**
 
-Non c'è dubbio che il telecomando a infrarossi sia onnipresente nella vita quotidiana. Viene utilizzato per controllare vari elettrodomestici, come televisori, stereo, videoregistratori e ricevitori di segnali satellitari. Il telecomando a infrarossi è composto da sistemi di trasmissione e ricezione a infrarossi, cioè un telecomando a infrarossi, un modulo ricevitore a infrarossi e un microcontrollore a chip singolo in grado di decodificare.
+赤外線リモコンが日常生活に普及していることは疑いの余地がありません。テレビ、ステレオ、ビデオレコーダー、衛星信号受信機など、様々な家電製品の制御に使用されています。赤外線リモコンは赤外線送信システムと赤外線受信システムで構成されており、つまり赤外線リモコンと赤外線受信モジュール、およびデコード機能を持つシングルチップマイクロコンピュータで構成されています。
 
 ![](media/image-20250908155801467.png)
 
-Il segnale portante a infrarossi da 38K emesso dal telecomando viene codificato dal chip di codifica nel telecomando. È composto da una sezione di codice pilota, codice utente, codice inverso utente, codice dati e codice inverso dati. L'intervallo di tempo dell'impulso viene utilizzato per distinguere se si tratta di un segnale 0 o 1 e la codifica è composta da questi segnali 0, 1.
+リモコンから送出される38K赤外線キャリア信号は、リモコン内のエンコーディングチップによってエンコードされます。これはパイロットコード、ユーザーコード、ユーザー逆コード、データコード、およびデータ逆コードのセクションで構成されています。パルスの時間間隔は、0または1の信号であるかを区別するために使用され、エンコーディングはこれらの0、1信号で構成されています。
 
-Il codice utente dello stesso telecomando rimane invariato mentre il codice dati può distinguere il tasto.
+同じリモコンのユーザーコードは変わりませんが、データコードはキーを区別することができます。
 
-Quando si preme il pulsante del telecomando, il telecomando invia un segnale portante a infrarossi. Quando il ricevitore IR riceve il segnale, il programma decodificherà il segnale portante e determinerà quale tasto è stato premuto. L'MCU decodifica il segnale 01 ricevuto, determinando così quale tasto è stato premuto dal telecomando.
+リモコンのボタンが押されると、リモコンは赤外線キャリア信号を送出します。IR受信機が信号を受け取ると、プログラムはキャリア信号をデコードし、どのキーが押されたかを判定します。MCUは受け取った01信号をデコードすることで、リモコンのどのキーが押されたかを判定します。
 
-Il ricevitore a infrarossi che utilizziamo è un modulo ricevitore a infrarossi. Principalmente composto da una testina ricevitore a infrarossi, è un dispositivo che integra ricezione, amplificazione e demodulazione. Il suo IC interno ha completato la demodulazione e può ottenere dalla ricezione a infrarossi all'output ed è compatibile con i segnali TTL.
+使用する赤外線受信機は赤外線受信モジュールです。主に赤外線受信ヘッドで構成されており、受信、増幅、復調を統合したデバイスです。その内部ICは復調を完了しており、赤外線受信から出力までを実現でき、TTL信号と互換性があります。
 
-Inoltre, è adatto per il telecomando a infrarossi e la trasmissione dati a infrarossi. Il modulo ricevente a infrarossi realizzato dal ricevitore ha solo tre pin: linea di segnale, VCC e GND. È molto conveniente per comunicare con Arduino e altri microcontrollori.
+さらに、赤外線リモコンおよび赤外線データ伝送に適しています。受信機で製造された赤外線受信モジュールはわずか3本のピン、信号線、VCC、GNDのみを持っています。Arduinoおよび他のマイクロコントローラとの通信が非常に便利です。
 
-**Specifiche**
+**仕様**
 
 ![](media/image-20250908160124669.png)
 
 ![](media/image-20250908160132699.png)
 
-- Tensione di funzionamento: 3,3-5V（DC）
-- Interfaccia: 3PIN
-- Segnale di uscita: Segnale digitale
-- Angolo di ricezione: 90 gradi
-- Frequenza: 38khz
-- Distanza di ricezione: 10m
+- 動作電圧: 3.3-5V（DC）
+- インターフェース: 3PIN
+- 出力信号: デジタル信号
+- 受信角度: 90度
+- 周波数: 38khz
+- 受信距離: 10m
 
-**Componenti**
+**コンポーネント**
 
 ![](media/image-20250908160309873.png)
 
-**Diagramma di collegamento**
+**接続図**
 
 ![](media/image-20250908160331260.png)
 
-Collegare rispettivamente "-", "+" e S del modulo ricevitore IR con G(GND), V(VCC) e A0 della scheda di sviluppo keyestudio.
+IR受信モジュールの「-」、「+」、Sをそれぞれkeyestudio開発ボードのG（GND）、V（VCC）、A0に接続します。
 
-**Attenzione:** Nel caso in cui le porte digitali non siano disponibili, le porte analogiche possono essere considerate come porte digitali. A0 equivale a D14, A1 è equivalente al digitale 15.
+**注意:** デジタルポートが利用できない場合、アナログポートをデジタルポートとして使用できます。A0はD14に相当し、A1はデジタル15に相当します。
 
-**Codice di test**
+**テストコード**
 
-Innanzitutto importare il file della libreria del modulo ricevitore IR (fare riferimento a come importare il file della libreria Arduino) prima di progettare il codice.
+コードを設計する前に、まずIR受信モジュールのライブラリファイルをインポートしてください（Arduinoライブラリファイルのインポート方法を参照）。
 
 ```c
 /*
@@ -52,44 +52,44 @@ lesson 6
 IRremote
 http://www.keyestudio.com
 */ 
-#include <IRremoteTank.h>     // Dichiarazione della libreria IRremote
-int RECV_PIN = A0;        // Definire i pin del ricevitore IR come A0
+#include <IRremoteTank.h>     // IRremoteライブラリステートメント
+int RECV_PIN = A0;        // IR受信機のピンをA0として定義
 IRrecv irrecv(RECV_PIN);   
-decode_results results;   // I risultati della decodifica esistono in "result" di "decode results"
+decode_results results;   // デコード結果は「decode results」の「result」に存在
 void setup()  
   {
       Serial.begin(9600);  
-      irrecv.enableIRIn(); // Abilita il ricevitore
+      irrecv.enableIRIn(); // 受信機を有効にする
   }  
  void loop() {  
-    if (irrecv.decode(&results))// Decodifica riuscita, ricevi un set di segnali a infrarossi
+    if (irrecv.decode(&results))// デコード成功、赤外線信号のセットを受信
     {  
-      Serial.println(results.value, HEX);// Avvolgi la parola in 16 HEX per output e ricevi il codice
-      irrecv.resume(); // Ricevi il valore successivo
+      Serial.println(results.value, HEX);// 16進数でワードをラップして出力し、受信コードを表示
+      irrecv.resume(); // 次の値を受信
     }  
     delay(100);  
   }
 ```
 
-**Risultato del test**
+ **テスト結果**
 
-Carica il codice di test, apri il monitor seriale e imposta la velocità in baud a 9600, punta il telecomando al ricevitore IR e verrà visualizzato il valore corrispondente. Se premi a lungo, appariranno codici di errore.
+テストコードをアップロードし、シリアルモニターを開いてボーレートを9600に設定し、リモコンをIR受信機に向けると、対応する値が表示されます。長く押し続けると、エラーコードが表示されます。
 
 ![](media/image-20250908160550590.png)
 
-Di seguito abbiamo elencato il valore di ogni pulsante del telecomando keyestudio. Puoi conservarlo come riferimento.
+以下は、keyestudioリモコンの各ボタン値をリストアップしたものです。参考のために保管しておくことができます。
 
 ![](media/image-20250908160603853.png)
 
-**Spiegazione del codice**
+**コード説明**
 
-**irrecv.enableIRIn():** dopo aver abilitato la decodifica IR, i segnali IR verranno ricevuti, quindi la funzione "decode()" controllerà continuamente se la decodifica è riuscita.
+**irrecv.enableIRIn():** IR デコーディングを有効にした後、IR信号が受信され、その後、関数「decode()」は継続的にデコードが成功したかどうかをチェックします。
 
-**irrecv.decode(&results):** dopo aver decodificato con successo, questa funzione tornerà a "true" e manterrà il risultato in "results". Dopo aver decodificato un segnale IR, esegui la funzione resume() e ricevi il segnale successivo.
+**irrecv.decode(&results):** デコードが成功した後、この関数は「true」を返し、結果を「results」に保持します。IR信号をデコードした後、resume()関数を実行して次の信号を受信します。
 
-**Pratica di estensione**
+**拡張練習**
 
-Abbiamo decodificato il valore del tasto del telecomando IR. Che ne dici di controllare il LED dal valore misurato? Potremmo eseguire un esperimento per confermarlo. Collega un LED a D10, quindi premi i tasti del telecomando per accendere e spegnere il LED.
+IRリモコンのキー値をデコードしました。測定値でLEDを制御するのはどうでしょうか？実験を行って確認することができます。LEDをD10に接続し、リモコンのキーを押してLEDのオン・オフを制御します。
 
 ![](media/image-20250908160749345.png)
 
@@ -100,8 +100,8 @@ IRremote
 http://www.keyestudio.com
 */ 
 #include <IRremoteTank.h>
-int RECV_PIN = A0;// Definire il pin del ricevitore IR come A0
-int LED_PIN=10;// Definire il pin del LED
+int RECV_PIN = A0;// IR受信機のピンをA0として定義
+int LED_PIN=10;// LEDのピンを定義
 int a=0;
 IRrecv irrecv(RECV_PIN);
 decode_results results;
@@ -109,28 +109,28 @@ decode_results results;
 void setup()
 {
   Serial.begin(9600);
-  irrecv.enableIRIn(); // Inizializza il ricevitore IR
-  pinMode(LED_PIN,OUTPUT);// Imposta il pin del LED a 4
+  irrecv.enableIRIn(); // IR受信機を初期化
+  pinMode(LED_PIN,OUTPUT);// LEDのピンを出力に設定
 }
 
 void loop() 
 {
   if (irrecv.decode(&results)) 
   {
-	Serial.println(results.value, HEX);// Avvolgi la parola in 16 HEX per output e ricevi il codice
-	if(results.value==0xFF02FD &a==0) // Secondo il valore del tasto sopra, premi "OK" sul telecomando, il LED sarà controllato
+	Serial.println(results.value, HEX);// 16進数でワードをラップして出力し、受信コードを表示
+	if(results.value==0xFF02FD &a==0) // 上記のキー値に従い、リモコンの「OK」を押すと、LEDが制御されます
 	{
-		digitalWrite(LED_PIN,HIGH);// Il LED si accenderà
+		digitalWrite(LED_PIN,HIGH);// LEDがオンになります
 		a=1;
 	}
-	else if(results.value==0xFF02FD &a==1) // Premi di nuovo
+	else if(results.value==0xFF02FD &a==1) // もう一度押す
 	{
-        digitalWrite(LED_PIN,LOW);// Il LED si spegnerà
+        digitalWrite(LED_PIN,LOW);// LEDがオフになります
         a=0;	
 	}
-	irrecv.resume(); // Ricevi il valore successivo
+	irrecv.resume(); // 次の値を受信
   }
 }
 ```
 
-Carica il codice sulla scheda di sviluppo, premi il tasto "OK" sul telecomando per accendere e spegnere il LED.
+開発ボードにコードをアップロードし、リモコンの「OK」キーを押してLEDのオン・オフを制御します。

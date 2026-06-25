@@ -1,51 +1,51 @@
-# Progetto 3 Sensore Fotoresistenza
+# プロジェクト3 フォトレジスタセンサー
 
 ![](./media/image-20250902173047302.png)
 
- **Descrizione**
+ **説明**
 
-La fotoresistenza è una resistenza speciale realizzata con materiali semiconduttori come CdS o setto di Selenio. La superficie è inoltre rivestita con resina impermeabile, che ha un effetto fotoconducente. È sensibile alla luce ambientale. La sua resistenza varia in base alle diverse intensità luminose.
+フォトレジスタは、CdSやセレン化合物などの半導体材料で作られた特殊な抵抗です。表面は防湿樹脂でコーティングされており、光導電効果を持っています。周囲の光に敏感で、その抵抗値は異なる光の強度によって変わります。
 
-Utilizziamo le caratteristiche della fotoresistenza per progettare il circuito e generare il modulo fotoresistenza.
+フォトレジスタの特性を利用して回路を設計し、フォトレジスタモジュールを生成します。
 
-Collegando il pin del segnale del modulo fotocellula alla porta Analogica, scoprirai che più forte è l'intensità luminosa, maggiore è la tensione della porta analogica e maggiore è il valore analogico.
+フォトセルモジュールの信号ピンをアナログポートに接続すると、光の強度が強いほどアナログポートの電圧が大きくなり、アナログ値も大きくなることがわかります。
 
-Al contrario, più debole è l'intensità luminosa, minore è la tensione della porta analogica, minore è il valore analogico.
+逆に、光の強度が弱いほどアナログポートの電圧が小さくなり、アナログ値も小さくなります。
 
-In base a ciò, possiamo utilizzare il modulo fotocellula per leggere il valore analogico e ottenere così l'intensità della luce ambientale.
+これに基づいて、フォトセルモジュールを使用してアナログ値を読み取り、周囲の光の強度を取得することができます。
 
- **Specifiche**
+ **仕様**
 
 ![](./media/image-20250902173349950.png)
 
-- Resistenza: 5K ohm-0.5Mohm
-- Tipo di interfaccia: analogica
-- Tensione di lavoro: 3.3V-5V
-- Installazione facile: con fori di fissaggio a vite
-- Spaziatura dei pin: 2.54mm
+- 抵抗値：5K ohm～0.5Mohm
+- インターフェースタイプ：アナログ
+- 動作電圧：3.3V～5V
+- 簡単な取り付け：ネジ固定穴付き
+- ピン間隔：2.54mm
 
- **Componenti**
+ **部品**
 
 ![](./media/image-20250902173528860.png)
 
- **Diagramma di collegamento:**
+ **接続図：**
 
 ![](./media/image-20250902173558747.png)
 
-I due sensori fotoresistenza sono collegati con A1 e A2, quindi completare l'esperimento tramite la fotoresistenza collegata ad A1. Leggiamo il suo valore analogico.
+2つのフォトレジスタセンサーはA1とA2に接続されており、A1に接続されたフォトレジスタを通じて実験を完了します。そのアナログ値を読み取ってみましょう。
 
-**Codice di prova**
+**テストコード**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lezione 3.1
- fotocellula
+ lesson 3.1
+ photocell
  http://www.keyestudio.com
 */
 
-int sensorPin = A1;    // seleziona il pin di ingresso per la fotocellula
-int sensorValue = 0;  // variabile per memorizzare il valore proveniente dal sensore
+int sensorPin = A1;    // フォトセルの入力ピンを選択
+int sensorValue = 0;  // センサーから来た値を格納する変数
 void setup() 
 {
 	Serial.begin(9600);
@@ -53,45 +53,45 @@ void setup()
 
 void loop() 
 {
-    sensorValue = analogRead(sensorPin);  // leggi il valore dal sensore:
-    Serial.println(sensorValue);  // la porta seriale stampa il valore di resistenza
+    sensorValue = analogRead(sensorPin);  // センサーから値を読み取る
+    Serial.println(sensorValue);  // シリアルポートに抵抗値を出力
     delay(500);
 }
 //******************************************************
 ```
 
- **Risultato della prova**
+ **テスト結果**
 
-Carica il codice sulla scheda di sviluppo, apri il monitor seriale e verifica se il suo valore diminuisce quando copri la fotoresistenza. Tuttavia, il valore aumenta quando è scoperta.
+開発ボードにコードをアップロードし、シリアルモニターを開いて、フォトレジスタを覆うと値が減少し、覆わないと値が増加することを確認します。
 
 ![](./media/image-20250902174159923.png)
 
-**Spiegazione del codice**
+**コード説明**
 
-**analogRead(sensorPin):** leggi il valore analogico della fotoresistenza tramite le porte analogiche.
+**analogRead(sensorPin)：** アナログポート経由でフォトレジスタのアナログ値を読み取ります。
 
-**Serial.begin(9600):** Inizializza la porta seriale, la velocità di trasmissione della comunicazione seriale è 9600.
+**Serial.begin(9600):** シリアルポートを初期化し、シリアル通信のボーレートは9600です。
 
-**Serial.println:** La porta seriale stampa e va a capo.
+**Serial.println** ：シリアルポートに出力して改行します。
 
-**Pratica di estensione**
+**応用練習**
 
-Abbiamo imparato come leggere il valore della fotoresistenza. Combiniamo la fotoresistenza con un LED e osserviamo lo stato del LED.
+フォトレジスタの値を読み取る方法を学びました。次に、フォトレジスタとLEDを組み合わせて、LEDの状態を確認してみましょう。
 
 ![](./media/image-20250902174256941.png)
 
-PWM limita la luminosità, quindi il LED è collegato ai pin PWM. Collega il LED al pin 10, mantieni il pin della fotoresistenza invariato, quindi progetta il codice:
+PWMは明るさを制御するため、LEDはPWMピンに接続されます。LEDをピン10に接続し、フォトレジスタのピンは変更せずに、次のようにコードを設計します：
 
 ```c
 /*keyestudio Mini Tank Robot V2.1
-lezione 3.2
-fotocellula-uscita analogica
+lesson 3.2
+photocell-analog output
 http://www.keyestudio.com
 */
-int analogInPin = A1;  // pin di ingresso analogico a cui è collegata la fotocellula
-int analogOutPin = 10; // pin di uscita analogica a cui è collegato il LED
-int sensorValue = 0;        // valore letto dal potenziometro
-int outputValue = 0;        // valore in uscita al PWM (uscita analogica)
+int analogInPin = A1;  // フォトセルが接続されているアナログ入力ピン
+int analogOutPin = 10; // LEDが接続されているアナログ出力ピン
+int sensorValue = 0;        // ポテンショメータから読み取った値
+int outputValue = 0;        // PWM（アナログ出力）に出力する値
 
 void setup() 
 {
@@ -99,18 +99,18 @@ void setup()
  }
 void loop() 
 {
-  // leggi il valore di ingresso analogico:
+  // アナログ入力値を読み取る：
   sensorValue = analogRead(analogInPin);
-  // mappalo nell'intervallo dell'uscita analogica:
+  // アナログ出力の範囲にマッピングする：
   outputValue = map(sensorValue, 0, 1023, 0, 255);
-  // cambia il valore di uscita analogica:
+  // アナログ出力値を変更する：
   analogWrite(analogOutPin, outputValue);
-  // attendi 2 millisecondi prima del prossimo ciclo affinché il convertitore
-  // analogico-digitale si stabilizzi dopo l'ultima lettura:
- Serial.println(sensorValue);  // la porta seriale stampa il valore della fotoresistenza
+  // 最後の読み取り後、アナログ-デジタル変換器が安定するまで
+  // 2ミリ秒待機する：
+ Serial.println(sensorValue);  // シリアルポートにフォトレジスタの値を出力
  delay(2);
 }
 //***************************************************************
 ```
 
-Carica il codice, premi con la mano per osservare la luminosità del LED.
+コードをアップロードし、手で押さえてLEDの明るさを観察します。

@@ -1,57 +1,57 @@
 4. Arduino
 ==========
 
-Ecco la traduzione in italiano del contenuto, mantenendo inalterati i formati delle immagini, degli URL e dei tag di download:
+图片、网址などのフォーマットを一切変更せず、内容のみを日本語に翻訳しました。
 
-4.1 Download dei dati
----------------------
-
-Le informazioni su Arduino contengono i file delle librerie e il codice del progetto, clicca per scaricare i file per i successivi studi.
-
-Download dei dati: :download:`Arduino Data <./Arduino.7z>`
-
-Download dell'APP:
-
-Download di Tank Car per Android: `Tank
-Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
-
-Download di HC_BLE: :download:`APP <./APP.7z>`
-
-4.2 Download del Software
+4.1 データのダウンロード
 -------------------------
 
-Una volta ricevuta la scheda di controllo, è necessario scaricare innanzitutto l'IDE di Arduino e i driver.
+Arduinoの情報には、ライブラリファイルとプロジェクトコードが含まれています。今後の学習のために、クリックしてダウンロードしてください。
 
-Puoi scaricare l'IDE di Arduino dal sito ufficiale:
+データのダウンロード: :download:`Arduino Data <./Arduino.7z>`
+
+アプリのダウンロード:
+
+Tank Car Android版のダウンロード: `Tank
+Car <https://xiazai.keyesrobot.cn/APP/Tank%20Car.apk>`__
+
+HC_BLEのダウンロード: :download:`APP <./APP.7z>`
+
+4.2 ソフトウェアのダウンロード
+------------------------------
+
+コントロールボードを入手したら、まずArduino IDEとドライバをダウンロードする必要があります。
+
+Arduino IDEは公式サイトからダウンロードできます:
 https://www.arduino.cc/en/software.
 
-Esistono varie versioni per Arduino, scarica semplicemente la versione adatta al tuo sistema; prenderemo il sistema WINDOWS come esempio per mostrarti come scaricare e installare il programma.
+Arduinoにはさまざまなバージョンがありますので、ご使用のシステムに合ったバージョンをダウンロードしてください。ここでは、WINDOWSシステムを例にとって、ダウンロードとインストールの方法をご説明します。
 
 |image1|
 
-Devi solo cliccare su JUSTDOWNLOAD, quindi fare clic sul file scaricato per installarlo.
+「JUSTDOWNLOAD」をクリックし、ダウンロードしたファイルをクリックしてインストールするだけです。
 
-Inoltre, quando il file ZIP è stato scaricato, puoi decomprimerlo e avviarlo direttamente.
+また、ZIPファイルがダウンロードされた場合は、直接解凍して起動することができます。
 
 |image2|
 
-4.3 Configurazione dell'IDE di Arduino
---------------------------------------
+4.3 Arduino IDEの設定
+---------------------
 
-Collega la scheda al computer.
+ボードをコンピュータに接続します。
 
 |image3|
 
-4.4 Aggiunta di una Libreria
-----------------------------
+4.4 ライブラリの追加
+--------------------
 
-Cosa sono le Librerie?
+ライブラリとは何ですか？
 
-Le librerie sono raccolte di codice che ti permettono di collegarti facilmente a un sensore, display, modulo, ecc.
+ライブラリは、センサー、ディスプレイ、モジュールなどに簡単に接続できるようにするためのコードの集合体です。
 
-Ci sono centinaia di librerie aggiuntive disponibili su Internet per il download.
+インターネット上には、ダウンロードできる追加のライブラリが数百種類あります。
 
-Ti mostreremo il modo più semplice per aggiungere le librerie.
+ここでは、ライブラリを追加する最も簡単な方法をご紹介します。
 
 |image4|
 
@@ -61,7 +61,7 @@ Ti mostreremo il modo più semplice per aggiungere le librerie.
 .. |image4| image:: ./media/20250910193751.gif
 
 
-4.5 Progetti
+4.5 プロジェクト
 ---------------
 
 .. toctree::

@@ -1,43 +1,43 @@
-# Progetto 12 Carro Seguente a Ultrasuoni
+# プロジェクト12 超音波追従タンク
 
 ![](media/image-20250908172315808.png)
 
-**Descrizione**
+**説明**
 
-Nel progetto 11, abbiamo realizzato un'auto che evita gli ostacoli. In realtà, abbiamo solo bisogno di modificare il codice di test per trasformare un'auto che evita gli ostacoli in un'auto seguente. In questa lezione, realizzeremo un robot seguente a ultrasuoni. Il sensore a ultrasuoni rileva la distanza tra lo smart car e l'ostacolo per guidare il carro serbatoio a muoversi.
+プロジェクト11では、障害物回避カーを作成しました。実は、テストコードを少し変更するだけで、障害物回避カーを追従カーに変換することができます。このレッスンでは、超音波追従ロボットを作成します。超音波センサーはスマートカーと障害物の間の距離を検出し、タンクカーを動かします。
 
-**La logica specifica del robot seguente a ultrasuoni è mostrata di seguito:**
+**超音波追従ロボットの具体的なロジックは以下の通りです：**
 
-| **Rilevamento** | **Distanza misurata degli ostacoli frontali** | **Distanza (unità: cm)** |
-| --------------- | --------------------------------------------- | ----------------------- |
-| Impostazioni    | Angolo servo 90°                              |                         |
-|                 | Pannello LED 8X16 mostra l'icona "V"         |                         |
-| Se              | 20≤ distanza ≤60                              |                         |
-| Stato           | Vai avanti（imposta PWM a 200）               |                         |
-| Se              | 10\<distanza＜20                              |                         |
-|                 | distanza＞60                                  |                         |
-| Stato           | Ferma                                         |                         |
-| Se              | distanza ≤10                                  |                         |
-| Stato           | Ferma（imposta PWM a 200）                    |                         |
+| **検出** | **前方障害物の測定距離** | **距離（単位：cm）** |
+| ------------- | ---------------------------------------- | ----------------------- |
+| 設定      | サーボ角度90°                          |                         |
+|               | 8X16 LEDパネルに「V」アイコンを表示        |                         |
+| 条件            | 20≤ 距離 ≤60                         |                         |
+| 状態        | 前進（PWMを200に設定）               |                         |
+| 条件            | 10\<距離＜20                         |                         |
+|               | 距離＞60                             |                         |
+| 状態        | 停止                                     |                         |
+| 条件            | 距離 ≤10                             |                         |
+| 状態        | 後退（PWMを200に設定）                   |                         |
 
-**Diagramma di flusso**
+**フローチャート**
 
 ![](media/image-20250908172442991.png)
 
-**Diagramma di Collegamento**
+**接続図**
 
 ![](media/image-20250908172457017.png)
 
-Nota sul collegamento:
+配線に関する注意：
 
-| Pannello LED 8x16 |      | Sensore V5 Shield |
-| ----------------- | ---- | ----------------- |
-| GND               | →    | -（GND）          |
-| VCC               | →    | +（VCC）          |
-| SDA               | →    | SDA               |
-| SCL               | →    | SCL               |
+| 1.8x16 LEDパネル |      | V5 センサーシールド |
+| ---------------- | ---- | ---------------- |
+| GND              | →    | -（GND）         |
+| VCC              | →    | +（VCC）         |
+| SDA              | →    | SDA              |
+| SCL              | →    | SCL              |
 
-**Codice di Test**
+**テストコード**
 
 ```c
  /*
@@ -46,7 +46,7 @@ Nota sul collegamento:
  ultrasonic follow tank
  http://www.keyestudio.com
 */ 
-//Array, utilizzato per memorizzare i dati del pattern, può essere calcolato da te o ottenuto dallo strumento modulo
+// 配列、パターンのデータを保存するために使用されます。自分で計算するか、モジュラスツールから取得できます
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -54,26 +54,26 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  //Imposta il pin dell'orologio su A5
-#define SDA_Pin  A4  //Imposta il pin dei dati su A4
+#define SCL_Pin  A5  // クロックピンをA5に設定
+#define SDA_Pin  A4  // データピンをA4に設定
 
-#define ML_Ctrl 13  //definisci il pin di controllo della direzione del motore sinistro
-#define ML_PWM 11   //definisci il pin di controllo PWM del motore sinistro
-#define MR_Ctrl 12  //definisci il pin di controllo della direzione del motore destro
-#define MR_PWM 3   //definisci il pin di controllo PWM del motore destro
-#define Trig 5  //pin Trig ultrasuoni
-#define Echo 4  //pin Echo ultrasuoni
+#define ML_Ctrl 13  // 左モーターの方向制御ピンを定義
+#define ML_PWM 11   // 左モーターのPWM制御ピンを定義
+#define MR_Ctrl 12  // 右モーターの方向制御ピンを定義
+#define MR_PWM 3   // 右モーターのPWM制御ピンを定義
+#define Trig 5  // 超音波トリガーピン
+#define Echo 4  // 超音波エコーピン
 int distance;
 int pulsewidth;
-#define servoPin 9  //pin servo
+#define servoPin 9  // サーボピン
 void setup(){
   Serial.begin(9600);
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear); //Cancella il display
-  matrix_display(start01);  //mostra il pattern di avvio
+  matrix_display(clear); // ディスプレイをクリア
+  matrix_display(start01);  // スタートパターンを表示
   pinMode(servoPin, OUTPUT);
-  procedure(90); //imposta il servo a 90°
+  procedure(90); // サーボを90°に設定
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
   pinMode(ML_Ctrl, OUTPUT);
@@ -82,25 +82,25 @@ void setup(){
   pinMode(MR_PWM, OUTPUT);
 }
 void loop(){
-  distance = checkdistance();  //assegna la distanza rilevata dal sensore a ultrasuoni a distance
-  if (distance >= 20 && distance <= 60) //intervallo per andare avanti
+  distance = checkdistance();  // 超音波センサーで検出した距離をdistanceに代入
+  if (distance >= 20 && distance <= 60) // 前進する範囲
   {
     Car_front();
   }
-  else if (distance > 10 && distance < 20)  //intervallo per fermarsi
+  else if (distance > 10 && distance < 20)  // 停止する範囲
   {
     Car_Stop();
   }
-  else if (distance <= 10)  //intervallo per andare indietro
+  else if (distance <= 10)  // 後退する範囲
   {
     Car_back();
   }
-  else  //altre situazioni, ferma
+  else  // その他の状況では停止
   {
     Car_Stop();
   }
 }
-/***********la funzione per il funzionamento del motore****************/
+/***********モーター動作用の関数****************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -137,26 +137,26 @@ void Car_Stop()
   analogWrite(ML_PWM,0);
 }
 
-/******************dot matrix********************/
-// la funzione per il display della matrice di punti
+/******************ドットマトリックス********************/
+// ドットマトリックス表示用の関数
 void matrix_display(unsigned char matrix_value[])
 {
-  IIC_start(); // chiama la funzione che inizia la trasmissione dei dati
-  IIC_send(0xc0);  //Scegli l'indirizzo
+  IIC_start(); // データ送信開始の関数を呼び出し
+  IIC_send(0xc0);  // アドレスを選択
   
-  for(int i = 0;i < 16;i++) //i dati del pattern hanno 16 bit
+  for(int i = 0;i < 16;i++) // パターンデータは16ビット
   {
-     IIC_send(matrix_value[i]); //dati per trasmettere i pattern
+     IIC_send(matrix_value[i]); // パターンを伝達するデータ
   }
 
-  IIC_end();   //termina la trasmissione del pattern di dati
+  IIC_end();   // データパターン伝達を終了
   
   IIC_start();
-  IIC_send(0x8A);  //seleziona la larghezza dell'impulso 4/16, controlla il display
+  IIC_send(0x8A);  // パルス幅4/16を選択し、表示を制御
   IIC_end();
 }
 
-//La condizione per iniziare a trasmettere i dati
+// データ送信開始の条件
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -167,14 +167,14 @@ void IIC_start()
   delayMicroseconds(3);
 }
 
-// trasmetti i dati
+// データを送信
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  //Ogni byte ha 8 bit
+  for(char i = 0;i < 8;i++)  // 各バイトは8ビット
   {
-      digitalWrite(SCL_Pin,LOW);  //abbassa il pin dell'orologio SCL Pin per cambiare i segnali di SDA      
+      digitalWrite(SCL_Pin,LOW);  // クロックピンSCL_Pinを下げてSDAの信号を変更      
 delayMicroseconds(3);
-      if(send_data & 0x01)  //imposta il livello alto e basso di SDA_Pin secondo 1 o 0 di ogni bit
+      if(send_data & 0x01)  // 各ビットの1または0に応じてSDA_Pinの高低レベルを設定
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -183,12 +183,12 @@ delayMicroseconds(3);
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); //alza il pin dell'orologio SCL_Pin per smettere di trasmettere i dati
+      digitalWrite(SCL_Pin,HIGH); // クロックピンSCL_Pinを上げてデータ送信を停止
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // rileva bit per bit, quindi sposta i dati a destra di uno
+      send_data = send_data >> 1;  // ビットごとに検出するため、データを1ビット右にシフト
   }
 }
-//Il segno che la trasmissione dei dati termina
+// データ送信終了の合図
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -200,8 +200,8 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/***************fine del display della matrice di punti******************/
-//La funzione per controllare il servo
+/***************ドットマトリックス表示終了******************/
+// サーボを制御する関数
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -210,20 +210,20 @@ void procedure(int myangle) {
     digitalWrite(servoPin,LOW);
     delay((20 - pulsewidth / 1000));
   }}
-//La funzione per controllare la funzione del sensore a ultrasuoni che controlla gli ultrasuoni
+// 超音波センサー制御関数 超音波を制御する関数
 float checkdistance() {
   digitalWrite(Trig, LOW);
   delayMicroseconds(2);
   digitalWrite(Trig, HIGH);
   delayMicroseconds(10);
   digitalWrite(Trig, LOW);
-  float distance = pulseIn(Echo, HIGH) / 58.20;  //58.20, cioè, 2*29.1=58.2
+  float distance = pulseIn(Echo, HIGH) / 58.20;  // 58.20、つまり、2*29.1=58.2
   delay(10);
   return distance;
 }
-//****************************************************************
+// ****************************************************************
 ```
 
- **Risultato del Test**
+ **テスト結果**
 
-Carica il codice con successo, l'interruttore DIP è ruotato all'estremità destra, il servo ruota a 90°, "V" è mostrato sul pannello LED 8X16 e lo smart car si muove mentre l'ostacolo si muove.
+コードをアップロードしました。DIPスイッチを右端に切り替え、サーボが90°に回転し、8X16 LEDパネルに「V」が表示され、スマートカーが障害物に応じて動きます。

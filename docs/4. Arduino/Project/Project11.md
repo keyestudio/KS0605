@@ -1,31 +1,31 @@
-# Progetto 11 Serbatoio di Evitamento Ultrasonico
+# プロジェクト11 超音波回避タンク
 
 ![](media/image-20250908171729897.png)
 
-**Descrizione**
+**説明**
 
-In questo programma, il sensore ultrasonico rileva la distanza dell'ostacolo per inviare segnali che controllano l'auto robot. Successivamente, ti mostreremo come realizzare un'auto con evitamento degli ostacoli.
+このプログラムでは、超音波センサーが障害物までの距離を検出し、ロボットカーを制御するシグナルを送信します。次に、障害物回避カーの作り方を説明します。
 
-**La logica specifica del robot di evitamento ultrasonico è mostrata di seguito:**
+**超音波回避ロボットの具体的なロジックは以下の通りです：**
 
 ![](media/image-20250908171756879.png)
 
- **Diagramma di flusso**
+ **フローチャート**
 
 ![](media/image-20250908171812532.png)
 
-**Diagramma di Connessione:**
+**接続図：**
 
 ![](media/image-20250908171829321.png)
 
-Nota: i pin "-", "+" e "S" del servo sono rispettivamente collegati a G（GND）, V（VCC）e D9 della scheda di espansione. VCC, Trig, Echo e Gnd del sensore ultrasonico sono collegati con 5v(V), 5(S), Echo e Gnd(G) della scheda di espansione.
+注：サーボの「-」、「+」、「S」ピンはそれぞれ拡張ボードのG（GND）、V（VCC）、D9に接続されています。超音波センサーのVCC、Trig、Echo、Gndは拡張ボードの5v(V)、5(S)、Echo、Gnd(G)に接続されています。
 
-**Codice di Test:**
+**テストコード：**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lezione 11
+ lesson 11
  ultrasonic_avoid_tank
  http://www.keyestudio.com
 */
@@ -33,17 +33,17 @@ int random2;
 int a;
 int a1;
 int a2;
-#define ML_Ctrl 13  //definire il pin di controllo della direzione del motore sinistro
-#define ML_PWM 11   //definire il pin di controllo PWM del motore sinistro
-#define MR_Ctrl 12  //definire il pin di controllo della direzione del motore destro
-#define MR_PWM 3   //definire il pin di controllo PWM del motore destro
+#define ML_Ctrl 13  // 左モーターの方向制御ピンを定義
+#define ML_PWM 11   // 左モーターのPWM制御ピンを定義
+#define MR_Ctrl 12  // 右モーターの方向制御ピンを定義
+#define MR_PWM 3   // 右モーターのPWM制御ピンを定義
 
-#define Trig 5  //pin Trig ultrasonico
-#define Echo 4  //pin Echo ultrasonico
+#define Trig 5  // 超音波トリガーピン
+#define Echo 4  // 超音波エコーピン
 int distance;
-#define servoPin 9  //pin Servo
+#define servoPin 9  // サーボピン
 int pulsewidth;
-/************la funzione per far funzionare il motore**************/
+/************モーターを実行する関数**************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -80,7 +80,7 @@ void Car_Stop()
   analogWrite(ML_PWM,0);
 }
 
-//La funzione per controllare il servo
+// サーボを制御する関数
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -90,21 +90,21 @@ void procedure(int myangle) {
     delay((20 - pulsewidth / 1000));
   }
 }
-//La funzione per controllare il sensore ultrasonico
+// 超音波センサーを制御する関数
 float checkdistance() {
   digitalWrite(Trig, LOW);
   delayMicroseconds(2);
   digitalWrite(Trig, HIGH);
   delayMicroseconds(10);
   digitalWrite(Trig, LOW);
-  float distance = pulseIn(Echo, HIGH) / 58.00;  //58.20, cioè, 2*29.1=58.2
+  float distance = pulseIn(Echo, HIGH) / 58.00;  // 58.20、つまり2*29.1=58.2
   delay(10);
   return distance;
 }
   //****************************************************************
 void setup(){
   pinMode(servoPin, OUTPUT);
-  procedure(90); //impostare il servo a 90°
+  procedure(90); // サーボを90°に設定
   
   pinMode(Trig, OUTPUT);
   pinMode(Echo, INPUT);
@@ -115,64 +115,64 @@ void setup(){
 }
 void loop(){
   random2 = random(1, 100);
-  a = checkdistance();  //assegnare la distanza frontale rilevata dal sensore ultrasonico alla variabile a
+  a = checkdistance();  // 超音波センサーが検出した前方の距離を変数aに割り当て
   
-  if (a < 20) //quando la distanza frontale rilevata è inferiore a 20 
+  if (a < 20) // 検出された前方の距離が20未満の場合
   {
-      Car_Stop();  //il robot si ferma
-      delay(500); //ritardo di 500ms
-      procedure(160);  //la piattaforma ultrasonica gira a sinistra
-      for (int j = 1; j <= 10; j = j + (1)) { //istruzione for, i dati saranno più accurati se il sensore ultrasonico rileva più volte.
-        a1 = checkdistance();  //assegnare la distanza sinistra rilevata dal sensore ultrasonico alla variabile a1
+      Car_Stop();  // ロボットが停止
+      delay(500); // 500ms遅延
+      procedure(160);  // 超音波プラットフォームが左に回転
+      for (int j = 1; j <= 10; j = j + (1)) { // for文、超音波センサーが複数回検出するとデータがより正確になります
+        a1 = checkdistance();  // 超音波センサーが検出した左方の距離を変数a1に割り当て
       }
       delay(300);
-      procedure(20); //la piattaforma ultrasonica gira a destra
+      procedure(20); // 超音波プラットフォームが右に回転
       for (int k = 1; k <= 10; k = k + (1)) {
-        a2 = checkdistance(); //assegnare la distanza destra rilevata dal sensore ultrasonico alla variabile a2
+        a2 = checkdistance(); // 超音波センサーが検出した右方の距離を変数a2に割り当て
       }
       
-      if (a1 < 50 || a2 < 50)  //il robot girerà verso il lato con distanza maggiore quando la distanza sinistra o destra è inferiore a 50cm. 
+      if (a1 < 50 || a2 < 50)  // 左または右の距離が50cm未満の場合、ロボットはより長い距離の側に回転します
       {
-        if (a1 > a2) //la distanza sinistra è maggiore del lato destro      
+        if (a1 > a2) // 左方の距離が右側より大きい場合
         {
-          procedure(90);  //la piattaforma ultrasonica gira di nuovo verso destra         
-Car_left();  //il robot gira a sinistra
-          delay(500);  //gira a sinistra per 500ms
-          Car_front(); //vai avanti
+          procedure(90);  // 超音波プラットフォームが右前に戻る
+Car_left();  // ロボットが左に回転
+          delay(500);  // 500ms左に回転
+          Car_front(); // 前に進む
         } 
         else 
         {
           procedure(90);
-          Car_right(); //il robot gira a destra
+          Car_right(); // ロボットが右に回転
           delay(500);
-          Car_front();  //vai avanti
+          Car_front();  // 前に進む
         }
       } 
-      else  //Se entrambi i lati sono maggiori o uguali a 50cm, gira a sinistra o a destra casualmente
+      else  // 両側が50cm以上の場合、ランダムに左または右に回転
       {
-        if ((long) (random2) % (long) (2) == 0)  //Quando il numero casuale è pari
+        if ((long) (random2) % (long) (2) == 0)  // ランダム数が偶数の場合
         {
           procedure(90);
-          Car_left(); //il robot serbatoio gira a sinistra
+          Car_left(); // タンクロボットが左に回転
           delay(500);
-          Car_front(); //vai avanti
+          Car_front(); // 前に進む
         } 
         else 
         {
           procedure(90);
-          Car_right(); //il robot gira a destra
+          Car_right(); // ロボットが右に回転
           delay(500);
-          Car_front(); //vai avanti
+          Car_front(); // 前に進む
        }
      }
   } 
-  else  //Se la distanza frontale è maggiore o uguale a 20cm, l'auto robot andrà avanti
+  else  // 前方の距離が20cm以上の場合、ロボットカーが前に進む
   {
-      Car_front(); //vai avanti
+      Car_front(); // 前に進む
   }
 }
 ```
 
- **Risultato del Test**
+ **テスト結果**
 
-Carica il codice con successo, il selettore DIP viene spostato all'estremità destra e accendi l'alimentazione, il robot serbatoio va avanti ed evita automaticamente l'ostacolo.
+コードのアップロードが成功し、DIPスイッチを右端に切り替えて電源を入れると、タンクロボットが前に進み、自動的に障害物を回避します。

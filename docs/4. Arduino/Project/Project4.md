@@ -1,47 +1,47 @@
-# Progetto 4 Controllo del Servo
+# プロジェクト4 サーボ制御
 
 ![](media/image-20250908152354194.png)
 
- **Descrizione**
+ **概要**
 
-Il servomotore è un attuatore rotativo per il controllo della posizione. È composto principalmente da un alloggiamento, una scheda circuito, un motore senza nucleo, un ingranaggio e un sensore di posizione. Il suo principio di funzionamento prevede che il servo riceva il segnale inviato dai microcontrollori o dai ricevitori e produca un segnale di riferimento con un periodo di 20ms e una larghezza di 1,5ms, quindi confronti la tensione di polarizzazione DC acquisita con la tensione del potenziometro per ottenere un'uscita della differenza di tensione.
+サーボモーターは位置制御型の回転アクチュエーターです。主にハウジング、回路基板、コアレスモーター、ギア、および位置センサーで構成されています。その動作原理は、サーボがマイコンや受信機から送られた信号を受け取り、周期20ms・パルス幅1.5msの基準信号を生成し、取得したDCバイアス電圧とポテンショメーターの電圧を比較して電圧差を出力するというものです。
 
-Quando la velocità del motore è costante, il potenziometro viene fatto ruotare attraverso l'ingranaggio riduttore a cascata, il che porta la differenza di tensione a 0 e il motore si ferma. In generale, l'intervallo di rotazione del servo è compreso tra 0° e 180°.
+モーターの速度が一定の場合、ポテンショメーターはカスケード減速ギアを介して回転駆動され、電圧差が0になるとモーターは回転を停止します。一般的に、サーボの回転角度範囲は0°〜180°です。
 
-L'angolo di rotazione del servomotore è controllato regolando il ciclo di lavoro del segnale PWM (Pulse-Width Modulation). Il ciclo standard del segnale PWM è 20ms (50Hz). Teoricamente, la larghezza è distribuita tra 1ms e 2ms, ma in pratica è compresa tra 0,5ms e 2,5ms. La larghezza corrisponde all'angolo di rotazione da 0° a 180°. Si noti tuttavia che per motori di marche diverse, lo stesso segnale può produrre angoli di rotazione differenti.
+サーボモーターの回転角度は、PWM（パルス幅変調）信号のデューティサイクルを調整することで制御されます。PWM信号の標準周期は20ms（50Hz）です。理論上、パルス幅は1ms〜2msの間で分布しますが、実際には0.5ms〜2.5msの範囲となります。このパルス幅が0°〜180°の回転角度に対応しています。ただし、メーカーの異なるモーターでは、同じ信号でも異なる回転角度になる場合があります。
 
 ![](media/image-20250908152510007.png)
 
-In generale, il servo ha tre fili: marrone, rosso e arancione. Il filo marrone è collegato a massa, quello rosso è il polo positivo e quello arancione è il filo del segnale.
+一般的に、サーボには茶色、赤色、オレンジ色の3本の線があります。茶色の線はGND（アース）、赤色の線は電源（プラス極）、オレンジ色の線は信号線です。
 
 ![](media/image-20250908152525491.png)
 
-Gli angoli corrispondenti del servo sono mostrati di seguito:
+サーボの対応角度を以下に示します：
 
 ![](media/image-20250908152558682.png)
 
- **Specifiche tecniche**
+ **仕様**
 
-- Tensione di lavoro: DC 4,8V \~ 6V
-- Intervallo di angolo operativo: circa 180° (a 500 → 2500 μsec)
-- Intervallo di larghezza di impulso: 500 → 2500 μsec
-- Velocità a vuoto: 0,12 ± 0,01 sec / 60 (DC 4,8V) 0,1 ± 0,01 sec / 60 (DC 6V)
-- Corrente a vuoto: 200 ± 20mA (DC 4,8V) 220 ± 20mA (DC 6V)
-- Coppia di stallo: 1,3 ± 0,01kg · cm (DC 4,8V) 1,5 ± 0,1kg · cm (DC 6V)
-- Corrente di stallo: ≦ 850mA (DC 4,8V) ≦ 1000mA (DC 6V)
-- Corrente in standby: 3 ± 1mA (DC 4,8V) 4 ± 1mA (DC 6V)
+- 動作電圧：DC 4.8V 〜 6V
+- 動作角度範囲：約180°（500 → 2500 μsec時）
+- パルス幅範囲：500 → 2500 μsec
+- 無負荷速度：0.12 ± 0.01 sec / 60（DC 4.8V）　0.1 ± 0.01 sec / 60（DC 6V）
+- 無負荷電流：200 ± 20mA（DC 4.8V）　220 ± 20mA（DC 6V）
+- 停止トルク：1.3 ± 0.01kg・cm（DC 4.8V）　1.5 ± 0.1kg・cm（DC 6V）
+- 停止電流：≦ 850mA（DC 4.8V）　≦ 1000mA（DC 6V）
+- 待機電流：3 ± 1mA（DC 4.8V）　4 ± 1mA（DC 6V）
 
-**Componenti**
+**使用部品**
 
 ![](media/image-20250908152809268.png)
 
-  **Schema di collegamento：**
+  **接続図：**
 
-![](media/image-20250908152824930.png)**Note sul collegamento:** il filo marrone del servo è collegato a Gnd(G), il filo rosso è collegato a 5v(V) e il filo arancione è collegato al pin digitale 9.
+![](media/image-20250908152824930.png)**配線上の注意：** サーボの茶色の線をGnd（G）に、赤色の線を5v（V）に、オレンジ色の線をデジタルピン9に接続してください。
 
-Il servo deve essere collegato a un'alimentazione esterna a causa dell'elevata richiesta di corrente per il suo azionamento. In generale, la corrente della scheda di sviluppo non è sufficiente. Se non viene collegata l'alimentazione esterna, la scheda di sviluppo potrebbe danneggiarsi.
+サーボは駆動電流の需要が高いため、外部電源に接続する必要があります。一般的に、開発ボードの電流では不足します。電源を接続しない場合、開発ボードが破損する恐れがあります。
 
-**Codice di Test 1**
+**テストコード1**
 
 ```c
 /*
@@ -50,42 +50,42 @@ lesson 4.1
 Servo
 http://www.keyestudio.com
 */
-#define servoPin 9  //pin del servo
-int pos; //variabile dell'angolo del servo
-int pulsewidth; // variabile della larghezza di impulso del servo
+#define servoPin 9  //サーボのピン番号
+int pos; //サーボの角度変数
+int pulsewidth; // サーボのパルス幅変数
 
 void setup() 
 {
-  pinMode(servoPin, OUTPUT);  //imposta il pin del servo come OUTPUT
-  procedure(0); //imposta l'angolo del servo a 0°
+  pinMode(servoPin, OUTPUT);  //サーボピンを出力に設定
+  procedure(0); //サーボの角度を0°に設定
 }
 
 void loop() 
 {
-  for (pos = 0; pos <= 180; pos += 1) // va da 0 gradi a 180 gradi
+  for (pos = 0; pos <= 180; pos += 1) // 0度から180度まで動かす
   { 
-    // con incrementi di 1 grado
-    procedure(pos);              // dice al servo di andare alla posizione nella variabile 'pos'
-    delay(15);                   //controlla la velocità di rotazione del servo
+    // 1度ずつステップ
+    procedure(pos);              // 変数'pos'の位置にサーボを移動させる
+    delay(15);                   //サーボの回転速度を制御する
   }
-  for (pos = 180; pos >= 0; pos -= 1) // va da 180 gradi a 0 gradi
+  for (pos = 180; pos >= 0; pos -= 1) // 180度から0度まで動かす
   { 
-    procedure(pos);              // dice al servo di andare alla posizione nella variabile 'pos'
+    procedure(pos);              // 変数'pos'の位置にサーボを移動させる
     delay(15);                    
   }
 }
-// funzione per controllare il servo
+// サーボを制御する関数
 void procedure(int myangle) 
 {
-  pulsewidth = myangle * 11 + 500;  //calcola il valore della larghezza di impulso
+  pulsewidth = myangle * 11 + 500;  //パルス幅の値を計算する
   digitalWrite(servoPin,HIGH);
-  delayMicroseconds(pulsewidth);   //la durata del livello alto è la larghezza di impulso
+  delayMicroseconds(pulsewidth);   //ハイレベルの持続時間がパルス幅となる
   digitalWrite(servoPin,LOW);
-  delay((20 - pulsewidth / 1000));  // il ciclo è 20ms, il livello basso dura per il tempo rimanente
+  delay((20 - pulsewidth / 1000));  // 周期は20ms、残りの時間はローレベルが続く
 }
 ```
 
-Dopo aver caricato il codice con successo, il servo oscilla nell'intervallo da 0° a 180°.
+コードのアップロードが完了すると、サーボは0°〜180°の範囲で往復動作します。
 
 ```c
 /*
@@ -95,43 +95,43 @@ Dopo aver caricato il codice con successo, il servo oscilla nell'intervallo da 0
  http://www.keyestudio.com
 */
 #include <Servo.h>
-Servo myservo;  // crea un oggetto servo per controllare un servo
-// sulla maggior parte delle schede possono essere creati dodici oggetti servo
-int pos = 0;    // variabile per memorizzare la posizione del servo
+Servo myservo;  // サーボを制御するサーボオブジェクトを作成する
+// ほとんどのボードで最大12個のサーボオブジェクトを作成できる
+int pos = 0;    // サーボの位置を格納する変数
 
 void setup() 
 {
-  myservo.attach(9);  // collega il servo sul pin 9 all'oggetto servo
+  myservo.attach(9);  // ピン9のサーボをサーボオブジェクトに割り当てる
 }
 
 void loop() 
 {
-  for (pos = 0; pos <= 180; pos += 1)  // va da 0 gradi a 180 gradi
+  for (pos = 0; pos <= 180; pos += 1)  // 0度から180度まで動かす
   {
-    // con incrementi di 1 grado
-    myservo.write(pos);              // dice al servo di andare alla posizione nella variabile 'pos'
-    delay(15);                       // attende 15ms affinché il servo raggiunga la posizione
+    // 1度ずつステップ
+    myservo.write(pos);              // 変数'pos'の位置にサーボを移動させる
+    delay(15);                       // サーボが位置に到達するまで15ms待機する
   }
-  for (pos = 180; pos >= 0; pos -= 1) { // va da 180 gradi a 0 gradi
-    myservo.write(pos);              // dice al servo di andare alla posizione nella variabile 'pos'
-    delay(15);                       // attende 15ms affinché il servo raggiunga la posizione
+  for (pos = 180; pos >= 0; pos -= 1) { // 180度から0度まで動かす
+    myservo.write(pos);              // 変数'pos'の位置にサーボを移動させる
+    delay(15);                       // サーボが位置に到達するまで15ms待機する
   }
 }
 ```
 
-**Risultato del Test**
+**テスト結果**
 
-Dopo aver caricato il codice con successo e acceso l'alimentazione, il servo oscilla nell'intervallo da 0° a 180°.
+コードのアップロードが完了し、電源を入れると、サーボは0°〜180°の範囲で往復動作します。
 
-Il risultato è lo stesso. Di solito lo controlliamo tramite il file di libreria.
+結果は同じです。通常はライブラリファイルを使用して制御します。
 
-**Spiegazione del Codice**
+**コードの説明**
 
-Arduino include **\#include \<Servo.h\>** (funzioni e istruzioni per il servo)
+Arduinoには **\#include \<Servo.h\>**（サーボ関数と命令文）が付属しています。
 
-Di seguito sono riportate alcune istruzioni comuni della funzione servo:
+以下はサーボ関数のよく使われる命令文です：
 
-1. attach（interfaccia）——Imposta l'interfaccia del servo; sono disponibili le porte 9 e 10.
-2. write（angolo）——L'istruzione per impostare l'angolo di rotazione del servo.
-3. read（）——L'istruzione per leggere l'angolo del servo; legge il valore del comando di "write()".
-4. **Nota:** Il formato di scrittura sopra indicato è "nome variabile servo, istruzione specifica（）", ad esempio: myservo.attach(9).
+1. attach（インターフェース）——サーボのインターフェースを設定します。ポート9および10が使用可能です。
+2. write（角度）——サーボの回転角度を設定する命令文です。
+3. read（）——サーボの角度を読み取る命令文で、「write()」のコマンド値を読み取ります。
+4. **注意：** 上記の記述形式は「サーボ変数名.具体的な命令文（）」となります。例：myservo.attach(9)

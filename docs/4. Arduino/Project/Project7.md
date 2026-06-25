@@ -1,54 +1,54 @@
-# Progetto 7 Controllo Remoto Bluetooth
+# プロジェクト7 Bluetooth リモートコントロール
 
-**Descrizione**
+**説明**
 
-Il Bluetooth, un semplice modulo di comunicazione wireless, è diventato virale negli ultimi decenni ed è stato utilizzato nella maggior parte dei dispositivi alimentati a batteria grazie alla sua funzione facile da usare.
+Bluetooth は、シンプルなワイヤレス通信モジュールであり、ここ数十年で急速に普及し、その使いやすい機能により、ほとんどのバッテリー駆動デバイスで使用されています。
 
 ![](media/image-20250908161056017.png)
 
-Nel corso degli anni, ci sono stati molti aggiornamenti dello standard Bluetooth per soddisfare le esigenze dei clienti e lo sviluppo della tecnologia, nonché per seguire le tendenze dei tempi.
+過去数年間、顧客の需要を満たし、技術の発展に対応し、時代のトレンドに従うため、Bluetooth 標準の多くのアップグレードが行われてきました。
 
-Negli ultimi anni, molte cose sono cambiate, inclusa la velocità di trasmissione dei dati, il consumo energetico con dispositivi indossabili e IoT e il sistema di sicurezza.
+ここ数年で、データ伝送速度、ウェアラブルおよび IoT デバイスの消費電力、セキュリティシステムなど、多くのことが変わってきました。
 
-Qui impareremo a conoscere HM-10 BLE 4.0 con Arduino Board. L'HM-10 è un modulo Bluetooth 4.0 facilmente disponibile. Questo modulo viene utilizzato per stabilire la comunicazione dati wireless. Il modulo è progettato utilizzando il System on Chip (SoC) Bluetooth low energy (BLE) Texas Instruments CC2540 o CC2541.
+ここでは、Arduino ボードと HM-10 BLE 4.0 について学習します。HM-10 は、容易に入手できる Bluetooth 4.0 モジュールです。このモジュールはワイヤレスデータ通信の確立に使用されます。このモジュールは、Texas Instruments CC2540 または CC2541 Bluetooth Low Energy (BLE) System on Chip (SoC) を使用して設計されています。
 
-**Specifiche**
+**仕様**
 
-- Protocollo Bluetooth: Bluetooth Specification V4.0 BLE.
-- Nessun limite di byte nella trasmissione della porta seriale.
-- In ambiente aperto, realizza comunicazione a ultra-distanza di 100m con iPhone4s.
-- Frequenza di lavoro: banda ISM 2.4GHz.
-- Metodo di modulazione: GFSK (Gaussian Frequency Shift Keying).
-- Potenza di trasmissione: -23dbm, -6dbm, 0dbm, 6dbm, modificabile tramite comando AT.
-- Sensibilità: ≤-84dBm a 0.1% BER.
-- Velocità di trasmissione: Asincrona: 6K byte; Sincrona: 6k byte.
-- Funzione di sicurezza: Autenticazione e crittografia.
-- Servizio supportato: Central & Peripheral UUID FFE0, FFE1.
-- Consumo energetico: Modalità sleep automatica, corrente di standby 400uA~800uA, 8.5mA durante la trasmissione.
-- Alimentazione: 5V DC.
-- Temperatura di lavoro: –5 a +65 gradi Celsius.
+- Bluetooth プロトコル: Bluetooth Specification V4.0 BLE。
+- シリアルポート送受信でのバイト制限なし。
+- オープン環境では、iPhone4s との 100m 超長距離通信を実現。
+- 動作周波数: 2.4GHz ISM バンド。
+- 変調方式: GFSK (ガウス周波数シフトキーイング)。
+- 送信電力: -23dbm、-6dbm、0dbm、6dbm、AT コマンドで変更可能。
+- 感度: 0.1% BER で ≤-84dBm。
+- 伝送速度: 非同期: 6K バイト; 同期: 6K バイト。
+- セキュリティ機能: 認証と暗号化。
+- サポートサービス: Central & Peripheral UUID FFE0、FFE1。
+- 消費電力: 自動スリープモード、スタンバイ電流 400uA～800uA、送信時 8.5mA。
+- 電源: 5V DC。
+- 動作温度: -5～+65 摂氏度。
 
-**Componenti**
+**コンポーネント**
 
 ![](media/image-20250908161515087.png)
 
-**Diagramma di Connessione**
+**接続図**
 
-**1. STATE:** *pin di test dello stato, collegato al LED interno, generalmente mantenerlo scollegato.*
+**1. STATE:** *状態テストピン、内部 LED に接続、通常は接続しないままにします。*
 
-**2. RXD:** *interfaccia seriale, terminale di ricezione.*
+**2. RXD:** *シリアルインターフェース、受信端子。*
 
-**3. TXD:** *interfaccia seriale, terminale di trasmissione.*
+**3. TXD:** *シリアルインターフェース、送信端子。*
 
-**4. GND:** *Terra.*
+**4. GND:** *グラウンド。*
 
-**5. VCC:** *polo positivo della fonte di alimentazione.*
+**5. VCC:** *電源の正極。*
 
-**6. EN/BRK:** *interruzione della connessione, significa interrompere la connessione Bluetooth, generalmente mantenerlo scollegato.*
+**6. EN/BRK:** *接続を切断、Bluetooth 接続を切断することを意味し、通常は接続しないままにします。*
 
 ![](media/image-20250908161703926.png)
 
-**Codice di Test**
+**テストコード**
 
 ```c
 /*
@@ -58,7 +58,7 @@ Qui impareremo a conoscere HM-10 BLE 4.0 con Arduino Board. L'HM-10 è un modulo
 http://www.keyestudio.com
 */
 
-char ble_val; //variabile carattere: salva il valore della ricezione Bluetooth
+char ble_val; // 文字変数: Bluetooth 受信値を保存
 
 void setup() 
 {
@@ -67,98 +67,98 @@ void setup()
 
 void loop() 
 {
-  if(Serial.available() > 0)  //assicurati se ci sono dati nel buffer seriale
+  if(Serial.available() > 0)  // シリアルバッファにデータがあるか確認
   {
-    ble_val = Serial.read();  //Leggi i dati dal buffer seriale
-    Serial.println(ble_val);  //Stampa
+    ble_val = Serial.read();  // シリアルバッファからデータを読み込み
+    Serial.println(ble_val);  // 印字
   }
 }
 //*******************************************
 ```
 
-(Ci sarà una contraddizione tra la comunicazione seriale del codice e la comunicazione Bluetooth durante il caricamento del codice. Pertanto, non collegare il modulo Bluetooth prima di caricare il codice.)
+(コードのアップロード時、シリアル通信とBluetooth通信の間に矛盾が生じる可能性があります。したがって、コードをアップロードする前に Bluetooth モジュールをリンクしないでください。)
 
-Dopo aver caricato il codice sulla scheda di sviluppo, inserire il modulo Bluetooth e attendere il comando dal cellulare.
+開発ボードにコードをアップロードした後、Bluetooth モジュールを挿入し、携帯電話からのコマンドを待ちます。
 
-**Scarica l'APP**
+**APP のダウンロード**
 
-Il codice serve per leggere il segnale ricevuto, e abbiamo anche bisogno di qualcosa per inviare il segnale. In questo progetto, inviamo il segnale per controllare l'auto robot tramite cellulare.
+このコードは受信した信号を読み込むためのものであり、信号を送信するツールも必要です。このプロジェクトでは、携帯電話を介してロボットカーを制御するための信号を送信します。
 
-Allora abbiamo bisogno di scaricare l'APP.
+その後、APP をダウンロードする必要があります。
 
-**Sistema iOS**
+**iOS システム**
 
-**Nota: Consenti all'APP di accedere alla "posizione" nelle impostazioni del tuo cellulare quando ti connetti al modulo Bluetooth. Altrimenti, il Bluetooth potrebbe non connettersi.**
+**注: Bluetooth モジュールに接続する際、携帯電話の設定で APP に「位置情報」へのアクセスを許可してください。そうしないと、Bluetooth が接続されない可能性があります。**
 
-Accedi all'APP STORE e cerca **BLE Scanner 4.0, quindi scaricalo.**
+APP STORE に入り、**BLE Scanner 4.0 を検索してダウンロードしてください。**
 
 ![](media/image-20250908162043691.png)
 
-**Sistema Android**
+**Android システム**
 
-Scarica l'APP da qui.
+ここから APP をダウンロードしてください。
 
-**E consenti all'APP di accedere alla "posizione", puoi abilitare la "posizione" nelle impostazioni del tuo cellulare.**
+**また、APP に「位置情報」へのアクセスを許可してください。携帯電話の設定で「位置情報」を有効にできます。**
 
 ![](media/image-20250909115039773.png)
 
 ![](media/image-20250908162115901.png)
 
-1. Dopo l'installazione, apri l'App e abilita il permesso "Posizione e Bluetooth".
-2. Prendiamo la versione iOS come esempio. Il metodo operativo della versione Android è quasi lo stesso.
-3. Scansiona il modulo Bluetooth per ottenere Bluetooth BLE 4.0. Il suo nome è HMSoft. Quindi fai clic su "connetti" per collegare il Bluetooth e utilizzarlo.
+1. インストール後、App を開き、「位置情報と Bluetooth」の権限を有効にします。
+2. iOS バージョンを例として説明します。Android バージョンの操作方法はほぼ同じです。
+3. Bluetooth モジュールをスキャンして Bluetooth BLE 4.0 を取得します。その名前は HMSoft です。その後、「接続」をクリックして Bluetooth とリンクし、使用します。
 
 ![](media/image-20250908162157692.png)
 
-4. Dopo la connessione a HMSoft, fai clic su di esso per ottenere più opzioni, come informazioni sul dispositivo, permesso di accesso, generale e servizio personalizzato. Scegli "CUSTOM SERVICE".
+4. HMSoft に接続した後、それをクリックして、デバイス情報、アクセス権限、一般、カスタムサービスなど、複数のオプションを取得します。「カスタムサービス」を選択します。
 
 ![](media/image-20250908162224719.png)
 
-5. Quindi appare la seguente pagina.
+5. その後、以下のページがポップアップします。
 
 ![](media/image-20250908162314786.png)
 
-6. Fai clic su (Read, Notify, WriteWithoutResponse) per accedere alla seguente pagina.
+6. (Read、Notify、WriteWithoutResponse) をクリックして、以下のページに入ります。
 
 ![](media/image-20250908162335862.png)
 
-7. Fai clic su **Write Value, appare l'interfaccia per inserire HEX o Testo.**
+7. **Write Value をクリックすると、HEX またはテキストを入力するインターフェースが表示されます。**
 
 ![](media/image-20250908162354140.png)
 
-8. Apri il monitor seriale su Arduino, inserisci uno 0 o un altro carattere nell'interfaccia Testo.
+8. Arduino のシリアルモニターを開き、テキストインターフェースで 0 または他の文字を入力します。
 
    ![](media/image-20250908162413278.png)
 
-9. Quindi fai clic su "Write", apri il monitor seriale per verificare se c'è un segnale "0".
+9. その後、「Write」をクリックし、シリアルモニターを開いて「0」信号があるか確認します。
 
    ![](media/image-20250908162441251.png)
 
-**Spiegazione del Codice**
+**コード説明**
 
-**Serial.available()** : I caratteri rimanenti attuali quando ritornano all'area buffer. Generalmente, questa funzione viene utilizzata per giudicare se ci sono dati nel buffer. Quando Serial.available()>0, significa che la seriale ha ricevuto i dati e può essere letta.
+**Serial.available()** : バッファ領域に戻る現在の残り文字。一般に、この関数はバッファにデータがあるかどうかを判定するために使用されます。Serial.available() > 0 の場合、シリアルがデータを受信し、読み込むことができることを意味します。
 
-**Serial.read()：**Leggi un dato di un Byte nel buffer della porta seriale, ad esempio, il dispositivo invia dati ad Arduino tramite la porta seriale, quindi potremmo leggere i dati tramite "Serial.read()".
+**Serial.read():** シリアルポートのバッファから 1 バイトのデータを読み込みます。例えば、デバイスがシリアルポート経由で Arduino にデータを送信する場合、「Serial.read()」でデータを読み込むことができます。
 
-**Pratica di Estensione**
+**拡張練習**
 
-Potremmo inviare un comando tramite cellulare per accendere e spegnere un LED.
+携帯電話を介してコマンドを送信して、LED をオンおよびオフにすることができます。
 
-D10 è collegato a un LED, come mostrato di seguito:
+D10 は LED に接続されており、以下のように示されています:
 
 ![](media/image-20250908162550263.png)
 
-**Spiegazione del Codice**
+**コード説明**
 
-**Serial.available()** : I caratteri rimanenti attuali quando ritornano all'area buffer. Generalmente, questa funzione viene utilizzata per giudicare se ci sono dati nel buffer. Quando Serial.available()>0, significa che la seriale ha ricevuto i dati e può essere letta.
+**Serial.available()** : バッファ領域に戻る現在の残り文字。一般に、この関数はバッファにデータがあるかどうかを判定するために使用されます。Serial.available() > 0 の場合、シリアルがデータを受信し、読み込むことができることを意味します。
 
-**Serial.read()：**Leggi un dato di un Byte nel buffer della porta seriale, ad esempio, il dispositivo invia dati ad Arduino tramite la porta seriale, quindi potremmo leggere i dati tramite "Serial.read()".
+**Serial.read():** シリアルポートのバッファから 1 バイトのデータを読み込みます。例えば、デバイスがシリアルポート経由で Arduino にデータを送信する場合、「Serial.read()」でデータを読み込むことができます。
 
-**Pratica di Estensione**
+**拡張練習**
 
-Potremmo inviare un comando tramite cellulare per accendere e spegnere un LED.
+携帯電話を介してコマンドを送信して、LED をオンおよびオフにすることができます。
 
-D10 è collegato a un LED, come mostrato di seguito:
+D10 は LED に接続されており、以下のように示されています:
 
 ![](media/image-20250908162720671.png)
 
@@ -178,14 +178,14 @@ void loop()
 { int i;
   if (Serial.available())
   {i=Serial.read();
-    Serial.println("DATI RICEVUTI:");
+    Serial.println("DATA RECEIVED:");
     if(i=='1')
     { digitalWrite(ledpin,1);
-      Serial.println("led acceso");
+      Serial.println("led on");
     }
     if(i=='0')
     { digitalWrite(ledpin,0);
-      Serial.println("led spento");
+      Serial.println("led off");
     }
   }
 }//*******************************************
@@ -195,4 +195,4 @@ void loop()
 
 ![](media/image-20250908162747210.png)
 
-Fai clic su "Write" sull'APP, quando inserisci 1, il LED si accenderà; quando inserisci 0, il LED si spegnerà. (Ricorda di rimuovere il modulo Bluetooth dopo aver terminato l'esperimento, altrimenti il caricamento del codice sarà influenzato).
+APP で「Write」をクリックし、1 を入力すると LED がオンになります。0 を入力すると LED がオフになります。(実験終了後、Bluetooth モジュールを取り外すことを忘れずに。そうしないと、コード書き込みに影響が出ます)。

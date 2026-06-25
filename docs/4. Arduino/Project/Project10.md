@@ -1,57 +1,57 @@
-# Progetto 10 Robot Seguace della Luce
+# プロジェクト10 光追従ロボット
 
 ![](media/image-20250908171131879.png)
 
-**Descrizione**
+**説明**
 
-Abbiamo introdotto come utilizzare vari sensori e moduli.
+これまで、様々なセンサーやモジュールの使用方法を紹介してきました。
 
-In questa lezione, combiniamo le conoscenze hardware -- modulo fotoresistenza, azionamento motore, per costruire un robot seguace della luce!
+このレッスンでは、ハードウェアの知識（フォトレジスタモジュール、モータ駆動）と組み合わせて、光追従ロボットを構築します！
 
-Basta utilizzare 2 moduli fotoresistenza per rilevare l'intensità luminosa su entrambi i lati del robot. Leggere il valore analogico per ruotare i 2 motori, così da far muovere il robot carro armato.
+ロボットの両側に2つのフォトレジスタモジュールを使用して光の強度を検出するだけです。アナログ値を読み取って2つのモータを回転させることで、タンクロボットを走行させます。
 
-**La logica specifica del robot seguace della luce è mostrata nella tabella sottostante:**
+**光追従ロボットの具体的なロジックを以下の表に示します：**
 
 ![](media/image-20250908171219561.png)
 
-Abbiamo creato un diagramma di flusso basato sulla tabella logica sopra, come mostrato di seguito:
+上記のロジックテーブルに基づいてフローチャートを作成しました。以下に示します：
 
 ![](media/image-20250908171232654.png)
 
-**Diagramma di Collegamento**
+**接続図**
 
 ![](media/image-20250908171305946.png)
 
-**Attenzione:**
+**注意：**
 
-Il blocco terminale a 4 pin è contrassegnato con serigrafia 1234. Il filo rosso del motore posteriore destro è collegato al terminale 1, il filo nero è collegato all'estremità 2. Il filo rosso del motore anteriore sinistro è collegato al terminale 3, il filo nero è collegato alla porta 4.
+4ピンターミナルブロックはシルクスクリーンで1234とマークされています。右後部モータの赤線はターミナル1に接続され、黒線は端子2に接続されます。左前部モータの赤線は端子3に接続され、黒線はポート4に接続されます。
 
-| Fotoresistenza sinistra  |      | Sensor Shield     |
+| 左フォトレジスタ      |      | センサシールド    |
 | ------------------------ | ---- | ----------------- |
 | -                        | →    | G（GND）          |
 | +                        | →    | V（VCC）          |
 | S                        | →    | A1                |
 |                          |      |                   |
-| **Fotoresistenza destra** |      | **Sensor Shield** |
+| **右フォトレジスタ** |      | **センサシールド** |
 | -                        | →    | G（GND）          |
 | +                        | →    | V（VCC）          |
 | S                        | →    | A2                |
 
-**Codice di Test**
+**テストコード**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lezione 10
- Carro armato seguace della luce
+ lesson 10
+ Light-following tank
  http://www.keyestudio.com
 */ 
-#define light_L_Pin A1   //definire il pin della fotoresistenza sinistra
-#define light_R_Pin A2   //definire il pin della fotoresistenza destra
-#define ML_Ctrl 13  //definire il pin di controllo della direzione del motore sinistro
-#define ML_PWM 11   //definire il pin di controllo PWM del motore sinistro
-#define MR_Ctrl 12  //definire il pin di controllo della direzione del motore destro
-#define MR_PWM 3   //definire il pin di controllo PWM del motore destro
+#define light_L_Pin A1   // 左フォトレジスタのピンを定義
+#define light_R_Pin A2   // 右フォトレジスタのピンを定義
+#define ML_Ctrl 13  // 左モータの方向制御ピンを定義
+#define ML_PWM 11   // 左モータのPWM制御ピンを定義
+#define MR_Ctrl 12  // 右モータの方向制御ピンを定義
+#define MR_PWM 3   // 右モータのPWM制御ピンを定義
 int left_light; 
 int right_light;
 void setup(){
@@ -70,19 +70,19 @@ void loop(){
   Serial.println(left_light);
   Serial.print("right_light_value = ");
   Serial.println(right_light);
-  if (left_light > 650 && right_light > 650) //il valore rilevato dalla fotoresistenza, vai avanti
+  if (left_light > 650 && right_light > 650) // フォトレジスタが検出した値、前進
   {  
     Car_front();
   } 
-  else if (left_light > 650 && right_light <= 650)  //il valore rilevato dalla fotoresistenza, gira a sinistra
+  else if (left_light > 650 && right_light <= 650)  // フォトレジスタが検出した値、左旋回
   {
     Car_left();
   } 
-  else if (left_light <= 650 && right_light > 650) //il valore rilevato dalla fotoresistenza, gira a destra
+  else if (left_light <= 650 && right_light > 650) // フォトレジスタが検出した値、右旋回
   {
     Car_right();
   } 
-  else  //altre situazioni, ferma
+  else  // その他の状況、停止
   {
     Car_Stop();
   }
@@ -118,6 +118,6 @@ void Car_Stop()
 //****************************************************************
 ```
 
-**Risultato del Test**
+**テスト結果**
 
-Caricare il codice sulla scheda di sviluppo keyestudio V4.0, l'interruttore DIP è posizionato all'estremità destra e accendere l'alimentazione, il robot intelligente segue la luce per muoversi.
+keyestudio V4.0開発ボードにコードをアップロードし、DIPスイッチを右端に設定して電源を入れると、スマートロボットが光に追従して移動します。

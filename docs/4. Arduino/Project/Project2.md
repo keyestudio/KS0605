@@ -1,89 +1,89 @@
-# Progetto 2 Regolare la Luminosità del LED
+# プロジェクト2 LED の明るさを調整する
 
-**(1) Descrizione**
+**(1) 説明**
 
-Nella lezione precedente, abbiamo controllato l'accensione e lo spegnimento del LED e lo abbiamo fatto lampeggiare.
+前のレッスンでは、LED のオン・オフを制御し、点滅させました。
 
-In questo progetto, controlleremo la luminosità del LED attraverso PWM per simulare effetti di respirazione. Allo stesso modo, puoi modificare la lunghezza del passo e il tempo di ritardo nel codice per dimostrare diversi effetti di respirazione.
+このプロジェクトでは、PWM を通じて LED の明るさを制御し、呼吸効果をシミュレートします。同様に、コード内のステップ長さと遅延時間を変更することで、異なる呼吸効果を表現することができます。
 
-PWM è un mezzo per controllare l'uscita analogica attraverso mezzi digitali. Il controllo digitale viene utilizzato per generare onde quadre con diversi cicli di lavoro (un segnale che commuta costantemente tra livelli alti e bassi) per controllare l'uscita analogica. In generale, le tensioni di ingresso delle porte sono 0V e 5V. Cosa succede se è richiesto 3V? O un passaggio tra 1V, 3V e 3,5V? Non possiamo cambiare costantemente i resistori. Per questo motivo, ricorriamo a PWM.
+PWM はデジタル手段を使用してアナログ出力を制御する方法です。デジタル制御は、異なるデューティサイクル（高レベルと低レベルの間で常に切り替わる信号）を持つ矩形波を生成し、アナログ出力を制御します。一般的に、ポートの入力電圧は 0V と 5V です。3V が必要な場合はどうでしょうか？または 1V、3V、3.5V の間で切り替える場合はどうでしょうか？抵抗を常に変更することはできません。このため、PWM を使用します。
 
 ![](./media/bbcfcb9ae56abb7e80ee587246fc4be9.GIF)
 
-Per l'uscita di tensione della porta digitale Arduino, ci sono solo LOW e HIGH, che corrispondono all'uscita di tensione di 0V e 5V. Puoi definire LOW come 0 e HIGH come 1, e far sì che Arduino emetta cinquecento segnali 0 o 1 entro 1 secondo.
+Arduino のデジタルポート電圧出力には、LOW と HIGH の 2 つの状態のみがあり、これらは 0V と 5V の電圧出力に対応します。LOW を 0、HIGH を 1 と定義し、Arduino が 1 秒以内に 500 個の 0 または 1 の信号を出力させることができます。
 
-Se emetti cinquecento 1, cioè 5V; se tutti sono 1, cioè 0V. Se emetti 010101010101 in questo modo, la porta di uscita è 2,5V, il che è come guardare un film. I film che guardiamo non sono completamente continui. In realtà emette 25 fotogrammi al secondo. In questo caso, l'uomo non può accorgersene, né PWM. Se vuoi una tensione diversa, devi controllare il rapporto tra 0 e 1. Più segnali 0 e 1 emetti per unità di tempo, più accuratamente puoi controllare.
+500 個の 1 を出力する場合、それは 5V です。すべてが 1 の場合、それは 0V です。このように 010101010101 を出力する場合、出力ポートは 2.5V になります。これは映画を見ているようなものです。私たちが見ている映画は完全に連続しているわけではありません。実際には 1 秒間に 25 枚の画像を出力します。この場合、人間は気づくことができず、PWM も同様です。異なる電圧が必要な場合は、0 と 1 の比率を制御する必要があります。単位時間あたりに出力される 0 と 1 の信号が多いほど、制御がより正確になります。
 
-**(2) Specifiche**
+**(2) 仕様**
 
-- Interfaccia di controllo: porta digitale
-- Tensione di lavoro: CC 3,3-5V
-- Spaziatura dei pin: 2,54 mm
-- Colore di visualizzazione: rosso
+- 制御インターフェース：デジタルポート
+- 動作電圧：DC 3.3-5V
+- ピン間隔：2.54mm
+- 表示色：赤
 
-**(3) Componenti**
+**(3) コンポーネント**
 
 ![](./media/image-20250902170952089.png)
 
- **(4) Diagramma di Collegamento**
+ **(4) 接続図**
 
 ![](./media/image-20250902171013917.png)
 
- **(5) Codice di Test**
+ **(5) テストコード**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lezione 2.2
+ lesson 2.2
  pwm-slow
  http://www.keyestudio.com
 */
-int ledPin = 10; // Definire il pin del LED a D10
+int ledPin = 10; // LED ピンを D10 に定義
 int value;
 
 void setup () 
 {
-	pinMode (ledPin, OUTPUT); // inizializzare ledpin come uscita.
+	pinMode (ledPin, OUTPUT); // ledpin を出力として初期化
 }
 
 void loop () 
 {
     for (value = 0; value <255; value = value + 1)
     {
-        analogWrite (ledPin, value); // Il LED si illumina gradualmente
-        delay (30); // ritardo 30MS
+        analogWrite (ledPin, value); // LED が徐々に明るくなる
+        delay (30); // 30MS 遅延
     }
     for (value = 255; value> 0; value = value-1)
     {
-        analogWrite (ledPin, value); // Il LED si spegne gradualmente
-        delay (30); // ritardo 30MS
+        analogWrite (ledPin, value); // LED が徐々に暗くなる
+        delay (30); // 30MS 遅延
 	}
 }
 ```
 
-**Risultato del Test**
+**テスト結果**
 
-Dopo aver caricato il codice di test con successo, il LED cambia gradualmente da luminoso a scuro, come il respiro umano, piuttosto che accendersi e spegnersi immediatamente.
+テストコードを正常にアップロードすると、LED は明るさから暗さへと徐々に変化し、人間の呼吸のようになり、すぐにオン・オフになることはありません。
 
-**Spiegazione del Codice**
+**コード説明**
 
-Quando abbiamo bisogno di ripetere alcune istruzioni, possiamo usare l'istruzione FOR.
+いくつかのステートメントを繰り返す必要がある場合、FOR ステートメントを使用できます。
 
-Il formato dell'istruzione FOR è mostrato di seguito:
+FOR ステートメントの形式は以下の通りです：
 
 ![](./media/image-20250902171421873.png)
 
-O sequenza ciclica:
+または循環シーケンス：
 
-Giro 1：1 → 2 → 3 → 4
+ラウンド 1：1 → 2 → 3 → 4
 
-Giro 2：2 → 3 → 4
+ラウンド 2：2 → 3 → 4
 
 …
 
-Fino a quando il numero 2 non è stabilito, il ciclo "for" è finito,
+数字 2 が成立しなくなるまで、「for」ループは終了します。
 
-Dopo aver compreso questo ordine, torna al codice:
+この順序を理解した後、コードに戻ります：
 
 **for (int value = 0; value < 255; value=value+1){**
 
@@ -97,28 +97,28 @@ Dopo aver compreso questo ordine, torna al codice:
 
 **}**
 
-Le due istruzioni "for" fanno aumentare il valore da 0 a 255, poi diminuire da 255 a 0, poi aumentare a 255, .... ciclo infinito.
+2 つの「for」ステートメントにより、value は 0 から 255 に増加し、その後 255 から 0 に減少し、その後 255 に増加し、...無限ループします。
 
-C'è una nuova funzione di seguito ----- analogWrite()
+以下に新しい関数があります ----- analogWrite()
 
-Sappiamo che la porta digitale ha solo due stati: 0 e 1. Allora come inviare un valore analogico a un valore digitale? Qui, questa funzione è necessaria. Osserviamo la scheda Arduino e troviamo 6 pin contrassegnati con "\~" che possono emettere segnali PWM.
+デジタルポートには 0 と 1 の 2 つの状態のみがあることを知っています。では、アナログ値をデジタル値に送信するにはどうすればよいでしょうか？ここで、この関数が必要です。Arduino ボードを観察し、PWM 信号を出力できる「~」でマークされた 6 つのピンを見つけてください。
 
-**Il formato della funzione è il seguente:**
+**関数形式は以下の通りです：**
 
 **analogWrite(pin,value)**
 
-analogWrite() viene utilizzato per scrivere un valore analogico da 0\~255 per la porta PWM, quindi il valore è nell'intervallo 0\~255. Presta attenzione a scrivere solo i pin digitali con funzione PWM, come i pin 3, 5, 6, 9, 10, 11.
+analogWrite() は PWM ポートに 0～255 のアナログ値を書き込むために使用されるため、値は 0～255 の範囲内です。ピン 3、5、6、9、10、11 など、PWM 機能を持つデジタルピンにのみ書き込むことに注意してください。
 
-PWM è una tecnologia per ottenere una quantità analogica attraverso un metodo digitale. Il controllo digitale forma un'onda quadra, e il segnale dell'onda quadra ha solo due stati di accensione e spegnimento (cioè, livelli alti o bassi). Controllando il rapporto tra la durata dell'accensione e dello spegnimento, è possibile simulare una tensione che varia da 0 a 5V. Il tempo di accensione (accademicamente denominato livello alto) è chiamato larghezza di impulso, quindi PWM è anche chiamato modulazione della larghezza di impulso.
+PWM はデジタル方法を通じてアナログ量を取得する技術です。デジタル制御は矩形波を形成し、矩形波信号はオン・オフ（つまり、高レベルまたは低レベル）の 2 つの状態のみを持ちます。オン・オフの継続時間の比率を制御することで、0～5V の電圧を シミュレートできます。オン（学術的には高レベルと呼ばれます）の時間をパルス幅と呼ぶため、PWM はパルス幅変調とも呼ばれます。
 
-Attraverso le seguenti cinque onde quadre, comprendiamo meglio PWM.
+以下の 5 つの矩形波を通じて、PWM についてさらに理解しましょう。
 
 ![](./media/image-20250902172304373.png)
 
-Nella figura precedente, la linea verde rappresenta un periodo, e il valore di analogWrite() corrisponde a una percentuale che è anche chiamata Duty Cycle.
+上の図では、緑色の線は 1 周期を表し、analogWrite() の値はデューティサイクルと呼ばれるパーセンテージに対応します。
 
-Il ciclo di lavoro implica che la durata del livello alto è divisa per la durata del livello basso in un ciclo. Da cima a fondo, il ciclo di lavoro della prima onda quadra è 0% e il suo valore corrispondente è 0. La luminosità del LED è più bassa, cioè spento. Più a lungo dura il livello alto, più luminoso è il LED. Pertanto, l'ultimo ciclo di lavoro è 100%, che corrisponde a 255, il LED è più luminoso. 25% significa più scuro.
+デューティサイクルは、1 周期内の高レベル継続時間を低レベル継続時間で割ったものを意味します。上から下へ、最初の矩形波のデューティサイクルは 0% で、対応する値は 0 です。LED の明るさは最も低く、つまりオフです。高レベルが続く時間が長いほど、LED は明るくなります。したがって、最後のデューティサイクルは 100% で、255 に対応し、LED は最も明るくなります。25% はより暗いことを意味します。
 
-PWM è principalmente utilizzato per regolare la luminosità del LED o la velocità di rotazione del motore.
+PWM は主に LED の明るさまたはモーターの回転速度を調整するために使用されます。
 
-Svolge un ruolo vitale nel controllo dell'auto robot intelligente. Credo che non vedi l'ora di entrare nel prossimo progetto.
+これはスマートロボットカーの制御において重要な役割を果たします。次のプロジェクトに入るのを待ちきれないと思います。

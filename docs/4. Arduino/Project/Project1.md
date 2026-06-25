@@ -1,109 +1,109 @@
-# Progetto 1 LED Lampeggia
+# プロジェクト1 LED点滅
 
 ![](media/image-20250908174750401.png)
 
-**Descrizione**
+**説明**
 
-Per i principianti e gli appassionati, il lampeggio LED è un programma fondamentale. LED, abbreviazione di diodi luminosi, è costituito da composti chimici come Ga, As, P, N e così via. Il LED può lampeggiare in diversi colori alterando il tempo di ritardo nel codice di prova. Quando controllato, alimentando GND e VCC, il LED si accenderà se l'estremità S è a livello alto; tuttavia, si spegnerà.
+初心者と愛好家向けに、LED点滅は基本的なプログラムです。LED（発光ダイオードの略）は、Ga、As、P、N化合物などで構成されています。テストコード内の遅延時間を変更することで、LEDはさまざまな色で点滅させることができます。制御時に、GNDとVCCに電源を供給すると、S端子が高レベルの場合はLEDが点灯します。それ以外の場合は消灯します。
 
-**Specifiche**
+**仕様**
 
 ![](./media/image-20250902164418568.png)
 
-- Interfaccia di controllo: porta digitale
-- Tensione di lavoro: CC 3,3-5V
-- Spaziatura dei pin: 2,54mm
-- Colore visualizzazione LED: rosso
+- 制御インターフェース：デジタルポート
+- 動作電圧：DC 3.3-5V
+- ピン間隔：2.54mm
+- LED表示色：赤
 
-**Componenti**
+**部品**
 
 ![](./media/image-20250902164804229.png)
 
-**Scheda Sensori V5**
+**V5センサーシールド**
 
-Sarebbe complicato combinare schede di sviluppo Arduino con numerosi sensori. Tuttavia, la scheda sensori V5, compatibile con la scheda di sviluppo Arduino, risolve perfettamente questo problema. Basta impilare la scheda V5 su di essa.
+Arduino開発ボードと多数のセンサーを組み合わせる場合、面倒になることがあります。しかし、Arduino開発ボードと互換性のあるV5センサーシールドは、この問題を完全に解決します。V5ボードをその上に積み重ねるだけです。
 
-Questa scheda sensori può essere inserita in moduli sensori a 3 pin e mette a disposizione alcuni pin di comunicazione, come comunicazione seriale, IIC e SPI.
+このセンサーシールドは3ピンセンサーモジュールを挿入でき、シリアル、IIC、SPI通信などの通信ピンを引き出すことができます。
 
-**Descrizione dei Pin**
+**ピン説明**
 
 ![](./media/image-20250902165027854.png)
 
-**Diagramma di Collegamento**
+**接続図**
 
 ![](./media/image-20250902165110913.png)
 
-Come si vede dal diagramma sopra, il LED è collegato con D2.
+上の図から、LEDはD2に接続されていることがわかります。
 
-**Codice di Prova**
+**テストコード**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lezione 1.1
+ lesson 1.1
  Blink
  http://www.keyestudio.com
 */
 void setup()
 { 
-    pinMode(2, OUTPUT);// inizializza il pin digitale 2 come output.
+    pinMode(2, OUTPUT);// デジタルピン2を出力として初期化します
 }
 
-void loop() // la funzione loop si esegue ripetutamente all'infinito
+void loop() // ループ関数は永遠に繰り返し実行されます
 {
-   digitalWrite(2, HIGH); // accendi il LED (HIGH è il livello di tensione)
-   delay(1000); // attendi un secondo
-   digitalWrite(2, LOW); // spegni il LED impostando la tensione a LOW
-   delay(1000); // attendi un secondo
+   digitalWrite(2, HIGH); // LEDをオンにします（HIGHは電圧レベル）
+   delay(1000); // 1秒待機します
+   digitalWrite(2, LOW); // 電圧をLOWにしてLEDをオフにします
+   delay(1000); // 1秒待機します
 }
 ```
 
-**Risultato della Prova**
+**テスト結果**
 
-(Ci sarà una contraddizione sulla comunicazione seriale tra il codice e il Bluetooth durante il caricamento del codice. Pertanto, non collegare il modulo Bluetooth prima di caricare il codice.)
+（コードをアップロードする際、シリアル通信とBluetoothの間に矛盾が生じる可能性があります。したがって、コードをアップロードする前にBluetoothモジュールを接続しないでください。）
 
-Carica il programma sulla scheda di sviluppo, il LED lampeggia a intervalli di 1s.
+プログラムを開発ボードにアップロードすると、LEDは1秒間隔で点滅します。
 
 ![](./media/image-20250902165335641.png)
 
-**Spiegazione del Codice**
+**コード説明**
 
-**pinMode(2，OUTPUT) -** Imposta il pin 2 come OUTPUT
+**pinMode(2，OUTPUT) -** ピン2をOUTPUTに設定します
 
-**digitalWrite(2，HIGH) -** Quando imposti il pin 2 a livello HIGH (output 5V) o a livello LOW (output 0V)
+**digitalWrite(2，HIGH) -** ピン2をHIGHレベル（5V出力）またはLOWレベル（0V出力）に設定します
 
-**Pratica di Estensione**
+**応用練習**
 
-Abbiamo avuto successo nel far lampeggiare il LED. Ora, osserviamo come cambierà il LED se modifichiamo i pin e il tempo di ritardo.
+LEDの点滅に成功しました。次に、ピンと遅延時間を変更した場合、LEDがどのように変わるかを観察しましょう。
 
-**Diagramma di Collegamento**
+**接続図**
 
 ![](./media/image-20250902165631206.png)
 
-Abbiamo modificato i pin e collegato il LED a D10.
+ピンを変更し、LEDをD10に接続しました。
 
-**Codice di Prova**
+**テストコード**
 
 ```c
 /*
  keyestudio Mini Tank Robot V2.1
- lezione 1.2
+ lesson 1.2
  delay
  http://www.keyestudio.com
 */
-void setup() // inizializza il pin digitale 10 come output.
+void setup() // デジタルピン10を出力として初期化します
 {  
    pinMode(10, OUTPUT);
 }
 
-// la funzione loop si esegue ripetutamente all'infinito
+// ループ関数は永遠に繰り返し実行されます
 void loop() 
 {
-   digitalWrite(10, HIGH); // accendi il LED (HIGH è il livello di tensione)
-   delay(100); // attendi 0,1 secondi
-   digitalWrite(10, LOW); // spegni il LED impostando la tensione a LOW
-   delay(100); // attendi 0,1 secondi
+   digitalWrite(10, HIGH); // LEDをオンにします（HIGHは電圧レベル）
+   delay(100); // 0.1秒待機します
+   digitalWrite(10, LOW); // 電圧をLOWにしてLEDをオフにします
+   delay(100); // 0.1秒待機します
 }
 ```
 
-Il risultato della prova mostra che il LED lampeggia più velocemente. Pertanto, possiamo trarre la conclusione che i pin e il tempo di ritardo influenzano la frequenza di lampeggio.
+テスト結果から、LEDがより速く点滅することがわかります。したがって、ピンと時間遅延が点滅周波数に影響することが結論づけられます。

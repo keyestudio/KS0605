@@ -1,49 +1,49 @@
-# 2. Installazione del prodotto
+# 2. 製品のインストール
 
-Dopo aver verificato tutti i componenti in questo kit, è necessario montare il robot carro armato. Installiamo l'auto intelligente seguendo le seguenti istruzioni.
+このキットのすべての部品を確認した後、タンクロボットをマウントする必要があります。以下の指示に従ってスマートカーをインストールしましょう。
 
-## Video di assemblaggio
+## 組立動画
 
-[Scarica video](video.7z).
+[動画をダウンロード](video.7z)
 
-> **Nota:** Il video di assemblaggio è fornito nel file `video.7z` incluso in questo pacchetto. Estrarlo per visualizzare `video/KS0605.mp4`.
+> **注意:** 組立動画はこのパッケージに含まれている `video.7z` ファイルで提供されています。`video/KS0605.mp4` を表示するために抽出してください。
 
-**Nota: Rimuovere la pellicola di plastica dalla scheda prima di installare l'auto intelligente.**
+**注意: スマートカーをインストールする際、まずボードから保護フィルムをはがしてください。**
 
-## Passaggio 1: Installare il motore inferiore
+## ステップ1: 底部モーターのインストール
 
-Preparare i seguenti componenti:
+以下の部品を準備してください:
 
-- Dado M4 \* 2
-- Motore in metallo \*2
-- Supporto in metallo \*2
-- Accoppiatore \*2
-- Parti di supporto blu \*2
-- Vite a brugola interna M4\*12MM \* 2
-- Chiave esagonale M1.5 nichelata \*1
-- Chiave esagonale M3 nichelata \*1
-- Chiave esagonale M2.5 nichelata \*1
-- Vite a brugola interna M3\*8MM \* 4
+- M4ナット \* 2
+- メタルモーター \*2
+- メタルホルダー \*2
+- カップラー \*2
+- 青色サポートパーツ \*2
+- M4\*12MM内六角ネジ \* 2
+- M1.5六角キーニッケルメッキアレンレンチ \*1
+- M3六角キーニッケルメッキアレンレンチ \*1
+- M2.5六角キーニッケルメッキアレンレンチ \*1
+- M3\*8MM内六角ネジ \* 4
 
 ![TK_02](media/TK_02.png)
 
 ![TK_03](media/TK_03.png)
 
-**Suggerimento: assemblare il motore dell'altro lato allo stesso modo.**
+**ヒント: 同じ方法で反対側のモーターも組み立ててください。**
 
-## Passaggio 2: Installare la ruota motrice
+## ステップ2: 駆動輪のインストール
 
-Preparare i seguenti componenti:
+以下の部品を準備してください:
 
-- Vite a brugola interna M3*8MM \* 2
-- Vite a brugola interna M4\*50MM \* 2
-- Ruota di supporto del carro armato \* 2
-- Cuscinetto a flangia \* 4
-- Rondella\*2
-- Banda cingolata \*2
-- Dado autobloccante M4 \* 2
-- Chiave esagonale M3 nichelata \*1
-- Chiave esagonale M2.5 nichelata \*1
+- M3*8MM内六角ネジ \* 2
+- M4\*50MM内六角ネジ \* 2
+- タンク荷重輪 \* 2
+- フランジベアリング \* 4
+- ガスケット\*2
+- キャタピラバンド \*2
+- M4自己ロックナット \* 2
+- M3六角キーニッケルメッキアレンレンチ \*1
+- M2.5六角キーニッケルメッキアレンレンチ \*1
 
 ![TK_04](media/TK_04.png)
 
@@ -53,27 +53,27 @@ Preparare i seguenti componenti:
 
 ![TK_07](media/TK_07.png)
 
-## Passaggio 3: Installare il supporto della batteria
+## ステップ3: バッテリーホルダーのインストール
 
-Preparare i seguenti componenti:
+以下の部品を準備してください:
 
-- Supporto batteria \*1
-- Dado M3 \* 2
-- Supporto in metallo blu \*2
-- Dado M4 \*8
-- Vite a testa piatta M3\*10MM \* 2
-- Vite a brugola interna M4\*40MM \*4
-- Chiave esagonale M2.5 nichelata\*1
-- Chiave esagonale M3 nichelata \*1
-- Vite a brugola interna M3\*25MM \*4
-- Pilastro in rame esagonale M3*45MM *4
-- Cacciavite
+- バッテリーホルダー \*1
+- M3ナット \* 2
+- 青色メタルホルダー \*2
+- M4ナット \*8
+- M3\*10MM皿頭ネジ \* 2
+- M4\*40MM内六角ネジ \*4
+- M2.5六角キーニッケルメッキアレンレンチ\*1
+- M3六角キーニッケルメッキアレンレンチ \*1
+- M3\*25MM内六角ネジ \*4
+- M3*45MM六角銅柱 *4
+- ドライバー
 
 ![TK_08](media/TK_08.png)
 
 ![TK_09](media/TK_09.png)
 
-Procedere a fissare il supporto in metallo sulla ruota motrice con quattro viti a brugola interna M4\*40MM e quattro dadi M4 al termine del processo di montaggio.
+マウント処理が完了したら、4本のM4\*40MM内六角ネジと4本のM4ナットでメタルホルダーをモーター輪に固定するために移動してください。
 
 ![TK_10](media/TK_10.png)
 
@@ -83,22 +83,22 @@ Procedere a fissare il supporto in metallo sulla ruota motrice con quattro viti 
 
 ![TK_13](media/TK_13.png)
 
-##  Passaggio 4: Montare la scheda acrilica e i sensori
+##  ステップ4: アクリル板とセンサーのマウント
 
-- Scheda acrilica \* 2
-- Staffa a forma di L nera \*1
-- Sensore fotocellula \*2
-- Modulo ricevitore IR \*1
-- Pannello LED 8X16 \*1
-- Dado M2 \*4
-- Dado M3 \*10
-- Vite a brugola interna M3\*6MM \* 8
-- Vite a brugola interna M3\*8MM \* 8
-- Chiave esagonale M2.5 \*1
-- Vite a testa rotonda M3\*12MM \*6
-- Boccola in rame esagonale M3\*10MM \*8
-- Vite a testa rotonda M2\*10MM \* 4
-- Cacciavite
+- アクリル板 \* 2
+- L字型黒ブラケット \*1
+- フォトセルセンサー \*2
+- IRレシーバーモジュール \*1
+- 8X16 LEDパネル \*1
+- M2ナット \*4
+- M3ナット \*10
+- M3\*6MM内六角ネジ \* 8
+- M3\*8MM内六角ネジ \* 8
+- M2.5六角キーアレンレンチ \*1
+- M3\*12MM丸頭ネジ \*6
+- M3\*10MM六角銅ブッシュ \*8
+- M2\*10MM丸頭ネジ \* 4
+- ドライバー
 
 ![TK_14](media/TK_14.png)
 
@@ -120,49 +120,49 @@ Procedere a fissare il supporto in metallo sulla ruota motrice con quattro viti 
 
 ![TK_23](media/TK_23.png)
 
-## Passaggio 5: Installare la piattaforma del servo
+## ステップ5: サーボプラットフォームのインストール
 
-Preparare i seguenti componenti:
+以下の部品を準備してください:
 
--   Servo \*1
--   Gimbal nero \*1
--   Fascetta di cablaggio \*2
--   Vite di battuta a croce con testa rotonda M2x8 \*2
--   Sensore ultrasonico \*1
--   Vite M2\*4 \*1
--   Vite M1.2\*5 \*4
--   Cacciavite
+-   サーボ \*1
+-   黒ジンバル \*1
+-   ケーブルタイ \*2
+-   M2x8丸頭十字タッピングネジ \*2
+-   超音波センサー \*1
+-   M2\*4ネジ \*1
+-   M1.2\*5ネジ \*4
+-   ドライバー
 
-**Nota: **per un debug conveniente, mantenere il modulo ultrasonico rivolto in avanti e l'angolo del motore servo a 90°. Pertanto, è necessario impostare il servo a 90° prima di installare la piattaforma del servo.
+**注意: **デバッグを便利にするため、超音波モジュールを真っすぐ前に向け、サーボモーターの角度を90°に保ってください。したがって、サーボプラットフォームをインストールする前に、サーボを90°に設定する必要があります。
 
-Impostare il codice a 90 gradi, copiare il codice e caricarlo sulla scheda di sviluppo. L'ingranaggio di sterzo collegato alla porta D9 ruoterà a 90°.
+90度設定コードをコピーして開発ボードにアップロードしてください。ポートD9に接続されたステアリングギアが90°回転します。
 
-> Per caricare il codice, avrai bisogno dell'Arduino IDE. Installa prima l'Arduino IDE seguendo le sezioni 4.2–4.4. (Download del software, Configurazione di Arduino IDE e Aggiunta della libreria)
+> コードをアップロードするには、Arduino IDEが必要です。セクション4.2～4.4（ソフトウェアダウンロード、Arduino IDEのセットアップ、ライブラリの追加）に従ってまずArduino IDEをインストールしてください。
 
 ```c
-#define servoPin 9 //pin servo
-int pos; //variabile dell'angolo del servo
-int pulsewidth; // variabile della larghezza dell'impulso del servo
+#define servoPin 9 //サーボピン
+int pos; //サーボの角度変数
+int pulsewidth; //サーボのパルス幅変数
 
 void setup() 
 {
-    pinMode(servoPin, OUTPUT); //imposta il pin del servo su OUTPUT
-    procedure(0); //imposta l'angolo del servo a 0°
+    pinMode(servoPin, OUTPUT); //サーボピンをOUTPUTに設定
+    procedure(0); //サーボの角度を0°に設定
 }
 
 void loop() 
 {
-	procedure(90); // ordina al servo di andare alla posizione nella variabile 90°
+	procedure(90); //サーボを90°の位置に移動するよう指示
 }
 
-// funzione per controllare il servo
+//サーボを制御する関数
 void procedure(int myangle) 
 {
-    pulsewidth = myangle * 11 + 500; //calcola il valore della larghezza dell'impulso
+    pulsewidth = myangle * 11 + 500; //パルス幅の値を計算
     digitalWrite(servoPin,HIGH);
-    delayMicroseconds(pulsewidth); //La durata del livello alto è la larghezza dell'impulso
+    delayMicroseconds(pulsewidth); //高レベルの継続時間はパルス幅
     digitalWrite(servoPin,LOW);
-    delay((20 - pulsewidth / 1000)); // il ciclo è 20ms, il livello basso dura il resto del tempo
+    delay((20 - pulsewidth / 1000)); //サイクルは20ms、低レベルは残りの時間続く
 }
 ```
 
@@ -170,23 +170,23 @@ void procedure(int myangle)
 
 ![](media/image-20250902144145590.png)
 
-**Nota: **Puoi trovare le viti M1.2\*5 all'interno della borsa della piattaforma in plastica.
+**注意: **M1.2\*5ネジはプラスチックプラットフォームのバッグの中にあります。
 
 ![TK_25](media/TK_25.png)
 
 ![TK_26](media/TK_26.png)
 
-## Passaggio 6: Installare i sensori e le schede
+## ステップ6: センサーとボードのインストール
 
-Preparare i seguenti componenti:
+以下の部品を準備してください:
 
-- Vite a testa rotonda M3\*6MM \*12
-- Scheda L298P \*1
-- Scheda V4.0 \*1
-- Scheda sensore V5 \*1
-- Cacciavite \*1
-- Modulo Bluetooth \*1
-- Chiave esagonale M2.5 nichelata \*1
+- M3\*6MM丸頭ネジ \*12
+- L298Pシールド \*1
+- V4.0ボード \*1
+- V5センサーシールド \*1
+- ドライバー \*1
+- Bluetoothモジュール \*1
+- M2.5六角キーニッケルメッキアレンレンチ \*1
 
 ![TK_27](media/TK_27.png)
 
@@ -206,7 +206,7 @@ Preparare i seguenti componenti:
 
 
 
-## Passaggio 7: Guida ai collegamenti
+## ステップ7: 接続ガイド
 
 ![](media/image-20250902144534790.png)
 
@@ -218,7 +218,7 @@ Preparare i seguenti componenti:
 
 ![](media/image-20250902144902221.png)
 
-##  Passaggio 8: Collegare il pannello LED
+##  ステップ8: LEDパネルの配線
 
 ![](media/image-20250902145026905.png)
 
@@ -226,7 +226,7 @@ Preparare i seguenti componenti:
 
 ![](media/image-20250902145129382.png)
 
-| Pannello LED                           | Scheda sensore V5                      |
+| LEDパネル                              | V5センサーシールド                     |
 | -------------------------------------- | -------------------------------------- |
 | GND                                    | -(GND)                                 |
 | VCC                                    | +(VCC)                                 |
@@ -234,7 +234,7 @@ Preparare i seguenti componenti:
 | SCL                                    | SCL                                    |
 | ![](media/image-20250902145404151.png) | ![](media/image-20250902145414755.png) |
 
-## Passaggio 9: Installare tutti i componenti della piastra acrilica
+## ステップ9: アクリル板のすべての部品をインストール
 
 ![](media/image-20250902145506652.png)
 
@@ -262,97 +262,97 @@ Preparare i seguenti componenti:
 
 ![](media/image-20250902150711706.png)
 
-##  Passaggio 10: Robot carro armato
+##  ステップ10: タンクロボット
 
-**Nota:** Rimuovere il modulo Bluetooth prima di caricare il codice di test. Altrimenti, non riuscirai a caricare il codice di test.
+**注意:** テストコードをアップロードする前にBluetoothモジュールを取り外してください。そうしないと、テストコードのアップロードに失敗します。
 
 ![](media/image-20250902151034545.png)
 
-**Auto robot multifunzione**
+**多目的ロボットカー**
 
 ![](media/image-20250902151133169.png)
 
-  **Descrizione**
+  **説明**
 
-Nei progetti precedenti, l'auto carro armato esegue una sola funzione. Tuttavia, in questa lezione, integriamo tutte le sue funzioni per controllare l'auto intelligente tramite il controllo Bluetooth.
+前のプロジェクトでは、タンクカーは単一の機能のみを実行していました。しかし、このレッスンでは、すべての機能を統合してBluetooth制御でスマートカーを制御します。
 
-Ecco un semplice diagramma di flusso dell'auto robot multifunzione per il vostro riferimento.
+参考のため、多目的ロボットカーの簡単なフローチャートを以下に示します。
 
 ![](media/image-20250902151215210.png)
 
-  **Diagramma di collegamento**
+  **接続図**
 
 ![](media/image-20250902151230702.png)
 
-**Attenzione：**Confermare che ogni componente sia collegato.
+**注意：**すべてのコンポーネントが接続されていることを確認してください。
 
-Guida ai collegamenti:
+配線ガイド:
 
-| Pannello LED 8x16 | | Scheda di espansione |
-| -------------- | ---- | --------------- |
-| GND            | →    | -（GND）        |
-| VCC            | →    | +（VCC）        |
-| SDA            | →    | SDA             |
-| SCL            | →    | SCL             |
+| 8x16 LEDパネル |      | 拡張ボード  |
+| -------------- | ---- | ----------- |
+| GND            | →    | -（GND）    |
+| VCC            | →    | +（VCC）    |
+| SDA            | →    | SDA         |
+| SCL            | →    | SCL         |
 
 ![](media/image-20250902152539713.png)
 
-| Modulo ultrasonico |      |        |
-| ----------------- | ---- | ------ |
-| VCC               | →    | 5v(V)  |
-| Trig              | →    | 5(S)   |
-| Echo              | →    | 4(S)   |
-| Gnd               | →    | Gnd(G) |
+| 超音波モジュール |      |        |
+| --------------- | ---- | ------ |
+| VCC             | →    | 5v(V)  |
+| Trig            | →    | 5(S)   |
+| Echo            | →    | 4(S)   |
+| Gnd             | →    | Gnd(G) |
 
 ![](media/image-20250902152857086.png)
 
 ![](media/image-20250902152906103.png)
 
-| Motore servo |      |        |
-| ----------- | ---- | ------ |
-| Motore servo | →    | Gnd(G) |
-| Filo rosso    | →    | 5v(V)  |
-| Filo arancione | →    | 9      |
+| サーボモーター |      |        |
+| -------------- | ---- | ------ |
+| サーボモーター | →    | Gnd(G) |
+| 赤ワイヤー     | →    | 5v(V)  |
+| オレンジワイヤー | →    | 9      |
 
 ![](media/image-20250902154418006.png)
 
 ![](media/image-20250902154820948.png)
 
-| Modulo Bluetooth                        |      |          |
+| Bluetoothモジュール                     |      |          |
 | --------------------------------------- | ---- | -------- |
 | RXD                                     | →    | TX       |
 | TXD                                     | →    | RX       |
 | GND                                     | →    | -（GND） |
 | VCC                                     |      | +（VCC） |
-| Non è necessario collegare i pin STATE e BRK |      |          |
+| STATEおよびBRKピンに接続する必要はありません |      |          |
 
 ![](media/image-20250902155229663.png)
 
 ![](media/image-20250902155236836.png)
 
-| Modulo ricevitore IR |      | Scheda sensore |
-| ------------------ | ---- | ------------- |
-| －                 | →    | G（GND）      |
-| +                  | →    | V（VCC）      |
-| S                  | →    | A0            |
+| IRレシーバーモジュール |      | センサーシールド |
+| -------------------- | ---- | --------------- |
+| －                    | →    | G（GND）        |
+| +                     | →    | V（VCC）        |
+| S                     | →    | A0              |
 
 ![](media/image-20250902155444270.png)
 
 ![](media/image-20250902155452133.png)
 
-| Fotoresistenza sinistra  |      | Scheda sensore |
-| -------------------- | ---- | ------------- |
-| －                   | →    | G（GND）      |
-| ＋                   | →    | V（VCC）      |
-| S                    | →    | A1            |
-|                      |      |               |
-| Fotoresistenza destra |      | Scheda sensore |
-| －                   | →    | G（GND）      |
-| ＋                   | →    | V（VCC）      |
-| S                    | →    | A2            |
+| 左フォトレジスタ |      | センサーシールド |
+| --------------- | ---- | --------------- |
+| －              | →    | G（GND）        |
+| ＋              | →    | V（VCC）        |
+| S               | →    | A1              |
+|                 |      |                 |
+| 右フォトレジスタ |      | センサーシールド |
+| －              | →    | G（GND）        |
+| ＋              | →    | V（VCC）        |
+| S               | →    | A2              |
 
 ![](media/image-20250902155938106.png)
 
 ![](media/image-20250902155946213.png)
 
- Installazione completata.
+ インストール完了です。
