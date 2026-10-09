@@ -48,11 +48,11 @@ Attention : GND, VCC, SDA, SCL du panneau LED 8x16 sont respectivement connecté
 */
 
 #include <IRremoteTank.h>
-IRrecv irrecv(A0);  // définir IRrecv irrecv à A0
+IRrecv irrecv(A0);  //set IRrecv irrecv to A0
 decode_results results;
-long ir_rec;  // sauvegarder la valeur IR reçue
+long ir_rec;  //save the IR value received
 
-// Tableau, utilisé pour stocker les données du motif, peut être calculé par vous-même ou obtenu à partir de l'outil de modulus
+//Array, used to store the data of the pattern, can be calculated by yourself or obtained from the modulus tool
 unsigned char start01[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01};
 unsigned char front[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char back[] = {0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00};
@@ -60,20 +60,20 @@ unsigned char left[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0
 unsigned char right[] = {0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00};
 unsigned char STOP01[] = {0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00};
 unsigned char clear[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-#define SCL_Pin  A5  // Définir la broche d'horloge à A5
-#define SDA_Pin  A4  // Définir la broche de données à A4
+#define SCL_Pin  A5  //Set clock pin to A5
+#define SDA_Pin  A4  //Set data pin to A4
 
-#define ML_Ctrl 13  // définir la broche de contrôle de direction du moteur gauche
-#define ML_PWM 11   // définir la broche de contrôle PWM du moteur gauche
-#define MR_Ctrl 12  // définir la broche de contrôle de direction du moteur droit
-#define MR_PWM 3    // définir la broche de contrôle PWM du moteur droit
+#define ML_Ctrl 13  //define the direction control pin of left motor
+#define ML_PWM 11   //define PWM control pin of left motor
+#define MR_Ctrl 12  //define the direction control pin of right motor
+#define MR_PWM 3    //define PWM control pin of right motor
 
-#define servoPin 9 // broche du servo
-int pulsewidth; // sauvegarder la valeur de largeur d'impulsion du servo
+#define servoPin 9 //pin of servo
+int pulsewidth; //save the pulse width value of servo
 
 void setup(){
   Serial.begin(9600);
-  irrecv.enableIRIn();  // Initialiser la bibliothèque de réception IR
+  irrecv.enableIRIn();  //Initialize the IR reception library
   
   pinMode(ML_Ctrl, OUTPUT);
   pinMode(ML_PWM, OUTPUT);
@@ -82,15 +82,15 @@ void setup(){
   
   pinMode(SCL_Pin,OUTPUT);
   pinMode(SDA_Pin,OUTPUT);
-  matrix_display(clear); // Effacer l'écran
-  matrix_display(start01);  // afficher l'image de démarrage
+  matrix_display(clear); //Clear Screen
+  matrix_display(start01);  //show start picture
   
   pinMode(servoPin, OUTPUT);
-  procedure(90);  // Le servo tourne à 90°
+  procedure(90);  //Servo rotates to 90°
 }
 
 void loop(){
-  if (irrecv.decode(&results)) // recevoir la valeur de la télécommande IR
+  if (irrecv.decode(&results)) //receive the IR remote value
   {
     ir_rec=results.value;
     String type="UNKNOWN";
@@ -103,43 +103,43 @@ void loop(){
     irrecv.resume();
   }
   
-  if (ir_rec == 0xFF629D) // Avancer
+  if (ir_rec == 0xFF629D) //Go forward
   {
     Car_front();
-    matrix_display(front);  // Afficher l'image avant
+    matrix_display(front);  //Display front image
   }
-  if (ir_rec == 0xFFA857)  // La voiture robot recule
+  if (ir_rec == 0xFFA857)  //Robot car goes back
   {
     Car_back();
-    matrix_display(front);  // Reculer
+    matrix_display(back);  //Go back
   }
-  if (ir_rec == 0xFF22DD)   // La voiture robot tourne à gauche
+  if (ir_rec == 0xFF22DD)   //Robot car turns left
   {
     Car_T_left();
-    matrix_display(left);  // Afficher l'image de virage à gauche
+    matrix_display(left);  //Display left-turning image
   }
-  if (ir_rec == 0xFFC23D)   // La voiture robot tourne à droite
+  if (ir_rec == 0xFFC23D)   //Robot car turns right
   {
     Car_T_right();
-    matrix_display(right);  // Afficher l'image de virage à droite
+    matrix_display(right);  //Display right-turning image
   }
-  if (ir_rec == 0xFF02FD)   // La voiture robot s'arrête
+  if (ir_rec == 0xFF02FD)   //Robot car stops
   { 
     Car_Stop();
-    matrix_display(STOP01);  // afficher l'image d'arrêt
+    matrix_display(STOP01);  //show stop image
   }
-  if (ir_rec == 0xFF30CF)   // la voiture robot tourne dans le sens antihoraire
+  if (ir_rec == 0xFF30CF)   //robot car rotates anticlockwise
   {
     Car_left();
-    matrix_display(left);  // afficher l'image de rotation dans le sens antihoraire
+    matrix_display(left);  //show anticlockwise rotation picture
   }
-  if (ir_rec == 0xFF7A85)  // la voiture robot tourne dans le sens horaire
+  if (ir_rec == 0xFF7A85)  //robot car rotates clockwise
   {
     Car_right();
-    matrix_display(right);  // afficher l'image de rotation dans le sens horaire
+    matrix_display(right);  //show clockwise rotation picture
  }
 }
-/******************Contrôle du servo*******************/
+/******************Control Servo*******************/
 void procedure(int myangle) {
   for (int i = 0; i <= 50; i = i + (1)) {
     pulsewidth = myangle * 11 + 500;
@@ -150,24 +150,24 @@ void procedure(int myangle) {
   }
 }
 
-/******************Matrice de points****************/
-// cette fonction est utilisée pour l'affichage de la matrice de points
+/******************Dot Matrix****************/
+// this function is used for dot matrix display 
 void matrix_display(unsigned char matrix_value[])
 {
   IIC_start();
-  IIC_send(0xc0);  // Choisir l'adresse
-   for(int i = 0;i < 16;i++) // L'image a 16 bits
+  IIC_send(0xc0);  //Choose address
+   for(int i = 0;i < 16;i++) //The picture has 16 bits
   {
-     IIC_send(matrix_value[i]); // données pour transmettre les motifs
+     IIC_send(matrix_value[i]); //data to convey patterns
   }
-  IIC_end();   // fin de la transmission du motif de données
+  IIC_end();   //end to convey data pattern
   
   IIC_start();
-  IIC_send(0x8A);  // contrôle d'affichage, définir la largeur d'impulsion à 4/16
+  IIC_send(0x8A);  //display control, set pulse width to 4/16
   IIC_end();
 }
 
-// La condition pour commencer à transmettre les données
+//The condition starting to transmit data
 void IIC_start()
 {
   digitalWrite(SCL_Pin,HIGH);
@@ -180,11 +180,11 @@ void IIC_start()
 
 void IIC_send(unsigned char send_data)
 {
-  for(char i = 0;i < 8;i++)  // Chaque octet a 8 bits, 8 bits pour chaque caractère
+  for(char i = 0;i < 8;i++)  //Each byte has 8 bits 8bits for every character
   {
-      digitalWrite(SCL_Pin,LOW);  // abaisser la broche d'horloge SCL Pin pour changer les signaux de SDA      
+      digitalWrite(SCL_Pin,LOW);  //pull down clock pin SCL Pin to change the signals of SDA      
       delayMicroseconds(3);
-      if(send_data & 0x01)  // définir le niveau haut et bas de SDA_Pin selon 1 ou 0 de chaque bit
+      if(send_data & 0x01)  //set high and low level of SDA_Pin according to 1 or 0 of every bit
       {
         digitalWrite(SDA_Pin,HIGH);
       }
@@ -193,12 +193,12 @@ void IIC_send(unsigned char send_data)
         digitalWrite(SDA_Pin,LOW);
       }
       delayMicroseconds(3);
-      digitalWrite(SCL_Pin,HIGH); // relever la broche d'horloge SCL_Pin pour arrêter la transmission de données
+      digitalWrite(SCL_Pin,HIGH); //pull up clock pin SCL_Pin to stop transmitting data
       delayMicroseconds(3);
-      send_data = send_data >> 1;  // détecter bit par bit, donc décaler les données vers la droite d'un
+      send_data = send_data >> 1;  // detect bit by bit, so move the data right by one
   }
 }
-// Le signe que la transmission de données se termine
+//The sign that data transmission ends
 void IIC_end()
 {
   digitalWrite(SCL_Pin,LOW);
@@ -210,7 +210,7 @@ void IIC_end()
   digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
-/***************la fonction pour faire fonctionner le moteur***************/
+/***************the function to run motor***************/
 void Car_front()
 {
   digitalWrite(MR_Ctrl,LOW);
@@ -251,12 +251,12 @@ void Car_T_left()
   digitalWrite(MR_Ctrl,LOW);
   analogWrite(MR_PWM,255);
   digitalWrite(ML_Ctrl,LOW);
-  analogWrite(ML_PWM,180);
+  analogWrite(ML_PWM,150);
 }
 void Car_T_right()
 {
   digitalWrite(MR_Ctrl,LOW);
-  analogWrite(MR_PWM,180);
+  analogWrite(MR_PWM,150);
   digitalWrite(ML_Ctrl,LOW);
   analogWrite(ML_PWM,255);
 }
