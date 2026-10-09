@@ -1,47 +1,5 @@
-# Project 13 IR Remote Robot Tank
-
-![](media/image-20250908172649810.png)
-
-**Description**
-
-IR remote control is one of most ubiquitous control, applied in TV, electric fan and some household appliances. In this project, we will make an IR remote smart car. Since we’ve known every key value on IR remote control, we could control smart car via and display the patterns on dot matrix via corresponding key value.
-
-**The specific logic of infrared remote control robot is shown below:**
-
-| Initial setup                          | Servo angle 90°                         |                                     |
-| -------------------------------------- | --------------------------------------- | ----------------------------------- |
-|                                        | 8X16 LED matrix panel shows an icon “V” |                                     |
-| **Remote control**                     | **Key value**                           | **Key state**                       |
-| ![](media/image-20250908172904905.png) | FF629D                                  | Go front（PWM set to 200）          |
-|                                        |                                         | 8X16 LED panel shows front icon     |
-| ![](media/image-20250908172927504.png) | FFA857                                  | Go back（PWM set to 200）           |
-|                                        |                                         | 8X16 LED panel shows back icon      |
-| ![](media/image-20250908172954542.png) | FF22DD                                  | Turn left                           |
-|                                        |                                         | 8X16 LED panel shows leftward icon  |
-| ![](media/image-20250908173027144.png) | FFC23D                                  | Turn right                          |
-|                                        |                                         | 8X16 LED panel shows rightward icon |
-| ![](media/image-20250908173139888.png) | FF02FD                                  | Stop                                |
-|                                        |                                         | 8X16 LED panel shows “STOP”         |
-| ![](media/image-20250908173312378.png) | FF30CF                                  | Rotate to left（PWM set to 200）    |
-|                                        |                                         | 8X16 LED panel shows leftward icon  |
-| ![](media/image-20250908173336232.png) | FF7A85                                  | Rotate to right（PWM set to 200）   |
-|                                        |                                         | 8X16 LED panel shows rightward icon |
-
- **Flow Chart**
-
-![](media/image-20250908173443316.png)
-
-**Connection Diagram**
-
-![](media/image-20250908173458023.png)
-
-Attention：GND,VCC, SDA, SCL of 8x16 LED panel are respectively linked with\-（GND), +（VCC), SDA ,SCL. And “-”、“+” and S of IR receiver module are attached to G（GND), V（VCC) and A0 on sensor shield. On the condition of insufficient digital ports, the analog ports can be treat as digital ports. A0 equals to digital 14, A1 is like digital 15.
-
-**Test Code**
-
-```c
 /*
- keyestudio Mini Tank Robot V2.1
+ keyestudio Mini Tank Robot v2.0
  lesson 13
  IR remote tank
  http://www.keyestudio.com
@@ -177,7 +135,7 @@ void IIC_start()
   digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
-
+//传输数据
 void IIC_send(unsigned char send_data)
 {
   for(char i = 0;i < 8;i++)  //Each byte has 8 bits 8bits for every character
@@ -261,8 +219,3 @@ void Car_T_right()
   analogWrite(ML_PWM,255);
 }
  //****************************************************************
-```
-
-**Test Result**
-
-Upload code successfully and power on, the smart robot can be controlled by IR remote. At the same time, the corresponding pattern is shown on 8X16 LED panel.
