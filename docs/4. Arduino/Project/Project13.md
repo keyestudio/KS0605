@@ -111,7 +111,7 @@ void loop(){
   if (ir_rec == 0xFFA857)  // ロボットカーが後進
   {
     Car_back();
-    matrix_display(front);  // 後進
+    matrix_display(back);  // 後進
   }
   if (ir_rec == 0xFF22DD)   // ロボットカーが左旋回
   {
